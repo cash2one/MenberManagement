@@ -5,7 +5,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from models import *
+from management.models import *
 
 
 def get_type_list():
