@@ -7,7 +7,6 @@ from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from management.models import *
 
-
 def get_type_list():
 	book_list = Book.objects.all()
 	type_list = set()
