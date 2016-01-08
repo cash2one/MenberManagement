@@ -176,10 +176,10 @@ def book_detail(req):
 
 def get_menber_list():
 	menber_list = Menbers.objects.all()
-	type_list = set()
+	menber_type_list = set()
 	for menber in menber_list:
-		type_list.add(menber.menber_typ)
-	return list(type_list)
+		menber_type_list.add(menber.menber_typ)
+	return list(menber_type_list)
 
 def viewmenber(req):
 	username = req.session.get('username', '')
@@ -211,7 +211,7 @@ def viewmenber(req):
 		menber_list = paginator.page(1)
 	except EmptyPage:
 		menber_list = paginator.page(paginator.num_pages)
-		
+
 	content = {'user': user, 'active_menu': 'viewmenber', 'menber_typ_list': menber_typ_list, 'menber_type': menber_type, 'menber_list': menber_list}
 	return render_to_response('viewmenber.html', content, context_instance=RequestContext(req))
 
