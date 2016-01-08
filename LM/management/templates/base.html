@@ -32,7 +32,7 @@
 				<div class="collapse navbar-collapse" id="navbar-collapse-basepage">
 					<ul class="nav navbar-nav">
 						<li id="homepage"><a href="/">主页</a></li>
-						{% if user.permission > 1 %}
+						{% if user.permission >= 1 %}
 							<li id="addbook"><a href="/addmenber/">添加学员</a></li>
 						{% endif %}
 						<li id="viewbook"><a href="/viewmenber/">查看学员</a></li>
