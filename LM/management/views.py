@@ -211,7 +211,7 @@ def viewmenber(req):
 		menber_list = paginator.page(1)
 	except EmptyPage:
 		menber_list = paginator.page(paginator.num_pages)
-
+		
 	content = {'user': user, 'active_menu': 'viewmenber', 'menber_typ_list': menber_typ_list, 'menber_type': menber_type, 'menber_list': menber_list}
 	return render_to_response('viewmenber.html', content, context_instance=RequestContext(req))
 
