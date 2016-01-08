@@ -216,7 +216,7 @@ def viewmenber(req):
 	return render_to_response('viewmenber.html', content, context_instance=RequestContext(req))
 
 
-def book_detail(req):
+def menber_detail(req):
 	username = req.session.get('username','')
 	if username != '':
 		user = MyUser.objects.get(user__username=username)
