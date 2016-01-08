@@ -174,6 +174,34 @@ def book_detail(req):
 	content = {'user': user, 'active_menu': 'viewbook', 'book': book, 'img_list':img_list}
 	return render_to_response('detail.html', content)
 
+def addMenber(req):
+	username = req.session.get('username','')
+	if username != '':
+		user = MyUser.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+	if user.permission <2:
+		return HttpResponseRedirect('/')
+
+	status =''
+	if req.POST:
+		post = req.POST
+		newMenber = Menbers(
+            menber_name = post.get('menber_name',''), \
+            menber_address = post.get('menber_address',''), \
+            menber_city = post.get('menber_city','') , \
+            menber_tel = post.get('menber_tel',''), \
+            menber_store = post.get('menber_store',''),\
+            menber_typ = post.get('menber_typ',''),\
+			)
+		newMenber.save()
+		status = 'success'
+		content = {'user':user,'active_menu':'addMenber','status':status}
+		return render_to_response('addmenber.html',content,context_instance=RequestContext(req))
+  
+
+
+
 def getMenber_list():
 	menber_list = Menbers.objects.all()
 	menberTypList = set()
