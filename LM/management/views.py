@@ -180,7 +180,7 @@ def addMenber(req):
 		user = MyUser.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
-	if user.permission <2:
+	if user.permission >2:
 		return HttpResponseRedirect('/')
 
 	status =''
