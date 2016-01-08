@@ -157,7 +157,7 @@ def viewbook(req):
 	return render_to_response('viewbook.html', content, context_instance=RequestContext(req))
 
 
-def detail(req):
+def book_detail(req):
 	username = req.session.get('username','')
 	if username != '':
 		user = MyUser.objects.get(user__username=username)
@@ -173,3 +173,62 @@ def detail(req):
 	img_list = Img.objects.filter(book=book)
 	content = {'user': user, 'active_menu': 'viewbook', 'book': book, 'img_list':img_list}
 	return render_to_response('detail.html', content)
+
+def get_menber_list():
+	menber_list = Menbers.objects.all()
+	type_list = set()
+	for menber in menber_list:
+		type_list.add(menber.menber_typ)
+	return list(type_list)
+
+def viewmenber(req):
+	username = req.session.get('username', '')
+	if username != '':
+		user = MyUser.objects.get(user__username=username)
+	else:
+		user = ''
+	menber_typ_list = get_menber_list()
+	menber_type = req.GET.get('menber_typ', 'all')
+	if menber_type == '':
+		menber_lst = Menbers.objects.all()
+	elif menber_type not in menber_typ_list:
+	    menber_type = 'all'
+		menber_lst = Menbers.objects.all()
+	else:
+		menber_lst = Menbers.objects.filter(menber_typ=book_type)
+
+	if req.POST:
+		post = req.POST
+		keywords = post.get('keywords','')
+		menber_lst = Menbers.objects.filter(menber_name__contains=keywords)
+		book_type = 'all'
+
+	paginator = Paginator(menber_lst, 5)
+	page = req.GET.get('page')
+	try:
+		menber_list = paginator.page(page)
+	except PageNotAnInteger:
+		menber_list = paginator.page(1)
+	except EmptyPage:
+		menber_list = paginator.page(paginator.num_pages)
+
+	content = {'user': user, 'active_menu': 'viewmenber', 'type_list': type_list, 'menber_type': book_type, 'menber_list': menber_list}
+	return render_to_response('viewmenber.html', content, context_instance=RequestContext(req))
+
+
+def book_detail(req):
+	username = req.session.get('username','')
+	if username != '':
+		user = MyUser.objects.get(user__username=username)
+	else:
+		user = ''
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/viewmenber/')
+	try:
+		menber = Menbers.objects.get(pk=Id)
+	except:
+		return HttpResponseRedirect('/viewmenber/')
+
+	content = {'user': user, 'active_menu': 'viewmenber', 'menber': menber}
+	return render_to_response('menber_detail.html', content)

@@ -82,6 +82,7 @@ class Menbers(models.Model):
     menber_tel = models.CharField(max_length=50,verbose_name=u"电话")
     menber_store = models.ForeignKey(Stores,verbose_name="店名")
     course = models.ManyToManyField(Courses)
+    menber_typ = models.CharField(max_length = 60,verbose_name="级别")
 
     def __str__(self):
         return u'%s %s' % (self.menber_name,self.menber_city)
