@@ -196,7 +196,7 @@ def addMenber(req):
 			)
 		newMenber.save()
 		status = 'success'
-    content = {'user':user,'active_menu':'addMenber','status':status}
+	content = {'user':user,'active_menu':'addMenber','status':status}
 	return render_to_response('addmenber.html',content,context_instance=RequestContext(req))
   
 
