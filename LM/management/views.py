@@ -174,7 +174,7 @@ def book_detail(req):
 	content = {'user': user, 'active_menu': 'viewbook', 'book': book, 'img_list':img_list}
 	return render_to_response('detail.html', content)
 
-def get_menber_list():
+def getMenber_list():
 	menber_list = Menbers.objects.all()
 	menber_type_list = set()
 	for menber in menber_list:
@@ -187,11 +187,11 @@ def viewmenber(req):
 		user = MyUser.objects.get(user__username=username)
 	else:
 		user = ''
-	menber_type_list = get_menber_list()
+	menberTypeList = getMenber_list()
 	menber_type = req.GET.get('menber_typ', 'all')
 	if menber_type == '':
 		menber_lst = Menbers.objects.all()
-	elif menber_type not in menber_type_list:
+	elif menber_type not in menberTypeList:
 		menber_type = 'all'
 		menber_lst = Menbers.objects.all()
 	else:
@@ -212,7 +212,7 @@ def viewmenber(req):
 	except EmptyPage:
 		menber_list = paginator.page(paginator.num_pages)
 
-	content = {'user': user, 'active_menu': 'viewmenber', 'menber_type_list': menber_type_list, 'menber_type': menber_type, 'menber_list': menber_list}
+	content = {'user': user, 'active_menu': 'viewmenber', 'menberTypeList': menberTypeList, 'menber_type': menber_type, 'menber_list': menber_list}
 	return render_to_response('viewmenber.html', content, context_instance=RequestContext(req))
 
 
