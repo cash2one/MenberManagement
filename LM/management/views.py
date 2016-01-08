@@ -192,10 +192,10 @@ def viewmenber(req):
 	if menber_type == '':
 		menber_lst = Menbers.objects.all()
 	elif menber_type not in menber_typ_list:
-	    menber_type = 'all'
+		menber_type = 'all'
 		menber_lst = Menbers.objects.all()
 	else:
-		menber_lst = Menbers.objects.filter(menber_typ=book_type)
+		menber_lst = Menbers.objects.filter(menber_typ=menber_type)
 
 	if req.POST:
 		post = req.POST
