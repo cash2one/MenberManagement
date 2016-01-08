@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     url(r'^viewbook/$',views.viewbook),
     url(r'^viewbook/detail/$',views.book_detail),
     url(r'^viewmenber/$',views.viewmenber),
+    url(r'^addMenber/$',viwws.addMenber),
    # url(r'^viewmenber/menber_detail/$',views.menber_detail),
     url(r'^image/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_PATH}),
 )
