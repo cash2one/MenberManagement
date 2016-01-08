@@ -187,11 +187,11 @@ def viewmenber(req):
 		user = MyUser.objects.get(user__username=username)
 	else:
 		user = ''
-	menber_typ_list = get_menber_list()
+	menber_type_list = get_menber_list()
 	menber_type = req.GET.get('menber_typ', 'all')
 	if menber_type == '':
 		menber_lst = Menbers.objects.all()
-	elif menber_type not in menber_typ_list:
+	elif menber_type not in menber_type_list:
 		menber_type = 'all'
 		menber_lst = Menbers.objects.all()
 	else:
@@ -201,7 +201,7 @@ def viewmenber(req):
 		post = req.POST
 		keywords = post.get('keywords','')
 		menber_lst = Menbers.objects.filter(menber_name__contains=keywords)
-		book_type = 'all'
+		menber_type = 'all'
 
 	paginator = Paginator(menber_lst, 5)
 	page = req.GET.get('page')
