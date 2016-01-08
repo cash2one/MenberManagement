@@ -176,10 +176,10 @@ def book_detail(req):
 
 def getMenber_list():
 	menber_list = Menbers.objects.all()
-	menber_type_list = set()
+	menberTypList = set()
 	for menber in menber_list:
-		menber_type_list.add(menber.menber_typ)
-	return list(menber_type_list)
+		menberTypList.add(menber.menber_typ)
+	return list(menberTypList)
 
 def viewmenber(req):
 	username = req.session.get('username', '')
