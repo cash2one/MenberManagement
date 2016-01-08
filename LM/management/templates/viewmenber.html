@@ -9,11 +9,11 @@
 		<div class="col-md-10 col-md-offset-1">
 			<div class="col-md-2">
 				<div class="list-group">
-					<a href="/viewbook/" class="list-group-item" id="id_typ_all">
+					<a href="/viewmenber/" class="list-group-item" id="id_typ_all">
 						全部学员
 					</a>
-					{% for menber_typ in type_list %}
-					<a href="/viewbook?typ={{menber_typ}}" class="list-group-item" id="id_typ_{{menber_typ}}">
+					{% for menber_typ in menber_type_list %}
+					<a href="/viewmenber?typ={{menber_typ}}" class="list-group-item" id="id_typ_{{menber_typ}}">
 						{{ menber_typ }}
 					</a>
 					{% endfor %}
@@ -62,7 +62,7 @@
 						</tr>
 						{% empty %}
 						<tr>
-							<td>暂无图书</td>
+							<td>暂无学员</td>
 						</tr>
 						{% endfor %}
 					</tbody>
