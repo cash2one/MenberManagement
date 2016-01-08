@@ -14,42 +14,50 @@
 			{% endif %}
 			<form method="POST" role="form" class="form-horizontal">
 				{% csrf_token %}
-				<h1 class="form-signin-heading text-center">添加图书</h1>
+				<h1 class="form-signin-heading text-center">添加崇德书院学员</h1>
 
 				<div class="form-group">
-					<label for="id_name" class="col-md-3 control-label">书名：</label>
+					<label for="id_menber_name" class="col-md-3 control-label">姓名：</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" id="id_name" required name="name" autofocus>
+						<input type="text" class="form-control" id="id_menber_name" required name="menber_name" autofocus>
 					</div>	
 				</div>
 
 				<div class="form-group">
-					<label for="id_author" class="col-md-3 control-label">作者：</label>
+					<label for="id_menber_tel" class="col-md-3 control-label">电话：</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" required name="author" id="id_author">
+						<input type="date" class="form-control" required name="menber_tel" id="id_menber_tel">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="id_typ" class="col-md-3 control-label">类型：</label>
+					<label for="id_menber_store" class="col-md-3 control-label">店铺：</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" required name="typ" id="id_typ">
+						<input type="text" class="form-control" required name="menber_store" id="id_menber_store">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="id_price" class="col-md-3 control-label">价格：</label>
+					<label for="id_menber_typ" class="col-md-3 control-label">类型：</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" required name="price" id="id_price">
+						<input type="text" class="form-control" required name="menber_typ" id="id_menber_typ">
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="id_pubdate" class="col-md-3 control-label">出版日期：</label>
+					<label for="id_menber_city" class="col-md-3 control-label">城市：</label>
 					<div class="col-md-9">
-						<input type="date" class="form-control" required name="pubdate" id="id_pubdate">
+						<input type="text" class="form-control" required name="menber_city" id="id_menber_city">
 					</div>
 				</div>
+
+				<div class="form-group">
+					<label for="id_menber_address" class="col-md-3 control-label">地址：</label>
+					<div class="col-md-9">
+						<input type="date" class="form-control" required name="menber_address" id="id_menber_address">
+					</div>
+				</div>
+
 
 				<div class="form-group">
 					<div class="col-md-4 col-md-offset-4">
