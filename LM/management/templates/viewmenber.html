@@ -12,7 +12,7 @@
 					<a href="/viewmenber/" class="list-group-item" id="id_typ_all">
 						全部学员
 					</a>
-					{% for mtyp in menber_type_list %}
+					{% for mtyp in menberTypeList %}
 					<a href="/viewmenber?typ={{mtyp.menber_typ}}" class="list-group-item" id="id_typ_{{mtyp.menber_typ}}">
 						{{ mtyp.menber_typ }}
 					</a>
