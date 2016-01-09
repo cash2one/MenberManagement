@@ -42,8 +42,18 @@ def signup(req):
 			else:
 				newuser = User.objects.create_user(username=username, password=passwd, email=post.get('email', ''))
 				newuser.save()
-				new_myuser = MyUser(user=newuser, nickname=post.get('nickname'), permission=1)
-				new_myuser.save()
+				new_menber = Menbers(
+					user=newuser, \
+					menber_name =post.get('menber_name'),\
+					menber_address = post.get('menber_address',''), \
+					menber_city = post.get('menber_city','') , \
+					menber_tel = post.get('menber_tel',''), \
+					menber_store = post.get('menber_store',''),\
+					menber_typ = post.get('menber_typ',''),\
+					menber_brand = post.get('menber_brand',''),\
+					permission=1,\
+				)
+				new_menber.save()
 				status = 'success'
 	content = {'active_menu': 'homepage', 'status': status, 'user': ''}
 	return render_to_response('signup.html', content, context_instance=RequestContext(req))
@@ -173,34 +183,6 @@ def book_detail(req):
 	img_list = Img.objects.filter(book=book)
 	content = {'user': user, 'active_menu': 'viewbook', 'book': book, 'img_list':img_list}
 	return render_to_response('detail.html', content)
-
-def addMenber(req):
-	username = req.session.get('username','')
-	if username != '':
-		user = MyUser.objects.get(user__username=username)
-	else:
-		return HttpResponseRedirect('/login/')
-	if user.permission >2:
-		return HttpResponseRedirect('/')
-
-	status =''
-	if req.POST:
-		post = req.POST
-		newMenber = Menbers(
-            menber_name = post.get('menber_name',''), \
-            menber_address = post.get('menber_address',''), \
-            menber_city = post.get('menber_city','') , \
-            menber_tel = post.get('menber_tel',''), \
-            menber_store = post.get('menber_store',''),\
-            menber_typ = post.get('menber_typ',''),\
-			)
-		newMenber.save()
-		status = 'success'
-	content = {'user':user,'active_menu':'addMenber','status':status}
-	return render_to_response('addmenber.html',content,context_instance=RequestContext(req))
-  
-
-
 
 def getMenber_list():
 	menber_list = Menbers.objects.all()
