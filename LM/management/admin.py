@@ -13,5 +13,4 @@ class CourseAdmin(admin.ModelAdmin):
 
 admin.site.register(Menbers,MenberAdmin)
 admin.site.register(Courses,CourseAdmin)
-admin.site.register(MyUser)
 
