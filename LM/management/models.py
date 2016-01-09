@@ -29,7 +29,6 @@ class Sign(models.Model):
 
 class Menbers(models.Model):
     user = models.OneToOneField(User)
-    nickname = models.CharField(max_length = 16,verbose_name=u"昵称")
     permission = models.IntegerField()
     menber_name = models.CharField(max_length=30,verbose_name=u"姓名")
     menber_address = models.CharField(max_length=60,verbose_name=u"地址")
