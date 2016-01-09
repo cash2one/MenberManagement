@@ -37,7 +37,12 @@
 						<input type="datetime" class="form-control" required name="sign_date" id="id_sign_date">
 					</div>
 				</div>
-				
+				<div class="form-group">
+					<label for="id_pubdate" class="col-md-3 control-label">出版日期：</label>
+					<div class="col-md-9">
+						<input type="date" class="form-control" required name="pubdate" id="id_pubdate">
+					</div>
+				</div>
 				<script type="text/javascript">
 				    var act_typ = document.getElementById("id_sign_date");
 				   act_typ.Value=DateTime.Now;
@@ -45,9 +50,11 @@
                  <div class="form-group">
 					<label for="id_course_name" class="col-md-3 control-label">请选择课程：</label>
 					<div class="col-md-9">
-                        <label class="checkbox">
-                           <input type="checkbox" class="form-control" required name="course_name" id="id_course_name" value="千店免费培训第五期">千店免费培训第五期
-                        </label>
+						 <label class="checkbox-inline">
+                          <input type="radio" name="menber_typ" id="id_menber_typ"
+                             value="千店免费培训第五期" checked> 千店免费培训第五期
+                       </label>
+                        
 					</div>
 				</div>
 
