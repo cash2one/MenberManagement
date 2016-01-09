@@ -89,7 +89,7 @@ def logout(req):
 def setpasswd(req):
 	username = req.session.get('username', '')
 	if username != '':
-		user = MyUser.objects.get(user__username=username)
+		user = Menbers.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
 	status = ''
