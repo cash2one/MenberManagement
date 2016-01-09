@@ -16,17 +16,6 @@ class Courses(models.Model):
         verbose_name = "课程"
         verbose_name_plural ="课程"
 
-
-class Sign(models.Model):
-    sign_mood = models.CharField(max_length=50,verbose_name=u"一句话")
-    sign_date = models.DateField(verbose_name=u"签到时间")
-    def __str__(self):
-        return self.sign_mood
-    class Meta:
-        verbose_name = "签到"
-        verbose_name_plural ="签到"
-
-
 class Menbers(models.Model):
     user = models.OneToOneField(User)
     permission = models.IntegerField()
@@ -36,8 +25,6 @@ class Menbers(models.Model):
     menber_tel = models.CharField(max_length=50,verbose_name=u"电话")
     menber_store = models.CharField(max_length=50,verbose_name=u"店名")
     menber_brand = models.CharField(max_length=50,verbose_name=u"品牌")
-    course = models.ManyToManyField(Courses)
-    sign = models.ManyToManyField(Sign)
     menber_typ = models.CharField(max_length = 60,verbose_name="级别")
 
     def __str__(self):
@@ -45,3 +32,14 @@ class Menbers(models.Model):
     class Meta:
         verbose_name = "学员"
         verbose_name_plural ="学员"
+
+class Sign(models.Model):
+    sign_mood = models.CharField(max_length=50,verbose_name=u"一句话")
+    sign_date = models.DateField(verbose_name=u"签到时间")
+    course = models.ManyToManyField(Courses)
+    menber = models.ForeignKey(Menbers)
+    def __str__(self):
+        return self.sign_mood
+    class Meta:
+        verbose_name = "签到"
+        verbose_name_plural ="签到"
