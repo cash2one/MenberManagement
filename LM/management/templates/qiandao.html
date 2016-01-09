@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}查看学员详细资料{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			
+			<div class="col-md-6 col-md-offset-1">
+				<h2 class="text-center">{{menber.menber_name}}</h2>
+				<br>
+				<h3>级别：{{menber.menber_typ}}</h3>
+				<h3>店铺：{{menber.menber_store}}</h3>
+				<h3>品牌：{{menber.menber_brand}}</h3>
+				<h3>城市：{{menber.menber_city}}</h3>
+				<h3>电话：{{menber.menber_tel}}</h3>
+				<h3>地址：{{menber.menber_address}}</h3>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
