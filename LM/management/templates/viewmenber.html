@@ -12,14 +12,14 @@
 					<a href="/viewmenber/" class="list-group-item" id="id_typ_all">
 						全部学员
 					</a>
-					{% for menber_typ in menber_type_list %}
-					<a href="/viewmenber?typ={{menber_typ}}" class="list-group-item" id="id_typ_{{menber_typ}}">
-						{{ menber_typ }}
+					{% for mtyp in menber_type_list %}
+					<a href="/viewmenber?typ={{mtyp.menber_typ}}" class="list-group-item" id="id_typ_{{mtyp.menber_typ}}">
+						{{ mtyp.menber_typ }}
 					</a>
 					{% endfor %}
 				</div>
 				<script type="text/javascript">
-				    var act_typ = document.getElementById("id_typ_{{menber_type}}");
+				    var act_typ = document.getElementById("id_typ_{{mtyp}}");
 				    var new_class = act_typ.getAttribute("class") + " active"
 				    act_typ.setAttribute("class",new_class);
 				</script>
