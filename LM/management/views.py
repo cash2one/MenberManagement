@@ -7,13 +7,6 @@ from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from management.models import *
 
-def get_type_list():
-	book_list = Book.objects.all()
-	type_list = set()
-	for book in book_list:
-		type_list.add(book.typ)
-	return list(type_list)
-
 
 def index(req):
 	username = req.session.get('username', '')
@@ -108,81 +101,6 @@ def setpasswd(req):
 	return render_to_response('setpasswd.html', content, context_instance=RequestContext(req))
 
 
-def addbook(req):
-	username = req.session.get('username', '')
-	if username != '':
-		user = MyUser.objects.get(user__username=username)
-	else:
-		return HttpResponseRedirect('/login/')
-	if user.permission < 2:
-		return HttpResponseRedirect('/')
-	status = ''
-	if req.POST:
-		post = req.POST
-		newbook = Book(
-			name=post.get('name',''), \
-			author=post.get('author',''), \
-			typ=post.get('typ',''), \
-			price=post.get('price', ''), \
-			pubDate=post.get('pubdate', ''), \
-			)
-		newbook.save()
-		status = 'success'
-	content = {'user': user, 'active_menu': 'addbook', 'status': status}
-	return render_to_response('addbook.html', content, context_instance=RequestContext(req))
-
-
-def viewbook(req):
-	username = req.session.get('username', '')
-	if username != '':
-		user = MyUser.objects.get(user__username=username)
-	else:
-		user = ''
-	type_list = get_type_list()
-	book_type = req.GET.get('typ', 'all')
-	if book_type == '':
-		book_lst = Book.objects.all()
-	elif book_type not in type_list:
-		book_type = 'all'
-		book_lst = Book.objects.all()
-	else:
-		book_lst = Book.objects.filter(typ=book_type)
-
-	if req.POST:
-		post = req.POST
-		keywords = post.get('keywords','')
-		book_lst = Book.objects.filter(name__contains=keywords)
-		book_type = 'all'
-
-	paginator = Paginator(book_lst, 5)
-	page = req.GET.get('page')
-	try:
-		book_list = paginator.page(page)
-	except PageNotAnInteger:
-		book_list = paginator.page(1)
-	except EmptyPage:
-		book_list = paginator.page(paginator.num_pages)
-
-	content = {'user': user, 'active_menu': 'viewbook', 'type_list': type_list, 'book_type': book_type, 'book_list': book_list}
-	return render_to_response('viewbook.html', content, context_instance=RequestContext(req))
-
-
-def book_detail(req):
-	username = req.session.get('username','')
-	if username != '':
-		user = MyUser.objects.get(user__username=username)
-	else:
-		user = ''
-	Id = req.GET.get('id','')
-	if Id == '':
-		return HttpResponseRedirect('/viewbook/')
-	try:
-		book = Book.objects.get(pk=Id)
-	except:
-		return HttpResponseRedirect('/viewbook/')
-	img_list = Img.objects.filter(book=book)
-	content = {'user': user, 'active_menu': 'viewbook', 'book': book, 'img_list':img_list}
-	return render_to_response('detail.html', content)
 
 def getMenber_list():
 	menber_list = Menbers.objects.all()
@@ -242,3 +160,14 @@ def menber_detail(req):
 
 	content = {'user': user, 'active_menu': 'viewmenber', 'menber': menber}
 	return render_to_response('menber_detail.html', content)
+
+def qiandao(req):
+	username = req.session.get('username','')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		user=''
+	content = {'active_menu': 'qiandao', 'user': user}
+	return render_to_response('qiandao.html', content)
+
+
