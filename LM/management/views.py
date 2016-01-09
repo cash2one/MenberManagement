@@ -229,7 +229,7 @@ def viewmenber(req):
 def menber_detail(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = MyUser.objects.get(user__username=username)
+		user = Menbers.objects.get(user__username=username)
 	else:
 		user = ''
 	Id = req.GET.get('id','')
