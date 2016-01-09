@@ -49,6 +49,7 @@
 							<th>姓名</th>
 							<th>城市</th>
 							<th>电话</th>
+                            <th>级别</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -57,7 +58,9 @@
 							<td>{{ forloop.counter }}</td>
 							<td><a href="/viewmenber/menber_detail/?id={{menber.id}}">{{ menber.menber_name }}</a></td>
 							<td>{{ menber.menber_city }}</td>
+                            <td>{{ menber.menber_typ }}</td>
                             <td>{{ menber.menber_tel }}</td>
+
 						</tr>
 						{% empty %}
 						<tr>
