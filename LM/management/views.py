@@ -194,7 +194,7 @@ def getMenber_list():
 def viewmenber(req):
 	username = req.session.get('username', '')
 	if username != '':
-		user = MyUser.objects.get(user__username=username)
+		user = Menbers.objects.get(user__username=username)
 	else:
 		user = ''
 	menberTypeList = getMenber_list()
