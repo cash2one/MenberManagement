@@ -31,17 +31,15 @@
 					</div>	
 				</div>
                  <div class="form-group">
-                 	
-                 	{% for course in course_nameList %}
 					<label for="id_course_name" class="col-md-3 control-label">请选择课程：</label>
 					<div class="col-md-9">
+						{% for course in course_nameList %}
 						 <label class="checkbox-inline">
                           <input type="radio" name="course_name" id="id_course_name"
-                             value="{{course_name}}" checked> {{course_name}}
-                       </label>  
+                             value="{{course.course_name}}" checked> {{course.course_name}}
+                       </label> 
+                       {% endfor%} 
 					</div>
-					{% endfor%}
-					
 				</div>
 
 				<div class="form-group">
