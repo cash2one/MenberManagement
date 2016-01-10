@@ -182,15 +182,37 @@ def qiandao(req):
 	course_list = Courses.objects.all()
 	#course_nameList = getCourse_list()
 	if req.POST:
-		post = req.POST
-		sign_mood = post.get('sign_mood','')
-		#Id = post.get('course_id','')
+		post = req.POST  
+		sign_mood = post.get('sign_mood','') 
 		#cs = Courses.objects.get(pk=Id)
 		qiandao = Sign(menber=user,sign_mood=sign_mood)
 		qiandao.save()
 		status='success'
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
+
+
+
+def viewsign(req):
+	username = req.session.get('username', '')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		user = ''
+    sign_list = Sign.objects.filter(menber=user)
+	
+	paginator = Paginator(sign_list, 5)
+	page = req.GET.get('page')
+	try:
+		sign_list = paginator.page(page)
+	except PageNotAnInteger:
+		sign_list = paginator.page(1)
+	except EmptyPage:
+		sign_list = paginator.page(paginator.num_pages)
+
+	content = {'user': user, 'active_menu': 'viewsign','sign_list': sign_list}
+	return render_to_response('viewsign.html', content, context_instance=RequestContext(req))
+
 
 
 
