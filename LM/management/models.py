@@ -2,19 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-
-class Sign(models.Model):
-    sign_mood = models.CharField(max_length=50,verbose_name=u"一句话")
-    sign_date = models.DateTimeField(auto_now_add=True,verbose_name=u"签到时间")
-    
-   
-    def __str__(self):
-        return self.sign_mood
-    class Meta:
-        verbose_name = "签到"
-        verbose_name_plural ="签到"
-        ordering = ('sign_date',)
-
 class Courses(models.Model):
     course_name = models.CharField(max_length=50,verbose_name=u"课程名")
     course_subject = models.TextField(verbose_name=u"课程纲要")
@@ -23,7 +10,6 @@ class Courses(models.Model):
     course_date = models.DateField(verbose_name=u"培训日期")
     course_address = models.CharField(max_length=50,verbose_name=u"授课场地")
     beizhu = models.TextField(verbose_name=u"备注")
-    sign = models.ManyToManyField(Sign)
     
     def __str__(self):
         return self.course_name
@@ -31,7 +17,17 @@ class Courses(models.Model):
         verbose_name = "课程"
         verbose_name_plural ="课程"
 
-
+class Sign(models.Model):
+    sign_mood = models.CharField(max_length=50,verbose_name=u"一句话")
+    sign_date = models.DateTimeField(auto_now_add=True,verbose_name=u"签到时间")
+    courses = models.ForeignKey(Courses)
+   
+    def __str__(self):
+        return self.sign_mood
+    class Meta:
+        verbose_name = "签到"
+        verbose_name_plural ="签到"
+        ordering = ('sign_date',)
 
 class Menbers(models.Model):
     user = models.OneToOneField(User)
