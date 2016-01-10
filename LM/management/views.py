@@ -177,7 +177,6 @@ def qiandao(req):
 	if username != '':
 		user = Menbers.objects.get(user__username=username)
 	else:
-		user=''
 		return HttpResponseRedirect('/login/')
 	dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
 	status=''
