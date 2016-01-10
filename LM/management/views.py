@@ -177,7 +177,7 @@ def qiandao(req):
 		user = Menbers.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
-	dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
+	dt = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	status=''
 	course_list = Courses.objects.all()
 	#course_nameList = getCourse_list()
