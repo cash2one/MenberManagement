@@ -184,9 +184,10 @@ def qiandao(req):
 	if req.POST:
 		post = req.POST  
 		sign_mood = post.get('sign_mood','') 
-		Id = int(post.get('course_id',''))
+		Id = post.get('course_id','')
 		cs = Courses.objects.get(pk=Id)
-		qiandao = Sign(menber=user,sign_mood=sign_mood,course=cs)
+		qiandao = Sign(menber=user,sign_mood=sign_mood)
+		qiandao.course.add(cs)
 		qiandao.save()
 		status='success'
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
