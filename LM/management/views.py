@@ -163,6 +163,14 @@ def menber_detail(req):
 	content = {'user': user, 'active_menu': 'viewmenber', 'menber': menber}
 	return render_to_response('menber_detail.html', content)
 
+def getCourse_list():
+	course_list = Courses.objects.all()
+	courseList = set()
+	for clist in course_list:
+		courseList.add(clist.course_name)
+	return list(courseList)
+
+
 def qiandao(req):
 	username = req.session.get('username','')
 	if username != '':
@@ -172,19 +180,16 @@ def qiandao(req):
 		return HttpResponseRedirect('/login/')
 	dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
 	status=''
+	course_nameList = getCourse_list()
 	if req.POST:
 		post = req.POST
 		sign_mood = post.get('sign_mood','')
 
 		courseName = post.get('course_name','')
-		course = Courses.objects.get(course_name='courseName')
-		cs = Courses.objects.all()
-        for cus in cs:
-        	print(cus.course_name)
-        	
-		qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
-		qiandao.save()
-	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt}
+		#course = Courses.objects.get(course_name='courseName')
+		#qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
+		#qiandao.save()
+	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_nameList}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
 
 
