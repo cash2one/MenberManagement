@@ -177,6 +177,7 @@ def qiandao(req):
 		sign_mood = post.get('sign_mood','')
 		courseName = post.get('course_name','')
 		course = Courses.objects.filter(course_name='courseName')
+		print(course.sign_date)
 		qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
 		qiandao.save()
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt}
