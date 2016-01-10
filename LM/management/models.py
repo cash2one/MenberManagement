@@ -20,6 +20,7 @@ class Courses(models.Model):
 class Sign(models.Model):
     sign_mood = models.CharField(max_length=50,verbose_name=u"一句话")
     sign_date = models.DateTimeField(auto_now_add=True,verbose_name=u"签到时间")
+    courses = models.ManyToManyField(Courses)
    
     def __str__(self):
         return self.sign_mood
@@ -38,8 +39,7 @@ class Menbers(models.Model):
     menber_store = models.CharField(max_length=50,verbose_name=u"店名")
     menber_brand = models.CharField(max_length=50,verbose_name=u"品牌")
     menber_typ = models.CharField(max_length = 60,verbose_name="级别")
-    courses = models.ManyToManyField(Courses)
-    sign = models.ForeignKey(Sign)
+    sign = models.ManyToManyField(Sign)
 
     def __str__(self):
         return u'%s %s' % (self.menber_name,self.menber_city)
