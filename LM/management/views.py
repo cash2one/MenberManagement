@@ -188,7 +188,7 @@ def qiandao(req):
 		cs = Courses.objects.get(pk=Id)
 		qiandao = Sign(menber=user,sign_mood=sign_mood)
 		qiandao.save()
-		cs.sign.add(qiandao)
+		qiandao.course.add(cs)
 		status='success'
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
@@ -202,6 +202,9 @@ def viewsign(req):
 	else:
 		user = ''
 	sign_list = Sign.objects.filter(menber=user)
+	cs_name = set()
+	for signList in sign_list:
+		
 
 	
 	paginator = Paginator(sign_list, 50)
