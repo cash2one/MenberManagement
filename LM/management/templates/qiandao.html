@@ -33,10 +33,10 @@
                  <div class="form-group">
 					<label for="id_course_name" class="col-md-3 control-label">请选择课程：</label>
 					<div class="col-md-9">
-						{% for course in course_nameList %}
+						{% for courseList in course %}
 						 <label class="checkbox-inline">
                           <input type="radio" name="course_name" id="id_course_name"
-                             value="{{course.course_name}}" checked> {{course.course_name}}
+                             value="{{courseList.course_name}}" checked> {{courseList.course_name}}
                        </label> 
                        {% endfor%} 
 					</div>
