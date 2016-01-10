@@ -177,7 +177,7 @@ def qiandao(req):
 		user = Menbers.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
-	#dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
+	dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
 	status=''
 	course_list = Courses.objects.all()
 	#course_nameList = getCourse_list()
@@ -188,7 +188,6 @@ def qiandao(req):
 		#cs = Courses.objects.get(pk=Id)
 		qiandao = Sign(menber=user,sign_mood=sign_mood)
 		qiandao.save()
-		dt = qiandao.sign_date
 		status='success'
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
