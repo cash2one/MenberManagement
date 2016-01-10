@@ -168,6 +168,7 @@ def getCourse_list():
 	courseList = set()
 	for clist in course_list:
 		courseList.add(clist.course_name)
+		print(clist.course_name)
 	return list(courseList)
 
 
