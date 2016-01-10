@@ -180,7 +180,8 @@ def qiandao(req):
 		course = Courses.objects.get(course_name='courseName')
 		cs = Courses.objects.all()
         for cus in cs:
-		print(cus.course_name)
+        	print(cus.course_name)
+        	
 		qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
 		qiandao.save()
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt}
