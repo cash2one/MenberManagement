@@ -35,7 +35,7 @@
 					<div class="col-md-9">
 						{% for courseList in course %}
 						 <label class="checkbox-inline">
-                          <input type="radio" name="course_name" id="id_course_name"
+                          <input type="radio" name="{{courseList.Id}}" id="id_{{courseList.Id}}"
                              value="{{courseList.course_name}}" checked> {{courseList.course_name}}
                        </label> 
                        {% endfor%} 
