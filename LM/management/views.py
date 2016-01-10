@@ -7,6 +7,7 @@ from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from management.models import *
 from datetime import *  
+import time
 
 
 def index(req):
@@ -168,7 +169,7 @@ def qiandao(req):
 		user = Menbers.objects.get(user__username=username)
 	else:
 		user=''
-	dt = datetime.datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
+	dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
 
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt}
 	return render_to_response('qiandao.html', content)
