@@ -186,7 +186,7 @@ def qiandao(req):
 		sign_mood = post.get('sign_mood','') 
 		Id = post.get('course_id','')
 		cs = Courses.objects.get(pk=Id)
-		qiandao = Sign(menber=user,sign_mood=sign_mood)
+		qiandao = Sign(sign_mood=sign_mood)
 		qiandao.save()
 		qiandao.course.add(cs)
 		status='success'
