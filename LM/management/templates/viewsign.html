@@ -22,7 +22,7 @@
 						{% for sign in sign_list %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td>{{ menber.menber_name }}</td>
+							<td>{{ user.menber_name }}</td>
 							<td>{{ sign.mood }}</td>
                             <td>{{ sign.sign_date }}</td>
                             <td></td>
@@ -36,14 +36,14 @@
 				</table>
 				<nav>
 					<ul class="pager">
-						{% if book_list.has_previous %}
-							<li class="previous"><a href="?typ={{menber_type}}&page={{ menber_list.previous_page_number }}">上一页</a></li>
+						{% if sign_list.has_previous %}
+							<li class="previous"><a href="?page={{ sign_list.previous_page_number }}">上一页</a></li>
 						{% else %}
 							<li class="previous disabled"><a href="#">上一页</a></li>
 						{% endif %}
-						第 {{ menber_list.number }} / {{ menber_list.paginator.num_pages }}页
-						{% if menber_list.has_next %}
-							<li class="next"><a href="?typ={{menber_type}}&page={{ menber_list.next_page_number }}">下一页</a></li>
+						第 {{ sign_list.number }} / {{ sign_list.paginator.num_pages }}页
+						{% if sign_list.has_next %}
+							<li class="next"><a href="?page={{ menber_list.next_page_number }}">下一页</a></li>
 						{% else %}
 							<li class="next disabled"><a href="#">下一页</a></li>
 						{% endif %}
