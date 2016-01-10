@@ -203,7 +203,7 @@ def viewsign(req):
 	for x in sign_list:
 		print(x.sign_date)
 
-	paginator = Paginator(sign_list, 5)
+	paginator = Paginator(sign_list, 50)
 	page = req.GET.get('page')
 	try:
 		sign_list = paginator.page(page)
