@@ -175,10 +175,10 @@ def qiandao(req):
 	if req.POST:
 		post = req.POST
 		sign_mood = post.get('sign_mood','')
-		print(sign_mood)
+		
 		courseName = post.get('course_name','')
 		course = Courses.objects.filter(course_name='courseName')
-		print(course)
+		print(courseName)
 		qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
 		qiandao.save()
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt}
