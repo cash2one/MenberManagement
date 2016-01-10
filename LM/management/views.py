@@ -186,9 +186,9 @@ def qiandao(req):
 		sign_mood = post.get('sign_mood','') 
 		Id = post.get('course_id','')
 		cs = Courses.objects.get(pk=Id)
-		qiandao = Sign(sign_mood=sign_mood)
+		qiandao = Sign(courses=cs,sign_mood=sign_mood)
 		qiandao.save()
-		qiandao.courses.add(cs)
+		user.sign.add(qiandao)
 		status='success'
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
