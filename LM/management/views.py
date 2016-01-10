@@ -175,6 +175,7 @@ def qiandao(req):
 	if req.POST:
 		post = req.POST
 		sign_mood = post.get('sign_mood','')
+		print(sign_mood)
 		courseName = post.get('course_name','')
 		course = Courses.objects.filter(course_name='courseName')
 		print(course)
