@@ -6,8 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from management.models import *
-from datetime import *  
-import time
+from django.utils import timezone
 
 
 def index(req):
@@ -177,7 +176,8 @@ def qiandao(req):
 		user = Menbers.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
-	dt = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+	dt = timezone.localtime(timezone.now())
+	#dt = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 	status=''
 	course_list = Courses.objects.all()
 	#course_nameList = getCourse_list()
