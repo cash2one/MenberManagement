@@ -10,6 +10,7 @@ class Courses(models.Model):
     course_date = models.DateField(verbose_name=u"培训日期")
     course_address = models.CharField(max_length=50,verbose_name=u"授课场地")
     beizhu = models.TextField(verbose_name=u"备注")
+    sign = models.ManyToManyField(Sign)
 
     def __str__(self):
         return self.course_name
@@ -38,10 +39,11 @@ class Sign(models.Model):
     sign_mood = models.CharField(max_length=50,verbose_name=u"一句话")
     sign_date = models.DateTimeField(auto_now_add=True,verbose_name=u"签到时间")
     menber = models.ForeignKey(Menbers)
-    course = models.ManyToManyField(Courses)
+    
     def __str__(self):
         return self.sign_mood
     class Meta:
         verbose_name = "签到"
         verbose_name_plural ="签到"
+        ordering = ('sign_date',)
         
