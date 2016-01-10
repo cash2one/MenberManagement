@@ -186,7 +186,9 @@ def qiandao(req):
 		post = req.POST
 		sign_mood = post.get('sign_mood','')
 		Id = post.get('course_id','')
+		print(Id)
 		course = Courses.objects.get(pk=Id)
+		print(course)
 		qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
 		qiandao.save()
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
