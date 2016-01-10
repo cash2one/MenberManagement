@@ -168,7 +168,6 @@ def getCourse_list():
 	courseList = set()
 	for clist in course_list:
 		courseList.add(clist.course_name)
-		print(clist.course_name)
 	return list(courseList)
 
 
@@ -186,10 +185,9 @@ def qiandao(req):
 		post = req.POST
 		sign_mood = post.get('sign_mood','')
 		Id = post.get('course_id','')
-		print(Id)
-		course = Courses.objects.get(pk=Id)
+		cs = Courses.objects.get(pk=Id)
 		print(course)
-		qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
+		qiandao = Sign(menber=user,course=cs,sign_mood=sign_mood)
 		qiandao.save()
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
