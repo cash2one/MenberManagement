@@ -199,8 +199,7 @@ def viewsign(req):
 		user = Menbers.objects.get(user__username=username)
 	else:
 		user = ''
-    sign_list = Sign.objects.filter(menber=user)
-	
+	sign_list = Sign.objects.filter(menber=user)
 	paginator = Paginator(sign_list, 5)
 	page = req.GET.get('page')
 	try:
