@@ -180,16 +180,17 @@ def qiandao(req):
 		return HttpResponseRedirect('/login/')
 	dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
 	status=''
-	course_nameList = getCourse_list()
-	if req.POST:
-		post = req.POST
-		sign_mood = post.get('sign_mood','')
+	course_list = Courses.objects.all()
+	#course_nameList = getCourse_list()
+	#if req.POST:
+	#	post = req.POST
+	#	sign_mood = post.get('sign_mood','')
 
-		courseName = post.get('course_name','')
+	#	courseName = post.get('course_name','')
 		#course = Courses.objects.get(course_name='courseName')
 		#qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
 		#qiandao.save()
-	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_nameList,'status': status}
+	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
 
 
