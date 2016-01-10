@@ -23,6 +23,8 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+USE_TZ = False
+
 ALLOWED_HOSTS = []
 
 
