@@ -35,7 +35,7 @@ class Menbers(models.Model):
 
 class Sign(models.Model):
     sign_mood = models.CharField(max_length=50,verbose_name=u"一句话")
-    sign_date = models.DateTimeField(auto_now_add=True,verbose_name=u"签到时间")
+    sign_date = models.DateTimeField(auto_now=Ture,verbose_name=u"签到时间")
     course = models.ManyToManyField(Courses)
     menber = models.ForeignKey(Menbers)
     def __str__(self):
