@@ -189,7 +189,7 @@ def qiandao(req):
 		#course = Courses.objects.get(course_name='courseName')
 		#qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
 		#qiandao.save()
-	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_nameList}
+	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_nameList,'status': status}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
 
 
