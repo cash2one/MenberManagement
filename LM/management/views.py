@@ -201,8 +201,8 @@ def viewsign(req):
 		user = ''
 	sign_list = Sign.objects.filter(menber=user)
 	for x in sign_list:
-		print(sign_list.sign_date)
-		
+		print(x.sign_date)
+
 	paginator = Paginator(sign_list, 5)
 	page = req.GET.get('page')
 	try:
