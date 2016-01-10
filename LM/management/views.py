@@ -170,7 +170,7 @@ def qiandao(req):
 	else:
 		user=''
 		return HttpResponseRedirect('/login/')
-	#dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
+	dt = datetime.now().strftime('%y-%m-%d %I:%M:%S %p') 
 	status=''
 	if req.POST:
 		post = req.POST
@@ -179,7 +179,7 @@ def qiandao(req):
 		course = Courses.objects.filter(course_name='courseName')
 		qiandao = Sign(menber=user,course=course,sign_mood=sign_mood)
 		qiandao.save()
-    content = {'active_menu': 'qiandao', 'user': user,'datetime':qiandao__sign_date}
+    content = {'active_menu': 'qiandao', 'user': user,'datetime':dt}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
 
 
