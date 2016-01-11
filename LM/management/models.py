@@ -27,7 +27,7 @@ class Sign(models.Model):
     class Meta:
         verbose_name = "签到"
         verbose_name_plural ="签到"
-        ordering = ('sign_date',)
+        get_latest_by = 'sign_date'
 
 class Menbers(models.Model):
     user = models.OneToOneField(User)
