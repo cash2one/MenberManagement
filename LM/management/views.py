@@ -132,7 +132,7 @@ def viewmenber(req):
 		menber_lst = Menbers.objects.filter(menber_name__contains=keywords)
 		menber_type = 'all'
 
-	paginator = Paginator(menber_lst, 5)
+	paginator = Paginator(menber_lst, 3)
 	page = req.GET.get('page')
 	try:
 		menber_list = paginator.page(page)
