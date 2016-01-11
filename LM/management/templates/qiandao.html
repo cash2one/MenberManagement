@@ -11,9 +11,9 @@
 				<div class="well">
 					<h2 class="text-success text-center">您已签到成功！签到时间{{datetime}}"</h2>
 				</div>
-			{% elif status == 're_err' %}
+			{% elif status == 'sign_er' %}
 				<div class="well">
-					<h2 class="text-warning text-center">签到失败</h2>
+					<h2 class="text-warning text-center">签到失败,请选择课程</h2>
 				</div>
 			{% elif status == 'user_exist' %}
 				<div class="well">
