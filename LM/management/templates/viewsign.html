@@ -37,13 +37,13 @@
 				<nav>
 					<ul class="pager">
 						{% if sign_list.has_previous %}
-							<li class="previous"><a href="?page={{ sign_list.previous_page_number }}">上一页</a></li>
+							<li class="previous"><a href="&page={{ sign_list.previous_page_number }}">上一页</a></li>
 						{% else %}
 							<li class="previous disabled"><a href="#">上一页</a></li>
 						{% endif %}
 						第 {{ sign_list.number }} / {{ sign_list.paginator.num_pages }}页
 						{% if sign_list.has_next %}
-							<li class="next"><a href="?page={{ menber_list.next_page_number }}">下一页</a></li>
+							<li class="next"><a href="&page={{ menber_list.next_page_number }}">下一页</a></li>
 						{% else %}
 							<li class="next disabled"><a href="#">下一页</a></li>
 						{% endif %}
