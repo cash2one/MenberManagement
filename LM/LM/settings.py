@@ -27,7 +27,8 @@ USE_TZ = False
 
 ALLOWED_HOSTS = [ 
     'www.hkcdt.com', # Allow domain and subdomains
-    '.hkcdt.com.', # Also allow FQDN and subdomains]
+    'hkcdt.com', # Also allow FQDN and subdomains
+    ]
 
 
 # Application definition
