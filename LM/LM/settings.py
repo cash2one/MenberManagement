@@ -65,7 +65,7 @@ DATABASES = {
         'NAME':'management',
         'USER':'spring',
 	'PASSWORD':'wf3531225',
-	'HOST':'64.207.188.243',
+	'HOST':'',
 	'PORT':'',
 	'OPTIONS':{'autocommit':True,}
     }
