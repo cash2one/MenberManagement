@@ -132,7 +132,7 @@ def viewmenber(req):
 		menber_lst = Menbers.objects.filter(menber_name__contains=keywords)
 		menber_type = 'all'
 
-	paginator = Paginator(menber_lst, 3)
+	paginator = Paginator(menber_lst, 5)
 	page = req.GET.get('page')
 	try:
 		menber_list = paginator.page(page)
@@ -209,7 +209,7 @@ def viewsign(req):
 		user = ''
 	sign_list = user.sign.all()
 	
-	paginator = Paginator(sign_list, 3)
+	paginator = Paginator(sign_list, 5)
 	page = req.GET.get('page')
 	try:
 		sign_list = paginator.page(page)
