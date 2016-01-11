@@ -25,7 +25,9 @@ TEMPLATE_DEBUG = True
 
 USE_TZ = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 
+    'www.hkcdt.com', # Allow domain and subdomains
+    '.hkcdt.com.', # Also allow FQDN and subdomains]
 
 
 # Application definition
