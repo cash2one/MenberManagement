@@ -185,7 +185,8 @@ def qiandao(req):
 		post = req.POST  
 		sign_mood = post.get('sign_mood','') 
 		Id = post.get('course_id','')
-		if Id != '':
+		live = post.get('live','')
+		if Id != '' and live=='huangguan':
 			cs = Courses.objects.get(pk=Id)
 			qiandao = Sign(courses=cs,sign_mood=sign_mood)
 			qiandao.save()
