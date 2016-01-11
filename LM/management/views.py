@@ -209,7 +209,7 @@ def viewsign(req):
 		user = ''
 	sign_list = user.sign.all()
 	
-	paginator = Paginator(sign_list, 50)
+	paginator = Paginator(sign_list, 3)
 	page = req.GET.get('page')
 	try:
 		sign_list = paginator.page(page)
