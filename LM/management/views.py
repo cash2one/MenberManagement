@@ -193,7 +193,9 @@ def qiandao(req):
 			status='success'
 		else:
 			status = 'sign_er';
-			return HttpResponseRedirect('/qiandao/')
+			content = {'active_menu': 'qiandao','status':status, 'user': user}
+			return render_to_response('/qiandao/', content)
+			#return HttpResponseRedirect('/qiandao/')
 	content = {'active_menu': 'qiandao', 'user': user,'datetime':dt,'course':course_list,'status': status}
 	return render_to_response('qiandao.html', content, context_instance=RequestContext(req))
 
