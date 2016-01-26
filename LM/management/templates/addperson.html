@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}我要送礼{% endblock %}
+{% block title %}领礼品{% endblock %}
 
 {% block content %}
 
@@ -15,7 +15,7 @@
 			<form method="POST" role="form" class="form-horizontal">
 				{% csrf_token %}
                <input type="hidden" name="tel" id="tel" value="{{person.id}}" />
-				<h1 class="form-signin-heading text-center">我要送礼</h1>
+				<h1 class="form-signin-heading text-center">领礼品</h1>
 
 				<div class="form-group">
 					<label for="id_name" class="col-md-3 control-label">姓名：</label>
