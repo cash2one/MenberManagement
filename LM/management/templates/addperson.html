@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}我要送礼{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+			{% if status == 'success' %}
+				<div class="well">
+					<h2 class="text-success text-center">添加成功</h2>
+				</div>
+			{% endif %}
+			<form method="POST" role="form" class="form-horizontal">
+				{% csrf_token %}
+               <input type="hidden" name="tel" id="tel" value="{{person.tel}}" />
+				<h1 class="form-signin-heading text-center">添加领礼品</h1>
+               {% for field in form %}
+				<div class="form-group">
+					<label for="id_name" class="col-md-3 control-label">姓名：</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="id_name" required name="name" autofocus>
+					</div>	
+				</div>
+
+				<div class="form-group">
+					<label for="id_tel" class="col-md-3 control-label">电话：</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" required name="tel" id="id_tel">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="id_gift" class="col-md-3 control-label">礼品：</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" required name="gift" id="id_gift">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="id_remarks" class="col-md-3 control-label">城市：</label>
+					<div class="col-md-9">
+						<input type="textarea" class="form-control" required name="remarks" id="id_remarks">
+					</div>
+				</div>
+                {% endfor %}
+				<div class="form-group">
+					<div class="col-md-4 col-md-offset-4">
+						<button class="btn btn btn-primary btn-block" type="submit">提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

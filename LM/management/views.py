@@ -241,6 +241,33 @@ def songli_detail(req):
 	content = {'active_menu': 'songli_detail', 'p_friends': 'friens_lst'}
 	return render_to_response('songli_detail.html', content, context_instance=RequestContext(req))
 
+def addlingli(req):
+	persons = Person.objects.all()
+
+	paginator = Paginator(persons,5)
+	page = req.GET.get('page')
+	try:
+		persons = paginator.page(page)
+	except PageNotAnInteger:
+		persons = paginator.page(1)
+	except EmptyPage:
+		persons = paginator.page(paginator.num_pages)
+
+	content = {'active_menu': 'addsongli', 'person_lst': persons}
+	return render_to_response('addsongli.html', content, context_instance=RequestContext(req))
+
+def addperson(req):
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/addsongli/')
+	try:
+		person = Person.objects.get(pk=Id)
+	except:
+		return HttpResponseRedirect('/addsongli/')
+
+	content = {'active_menu': 'addsongli', 'person': person}
+	return render_to_response('addperson.html', content, context_instance=RequestContext(req))
+
 
 """
 代码重构，共性的东西抽取出来。
