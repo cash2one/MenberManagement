@@ -223,5 +223,19 @@ def viewsign(req):
 	return render_to_response('viewsign.html', content, context_instance=RequestContext(req))
 
 
+"""
+代码重构，共性的东西抽取出来。
+urlpatterns = patterns(
+(r'^events/$',views.object_list,{'model':models.Event}),
+(r'^blog/entries/$',view.object_list,{'model':model.BlogEntry}),
+)
+
+def object_list(request,model):
+   obj_list = model.objects.all()
+   template_name = 'mysite/%s_list.html'%model.__name__.lower()
+   return render_to_response(template_name,{'object_list':boj_list})
+"""
+
+
 
 

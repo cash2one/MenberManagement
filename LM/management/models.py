@@ -48,4 +48,31 @@ class Menbers(models.Model):
         verbose_name_plural ="学员"
 
 
+
+
+class Person(models.Model):
+    tel = models.CharField(max_length=30,verbose_name=u"电话")
+    name = models.CharField(max_length=30,verbose_name=u"姓名")
+    gift = models.CharField(max_length=30,verbose_name=u"礼品")
+    remarks = models.TextField(verbose_name=u"备注")
+    def __str__(self):
+        return u'%s %s'%(self.name,self.gift)
+    class Meta:
+        verbose_name = "发起人"
+        verbose_name_plural ="发起人"
+
+class Friends(models.Model):
+    f_tel = models.CharField(max_length=30,verbose_name=u"朋友电话")
+    f_name = models.CharField(max_length=30,verbose_name=u"朋友姓名")
+    f_gift = models.CharField(max_length=30,verbose_name=u"朋友礼品")
+    f_remarks = models.TextField(verbose_name=u"备注")
+    person = models.ForeignKey(Person)
+    def __str__(self):
+        return u'%s %s '%(self.f_name,self.f_gift)
+    class Meta:
+        verbose_name = "朋友"
+        verbose_name_plural = "朋友"
+
+
+
         
