@@ -19,13 +19,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6bq=7@ze=&d%n_x-=jp1^t#3r1_7!c$#pq05)iq2=ol5ea*v1_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = True
 
 USE_TZ = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ 
+    'www.hkcdt.com', # Allow domain and subdomains
+    'hkcdt.com', # Also allow FQDN and subdomains
+    ]
 
 
 # Application definition
