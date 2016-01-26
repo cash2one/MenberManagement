@@ -223,7 +223,8 @@ def viewsign(req):
 	return render_to_response('viewsign.html', content, context_instance=RequestContext(req))
 
 def songli(req):
-    persons = Person.objects.all()
+	persons = Person.objects.all()
+
 	paginator = Paginator(persons, 5)
 	page = req.GET.get('page')
 	try:
@@ -235,6 +236,10 @@ def songli(req):
 
 	content = {'active_menu': 'songli', 'person_lst': persons}
 	return render_to_response('songliren.html', content, context_instance=RequestContext(req))
+
+def songli_detail(req):
+	content = {'active_menu': 'songli_detail', 'p_friends': 'friens_lst'}
+	return render_to_response('songli_detail.html', content, context_instance=RequestContext(req))
 
 
 """
