@@ -259,11 +259,11 @@ def addlingli(req):
 def addperson(req):
 	Id = req.GET.get('id','')
 	if Id == '':
-		return HttpResponseRedirect('/addsongli/')
+		return HttpResponseRedirect('/addlingli/')
 	try:
 		person = Person.objects.get(pk=Id)
 	except:
-		return HttpResponseRedirect('/addsongli/')
+		return HttpResponseRedirect('/addlingli/')
 
 	content = {'active_menu': 'addsongli', 'person': person}
 	return render_to_response('addperson.html', content, context_instance=RequestContext(req))
