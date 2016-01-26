@@ -254,7 +254,7 @@ def addlingli(req):
 		persons = paginator.page(paginator.num_pages)
 
 	content = {'active_menu': 'addsongli', 'person_lst': persons}
-	return render_to_response('addsongli.html', content, context_instance=RequestContext(req))
+	return render_to_response('addlingli.html', content, context_instance=RequestContext(req))
 
 def addperson(req):
 	Id = req.GET.get('id','')
