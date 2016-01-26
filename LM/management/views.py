@@ -265,6 +265,24 @@ def addfriends(req):
 	except:
 		return HttpResponseRedirect('/addsongli/')
 
+	status=''
+
+	if req.POST:
+		post = req.POST
+		name = post.get('f_name','')
+		tel = post.get('f_tel','')
+		gift = post.get('f_gift','')
+		remarks = post.get('f_remarks','')
+		Id = post.get('f_id','')
+		if Id != '':
+			p = Person.objects.get(pk=Id)
+			friend = Friends(person=p,f_name=name,f_tel=tel,f_gift=gift,f_remarks=remarks)
+			friend.save()
+			status='success'
+		else:
+			status = 'sign_er'
+			content = {'active_menu': 'addsongli','status':status }
+			return render_to_response('addfriends.html', content)
 	content = {'active_menu': 'addsongli', 'person': person}
 	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
 
