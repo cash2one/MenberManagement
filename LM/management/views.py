@@ -238,8 +238,17 @@ def songli(req):
 	return render_to_response('songliren.html', content, context_instance=RequestContext(req))
 
 def songli_detail(req):
-	content = {'active_menu': 'songli_detail', 'p_friends': 'friens_lst'}
-	return render_to_response('songli_detail.html', content, context_instance=RequestContext(req))
+	Id = req.GET.get('id','')
+	status=''
+	if Id == '':
+		return HttpResponseRedirect('/songli/')
+	try:
+		person = Person.objects.get(pk=Id)
+		friends = person.friends_set.all()
+	except:
+		return HttpResponseRedirect('/songli/')
+	content = {'active_menu': 'songli', 'p_friends': friends}
+	return render_to_response('friends.html', content, context_instance=RequestContext(req))
 
 def addsongli(req):
 	persons = Person.objects.all()
