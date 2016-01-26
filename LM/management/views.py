@@ -258,14 +258,13 @@ def addsongli(req):
 
 def addfriends(req):
 	Id = req.GET.get('id','')
+	status=''
 	if Id == '':
 		return HttpResponseRedirect('/addsongli/')
 	try:
 		person = Person.objects.get(pk=Id)
 	except:
 		return HttpResponseRedirect('/addsongli/')
-
-	status=''
 
 	if req.POST:
 		post = req.POST
@@ -283,7 +282,7 @@ def addfriends(req):
 			status = 'error'
 			content = {'active_menu': 'addsongli','status':status }
 			return render_to_response('addfriends.html', content)
-	content = {'active_menu': 'addsongli', 'person': person，'status':status}
+	content = {'active_menu': 'addsongli', 'person': person,'status': status}
 	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
 
 
