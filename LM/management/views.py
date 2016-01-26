@@ -222,6 +222,20 @@ def viewsign(req):
 	content = {'user': user, 'active_menu': 'viewsign','sign_list': sign_list}
 	return render_to_response('viewsign.html', content, context_instance=RequestContext(req))
 
+def songli(req):
+    persons = Person.objects.all()
+	paginator = Paginator(persons, 5)
+	page = req.GET.get('page')
+	try:
+		persons = paginator.page(page)
+	except PageNotAnInteger:
+		persons = paginator.page(1)
+	except EmptyPage:
+		persons = paginator.page(paginator.num_pages)
+
+	content = {'active_menu': 'songli', 'person_lst': persons}
+	return render_to_response('songliren.html', content, context_instance=RequestContext(req))
+
 
 """
 代码重构，共性的东西抽取出来。

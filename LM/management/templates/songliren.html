@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}我要送礼{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="col-md-2">
+				<div class="list-group">
+					<a href="#" class="list-group-item" id="id_typ_all">
+						全部领取&送礼人
+					</a>
+
+				</div>
+
+			</div>
+			<div class="col-md-9 col-md-offset-1">
+				<div class="col-md-4 col-md-offset-8">
+					<form role="form" method="post" name="search_form">
+						{% csrf_token %}
+						<input type="search" class="form-control" name="keywords" placeholder="Enter keywords to search" id="id_search_input" onkeyup="whenkeyup()" autofocus="True">
+					</form>
+				</div>
+				<script type="text/javascript">
+					function whenkeyup () {
+						var oldvalue = document.getElementById('id_search_input').value
+						setTimeout(function(){
+							var newvalue = document.getElementById('id_search_input').value
+							if (oldvalue == newvalue) {
+								document.search_form.submit();
+							};
+						},1500);
+					}
+				</script>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>电话</th>
+							<th>姓名</th>
+                            <th>礼品</th>
+							<th>备注</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for person in person_lst %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td><a href="/viewmenber/menber_detail/?id={{menber.id}}">{{ person.tel }}</a></td>
+							<td>{{ person.name }}</td>
+                            <td>{{ person.gift }}</td>
+                            <td>{{ person.remarks }}</td>
+						</tr>
+						{% empty %}
+						<tr>
+							<td>暂无人领取</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				<nav>
+					<ul class="pager">
+						{% if person_lst.has_previous %}
+							<li class="previous"><a href="&page={{ menber_list.previous_page_number }}">上一页</a></li>
+						{% else %}
+							<li class="previous disabled"><a href="#">上一页</a></li>
+						{% endif %}
+						第 {{ person_lst.number }} / {{ person_lst.paginator.num_pages }}页
+						{% if person_lst.has_next %}
+							<li class="next"><a href="?&page={{ person_lst.next_page_number }}">下一页</a></li>
+						{% else %}
+							<li class="next disabled"><a href="#">下一页</a></li>
+						{% endif %}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
