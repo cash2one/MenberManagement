@@ -245,6 +245,7 @@ def songli_detail(req):
 	try:
 		person = Person.objects.get(pk=Id)
 		friends = person.friends_set.all()
+		status = 'success'
 	except:
 		return HttpResponseRedirect('/songli/')
 	content = {'active_menu': 'songli', 'p_friends': friends}
