@@ -280,7 +280,7 @@ def addfriends(req):
 			friend.save()
 			status='success'
 		else:
-			status = 'sign_er'
+			status = 'error'
 			content = {'active_menu': 'addsongli','status':status }
 			return render_to_response('addfriends.html', content)
 	content = {'active_menu': 'addsongli', 'person': person}

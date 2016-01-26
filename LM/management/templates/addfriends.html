@@ -9,7 +9,11 @@
 		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
 			{% if status == 'success' %}
 				<div class="well">
-					<h2 class="text-success text-center">添加成功</h2>
+					<h2 class="text-success text-center">成功添加朋友</h2>
+				</div>
+			{% elif status == 'error' %}
+				<div class="well">
+					<h2 class="text-warning text-center">没有找到正确的电话号码</h2>
 				</div>
 			{% endif %}
 			<form method="POST" role="form" class="form-horizontal">
