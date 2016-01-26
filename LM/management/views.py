@@ -241,7 +241,7 @@ def songli_detail(req):
 	content = {'active_menu': 'songli_detail', 'p_friends': 'friens_lst'}
 	return render_to_response('songli_detail.html', content, context_instance=RequestContext(req))
 
-def addlingli(req):
+def addsongli(req):
 	persons = Person.objects.all()
 
 	paginator = Paginator(persons,5)
@@ -259,14 +259,14 @@ def addlingli(req):
 def addperson(req):
 	Id = req.GET.get('id','')
 	if Id == '':
-		return HttpResponseRedirect('/addlingli/')
+		return HttpResponseRedirect('/addsongli/')
 	try:
 		person = Person.objects.get(pk=Id)
 	except:
-		return HttpResponseRedirect('/addlingli/')
+		return HttpResponseRedirect('/addsongli/')
 
 	content = {'active_menu': 'addsongli', 'person': person}
-	return render_to_response('addperson.html', content, context_instance=RequestContext(req))
+	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
 
 
 """
