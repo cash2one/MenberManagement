@@ -285,6 +285,25 @@ def addfriends(req):
 	content = {'active_menu': 'addsongli', 'person': person,'status': status}
 	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
 
+def addperson(req):
+	status=''
+
+	if req.POST:
+		post = req.POST
+		name = post.get('name','')
+		tel = post.get('tel','')
+		gift = post.get('gift','')
+		remarks = post.get('remarks','')
+		if name != '':
+			person = Person(name=name,tel=tel,gift=gift,remarks=remarks)
+			person.save()
+			status='success'
+		else:
+			status = 'error'
+			content = {'active_menu': 'addlingli','status':status }
+			return render_to_response('addperson.html', content)
+	content = {'active_menu': 'addlingli','status': status}
+	return render_to_response('addperson.html', content, context_instance=RequestContext(req))
 
 """
 代码重构，共性的东西抽取出来。
