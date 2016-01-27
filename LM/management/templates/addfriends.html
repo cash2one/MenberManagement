@@ -16,7 +16,7 @@
 					<h2 class="text-warning text-center">没有找到正确的电话号码</h2>
 				</div>
 			{% endif %}
-			<form method="POST" role="form" class="form-horizontal">
+			<form method="POST" role="form" class="form-horizontal" name="mobileform"  onSubmit="return checkMobile();">
 				{% csrf_token %}
                <input type="hidden" name="f_id" id="f_id" value="{{person.id}}" />
 				<h1 class="form-signin-heading text-center">我要送礼</h1>
@@ -58,6 +58,15 @@
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+function checkMobile(){
+    var sMobile = document.mobileform.id_f_tel.value
+    if(!(/^0?(13[0-9]|15[012356789]|17[0678]|18[0-9]|14[57])[0-9]{8}$/.test(sMobile))){
+        alert("不是完整的11位手机号或者正确的手机号前七位");
+        document.mobileform.id_f_tel.focus();
+        return false;
+    }
+}
+</script>
 
 {% endblock %}
