@@ -12,7 +12,7 @@
 					<h2 class="text-success text-center">添加成功</h2>
 				</div>
 			{% endif %}
-			<form method="POST" role="form" class="form-horizontal">
+			<form method="POST" role="form" class="form-horizontal" name="mobileform"  onSubmit="return checkMobile();">
 				{% csrf_token %}
                <input type="hidden" name="tel" id="tel" value="{{person.id}}" />
 				<h1 class="form-signin-heading text-center">领礼品</h1>
@@ -54,6 +54,15 @@
 		</div>
 	</div>
 </div>
-
+<script type="text/javascript">
+function checkMobile(){
+    var sMobile = document.mobileform.id_tel.value
+    if(!(/^1[3|5][0-9]\d{4,8}$/.test(sMobile))){
+        alert("不是完整的11位手机号或者正确的手机号前七位");
+        document.mobileform.mobile.focus();
+        return false;
+    }
+}
+</script>
 
 {% endblock %}
