@@ -228,7 +228,7 @@ def songli(req):
 	if req.POST:
 		post = req.POST
 		keywords = post.get('keywords','')
-		persons = Person.objects.filter(name__contains=keywords)
+		persons = Person.objects.filter(tel__contains=keywords)
 
 	paginator = Paginator(persons, 5)
 	page = req.GET.get('page')
