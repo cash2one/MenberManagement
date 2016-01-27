@@ -47,9 +47,6 @@ class Menbers(models.Model):
         verbose_name = "学员"
         verbose_name_plural ="学员"
 
-
-
-
 class Person(models.Model):
     tel = models.CharField(max_length=30,verbose_name=u"电话")
     name = models.CharField(max_length=30,verbose_name=u"姓名")
