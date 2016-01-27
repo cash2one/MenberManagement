@@ -52,7 +52,7 @@
 							<td><a href="/songli/songli_detail/?id={{person.id}}">{{ person.tel }}</a></td>
 							<td>{{ person.name }}</td>
                             <td>{{ person.gift }}</td>
-                            <td>{{ person.pdate }}</td>
+                            <td>{{ person.pdate|date:"Y-m-d H:i:s" }}</td>
                             <td>{{ person.remarks }}</td>
 						</tr>
 						{% empty %}
