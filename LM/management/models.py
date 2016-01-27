@@ -74,6 +74,3 @@ class Friends(models.Model):
         verbose_name = "朋友"
         verbose_name_plural = "朋友"
 
-
-
-        
