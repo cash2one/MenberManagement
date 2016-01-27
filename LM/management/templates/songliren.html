@@ -41,6 +41,7 @@
 							<th>电话</th>
 							<th>姓名</th>
                             <th>礼品</th>
+                            <th>领取时间</th>
 							<th>备注</th>
 						</tr>
 					</thead>
@@ -51,6 +52,7 @@
 							<td><a href="/songli/songli_detail/?id={{person.id}}">{{ person.tel }}</a></td>
 							<td>{{ person.name }}</td>
                             <td>{{ person.gift }}</td>
+                            <td>{{ person.pdate }}</td>
                             <td>{{ person.remarks }}</td>
 						</tr>
 						{% empty %}
