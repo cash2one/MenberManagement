@@ -225,6 +225,11 @@ def viewsign(req):
 def songli(req):
 	persons = Person.objects.all()
 
+	if req.POST:
+		post = req.POST
+		keywords = post.get('keywords','')
+		persons = Person.objects.filter(name__contains=keywords)
+
 	paginator = Paginator(persons, 5)
 	page = req.GET.get('page')
 	try:
