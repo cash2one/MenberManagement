@@ -222,13 +222,32 @@ def viewsign(req):
 	content = {'user': user, 'active_menu': 'viewsign','sign_list': sign_list}
 	return render_to_response('viewsign.html', content, context_instance=RequestContext(req))
 
-def songli(req):
-	persons = Person.objects.all()
 
+def getPerson_typ():
+	persons = Person.objects.all()
+	partTypList = set()
+	for part in persons:
+		partTypList.add(part.partment)
+	return list(partTypList)
+
+
+def songli(req):
+	#persons = Person.objects.all()
+
+    person_typlst = getPerson_typ()
+	person_type = req.GET.get('partment', 'all')
+	if person_type == '':
+		persons = Person.objects.all()
+	elif person_type not in person_typlst:
+		person_type = 'all'
+		persons = Person.objects.all()
+	else:
+		persons = Person.objects.filter(partment=person_type)
 	if req.POST:
 		post = req.POST
 		keywords = post.get('keywords','')
 		persons = Person.objects.filter(tel__contains=keywords)
+		person_type = 'all'
 
 	paginator = Paginator(persons, 5)
 	page = req.GET.get('page')
@@ -239,7 +258,7 @@ def songli(req):
 	except EmptyPage:
 		persons = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'songli', 'person_lst': persons}
+	content = {'active_menu': 'songli', 'person_lst': persons, 'person_typlst': person_typlst, 'person_type': person_type,}
 	return render_to_response('songliren.html', content, context_instance=RequestContext(req))
 
 def songli_detail(req):
