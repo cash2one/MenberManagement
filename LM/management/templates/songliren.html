@@ -9,7 +9,7 @@
 		<div class="col-md-10 col-md-offset-1">
 			<div class="col-md-2">
 				<div class="list-group">
-					<a href="/songli/songli_detail/" class="list-group-item" id="id_person_type_all">
+					<a href="/songli/songli_detail/" class="list-group-item" id="id_person_type">
 						全部领礼品客人
 					</a>
 					{% for p_type in person_typlst %}
@@ -19,7 +19,7 @@
 					{% endfor %}
 				</div>
 				<script type="text/javascript">
-				    var act_typ = document.getElementById("id_typ_{{person_type}}");
+				    var act_typ = document.getElementById("id_{{person_type}}");
 				    var new_class = act_typ.getAttribute("class") + " active"
 				    act_typ.setAttribute("class",new_class);
 				</script>
