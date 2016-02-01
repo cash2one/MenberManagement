@@ -233,8 +233,7 @@ def getPerson_typ():
 
 def songli(req):
 	#persons = Person.objects.all()
-
-    person_typlst = getPerson_typ()
+	person_typlst = getPerson_typ()
 	person_type = req.GET.get('partment', 'all')
 	if person_type == '':
 		persons = Person.objects.all()
