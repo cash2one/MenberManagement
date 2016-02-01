@@ -52,9 +52,9 @@ class Person(models.Model):
     tel = models.CharField(max_length=30,verbose_name=u"电话")
     name = models.CharField(max_length=30,verbose_name=u"姓名")
     gift = models.CharField(max_length=30,verbose_name=u"礼品")
-    pdate = models.DateField(default = timezone.now,verbose_name=u"领取日期")
+    pdate = models.DateField(auto_now_add=True,verbose_name=u"领取日期")
     partment = models.CharField(max_length=36,verbose_name=u"部门")
-    remarks = models.TextField(blank=True,verbose_name=u"备注")
+    remarks = models.TextField(blank=True,verbose_name=u"备注"
     def __str__(self):
         return u'%s %s'%(self.name,self.gift)
     class Meta:
