@@ -308,15 +308,18 @@ def addperson(req):
 		name = post.get('name','')
 		tel = post.get('tel','')
 		gift = post.get('gift','')
+		partment = post.get('partment','')
 		remarks = post.get('remarks','')
-		if name != '':
-			person = Person(name=name,tel=tel,gift=gift,remarks=remarks)
-			person.save()
-			status='success'
-		else:
-			status = 'error'
+
+		if Person.objects.filter(tel=tel):
+			status = 'user_exist'
 			content = {'active_menu': 'addlingli','status':status }
 			return render_to_response('addperson.html', content)
+		else:
+			person = Person(name=name,tel=tel,gift=gift,remarks=remarks,partment=partment)
+			person.save()
+			status='success'
+
 	content = {'active_menu': 'addlingli','status': status}
 	return render_to_response('addperson.html', content, context_instance=RequestContext(req))
 
