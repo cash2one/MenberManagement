@@ -292,6 +292,7 @@ def addsongli(req):
 def addfriends(req):
 	Id = req.GET.get('id','')
 	status=''
+
 	if Id == '':
 		return HttpResponseRedirect('/addsongli/')
 	try:
