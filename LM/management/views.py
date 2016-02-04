@@ -290,14 +290,7 @@ def addsongli(req):
 	return render_to_response('addlingli.html', content, context_instance=RequestContext(req))
 
 def addfriends(req):
-	Id = req.GET.get('id','')
-	status=''
-	if Id == '':
-		return HttpResponseRedirect('/addsongli/')
-	try:
-		person = Person.objects.get(pk=Id)
-	except:
-		return HttpResponseRedirect('/addsongli/')
+
 
 	if req.POST:
 		post = req.POST
