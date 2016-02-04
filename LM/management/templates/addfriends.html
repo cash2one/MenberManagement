@@ -16,7 +16,7 @@
 					<h2 class="text-warning text-center">没有找到正确的电话号码</h2>
 				</div>
 			{% endif %}
-			<form method="POST" role="form" class="form-horizontal" name="mobileform"  onSubmit="return checkMobile();">
+			<form action='/addsongli/addfriends/'method="POST" role="form" class="form-horizontal" name="mobileform"  onSubmit="return checkMobile();">
 				{% csrf_token %}
                <input type="hidden" name="f_id" id="f_id" value="{{person.id}}" />
 				<h1 class="form-signin-heading text-center">我要送礼</h1>
