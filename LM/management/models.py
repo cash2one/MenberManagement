@@ -54,7 +54,8 @@ class Person(models.Model):
     gift = models.CharField(max_length=30,verbose_name=u"礼品")
     pdate = models.DateField(auto_now_add=True,verbose_name=u"领取日期")
     partment = models.CharField(max_length=36,verbose_name=u"部门")
-    remarks = models.TextField(blank=True,verbose_name=u"备注"
+    remarks = models.TextField(blank=True,verbose_name=u"备注")
+
     def __str__(self):
         return u'%s %s'%(self.name,self.gift)
     class Meta:
@@ -69,6 +70,7 @@ class Friends(models.Model):
     f_date  = models.DateField(verbose_name=u"送礼日期")
     f_remarks = models.TextField(blank=True,verbose_name=u"备注")
     person = models.ForeignKey(Person)
+
     def __str__(self):
         return u'%s %s '%(self.f_name,self.f_gift)
     class Meta:
