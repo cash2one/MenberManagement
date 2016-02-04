@@ -299,7 +299,7 @@ def addfriends(req):
 	except:
 		return HttpResponseRedirect('/addsongli/')
 
-
+	if req.POST:
 		post = req.POST
 		name = post.get('f_name','')
 		tel = post.get('f_tel','')
