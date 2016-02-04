@@ -67,7 +67,7 @@ class Friends(models.Model):
     f_tel = models.CharField(max_length=30,verbose_name=u"朋友电话")
     f_name = models.CharField(max_length=30,verbose_name=u"朋友姓名")
     f_gift = models.CharField(max_length=30,verbose_name=u"朋友礼品")
-    f_date  = models.DateField(verbose_name=u"送礼日期")
+    f_date  = models.DateField(auto_now_add=True,verbose_name=u"送礼日期")
     f_remarks = models.TextField(blank=True,verbose_name=u"备注")
     person = models.ForeignKey(Person)
 
