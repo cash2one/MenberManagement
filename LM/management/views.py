@@ -307,9 +307,7 @@ def friendsqiaojie(req):
 	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
 
 def addfriends(req):
-
 	status=''
-
 	if req.POST:
 		post = req.POST
 		name = post.get('f_name','')
