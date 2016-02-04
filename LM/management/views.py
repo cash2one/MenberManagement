@@ -324,8 +324,8 @@ def addfriends(req):
 			status='success'
 		else:
 			status = 'error'
-			#content = {'active_menu': 'addsongli','status':status }
-			#return render_to_response('addfriends.html', content)
+			content = {'active_menu': 'addsongli','status':status }
+			return render_to_response('addfriends.html', content)
 	content = {'active_menu': 'addsongli', 'person': person,'status': status}
 	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
 
