@@ -297,9 +297,11 @@ def friendsqiaojie(req):
 			return HttpResponseRedirect('/addsongli/')
 		try:
 			person = Person.objects.get(pk=Id)
-			status = 'success'
+
 		except:
+			status = 'error'
 			return  HttpResponseRedirect('/addsongli/')
+
 
 	content = {'active_menu': 'addsongli', 'person': person,'status': status}
 	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
