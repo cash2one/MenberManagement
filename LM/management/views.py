@@ -315,6 +315,7 @@ def addfriends(req):
 		gift = post.get('f_gift','')
 		remarks = post.get('f_remarks','')
 		Id = post.get('f_id','')
+		print("读取id值："+Id)
 		if Id != '':
 			p = Person.objects.get(pk=Id)
 			friend = Friends(person=p,f_name=name,f_tel=tel,f_gift=gift,f_remarks=remarks)
