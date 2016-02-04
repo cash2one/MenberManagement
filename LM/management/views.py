@@ -289,16 +289,24 @@ def addsongli(req):
 	content = {'active_menu': 'addsongli', 'person_lst': persons}
 	return render_to_response('addlingli.html', content, context_instance=RequestContext(req))
 
-def addfriends(req):
-	Id = req.GET.get('id','')
-	status=''
+def friendqiaojie(req):
+	status = ''
+	if req.GET:
+		Id = req.GET.get('id','')
+		if Id == '':
+			return HttpResponseRedirect('/addsongli/')
+		try:
+			person = Person.objects.get(pk=Id)
+			status = 'success'
+		except:
+			return  HttpResponseRedirect('/addsongli/')
 
-	if Id == '':
-		return HttpResponseRedirect('/addsongli/')
-	try:
-		person = Person.objects.get(pk=Id)
-	except:
-		return HttpResponseRedirect('/addsongli/')
+	content = {'active_menu': 'addsongli', 'person': person,'status': status}
+	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
+
+def addfriends(req):
+
+	status=''
 
 	if req.POST:
 		post = req.POST
