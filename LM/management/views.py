@@ -289,7 +289,7 @@ def addsongli(req):
 	content = {'active_menu': 'addsongli', 'person_lst': persons}
 	return render_to_response('addlingli.html', content, context_instance=RequestContext(req))
 
-def friendqiaojie(req):
+def friendsqiaojie(req):
 	status = ''
 	if req.GET:
 		Id = req.GET.get('id','')
