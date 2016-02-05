@@ -41,7 +41,7 @@
 							<td>{{ friend.f_name }}</td>
                             {% if friend.f_gift == 'weiling' %}
                             <td><a href="/addlingli/addlingli_detail/?id={{friend.id}}">领礼品</a> </td>
-                            {% elif  %}
+                            {% elif != 'weiling' %}
                             <td>{{ friend.f_gift }}</td>
                             {% endif %}
                             <td><a href="/addsongli/" >送礼品</a></td>
