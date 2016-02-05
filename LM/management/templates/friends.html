@@ -39,11 +39,7 @@
 							<td>{{ forloop.counter }}</td>
 							<td>{{ friend.f_tel }}</td>
 							<td>{{ friend.f_name }}</td>
-                            {% if friend.f_gift == 'weiling' %}
-                            <td><a href="/addlingli/addlingli_detail/?id={{friend.id}}">领礼品</a> </td>
-                            {% elif != 'weiling' %}
-                            <td>{{ friend.f_gift }}</td>
-                            {% endif %}
+                            <td><a href="/addlingli/addlingli_detail/?id={{friend.id}}">{{ friend.f_gift }}</a> </td>
                             <td><a href="/addsongli/" >送礼品</a></td>
                             <td>{{ friend.f_remarks }}</td>
                         </tr>
