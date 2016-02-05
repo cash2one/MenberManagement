@@ -40,7 +40,7 @@
 							<td>{{ friend.f_tel }}</td>
 							<td>{{ friend.f_name }}</td>
                             <td><a href="/addlingli/addlingli_detail/?id={{friend.id}}">{{ friend.f_gift }}</a> </td>
-                            <td><a href="/addsongli/" >送礼品</a></td>
+                            <td><a href="/addsongli/toaddperson/?id={{ friend.id }}" >送礼品</a></td>
                             <td>{{ friend.f_remarks }}</td>
                         </tr>
 						{% empty %}
