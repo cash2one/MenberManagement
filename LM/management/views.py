@@ -344,16 +344,17 @@ def modifyfriendslingli(req):
 	if req.GET:
 		Id = req.GET.get('id','')
 		friend = Friends.objects.get(pk=Id)
+		lipin = u'水晶吊坠'
 		if Id == '':
 			return HttpResponseRedirect('/addsongli/')
 		try:
-			Friends.objects.filter(id=Id).update(f_gift=u'水晶吊坠')
+			Friends.objects.filter(id=Id).update(f_gift=lipin)
 			status = 'sucess'
 		except:
 			status = 'error'
 			return HttpResponseRedirect('/addsongli/')
 
-	content = {'active_menu': 'addsongli', 'friend': friend,'status': status}
+	content = {'active_menu': 'addsongli', 'friend': friend,'status': status,'f_gift':lipin}
 	return render_to_response('friendslingli.html', content, context_instance=RequestContext(req))
 
 
