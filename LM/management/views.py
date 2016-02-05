@@ -285,8 +285,10 @@ def songli_detail(req):
 		for fd in friends:
 			if Person.objects.filter(tel=fd.f_tel)[0] != []:
 				lipin.add('yiling')
+				print('已经领取')
 			else:
 				lipin.add('weiling')
+				print('没有领取')
 
 		linglipin = list(lipin)
 		#status = 'success'
@@ -337,7 +339,7 @@ def addfriends(req):
 		remarks = post.get('f_remarks','')
 		Id = post.get('f_id','')
 		person = Person.objects.get(pk=Id)
-		print("读取id值："+Id)
+
 		if person != '':
 			friend = Friends(person=person,f_name=name,f_tel=tel,f_gift=gift,f_remarks=remarks)
 			friend.save()
