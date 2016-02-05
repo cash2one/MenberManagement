@@ -341,10 +341,10 @@ def friendsqiaojie(req):
 
 def modifyfriendslingli(req):
 	status = ''
+	lipin = u'水晶吊坠'
 	if req.GET:
 		Id = req.GET.get('id','')
 		friend = Friends.objects.get(pk=Id)
-		lipin = u'水晶吊坠'
 		if Id == '':
 			return HttpResponseRedirect('/addsongli/')
 		try:
