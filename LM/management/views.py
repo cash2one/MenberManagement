@@ -289,7 +289,7 @@ def songli_detail(req):
 	return render_to_response('friends.html', content, context_instance=RequestContext(req))
 
 def toaddperson(req):
-    status = ''
+	status = ''
 	if req.GET:
 		Id = req.GET.get('id','')
 		part = req.GET.get('part','')
