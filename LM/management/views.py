@@ -263,7 +263,12 @@ def songli(req):
 def lingfou(friends):
 	lipin = set()
 	for fd in friends:
-		lipin.add(Person.objects.filter(tel=fd.f_tel))
+		p = Person.objects.filter(tel=fd.f_tel)
+		if p != []:
+			lipin.add('yiling')
+		else:
+			lipin.add('weiling')
+
 	return list(lipin)
 
 
