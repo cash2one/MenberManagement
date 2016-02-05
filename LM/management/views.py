@@ -260,18 +260,27 @@ def songli(req):
 	content = {'active_menu': 'songli', 'person_lst': persons, 'person_typlst': person_typlst, 'person_type': person_type,}
 	return render_to_response('songliren.html', content, context_instance=RequestContext(req))
 
+def lingfou(friends):
+	lipin = set()
+	for fd in friends:
+		lipin.add(Person.objects.filter(tel=fd.f_tel))
+	return list(lipin)
+
+
+
 def songli_detail(req):
 	Id = req.GET.get('id','')
-	status=''
+	#status=''
 	if Id == '':
 		return HttpResponseRedirect('/songli/')
 	try:
 		person = Person.objects.get(pk=Id)
 		friends = person.friends_set.all()
-		status = 'success'
+		linglipin = lingfou(friends)
+		#status = 'success'
 	except:
 		return HttpResponseRedirect('/songli/')
-	content = {'active_menu': 'songli', 'p_friends': friends}
+	content = {'active_menu': 'songli', 'p_friends': friends,'linglipin':linglipin}
 	return render_to_response('friends.html', content, context_instance=RequestContext(req))
 
 def addsongli(req):
