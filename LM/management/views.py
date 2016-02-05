@@ -303,7 +303,7 @@ def toaddperson(req):
 			person.save()
 			status='success'
 	content = {'active_menu': 'songli','person':person}
-	return render_to_response('addlingli.html', content, context_instance=RequestContext(req))
+	return render_to_response('addsongli.html', content, context_instance=RequestContext(req))
 
 
 def addsongli(req):
