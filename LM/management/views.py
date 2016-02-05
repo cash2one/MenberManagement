@@ -297,8 +297,8 @@ def toaddperson(req):
 		fd = Friends.objects.get(pk=Id)
 		if Person.objects.filter(pk=fd.f_tel):
 			status = 'user_exist'
-			content = {'active_menu': 'songli'}
-			return render_to_response('songli.html', content)
+			content = {'active_menu': 'addsongli'}
+			return render_to_response('user_exist.html', content)
 		else:
 			person = Person(name=fd.f_name,tel=fd.f_tel,gift=fd.f_gift,remarks=fd.f_remarks,partment=part)
 			person.save()
