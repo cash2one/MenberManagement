@@ -283,11 +283,11 @@ def songli_detail(req):
 	try:
 		person = Person.objects.get(pk=Id)
 		friends = person.friends_set.all()
-		linglipin = lingfou(friends)
+		#linglipin = lingfou(friends)
 		#status = 'success'
 	except:
 		return HttpResponseRedirect('/songli/')
-	content = {'active_menu': 'songli', 'p_friends': friends,'linglipin':linglipin}
+	content = {'active_menu': 'songli', 'p_friends': friends}
 	return render_to_response('friends.html', content, context_instance=RequestContext(req))
 
 def addsongli(req):
