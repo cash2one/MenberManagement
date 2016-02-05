@@ -40,7 +40,7 @@
 							<td>{{ friend.f_name }}</td>
                             <td>{{ friend.f_gift }}</td>
                             <td>{{ friend.f_remarks }}</td>
-						</tr>
+
 						{% empty %}
 						<tr>
 							<td>暂无人领取</td>
@@ -52,6 +52,7 @@
                             {% elif lipin == 'weiling' %}
                                 <td>未领</td>
                             {% endif %}
+                            </tr>
                         {% endfor %}
 					</tbody>
 				</table>
