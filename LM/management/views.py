@@ -266,8 +266,10 @@ def lingfou(friends):
 		p = Person.objects.filter(tel=fd.f_tel)
 		if p[0] != []:
 			lipin.add('yiling')
+			print('已经领取')
 		else:
 			lipin.add('weiling')
+			print('没有领取')
 
 	return list(lipin)
 
@@ -275,22 +277,13 @@ def lingfou(friends):
 
 def songli_detail(req):
 	Id = req.GET.get('id','')
-	lipin = set()
 	#status=''
 	if Id == '':
 		return HttpResponseRedirect('/songli/')
 	try:
 		person = Person.objects.get(pk=Id)
 		friends = person.friends_set.all()
-		for fd in friends:
-			if Person.objects.filter(tel=fd.f_tel)[0] != []:
-				lipin.add('yiling')
-				print('已经领取')
-			else:
-				lipin.add('weiling')
-				print('没有领取')
-
-		linglipin = list(lipin)
+		linglipin = lingfou(friends)
 		#status = 'success'
 	except:
 		return HttpResponseRedirect('/songli/')
