@@ -264,7 +264,7 @@ def lingfou(friends):
 	lipin = set()
 	for fd in friends:
 		p = Person.objects.filter(tel=fd.f_tel)
-		if p != []:
+		if p[0] != []:
 			lipin.add('yiling')
 		else:
 			lipin.add('weiling')
