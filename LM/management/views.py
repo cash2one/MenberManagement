@@ -363,7 +363,7 @@ def addfriends(req):
 		post = req.POST
 		name = post.get('f_name','')
 		tel = post.get('f_tel','')
-		gift = post.get('f_gift','')
+		gift = u'未领'
 		remarks = post.get('f_remarks','')
 		Id = post.get('f_id','')
 		person = Person.objects.get(pk=Id)
