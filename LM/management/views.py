@@ -368,7 +368,7 @@ def addfriends(req):
 		Id = post.get('f_id','')
 		person = Person.objects.get(pk=Id)
 
-		if Friends.objects.filter(f_tel=tel):
+		if Friends.objects.filter(f_tel__contains=tel):
 			status = 'user_exist'
 			content = {'active_menu': 'addsongli'}
 			return render_to_response('user_exist.html', content,context_instance=RequestContext(req))
