@@ -295,7 +295,7 @@ def toaddperson(req):
 		Id = req.GET.get('id','')
 		part = req.GET.get('part','')
 		fd = Friends.objects.get(pk=Id)
-		if Person.objects.filter(tel=fd.f_tel):
+		if Person.objects.filter(tel__contains=fd.f_tel):
 			status = 'user_exist'
 			content = {'active_menu': 'addsongli'}
 			return render_to_response('user_exist.html', content,context_instance=RequestContext(req))
@@ -368,14 +368,15 @@ def addfriends(req):
 		Id = post.get('f_id','')
 		person = Person.objects.get(pk=Id)
 
-		if person != '':
+		if Friends.objects.filter(f_tel=tel):
+			status = 'user_exist'
+			content = {'active_menu': 'addsongli'}
+			return render_to_response('user_exist.html', content,context_instance=RequestContext(req))
+
+		else:
 			friend = Friends(person=person,f_name=name,f_tel=tel,f_gift=gift,f_remarks=remarks)
 			friend.save()
 			status='success'
-		else:
-			status = 'error'
-			content = {'active_menu': 'addsongli','status':status }
-			return render_to_response('addfriends.html', content)
 	content = {'active_menu': 'addsongli', 'person': person,'status': status}
 	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
 
