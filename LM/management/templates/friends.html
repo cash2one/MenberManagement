@@ -29,7 +29,6 @@
 							<th>姓名</th>
                             <th>礼品</th>
 							<th>备注</th>
-                            <th>状态</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -46,8 +45,13 @@
 							<td>暂无人领取</td>
 						</tr>
 						{% endfor %}
-                        {% for lipin in linglipin %}
-                           <td>{{ lipin }}</td>
+                        <tr>
+                            <th>状态</th>
+                        </tr>
+                         {% for lipin in linglipin %}
+                        <tr>
+                             <td>{{ lipin }}</td>
+                        </tr>
                         {% endfor %}
 					</tbody>
 				</table>
