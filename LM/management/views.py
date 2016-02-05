@@ -285,8 +285,21 @@ def songli_detail(req):
 		#status = 'success'
 	except:
 		return HttpResponseRedirect('/songli/')
+	content = {'active_menu': 'songli', 'p_friends': friends,'person':person}
+	return render_to_response('friends.html', content, context_instance=RequestContext(req))
+
+def toaddperson(req):
+
+	Id = req.GET.get('id','')
+	if Id =='':
+		return HttpResponseRedirect('/songli/')
+	try:
+		friend = Friends.objects.get(pk=Id)
+
+
 	content = {'active_menu': 'songli', 'p_friends': friends}
 	return render_to_response('friends.html', content, context_instance=RequestContext(req))
+
 
 def addsongli(req):
 	persons = Person.objects.all()
