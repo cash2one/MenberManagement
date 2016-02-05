@@ -47,13 +47,7 @@
 						</tr>
 						{% endfor %}
                         {% for lipin in linglipin %}
-                            <tr>
-                           <td>{% lipin %}</td>
-                            </tr>
-                            {% empty %}
-                            <tr>
-                            <td>未领</td>
-                            </tr>
+                           <td>{{ lipin }}</td>
                         {% endfor %}
 					</tbody>
 				</table>
