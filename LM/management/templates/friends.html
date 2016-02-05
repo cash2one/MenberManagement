@@ -27,9 +27,10 @@
 							<th>#</th>
 							<th>电话</th>
 							<th>姓名</th>
-                            <th>礼品</th>
+                            <th>领礼品</th>
+                            <th>送礼品</th>
 							<th>备注</th>
-                            <th>状态</th>
+
 						</tr>
 					</thead>
 					<tbody>
@@ -39,6 +40,8 @@
 							<td>{{ friend.f_tel }}</td>
 							<td>{{ friend.f_name }}</td>
                             <td>{{ friend.f_gift }}</td>
+                            <td><a href="/addlingli/" >领礼品</a> </td>
+                            <td><a href="/addsongli/" >送礼品</a></td>
                             <td>{{ friend.f_remarks }}</td>
                         </tr>
 						{% empty %}
