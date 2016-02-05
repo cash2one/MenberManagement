@@ -29,6 +29,7 @@
 							<th>姓名</th>
                             <th>礼品</th>
 							<th>备注</th>
+                            <th>领取状态</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -45,6 +46,13 @@
 							<td>暂无人领取</td>
 						</tr>
 						{% endfor %}
+                        {% for lipin in linglipin %}
+                            {% if lipin ==''or lipin == 'null' %}
+                         <td>未领</td>
+                            {% elif lipin != '' or lipin != 'null'  %}
+                            <td>已领</td>
+                            {% endif %}
+                        {% endfor %}
 					</tbody>
 				</table>
 
