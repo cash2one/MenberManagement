@@ -298,7 +298,7 @@ def toaddperson(req):
 		if Person.objects.filter(pk=fd.f_tel):
 			status = 'user_exist'
 			content = {'active_menu': 'addsongli'}
-			return render_to_response('user_exist.html', content)
+			return render_to_response('user_exist.html', content,context_instance=RequestContext(req))
 		else:
 			person = Person(name=fd.f_name,tel=fd.f_tel,gift=fd.f_gift,remarks=fd.f_remarks,partment=part)
 			person.save()
