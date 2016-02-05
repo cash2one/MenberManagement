@@ -295,7 +295,7 @@ def toaddperson(req):
 		Id = req.GET.get('id','')
 		part = req.GET.get('part','')
 		fd = Friends.objects.get(pk=Id)
-		if Person.objects.filter(pk=fd.f_tel):
+		if Person.objects.filter(tel=fd.f_tel):
 			status = 'user_exist'
 			content = {'active_menu': 'addsongli'}
 			return render_to_response('user_exist.html', content,context_instance=RequestContext(req))
