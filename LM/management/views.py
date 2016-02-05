@@ -273,8 +273,6 @@ def lingfou(friends):
 
 	return list(lipin)
 
-
-
 def songli_detail(req):
 	Id = req.GET.get('id','')
 	#status=''
@@ -321,6 +319,24 @@ def friendsqiaojie(req):
 
 	content = {'active_menu': 'addsongli', 'person': person,'status': status}
 	return render_to_response('addfriends.html', content, context_instance=RequestContext(req))
+
+def modifyfriendslingli(req):
+	status = ''
+	if req.GET:
+		Id = req.GET.get('id','')
+		friend = Friends.objects.get(pk=Id)
+		if Id == '':
+			return HttpResponseRedirect('/addsongli/')
+		try:
+			Friends.objects.filter(id=Id).update(f_gift='yiling')
+			status = 'sucess'
+		except:
+			status = 'error'
+			return HttpResponseRedirect('/addsongli/')
+
+	content = {'active_menu': 'addsongli', 'friend': friend,'status': status}
+	return render_to_response('friendslingli.html', content, context_instance=RequestContext(req))
+
 
 def addfriends(req):
 	status=''
