@@ -275,6 +275,7 @@ def lingfou(friends):
 
 def songli_detail(req):
 	Id = req.GET.get('id','')
+	lipin = set()
 	#status=''
 	if Id == '':
 		return HttpResponseRedirect('/songli/')
