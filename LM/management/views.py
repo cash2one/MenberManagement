@@ -343,11 +343,12 @@ def modifyfriendslingli(req):
 	status = ''
 	if req.GET:
 		Id = req.GET.get('id','')
-		friend = Friends.objects.get(pk=Id)
+
 		if Id == '':
 			return HttpResponseRedirect('/addsongli/')
 		try:
 			Friends.objects.filter(id=Id).update(f_gift=u'水晶吊坠')
+			friend = Friends.objects.get(pk=Id)
 			status = 'sucess'
 		except:
 			status = 'error'
