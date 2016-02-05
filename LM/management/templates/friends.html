@@ -48,6 +48,10 @@
 						{% endfor %}
                         {% for lipin in linglipin %}
                            {% lipin %}
+                            {% empty %}
+						<tr>
+							<td>暂无人领取</td>
+						</tr>
                         {% endfor %}
 					</tbody>
 				</table>
