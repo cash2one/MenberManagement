@@ -290,6 +290,7 @@ def songli_detail(req):
 
 def toaddperson(req):
 	status = ''
+	p = Person.objects.all()
 	if req.GET:
 		Id = req.GET.get('id','')
 		part = req.GET.get('part','')
@@ -302,7 +303,7 @@ def toaddperson(req):
 			person = Person(name=fd.f_name,tel=fd.f_tel,gift=fd.f_gift,remarks=fd.f_remarks,partment=part)
 			person.save()
 			status='success'
-	content = {'active_menu': 'songli','person':person}
+	content = {'active_menu': 'songli','person_lst':p}
 	return render_to_response('addsongli.html', content, context_instance=RequestContext(req))
 
 
