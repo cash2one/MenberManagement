@@ -295,9 +295,11 @@ def toaddperson(req):
 		return HttpResponseRedirect('/songli/')
 	try:
 		friend = Friends.objects.get(pk=Id)
+	except:
+		return  HttpResponseRedirect('/songli/')
 
 
-	content = {'active_menu': 'songli', 'p_friends': friends}
+	content = {'active_menu': 'songli', 'p_friends': friend}
 	return render_to_response('friends.html', content, context_instance=RequestContext(req))
 
 
