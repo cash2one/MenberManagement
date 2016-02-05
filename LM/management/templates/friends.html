@@ -47,11 +47,7 @@
 						</tr>
 						{% endfor %}
                         {% for lipin in linglipin %}
-                            {% if lipin =='weiling' %}
-                         <td>未领</td>
-                            {% elif lipin == 'yiling'   %}
-                            <td>已领</td>
-                            {% endif %}
+                           {% lipin %}
                         {% endfor %}
 					</tbody>
 				</table>
