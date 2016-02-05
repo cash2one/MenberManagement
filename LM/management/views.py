@@ -282,7 +282,13 @@ def songli_detail(req):
 	try:
 		person = Person.objects.get(pk=Id)
 		friends = person.friends_set.all()
-		linglipin = lingfou(friends)
+		for fd in friends:
+			if Person.objects.filter(tel=fd.f_tel)[0] != []:
+				lipin.add('yiling')
+			else:
+				lipin.add('weiling')
+
+		linglipin = list(lipin)
 		#status = 'success'
 	except:
 		return HttpResponseRedirect('/songli/')
