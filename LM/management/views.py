@@ -289,18 +289,21 @@ def songli_detail(req):
 	return render_to_response('friends.html', content, context_instance=RequestContext(req))
 
 def toaddperson(req):
-
-	Id = req.GET.get('id','')
-	if Id =='':
-		return HttpResponseRedirect('/songli/')
-	try:
-		friend = Friends.objects.get(pk=Id)
-	except:
-		return  HttpResponseRedirect('/songli/')
-
-
-	content = {'active_menu': 'songli', 'p_friends': friend}
-	return render_to_response('friends.html', content, context_instance=RequestContext(req))
+    status = ''
+	if req.GET:
+		Id = req.GET.get('id','')
+		part = req.GET.get('part','')
+		fd = Friends.objects.get(pk=Id)
+		if Person.objects.filter(pk=fd.f_tel):
+			status = 'user_exist'
+			content = {'active_menu': 'songli'}
+			return render_to_response('songli.html', content)
+		else:
+			person = Person(name=fd.f_name,tel=fd.f_tel,gift=fd.f_gift,remarks=fd.f_remarks,partment=part)
+			person.save()
+			status='success'
+	content = {'active_menu': 'songli','person':person}
+	return render_to_response('addlingli.html', content, context_instance=RequestContext(req))
 
 
 def addsongli(req):
