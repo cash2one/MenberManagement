@@ -19,7 +19,7 @@
 			<form action='/addsongli/addfriends/'method="POST" role="form" class="form-horizontal" name="mobileform"  onSubmit="return checkMobile();">
 				{% csrf_token %}
                <input type="hidden" name="f_id" id="f_id" value="{{person.id}}" />
-               <input type="hidden" name="f_gift" id="f_gift" value="weiling" />
+               <input type="hidden" name="f_gift" id="f_gift" value="未领" />
                 <input type="hidden" name="f_remarks" id="f_remarks" value="" />
 				<h1 class="form-signin-heading text-center">我要送礼</h1>
 
