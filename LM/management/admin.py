@@ -2,7 +2,7 @@ from django.contrib import admin
 from management.models import *
 
 class MenberAdmin(admin.ModelAdmin):
-    list_display =('name','job','form_date')
+    list_display =('menber_tel','menber_name','reg_date')
     search_fields = ('name',)
 
 '''
