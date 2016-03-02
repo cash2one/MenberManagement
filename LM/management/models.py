@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-import django.utils.timezone as timezone
 
-
+'''
 class Courses(models.Model):
     course_name = models.CharField(max_length=50,verbose_name=u"课程名")
     course_subject = models.TextField(verbose_name=u"课程纲要")
@@ -47,6 +46,19 @@ class Menbers(models.Model):
     class Meta:
         verbose_name = "学员"
         verbose_name_plural ="学员"
+'''
+class Menbers(models.Model):
+    user = models.OneToOneField(User)
+    permission = models.IntegerField()
+    menber_name = models.CharField(max_length=30,verbose_name=u"姓名")
+    menber_tel =  models.CharField(max_length=30,verbose_name=u"电话")
+    menber_mail = models.CharField(max_length=30,verbose_name=u"邮箱")
+
+    def __str__(self):
+        return u'%s %s' %(self.menber_name,self.menber_tel)
+    class Meta:
+        verbose_name = "员工"
+        verbose_name_plural ="员工"
 
 class Person(models.Model):
     tel = models.CharField(max_length=30,verbose_name=u"电话")
