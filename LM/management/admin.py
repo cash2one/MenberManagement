@@ -2,8 +2,8 @@ from django.contrib import admin
 from management.models import *
 
 class MenberAdmin(admin.ModelAdmin):
-    list_display =('menber_name','menber_address','menber_city','menber_store','menber_tel')
-    search_fields = ('menber_name',)
+    list_display =('name','job','form_date')
+    search_fields = ('name',)
 
 '''
 class CourseAdmin(admin.ModelAdmin):
