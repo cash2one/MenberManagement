@@ -53,12 +53,79 @@ class Menbers(models.Model):
     menber_name = models.CharField(max_length=30,verbose_name=u"姓名")
     menber_tel =  models.CharField(max_length=30,verbose_name=u"电话")
     menber_mail = models.CharField(max_length=30,verbose_name=u"邮箱")
-
+    reg_date  = models.Model(auto_now_add=True,verbose_name=u"注册日期")
     def __str__(self):
         return u'%s %s' %(self.menber_name,self.menber_tel)
     class Meta:
         verbose_name = "员工"
         verbose_name_plural ="员工"
+
+class Personnel(models.Model):
+    job = models.CharField(max_length=30,verbose_name=u"职位")
+    form_date = models.DateField(auto_now_add=True,verbose_name=u"填表日期")
+    name = models.CharField(max_length=30,verbose_name=u"姓名")
+    sex = models.CharField(max_length=10,verbose_name=u"性别")
+    birth_date = models.DateField(verbose_nadme=u"填表日期")
+    height = models.CharField(max_length=10,verbose_name=u"身高")
+    weight = models.CharField(max_length=10,verbose_name=u"体重")
+    jiguan = models.CharField(max_length=10,verbose_name=u"籍贯")
+    xingge = models.CharField(max_length=30,verbose_name=u"性格")
+    minzu = models.CharField(max_length=10,verbose_name=u"民族")
+    marry = models.CharField(max_length=10,verbose_name=u"婚姻")
+    tel = models.CharField(max_length=30,verbose_name=u"手机")
+    skill = models.CharField(max_length=30,verbose_name=u"特长")
+    wenping = models.CharField(max_length=30,verbose_name=u"文化程度")
+    shenfenzheng = models.CharField(max_length=40,verbose_name=u"身份证")
+    daogang = models.CharField(max_length=30,verbose_name=u"到岗时间")
+    huji = models.CharField(max_length=30,verbose_name=u"户籍")
+    address = models.CharField(max_length=60,verbose_name=u"性别")
+    master_start = models.DateField(verbose_name=u"硕士开始")
+    master_end = models.DateField(verbose_name=u"硕士结束")
+    university_start = models.DateField(verbose_name=u"大学开始")
+    university_end = models.DateFieldd(vebose_name=u"大学结束")
+    middle_start = models.DateField(verbose_name=u"中学开始")
+    moddle_end = models.DateField(verbose_name=u"中学开始")
+    name_first  = models.CharField(max_length=30,verbose_name=u"1亲属姓名")
+    relative_first = models.CharField(max_length=30,verbose_name=u"1关系")
+    company_first = models.CharField(max_length=60,verbose_name=u"1工作单位")
+    job_first = models.CharField(max_length=30,verbose_name=u"1职位")
+    tel_first = models.CharField(max_length=30,verbose_name=u"1联系电话")
+    name_second  = models.CharField(max_length=30,verbose_name=u"2亲属姓名")
+    relative_second = models.CharField(max_length=30,verbose_name=u"2关系")
+    company_second = models.CharField(max_length=60,verbose_name=u"2工作单位")
+    job_second = models.CharField(max_length=30,verbose_name=u"2职位")
+    tel_second = models.CharField(max_length=30,verbose_name=u"2联系电话")
+    name_third  = models.CharField(max_length=30,verbose_name=u"3亲属姓名")
+    relative_third = models.CharField(max_length=30,verbose_name=u"3关系")
+    company_third = models.CharField(max_length=60,verbose_name=u"3工作单位")
+    job_third = models.CharField(max_length=30,verbose_name=u"3职位")
+    tel_third = models.CharField(max_length=30,verbose_name=u"3联系电话")
+    work_firstart = models.CharField(max_length=30,verbose_name=u"1工作开始")
+    work_firstend = models.CharField(max_length=30,verbose_name=u"1工作结束")
+    first_company = models.CharField(max_length=30,verbose_name=u"1工作单位")
+    first_job = models.CharField(max_length=30,verbose_name=u"1职务")
+    first_tel = models.CharField(max_length=30,verbose_name=u"1联系电话")
+    work_secondtart = models.CharField(max_length=30,verbose_name=u"2工作开始")
+    work_secondend = models.CharField(max_length=30,verbose_name=u"2工作结束")
+    second_company = models.CharField(max_length=30,verbose_name=u"2工作单位")
+    second_job = models.CharField(max_length=30,verbose_name=u"2职务")
+    second_tel = models.CharField(max_length=30,verbose_name=u"2联系电话")
+    work_thirdstart = models.CharField(max_length=30,verbose_name=u"3工作开始")
+    work_thirdend = models.CharField(max_length=30,verbose_name=u"3工作结束")
+    third_company = models.CharField(max_length=30,verbose_name=u"3工作单位")
+    third_job = models.CharField(max_length=30,verbose_name=u"3职务")
+    third_tel = models.CharField(max_length=30,verbose_name=u"3联系电话")
+    salary = models.CharField(max_length=30,verbose_name=u"期望薪水")
+    obey = models.CharField(max_length=10,verbose_name=u"是否服从")
+    other = models.TextField(verbose_name=u"其他说明")
+    evaluate = models.TextField(verbose_name=u"综合评估")
+
+    def __str__(self):
+        return u'%s %s' %(self.name,self.job)
+    class Meta:
+        verbose_name="人才登记表"
+        verbose_name_plural="人才登记表"
+        ordering = ["-form_date"]
 
 class Person(models.Model):
     tel = models.CharField(max_length=30,verbose_name=u"电话")
