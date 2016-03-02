@@ -65,7 +65,7 @@ class Personnel(models.Model):
     form_date = models.DateField(auto_now_add=True,verbose_name=u"填表日期")
     name = models.CharField(max_length=30,verbose_name=u"姓名")
     sex = models.CharField(max_length=10,verbose_name=u"性别")
-    birth_date = models.DateField(auto_now_add=True,verbose_nadme=u"填表日期")
+    birth_date = models.DateField(auto_now_add=True,verbose_name=u"填表日期")
     height = models.CharField(max_length=10,verbose_name=u"身高")
     weight = models.CharField(max_length=10,verbose_name=u"体重")
     jiguan = models.CharField(max_length=10,verbose_name=u"籍贯")
