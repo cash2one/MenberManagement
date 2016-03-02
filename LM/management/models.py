@@ -82,7 +82,7 @@ class Personnel(models.Model):
     master_start = models.DateField(auto_now_add=True,verbose_name=u"硕士开始")
     master_end = models.DateField(auto_now_add=True,verbose_name=u"硕士结束")
     university_start = models.DateField(auto_now_add=True,verbose_name=u"大学开始")
-    university_end = models.DateField(auto_now_add=True,vebose_name=u"大学结束")
+    university_end = models.DateField(auto_now_add=True,verbose_name=u"大学结束")
     middle_start = models.DateField(auto_now_add=True,verbose_name=u"中学开始")
     moddle_end = models.DateField(auto_now_add=True,verbose_name=u"中学开始")
     name_first  = models.CharField(max_length=30,verbose_name=u"1亲属姓名")
