@@ -404,6 +404,13 @@ def addperson(req):
 	content = {'active_menu': 'addlingli','status': status}
 	return render_to_response('addperson.html', content, context_instance=RequestContext(req))
 
+def addpersonnels(req):
+	status = ''
+	content = {'active_menu': 'addpersonnel','status': status}
+	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
+
+
+
 """
 代码重构，共性的东西抽取出来。
 urlpatterns = patterns(
