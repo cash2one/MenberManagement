@@ -406,7 +406,64 @@ def addperson(req):
 
 def addpersonnels(req):
 	status = ''
-	content = {'active_menu': 'addpersonnel','status': status}
+
+	username = req.session.get('username','')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	if req.POST:
+		post = req.POST
+		job = post.get('job','')
+		form_date = post.get('form_date','')
+		name = post.get('name','')
+		sex = post.get('sex','')
+		birth_date = post.get('birth_date','')
+		height = post.get('height','')
+		weight = post.get('weight','')
+		jiguan = post.get('jiguan','')
+		xingge = post.get('xingge','')
+		minzu = post.get('minzu','')
+		marry = post.get('marry','')
+		tel = post.get('tel','')
+		skill = post.get('skill','')
+		wenping = post.get('wenping','')
+		shenfenzheng = post.get('shenfenzheng','')
+		daogang = post.get('daogang','')
+		huji = post.get('huji','')
+		address = post.get('address','')
+		salary = post.get('salary','')
+		obey  = post.get('obey','')
+		other = post.get('other','')
+		evaluate = post.get('evaluate','')
+
+		edu_satrt = post.getlist('edu_start',[])
+		edu_end = post.getlist('edu_end',[])
+		college = post.getlist('college',[])
+		professional = post.getlist('professional',[])
+		education = post.getlist('education',[])
+		nature = post.getlist('nature',[])
+		mark = post.getlist('mark',[])
+
+		re_name = post.getlist('re_name',[])
+		relation = post.getlist('relation',[])
+		work = post.getlist('work',[])
+		re_job = post.getlist('re_job',[])
+		re_tel = post.getlist('re_tel',[])
+
+		w_start = post.getlist('w_start',[])
+		w_end = post.getlist('w_end',[])
+		company = post.getlist('company',[])
+		w_job = post.getlist('w_job',[])
+		w_salary = post.getlist('w_salary',[])
+		quit = post.getlist('quit','')
+		references = post.getlist('references',[])
+		w_tel = post.getlist('w_tel',[])
+
+
+
+	content = {'active_menu': 'addpersonnel','status': status，'user':user}
 	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
 
