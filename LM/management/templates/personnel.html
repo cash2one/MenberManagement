@@ -16,66 +16,60 @@
 				{% csrf_token %}
 				<h1 class="form-signin-heading text-center">添加崇德书院学员</h1>
 
-				<div class="form-group">
-					<label for="id_menber_name" class="col-md-3 control-label">姓名：</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" id="id_menber_name" required name="menber_name" autofocus>
-					</div>
-				</div>
+				<table class="table table-bordered">
+   <caption>边框表格布局</caption>
+   <thead>
+      <tr>
+         <th>名称</th>
+         <th>城市</th>
+         <th>密码</th><table class="table table-bordered">
+   <caption>边框表格布局</caption>
+   <thead>
+      <tr>
+         <th>名称</th>
+         <th>城市</th>
+         <th>密码</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Tanmay</td>
+         <td>Bangalore</td>
+         <td>560001</td>
+      </tr>
+      <tr>
+         <td>Sachin</td>
+         <td>Mumbai</td>
+         <td>400003</td>
+      </tr>
+      <tr>
+         <td>Uma</td>
+         <td>Pune</td>
+         <td>411027</td>
+      </tr>
+   </tbody>
+</table>
 
-				<div class="form-group">
-					<label for="id_menber_tel" class="col-md-3 control-label">电话：</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" required name="menber_tel" id="id_menber_tel">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="id_menber_store" class="col-md-3 control-label">店铺：</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" required name="menber_store" id="id_menber_store">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="id_menber_typ" class="col-md-3 control-label">我是：</label>
-					<div class="col-md-9">
-
-                       <label class="checkbox-inline">
-                          <input type="radio" name="menber_typ" id="id_menber_typ"
-                             value="老板" checked> 老板
-                       </label>
-                       <label class="checkbox-inline">
-                          <input type="radio" name="menber_typ" id="id_menber_typ"
-                             value="店长"> 店长
-                       </label>
-                        <label class="checkbox-inline">
-                          <input type="radio" name="menber_typ" id="id_menber_typ"
-                             value="员工"> 员工
-                       </label>
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="id_menber_city" class="col-md-3 control-label">城市：</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" required name="menber_city" id="id_menber_city">
-					</div>
-				</div>
-
-				<div class="form-group">
-					<label for="id_menber_address" class="col-md-3 control-label">地址：</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" required name="menber_address" id="id_menber_address">
-					</div>
-				</div>
-
-
-				<div class="form-group">
-					<div class="col-md-4 col-md-offset-4">
-						<button class="btn btn btn-primary btn-block" type="submit">提交</button>
-					</div>
-				</div>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td>Tanmay</td>
+         <td>Bangalore</td>
+         <td>560001</td>
+      </tr>
+      <tr>
+         <td>Sachin</td>
+         <td>Mumbai</td>
+         <td>400003</td>
+      </tr>
+      <tr>
+         <td>Uma</td>
+         <td>Pune</td>
+         <td>411027</td>
+      </tr>
+   </tbody>
+</table>
 			</form>
 		</div>
 	</div>
