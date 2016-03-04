@@ -415,28 +415,32 @@ def addpersonnels(req):
 
 	if req.POST:
 		post = req.POST
-		job = post.get('job','')
-		form_date = post.get('form_date','')
-		name = post.get('name','')
-		sex = post.get('sex','')
-		birth_date = post.get('birth_date','')
-		height = post.get('height','')
-		weight = post.get('weight','')
-		jiguan = post.get('jiguan','')
-		xingge = post.get('xingge','')
-		minzu = post.get('minzu','')
-		marry = post.get('marry','')
-		tel = post.get('tel','')
-		skill = post.get('skill','')
-		wenping = post.get('wenping','')
-		shenfenzheng = post.get('shenfenzheng','')
-		daogang = post.get('daogang','')
-		huji = post.get('huji','')
-		address = post.get('address','')
-		salary = post.get('salary','')
-		obey  = post.get('obey','')
-		other = post.get('other','')
-		evaluate = post.get('evaluate','')
+		personnel = Personnel(
+			job = post.get('job',''),\
+			form_date = post.get('form_date',''),\
+			name = post.get('name',''),\
+			sex = post.get('sex',''),\
+			birth_date = post.get('birth_date',''),\
+			height = post.get('height',''),\
+			weight = post.get('weight',''),\
+			jiguan = post.get('jiguan',''),\
+			xingge = post.get('xingge',''),\
+			minzu = post.get('minzu',''),\
+			marry = post.get('marry',''),\
+			tel = post.get('tel',''),\
+			skill = post.get('skill',''),\
+			wenping = post.get('wenping',''),\
+			shenfenzheng = post.get('shenfenzheng',''),\
+			daogang = post.get('daogang',''),\
+			huji = post.get('huji',''),\
+			address = post.get('address',''),\
+			salary = post.get('salary',''),\
+			obey  = post.get('obey',''),\
+			other = post.get('other',''),\
+			evaluate = post.get('evaluate',''),\
+		)
+		personnel.save()
+
 
 		edu_satrt = post.getlist('edu_start',[])
 		edu_end = post.getlist('edu_end',[])
