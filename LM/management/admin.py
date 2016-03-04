@@ -15,17 +15,18 @@ class SignAdmin(admin.ModelAdmin):
 '''
 class PersonAdmin(admin.ModelAdmin):
     list_display = ('tel','name','gift')
+    search_fields = ('name',)
 
 class FriendsAdmin(admin.ModelAdmin):
     list_display = ('f_tel','f_name','f_gift')
 
-class EducationAdmin(admin,ModelAdmin):
+class EducationAdmin(admin.ModelAdmin):
     list_display = ('college','professional')
 
-class RelativeAdmin(admin,ModelAdmin):
+class RelativeAdmin(admin.ModelAdmin):
     list_display = ('re_name','relation')
 
-class WorkExperienceAdmin(admin,ModelAdmin):
+class WorkExperienceAdmin(admin.ModelAdmin):
     list_display = ('company','w_job')
 
 
