@@ -60,35 +60,6 @@ class Menbers(models.Model):
         verbose_name = "员工"
         verbose_name_plural ="员工"
 
-class Education(models.Model):
-    personnel = models.ForeignKey(Personnel)
-    edu_start = models.DateField(auto_now_add=True,verbose_name=u"入学时间")
-    edu_end = models.DateField(auto_now_add=True,verbose_name=u"毕业时间")
-    college = models.CharField(max_length=30,verbose_name=u"院校")
-    professional = models.CharField(max_length=20,verbose_name=u"专业")
-    education = models.CharField(max_length=30,verbose_name=u"学历")
-    nature = models.CharField(blank=True,max_length=30,verbose_name=u"性质")
-    mark = models.CharField(blank=True,max_length=30,verbose_name=u"院校")
-
-class Relative(models.Model):
-    personnel = models.ForeignKey(Personnel)
-    re_name = models.CharField(max_length=20,verbose_name=u"姓名")
-    relation = models.CharField(max_length=20,verbose_name=u"关系")
-    work = models.CharField(blank=True,max_length=20,verbose_name=u"工作")
-    re_job = models.CharField(blank=True,max_length=20,verbose_name=u"职务")
-    re_tel = models.CharField(blank=True,max_length=30,verbose_name=u"联系电话")
-
-class WorkExperience(models.Model):
-    personnel = models.ForeignKey(Personnel)
-    w_start = models.DateField(auto_now_add=True,verbose_name=u"入职时间")
-    w_end = models.DateField(auto_now_add=True,verbose_name=u"离职时间")
-    company = models.CharField(max_length=50,verbose_name=u"工作单位")
-    w_job = models.CharField(max_length=20,verbose_name=u"职务")
-    salary = models.CharField(max_length=30,verbose_name=u"薪水")
-    quit = models.CharField(blank=True,max_length=50,verbose_name=u"离职原因")
-    references = models.CharField(blank=True,max_length=20,verbose_name=u"证明人")
-    w_tel = models.CharField(max_length=30,verbose_name=u"电话")
-
 class Personnel(models.Model):
     job = models.CharField(max_length=30,verbose_name=u"职位")
     form_date = models.DateField(auto_now_add=True,verbose_name=u"填表日期")
@@ -119,6 +90,55 @@ class Personnel(models.Model):
         verbose_name="人才登记表"
         verbose_name_plural="人才登记表"
         ordering = ["-form_date"]
+
+class Education(models.Model):
+    personnel = models.ForeignKey(Personnel)
+    edu_start = models.DateField(auto_now_add=True,verbose_name=u"入学时间")
+    edu_end = models.DateField(auto_now_add=True,verbose_name=u"毕业时间")
+    college = models.CharField(max_length=30,verbose_name=u"院校")
+    professional = models.CharField(max_length=20,verbose_name=u"专业")
+    education = models.CharField(max_length=30,verbose_name=u"学历")
+    nature = models.CharField(blank=True,max_length=30,verbose_name=u"性质")
+    mark = models.CharField(blank=True,max_length=30,verbose_name=u"院校")
+    def __str__(self):
+        return u'%s %s' %(self.name,self.job)
+    class Meta:
+        verbose_name="教育培训"
+        verbose_name_plural="教育培训"
+        ordering = ["-edu_end"]
+
+class Relative(models.Model):
+    personnel = models.ForeignKey(Personnel)
+    re_name = models.CharField(max_length=20,verbose_name=u"姓名")
+    relation = models.CharField(max_length=20,verbose_name=u"关系")
+    work = models.CharField(blank=True,max_length=20,verbose_name=u"工作")
+    re_job = models.CharField(blank=True,max_length=20,verbose_name=u"职务")
+    re_tel = models.CharField(blank=True,max_length=30,verbose_name=u"联系电话")
+    def __str__(self):
+        return u'%s %s' %(self.re_name,self.relation)
+    class Meta:
+        verbose_name="家庭背景"
+        verbose_name_plural="家庭背景"
+
+
+class WorkExperience(models.Model):
+    personnel = models.ForeignKey(Personnel)
+    w_start = models.DateField(auto_now_add=True,verbose_name=u"入职时间")
+    w_end = models.DateField(auto_now_add=True,verbose_name=u"离职时间")
+    company = models.CharField(max_length=50,verbose_name=u"工作单位")
+    w_job = models.CharField(max_length=20,verbose_name=u"职务")
+    salary = models.CharField(max_length=30,verbose_name=u"薪水")
+    quit = models.CharField(blank=True,max_length=50,verbose_name=u"离职原因")
+    references = models.CharField(blank=True,max_length=20,verbose_name=u"证明人")
+    w_tel = models.CharField(max_length=30,verbose_name=u"电话")
+    def __str__(self):
+        return u'%s %s' %(self.company,self.w_job)
+    class Meta:
+        verbose_name="工作经验"
+        verbose_name_plural="工作经验"
+        ordering = ["-w_end"]
+
+
 
 class Person(models.Model):
     tel = models.CharField(max_length=30,verbose_name=u"电话")
