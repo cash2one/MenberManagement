@@ -127,7 +127,7 @@ class WorkExperience(models.Model):
     w_end = models.DateField(auto_now_add=True,verbose_name=u"离职时间")
     company = models.CharField(max_length=50,verbose_name=u"工作单位")
     w_job = models.CharField(max_length=20,verbose_name=u"职务")
-    salary = models.CharField(blank=True,max_length=30,verbose_name=u"薪水")
+    w_salary = models.CharField(blank=True,max_length=30,verbose_name=u"薪水")
     quit = models.CharField(blank=True,max_length=50,verbose_name=u"离职原因")
     references = models.CharField(blank=True,max_length=20,verbose_name=u"证明人")
     w_tel = models.CharField(max_length=30,verbose_name=u"电话")
