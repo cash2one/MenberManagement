@@ -87,7 +87,7 @@ class WorkExperience(models.Model):
     w_tel = models.CharField(max_length=30,verbose_name=u"电话")
 
 class Personnel(models.Model):
-    edu = models.OneToOneField(Education)
+    education = models.OneToOneField(Education)
     relative = models.OneToOneField(Relative)
     experience = models.OneToOneField(WorkExperience)
     job = models.CharField(max_length=30,verbose_name=u"职位")
