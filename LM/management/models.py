@@ -61,6 +61,7 @@ class Menbers(models.Model):
         verbose_name_plural ="员工"
 
 class Education(models.Model):
+    personnel = models.ForeignKey(Personnel)
     edu_start = models.DateField(auto_now_add=True,verbose_name=u"入学时间")
     edu_end = models.DateField(auto_now_add=True,verbose_name=u"毕业时间")
     college = models.CharField(max_length=30,verbose_name=u"院校")
@@ -70,6 +71,7 @@ class Education(models.Model):
     mark = models.CharField(blank=True,max_length=30,verbose_name=u"院校")
 
 class Relative(models.Model):
+    personnel = models.ForeignKey(Personnel)
     re_name = models.CharField(max_length=20,verbose_name=u"姓名")
     relation = models.CharField(max_length=20,verbose_name=u"关系")
     work = models.CharField(blank=True,max_length=20,verbose_name=u"工作")
@@ -77,6 +79,7 @@ class Relative(models.Model):
     re_tel = models.CharField(blank=True,max_length=30,verbose_name=u"联系电话")
 
 class WorkExperience(models.Model):
+    personnel = models.ForeignKey(Personnel)
     w_start = models.DateField(auto_now_add=True,verbose_name=u"入职时间")
     w_end = models.DateField(auto_now_add=True,verbose_name=u"离职时间")
     company = models.CharField(max_length=50,verbose_name=u"工作单位")
@@ -87,9 +90,6 @@ class WorkExperience(models.Model):
     w_tel = models.CharField(max_length=30,verbose_name=u"电话")
 
 class Personnel(models.Model):
-    education = models.OneToOneField(Education)
-    relative = models.OneToOneField(Relative)
-    experience = models.OneToOneField(WorkExperience)
     job = models.CharField(max_length=30,verbose_name=u"职位")
     form_date = models.DateField(auto_now_add=True,verbose_name=u"填表日期")
     name = models.CharField(max_length=30,verbose_name=u"姓名")
