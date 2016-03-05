@@ -439,6 +439,30 @@ def addpersonnels(req):
 	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
 	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
+def education(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	if req.POST:
+		post = req.POST
+		edu_satrt = post.getlist('edu_start',[])
+		edu_end = post.getlist('edu_end',[])
+		college = post.getlist('college',[])
+		professional = post.getlist('professional',[])
+		education = post.getlist('education',[])
+		nature = post.getlist('nature',[])
+		mark = post.getlist('mark',[])
+
+	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
+	return render_to_response('education.html', content, context_instance=RequestContext(req))
+
+
+
+
 
 
 """
