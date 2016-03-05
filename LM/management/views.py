@@ -465,8 +465,6 @@ def addpersonnels(req):
 		references = post.getlist('references',[])
 		w_tel = post.getlist('w_tel',[])
 
-
-
 	content = {'active_menu': 'addpersonnel','status': status，'user':user}
 	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
