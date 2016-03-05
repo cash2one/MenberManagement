@@ -12,7 +12,7 @@
 					<h2 class="text-success text-center">添加成功</h2>
 				</div>
 			{% endif %}
-			<form method="POST" action="/addpersonnels/" role="form" class="form-horizontal">
+			<form method="POST"  role="form" class="form-horizontal">
 				{% csrf_token %}
 				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
 
@@ -55,12 +55,12 @@
                 <div class="form-group">
                      <label for="id_height" class="col-md-2 control-label">身高(cm):</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_height" required name="height" autofocus>
+						<input type="text" class="form-control" id="id_height" value=" " name="height" autofocus>
 					</div>
 
                      <label for="id_weight" class="col-md-2 control-label">体重(kg):</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_weight" required name="weight" autofocus>
+						<input type="text" class="form-control" id="id_weight" value=" " name="weight" autofocus>
 					</div>
 
                      <label for="id_jiguan" class="col-md-2 control-label">籍贯:</label>
@@ -101,7 +101,7 @@
 
                      <label for="id_skill" class="col-md-2 control-label">特长:</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_skill" required name="skill" autofocus>
+						<input type="text" class="form-control" id="id_skill" value=" " name="skill" autofocus>
 					</div>
 
                      <label for="id_wenping" class="col-md-2 control-label">文化程度:</label>
@@ -119,7 +119,7 @@
 
                     <label for="id_daogang" class="col-md-2 control-label">何时到岗:</label>
 					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_daogang" required name="daogang" autofocus>
+						<input type="date" class="form-control" id="id_daogang"  value=" " name="daogang" autofocus>
 					</div>
 
                      <label for="id_address" class="col-md-2 control-label">住址:</label>
@@ -147,14 +147,14 @@
 					</div>
                     <label for="id_salary" class="col-md-2 control-label">期望工资收入:</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_salary" required name="salary" autofocus>
+						<input type="text" class="form-control" id="id_salary" value=" " name="salary" autofocus>
 					</div>
 				</div>
 
                  <div class="form-group">
 					<label for="id_other" class="col-md-2 control-label">其他说明:</label>
 					<div class="col-md-10">
-						<input type="textarea" class="form-control" id="id_other" required name="other" autofocus>
+						<input type="textarea" class="form-control" id="id_other" value=" " name="other" autofocus>
 					</div>
 				</div>
 
