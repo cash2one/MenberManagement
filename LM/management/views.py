@@ -50,7 +50,7 @@ def signup(req):
 
 
 def login(req):
-	if req.session.get('username','')
+	if req.session.get('username',''):
 		return HttpResponseRedirect('/')
 	status = ''
 	if req.POST:
@@ -261,10 +261,8 @@ def lingfou(friends):
 		p = Person.objects.filter(tel=fd.f_tel)
 		if p[0] != []:
 			lipin.add('yiling')
-			print('已经领取')
 		else:
 			lipin.add('weiling')
-			print('没有领取')
 
 	return list(lipin)
 
