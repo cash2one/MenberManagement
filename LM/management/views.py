@@ -53,6 +53,7 @@ def login(req):
 	if req.session.get('username', ''):
 		return HttpResponseRedirect('/')
 	status = ''
+	user = ''
 	if req.POST:
 		post = req.POST
 		username = post.get('username', '')
