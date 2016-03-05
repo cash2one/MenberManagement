@@ -403,8 +403,10 @@ def addpersonnels(req):
 		user = Menbers.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
+	'''
 	if user.permission < 2:
 		return HttpResponseRedirect('/')
+		'''
 	if req.POST:
 		post = req.POST
 		personnel = Personnel(
