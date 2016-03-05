@@ -53,7 +53,6 @@ def login(req):
 	if req.session.get('username', ''):
 		return HttpResponseRedirect('/')
 	status = ''
-	user = ''
 	if req.POST:
 		post = req.POST
 		username = post.get('username', '')
@@ -68,7 +67,7 @@ def login(req):
 				status = 'not_active'
 		else:
 			status = 'not_exist_or_passwd_err'
-	content = {'active_menu': 'homepage', 'status': status, 'user': user}
+		content = {'active_menu': 'homepage', 'status': status, 'user': user}
 	return render_to_response('login.html', content, context_instance=RequestContext(req))
 
 
