@@ -14,7 +14,7 @@
 			{% endif %}
 			<form method="POST" action="/relative/" role="form" class="form-horizontal">
 				{% csrf_token %}
-				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
+				<h1 class="form-signin-heading text-center">家庭背景</h1>
 
                 <div class="form-group">
 					<label for="id_job" class="col-md-2 control-label">应聘职位:</label>
@@ -27,8 +27,6 @@
 						<input type="text" class="form-control" id="id_form_date" required name="form_date" autofocus>
 					</div>
 				</div>
-
-                 <label  class="col-md-12 control-label"><h3 class="form-signin-heading text-center">家庭背景</h3></label>
 
                  <div class="form-group">
 					<label for="id_re_name" class="col-md-2 control-label">姓名:</label>
