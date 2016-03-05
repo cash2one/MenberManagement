@@ -437,7 +437,7 @@ def addpersonnels(req):
 		personnel.save()
 		status = 'success'
 	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
-	return render_to_response('addpersonnel.html', content, context_instance=RequestContext(req))
+	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
 
 
