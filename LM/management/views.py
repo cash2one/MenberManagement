@@ -46,7 +46,7 @@ def signup(req):
 				new_menber.save()
 				status = 'success'
 	content = {'active_menu': 'homepage', 'status': status, 'user': ''}
-	return render_to_response('signup.html', content, context_instance=RequestContext(req))
+	return render_to_response('sign.html', content, context_instance=RequestContext(req))
 
 
 def login(req):
