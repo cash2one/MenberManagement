@@ -398,13 +398,13 @@ def addperson(req):
 
 def addpersonnels(req):
 	status = ''
-
 	username = req.session.get('username','')
 	if username != '':
 		user = Menbers.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
-
+	if user.permission < 2:
+		return HttpResponseRedirect('/')
 	if req.POST:
 		post = req.POST
 		personnel = Personnel(
@@ -432,9 +432,14 @@ def addpersonnels(req):
 			evaluate = post.get('evaluate',''),\
 		)
 		personnel.save()
+		status = 'success'
+	content = {'active_menu': 'addpersonnel','status': status,'user':user}
+	return render_to_response('education.html', content, context_instance=RequestContext(req))
 
 
-		edu_satrt = post.getlist('edu_start',[])
+
+"""
+edu_satrt = post.getlist('edu_start',[])
 		edu_end = post.getlist('edu_end',[])
 		college = post.getlist('college',[])
 		professional = post.getlist('professional',[])
@@ -456,13 +461,6 @@ def addpersonnels(req):
 		quit = post.getlist('quit','')
 		references = post.getlist('references',[])
 		w_tel = post.getlist('w_tel',[])
-
-	content = {'active_menu': 'addpersonnel','status': status,'user':user}
-	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
-
-
-
-"""
 代码重构，共性的东西抽取出来。
 urlpatterns = patterns(
 (r'^events/$',views.object_list,{'model':models.Event}),
