@@ -43,7 +43,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						{% if user %}
-							<li><p class="navbar-text">欢迎你&nbsp;&nbsp;<span id="base_name">{{ user.menber_name }}</span></p></li>
+							<li><p class="navbar-text">欢迎你&nbsp;&nbsp;<span id="base_name">{{ username }}</span></p></li>
 							<li><a href="/logout/">注销</a></li>
 							<li><a href="/setpasswd/">修改密码</a></li>
 						{% else %}
