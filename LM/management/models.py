@@ -80,7 +80,7 @@ class Personnel(models.Model):
     address = models.CharField(max_length=60,verbose_name=u"性别")
     salary = models.CharField(blank=True,max_length=30,verbose_name=u"期望薪水")
     obey = models.CharField(blank=True,max_length=10,verbose_name=u"是否服从")
-    other = models.TextField(verbose_name=u"其他说明")
+    other = models.TextField(blank=True,verbose_name=u"其他说明")
     evaluate = models.TextField(verbose_name=u"综合评估")
 
     def __str__(self):
