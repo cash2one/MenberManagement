@@ -457,7 +457,7 @@ def education(req):
 		nature = post.getlist('nature',[])
 		mark = post.getlist('mark',[])
 
-	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
+	content = {'active_menu': 'addpersonnel','status': status,'user':user}
 	return render_to_response('education.html', content, context_instance=RequestContext(req))
 
 
