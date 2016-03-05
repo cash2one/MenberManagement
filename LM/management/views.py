@@ -50,29 +50,29 @@ def signup(req):
 
 
 def login(req):
-	username = req.session.get('username', '')
+
+	content = {'active_menu': 'homepage',}
+	return render_to_response('login.html', content, context_instance=RequestContext(req))
+
+def checklogin(req):
 	status = ''
-	if username != '':
-		user = Menbers.objects.get(user__username=username)
-		content = {'active_menu': 'homepage', 'status': status, 'user': user}
-		return render_to_response('login.html', content, context_instance=RequestContext(req))
-	else:
-		if req.POST:
-			post = req.POST
-			username = post.get('username', '')
-			password = post.get('passwd', '')
-			user = auth.authenticate(username=username, password=password)
-			if user is not None:
-				if user.is_active:
-					auth.login(req, user)
-					req.session['username'] = username
-					return HttpResponseRedirect('/')
-				else:
-					status = 'not_active'
+	if req.POST:
+		post = req.POST
+		username = post.get('username', '')
+		password = post.get('passwd', '')
+		user = auth.authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active:
+				auth.login(req, user)
+				req.session['username'] = username
+				return HttpResponseRedirect('/')
 			else:
-				status = 'not_exist_or_passwd_err'
+				status = 'not_active'
+		else:
+			status = 'not_exist_or_passwd_err'
 		content = {'active_menu': 'homepage', 'status': status, 'user': user}
-		return render_to_response('login.html', content, context_instance=RequestContext(req))
+		return render_to_response('index.html', content, context_instance=RequestContext(req))
+
 
 
 def logout(req):
