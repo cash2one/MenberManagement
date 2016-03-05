@@ -40,11 +40,7 @@ def signup(req):
 					user=newuser, \
 					menber_name =post.get('menber_name'),\
 					menber_address = post.get('menber_address',''), \
-					menber_city = post.get('menber_city','') , \
 					menber_tel = post.get('menber_tel',''), \
-					menber_store = post.get('menber_store',''),\
-					menber_typ = post.get('menber_typ',''),\
-					menber_brand = post.get('menber_brand',''),\
 					permission=1,\
 				)
 				new_menber.save()
