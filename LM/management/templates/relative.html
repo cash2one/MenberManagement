@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}应聘人员登记表{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{% if status == 'success' %}
+				<div class="well">
+					<h2 class="text-success text-center">添加成功</h2>
+				</div>
+			{% endif %}
+			<form method="POST" action="/relative/" role="form" class="form-horizontal">
+				{% csrf_token %}
+				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
+
+                <div class="form-group">
+					<label for="id_job" class="col-md-2 control-label">应聘职位:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_job" required name="job" autofocus>
+					</div>
+                    <label for="id_f_name" class="col-md-4 control-label"> </label>
+                    <label for="id_form_date" class="col-md-2 control-label">填表日期:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_form_date" required name="form_date" autofocus>
+					</div>
+				</div>
+
+                 <label  class="col-md-12 control-label"><h3 class="form-signin-heading text-center">家庭背景</h3></label>
+
+                 <div class="form-group">
+					<label for="id_re_name" class="col-md-2 control-label">姓名:</label>
+
+                    <label for="id_relation" class="col-md-2 control-label">关系:</label>
+
+                     <label for="id_work" class="col-md-4 control-label">工作单位:</label>
+
+                     <label for="id_re_job" class="col-md-2 control-label">职务:</label>
+
+                     <label for="id_re_tel" class="col-md-2 control-label">联系电话:</label>
+				</div>
+
+                <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_name" required name="re_name" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_relation" required name="relation" autofocus>
+					</div>
+
+					<div class="col-md-4">
+						<input type="text" class="form-control" id="id_work" required name="work" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_job" required name="re_job" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_tel" required name="re_tel" autofocus>
+					</div>
+				</div>
+
+               <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_name" required name="re_name" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_relation" required name="relation" autofocus>
+					</div>
+
+					<div class="col-md-4">
+						<input type="text" class="form-control" id="id_work" required name="work" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_job" required name="re_job" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_tel" required name="re_tel" autofocus>
+					</div>
+				</div>
+
+               <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_name" required name="re_name" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_relation" required name="relation" autofocus>
+					</div>
+
+					<div class="col-md-4">
+						<input type="text" class="form-control" id="id_work" required name="work" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_job" required name="re_job" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_tel" required name="re_tel" autofocus>
+					</div>
+				</div>
+
+
+                <div class="form-group">
+					<div class="col-md-4 col-md-offset-4">
+						<button class="btn btn btn-primary btn-block" type="submit">提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
