@@ -55,7 +55,7 @@ class Menbers(models.Model):
     menber_mail = models.CharField(max_length=30,verbose_name=u"邮箱")
     reg_date = models.DateField(auto_now_add=True,verbose_name=u"注册日期")
     def __str__(self):
-        return u'%s %s' %(self.menber_name,self.menber_tel)
+        return self.user.username
     class Meta:
         verbose_name = "员工"
         verbose_name_plural ="员工"
