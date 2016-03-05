@@ -398,6 +398,7 @@ def addperson(req):
 
 def addpersonnels(req):
 	status = ''
+	personnel = ''
 	username = req.session.get('username','')
 	if username != '':
 		user = Menbers.objects.get(user__username=username)
