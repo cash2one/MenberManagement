@@ -52,7 +52,6 @@ class Menbers(models.Model):
     permission = models.IntegerField()
     menber_name = models.CharField(max_length=30,verbose_name=u"姓名")
     menber_tel = models.CharField(max_length=30,verbose_name=u"电话")
-    menber_mail = models.CharField(max_length=30,verbose_name=u"邮箱")
     reg_date = models.DateField(auto_now_add=True,verbose_name=u"注册日期")
     def __str__(self):
         return self.user.username

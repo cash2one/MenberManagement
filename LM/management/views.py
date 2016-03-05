@@ -39,7 +39,6 @@ def signup(req):
 				new_menber = Menbers(
 					user=newuser, \
 					menber_name =post.get('menber_name'),\
-					menber_address = post.get('menber_address',''), \
 					menber_tel = post.get('menber_tel',''), \
 					permission=1,\
 				)
