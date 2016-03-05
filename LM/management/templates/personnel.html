@@ -24,7 +24,7 @@
                     <label for="id_f_name" class="col-md-4 control-label"> </label>
                     <label for="id_form_date" class="col-md-2 control-label">填表日期:</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_form_date" required name="form_date" autofocus>
+						<input type="date" class="form-control" id="id_form_date" required name="form_date" autofocus>
 					</div>
 				</div>
 
@@ -36,12 +36,19 @@
 
                     <label for="id_sex" class="col-md-2 control-label">性别:</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_sex" required name="sex" autofocus>
+						<label class="checkbox-inline">
+                          <input type="radio" name="sex" id="id_sex"
+                             value="男" checked> 男
+                       </label>
+                       <label class="checkbox-inline">
+                          <input type="radio" name="sex" id="id_sex"
+                             value="女"> 女
+                       </label>
 					</div>
 
                      <label for="id_birth_date" class="col-md-2 control-label">出生日期:</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_birth_date" required name="birth_date" autofocus>
+						<input type="date" class="form-control" id="id_birth_date" required name="birth_date" autofocus>
 					</div>
 				</div>
 
@@ -75,7 +82,14 @@
 
                      <label for="id_marry" class="col-md-2 control-label">婚姻状况:</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_marry" required name="marry" autofocus>
+						<label class="checkbox-inline">
+                          <input type="radio" name="marry" id="id_marry"
+                             value="已婚" checked> 已婚
+                       </label>
+                       <label class="checkbox-inline">
+                          <input type="radio" name="marry" id="id_marry"
+                             value="未婚"> 未婚
+                       </label>
 					</div>
 				</div>
 
