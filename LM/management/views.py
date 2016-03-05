@@ -53,8 +53,7 @@ def login(req):
 	username = req.session.get('username', '')
 	if username != '':
 		user = Menbers.objects.get(user__username=username)
-	else:
-		return HttpResponseRedirect('/login/')
+
 	status = ''
 	if req.POST:
 		post = req.POST
