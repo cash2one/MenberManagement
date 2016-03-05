@@ -50,8 +50,11 @@ def signup(req):
 
 
 def login(req):
-	if req.session.get('username', ''):
-		return HttpResponseRedirect('/')
+	username = req.session.get('username', '')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
 	status = ''
 	if req.POST:
 		post = req.POST
@@ -67,11 +70,8 @@ def login(req):
 				status = 'not_active'
 		else:
 			status = 'not_exist_or_passwd_err'
-		content = {'active_menu': 'homepage', 'status': status, 'user': user}
-		return render_to_response('index.html', content, context_instance=RequestContext(req))
-
-	content = {'active_menu': 'homepage', 'status': status, 'user': ''}
-	return render_to_response('login.html', content, context_instance=RequestContext(req))
+	content = {'active_menu': 'homepage', 'status': status, 'user': user}
+	return render_to_response('index.html', content, context_instance=RequestContext(req))
 
 
 def logout(req):
