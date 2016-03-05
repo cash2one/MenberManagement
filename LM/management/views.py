@@ -50,11 +50,6 @@ def signup(req):
 
 
 def login(req):
-
-	content = {'active_menu': 'homepage',}
-	return render_to_response('login.html', content, context_instance=RequestContext(req))
-
-def checklogin(req):
 	status = ''
 	if req.POST:
 		post = req.POST
@@ -70,10 +65,8 @@ def checklogin(req):
 				status = 'not_active'
 		else:
 			status = 'not_exist_or_passwd_err'
-		content = {'active_menu': 'homepage', 'status': status, 'user': user}
-		return render_to_response('index.html', content, context_instance=RequestContext(req))
-
-
+	content = {'active_menu': 'homepage', 'status': status, 'user': user}
+	return render_to_response('login.html', content, context_instance=RequestContext(req))
 
 def logout(req):
 	auth.logout(req)
