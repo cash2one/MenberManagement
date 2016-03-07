@@ -457,8 +457,6 @@ def education(req):
 		nature = post.getlist('nature',[])
 		mark = post.getlist('mark',[])
 
-		for index in range(len(college)):
-			if college[index] != '':
 
 
 
