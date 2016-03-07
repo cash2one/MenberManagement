@@ -435,20 +435,7 @@ def addpersonnels(req):
 			evaluate = post.get('evaluate',''),\
 		)
 		personnel.save()
-		status = 'success'
-	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
-	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
-
-def education(req):
-	status = ''
-	username = req.session.get('username','')
-	if username != '':
-		user = Menbers.objects.get(user__username=username)
-	else:
-		return HttpResponseRedirect('/login/')
-
-	if req.POST:
-		post = req.POST
+      #教育培训背景
 		edu_satrt = post.getlist('edu_start',[])
 		edu_end = post.getlist('edu_end',[])
 		college = post.getlist('college',[])
@@ -457,12 +444,61 @@ def education(req):
 		nature = post.getlist('nature',[])
 		mark = post.getlist('mark',[])
 
+		for index in range(len(college)):
+			if college[index] != '':
+				edu = Education(
+					edu_satrt = edu_satrt[index],\
+					edu_end = edu_end[index],\
+					college = college[index],\
+					professional = professional[index],\
+					education = education[index],\
+					nature = nature[index],\
+					mark = mark[index],\
+				)
+				edu.save()
+			else:
+				break
+
+		#家庭背景
+		re_name = post.getlist('re_name',[])
+		relation = post.getlist('relation',[])
+		work = post.getlist('work',[])
+		re_job = post.getlist('re_job',[])
+		re_tel = post.getlist('re_tel',[])
+		for reindex in range(len(re_name)):
+			if re_name[reindex] != '':
+				relative = Relative(
+					re_name = re_name[reindex],\
+					relation = relation[reindex],\
+					work = work[reindex],\
+					re_job = re_job[reindex],\
+					re_tel = re_tel[reindex],\
+				)
+				relative.save()
+			else:
+				break
+
+        #工作经验=
+		for windex in range(len(post.getlist('company',[]))):
+			if post.getlist('company',[])[windex] != '':
+				exp = WorkExperience(
+					w_start = post.getlist('w_start',[]),\
+					w_end = post.getlist('w_end',[]),\
+					company = post.getlist('company',[]),\
+					w_job = post.getlist('w_job',[]),\
+					w_salary = post.getlist('w_salary',[]),\
+					quit = post.getlist('quit',''),\
+					references = post.getlist('references',[]),\
+					w_tel = post.getlist('w_tel',[]),\
+					)
+				exp.save()
+			else:
+				break
 
 
-
-	content = {'active_menu': 'addpersonnel','status': status,'user':user}
-	return render_to_response('education.html', content, context_instance=RequestContext(req))
-
+		status = 'success'
+	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
+	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
 
 
