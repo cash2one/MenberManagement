@@ -457,6 +457,11 @@ def education(req):
 		nature = post.getlist('nature',[])
 		mark = post.getlist('mark',[])
 
+		for index in range(len(college)):
+			if college[index] != '':
+
+
+
 	content = {'active_menu': 'addpersonnel','status': status,'user':user}
 	return render_to_response('education.html', content, context_instance=RequestContext(req))
 
