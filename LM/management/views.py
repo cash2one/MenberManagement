@@ -436,7 +436,7 @@ def addpersonnels(req):
 		)
 		personnel.save()
       #教育培训背景
-		edu_satrt = post.getlist('edu_start',[])
+		edu_start = post.getlist('edu_start',[])
 		edu_end = post.getlist('edu_end',[])
 		college = post.getlist('college',[])
 		professional = post.getlist('professional',[])
@@ -448,7 +448,7 @@ def addpersonnels(req):
 			if college[index] != '':
 				edu = Education(
 					personnel = personnel,\
-					edu_satrt = edu_satrt[index],\
+					edu_start = edu_start[index],\
 					edu_end = edu_end[index],\
 					college = college[index],\
 					professional = professional[index],\
