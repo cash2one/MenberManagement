@@ -485,14 +485,14 @@ def addpersonnels(req):
 			if post.getlist('company',[])[windex] != '':
 				exp = WorkExperience(
 					personnel = personnel,\
-					w_start = post.getlist('w_start',[]),\
-					w_end = post.getlist('w_end',[]),\
-					company = post.getlist('company',[]),\
-					w_job = post.getlist('w_job',[]),\
-					w_salary = post.getlist('w_salary',[]),\
-					quit = post.getlist('quit',''),\
-					references = post.getlist('references',[]),\
-					w_tel = post.getlist('w_tel',[]),\
+					w_start = post.getlist('w_start',[])[windex],\
+					w_end = post.getlist('w_end',[])[windex],\
+					company = post.getlist('company',[])[windex],\
+					w_job = post.getlist('w_job',[])[windex],\
+					w_salary = post.getlist('w_salary',[])[windex],\
+					quit = post.getlist('quit','')[windex],\
+					references = post.getlist('references',[])[windex],\
+					w_tel = post.getlist('w_tel',[])[windex],\
 					)
 				exp.save()
 			else:
