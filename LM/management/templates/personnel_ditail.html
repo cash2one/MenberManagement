@@ -3,57 +3,500 @@
 {% block title %}应聘人员登记表{% endblock %}
 
 {% block content %}
-    <div class="container">
+
+<div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="col-md-2">
-				<div class="list-group">
-					<a href="#" class="list-group-item" id="id_typ_all">
-						您送出的礼物
-					</a>
+		<div class="col-md-12">
+			{% if status == 'success' %}
+				<div class="well">
+					<h2 class="text-success text-center">添加成功</h2>
+
+				</div>
+			{% endif %}
+			<form method="POST"   role="form" class="form-horizontal">
+				{% csrf_token %}
+				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
+
+                <div class="form-group">
+					<label for="id_job" class="col-md-2 control-label">应聘职位:</label>
+					<div class="col-md-2">
+						<input type="text" style="float: left" class="form-control" id="id_job" required name="job" autofocus>
+					</div>
+                    <label for="id_f_name" class="col-md-4 control-label"> </label>
+                    <label for="id_form_date" class="col-md-2 control-label">填表日期:</label>
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_form_date" required name="form_date" autofocus>
+					</div>
+				</div>
+
+                 <div class="form-group">
+					<label for="id_name" class="col-md-2 control-label">姓名:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_name" required name="name" autofocus>
+					</div>
+                    <label for="id_sex" class="col-md-2 control-label">性别:</label>
+					<div class="col-md-2">
+						<label class="checkbox-inline">
+                          <input type="radio" name="sex" id="id_sex"
+                             value="男" checked> 男
+                       </label>
+                       <label class="checkbox-inline">
+                          <input type="radio" name="sex" id="id_sex"
+                             value="女"> 女
+                       </label>
+					</div>
+                     <label for="id_birth_date" class="col-md-2 control-label">出生日期:</label>
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_birth_date" required name="birth_date" autofocus>
+					</div>
+				</div>
+
+                <div class="form-group">
+                     <label for="id_height" class="col-md-2 control-label">身高(cm):</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_height" value=" " name="height" autofocus>
+					</div>
+
+                     <label for="id_weight" class="col-md-2 control-label">体重(kg):</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_weight" value=" " name="weight" autofocus>
+					</div>
+
+                     <label for="id_jiguan" class="col-md-2 control-label">籍贯:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_jiguan" required name="jiguan" autofocus>
+					</div>
+				</div>
+
+                 <div class="form-group">
+					<label for="id_xingge" class="col-md-2 control-label">性格:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_xingge" required name="xingge" autofocus>
+					</div>
+
+                    <label for="id_minzu" class="col-md-2 control-label">民族:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_minzu" required name="minzu" autofocus>
+					</div>
+
+                     <label for="id_marry" class="col-md-2 control-label">婚姻状况:</label>
+					<div class="col-md-2">
+						<label class="checkbox-inline">
+                          <input type="radio" name="marry" id="id_marry"
+                             value="已婚" checked> 已婚
+                       </label>
+                       <label class="checkbox-inline">
+                          <input type="radio" name="marry" id="id_marry"
+                             value="未婚"> 未婚
+                       </label>
+					</div>
+				</div>
+
+                 <div class="form-group">
+                     <label for="id_tel" class="col-md-2 control-label">手机:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_tel" required name="tel" autofocus>
+					</div>
+
+                     <label for="id_skill" class="col-md-2 control-label">特长:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_skill" value=" " name="skill" autofocus>
+					</div>
+
+                     <label for="id_wenping" class="col-md-2 control-label">文化程度:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_wenping" required name="wenping" autofocus>
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label for="id_shenfenzheng" class="col-md-2 control-label">身份证:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-contro2" id="id_shenfenzheng" required name="shenfenzheng" autofocus>
+					</div>
+                    <label for="id_daogang" class="col-md-2 control-label">何时到岗:</label>
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_daogang" required name="daogang" autofocus>
+					</div>
+                     <label for="id_huji" class="col-md-2 control-label">户口:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_huji" required name="huji" autofocus>
+					</div>
 
 				</div>
 
-			</div>
-			<div class="col-md-9 col-md-offset-1">
-				<div class="col-md-4 col-md-offset-8">
+                <div class="form-group">
+                <label for="id_address" class="col-md-2 control-label">住址:</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" id="id_address" required name="address" autofocus>
+					</div>
+                </div>
+                 <label for="id_w_start" class="col-md-12 control-label"><h3 class="form-signin-heading text-center">教育培训背景</h3></label>
+                 <div class="form-group">
+					<label for="id_edu_start" class="col-md-2 control-label">入学时间:</label>
+
+                    <label for="id_edu_end" class="col-md-2 control-label">毕业时间:</label>
+
+                     <label for="id_college" class="col-md-2 control-label">毕业院校:</label>
+
+                     <label for="id_professional" class="col-md-1 control-label">专业:</label>
+
+                     <label for="id_education" class="col-md-1 control-label">学历:</label>
+
+                     <label for="id_nature" class="col-md-1 control-label">性质:</label>
+
+                      <label for="id_mark" class="col-md-3 control-label">备注:</label>
 
 				</div>
 
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>#</th>
-							<th>电话</th>
-							<th>姓名</th>
-                            <th>领礼品</th>
-                            <th>送礼品</th>
-							<th>备注</th>
+                <div class="form-group">
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_edu_start" required name="edu_start" autofocus>
+					</div>
 
-						</tr>
-					</thead>
-					<tbody>
-						{% for friend in p_friends %}
-						<tr>
-							<td>{{ forloop.counter }}</td>
-							<td>{{ friend.f_tel }}</td>
-							<td>{{ friend.f_name }}</td>
-                            <td><a href="/addlingli/addlingli_detail/?id={{friend.id}}">{{ friend.f_gift }}</a> </td>
-                            <td><a href="/addsongli/toaddperson/?id={{ friend.id }}&part={{ person.partment }}" >送礼品</a></td>
-                            <td>{{ friend.f_remarks }}</td>
-                        </tr>
-						{% empty %}
-						<tr>
-							<td>暂无人领取</td>
-						</tr>
-						{% endfor %}
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_edu_end" required name="edu_end" autofocus>
+					</div>
 
-					</tbody>
-				</table>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_college" required name="college" autofocus>
+					</div>
 
-			</div>
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_professional" required name="professional" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<select class="form-control" name="education" id="id_education">
+                            <option value="" selected></option>
+                            <option value="中专">中专</option>
+                            <option value="大专">大专</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                        </select>
+
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_nature"  name="nature" autofocus>
+					</div>
+
+					<div class="col-md-3">
+						<input type="text" class="form-control" id="id_mark"  name="mark" autofocus>
+					</div>
+				</div>
+
+                 <div class="form-group">
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_edu_start" required name="edu_start" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_edu_end" required name="edu_end" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_college" required name="college" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_professional" required name="professional" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<select class="form-control" name="education" id="id_education">
+                            <option value="" selected></option>
+                            <option value="中专">中专</option>
+                            <option value="大专">大专</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                        </select>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_nature"  name="nature" autofocus>
+					</div>
+
+					<div class="col-md-3">
+						<input type="text" class="form-control" id="id_mark"  name="mark" autofocus>
+					</div>
+				</div>
+
+                 <div class="form-group">
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_edu_start"  name="edu_start" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_edu_end"  name="edu_end" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_college"  name="college" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_professional"  name="professional" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<select class="form-control" name="education" id="id_education">
+                            <option value="" selected></option>
+                            <option value="中专">中专</option>
+                            <option value="大专">大专</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                        </select>
+
+					</div>
+                     <div class="col-md-1">
+						<input type="text" class="form-control" id="id_nature"  name="nature" autofocus>
+					</div>
+
+					<div class="col-md-3">
+						<input type="text" class="form-control" id="id_mark"  name="mark" autofocus>
+					</div>
+                 </div>
+                <label for="id_w_start" class="col-md-12 control-label"><h3 class="form-signin-heading text-center">家庭背景</h3></label>
+                <div class="form-group">
+					<label for="id_re_name" class="col-md-2 control-label">姓名:</label>
+
+                    <label for="id_relation" class="col-md-2 control-label">关系:</label>
+
+                     <label for="id_work" class="col-md-4 control-label">工作单位:</label>
+
+                     <label for="id_re_job" class="col-md-2 control-label">职务:</label>
+
+                     <label for="id_re_tel" class="col-md-2 control-label">联系电话:</label>
+				</div>
+
+                <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_name" required name="re_name" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_relation" required name="relation" autofocus>
+					</div>
+
+					<div class="col-md-4">
+						<input type="text" class="form-control" id="id_work" required name="work" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_job" required name="re_job" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_tel" required name="re_tel" autofocus>
+					</div>
+				</div>
+
+               <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_name" required name="re_name" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_relation" required name="relation" autofocus>
+					</div>
+
+					<div class="col-md-4">
+						<input type="text" class="form-control" id="id_work" required name="work" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_job" required name="re_job" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_tel" required name="re_tel" autofocus>
+					</div>
+				</div>
+
+               <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_name"   name="re_name" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_relation"   name="relation" autofocus>
+					</div>
+
+					<div class="col-md-4">
+						<input type="text" class="form-control" id="id_work"    name="work" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_job"   name="re_job" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_re_tel"   name="re_tel" autofocus>
+					</div>
+				</div>
+                <label for="id_w_start" class="col-md-12 control-label"><h3 class="form-signin-heading text-center">工作经验</h3></label>
+                <div class="form-group">
+					<label for="id_w_start" class="col-md-2 control-label">入职时间:</label>
+
+                    <label for="id_w_end" class="col-md-2 control-label">离职时间:</label>
+
+                     <label for="id_company" class="col-md-2 control-label">工作单位:</label>
+
+                     <label for="id_w_job" class="col-md-1 control-label">职位:</label>
+
+                     <label for="id_w_salary" class="col-md-1 control-label">月薪:</label>
+
+                     <label for="id_quit" class="col-md-1 control-label">离开原因:</label>
+
+                      <label for="id_references" class="col-md-1 control-label">证明人:</label>
+
+                     <label for="id_w_tel" class="col-md-2 control-label">电话:</label>
+
+				</div>
+
+                <div class="form-group">
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_w_start" required name="w_start" autofocus>
+					</div>
+
+                    <div class="col-md-2">
+						<input type="date" class="form-control" id="id_w_end" required name="w_end" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_company" required name="company" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_w_job" required name="w_job" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_w_salary"   name="w_salary" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_quit"   name="quit" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_references"   name="references" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_w_tel"   name="w_tel" autofocus>
+					</div>
+				</div>
+
+                  <div class="form-group">
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_w_start"  name="w_start" autofocus>
+					</div>
+
+                    <div class="col-md-2">
+						<input type="date" class="form-control" id="id_w_end"  name="w_end" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_company"  name="company" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_w_job"  name="w_job" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_w_salary"   name="w_salary" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_quit"   name="quit" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_references"   name="references" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_w_tel"   name="w_tel" autofocus>
+					</div>
+				</div>
+
+                  <div class="form-group">
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_w_start"   name="w_start" autofocus>
+					</div>
+
+                    <div class="col-md-2">
+						<input type="date" class="form-control" id="id_w_end"   name="w_end" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_company"   name="company" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_w_job"   name="w_job" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_w_salary"   name="w_salary" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_quit"   name="quit" autofocus>
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" id="id_references"   name="references" autofocus>
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_w_tel"   name="w_tel" autofocus>
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label for="id_obey" class="col-md-2 control-label">是否服从安排:</label>
+					<div class="col-md-2">
+						<label class="checkbox-inline">
+                          <input type="radio" name="obey" id="id_obey"
+                             value="服从" checked> 服从
+                       </label>
+                       <label class="checkbox-inline">
+                          <input type="radio" name="obey" id="id_obey"
+                             value="不服从"> 不服从
+                       </label>
+					</div>
+                    <label for="id_salary" class="col-md-2 control-label">期望工资收入:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" id="id_salary" value=" " name="salary" autofocus>
+					</div>
+				</div>
+
+                 <div class="form-group">
+					<label for="id_other" class="col-md-2 control-label">其他说明:</label>
+					<div class="col-md-10">
+						<textarea rows="2" cols="20" class="form-control" id="id_other" value=" " name="other" autofocus></textarea>
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label for="id_evaluate" class="col-md-2 control-label">综合评估:</label>
+					<div class="col-md-10">
+						<textarea rows="3" cols="20" class="form-control" id="id_evaluate" required name="evaluate" autofocus></textarea>
+					</div>
+				</div>
+                <div class="form-group">
+					<div class="col-md-4 col-md-offset-4">
+						<button class="btn btn btn-primary btn-block" type="submit">提交</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </div>
+
 
 {% endblock %}
