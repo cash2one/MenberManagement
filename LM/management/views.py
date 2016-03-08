@@ -447,6 +447,7 @@ def addpersonnels(req):
 		for index in range(len(college)):
 			if college[index] != '':
 				edu = Education(
+					personnel = personnel,\
 					edu_satrt = edu_satrt[index],\
 					edu_end = edu_end[index],\
 					college = college[index],\
@@ -468,6 +469,7 @@ def addpersonnels(req):
 		for reindex in range(len(re_name)):
 			if re_name[reindex] != '':
 				relative = Relative(
+					personnel = personnel,\
 					re_name = re_name[reindex],\
 					relation = relation[reindex],\
 					work = work[reindex],\
@@ -482,6 +484,7 @@ def addpersonnels(req):
 		for windex in range(len(post.getlist('company',[]))):
 			if post.getlist('company',[])[windex] != '':
 				exp = WorkExperience(
+					personnel = personnel,\
 					w_start = post.getlist('w_start',[]),\
 					w_end = post.getlist('w_end',[]),\
 					company = post.getlist('company',[]),\
