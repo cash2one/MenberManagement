@@ -98,9 +98,9 @@ class Education(models.Model):
     professional = models.CharField(max_length=20,verbose_name=u"专业")
     education = models.CharField(max_length=30,verbose_name=u"学历")
     nature = models.CharField(blank=True,max_length=30,verbose_name=u"性质")
-    mark = models.CharField(blank=True,max_length=30,verbose_name=u"院校")
+    mark = models.CharField(blank=True,max_length=30,verbose_name=u"备注")
     def __str__(self):
-        return u'%s %s' %(self.name,self.job)
+        return u'%s %s' %(self.college,self.education)
     class Meta:
         verbose_name="教育培训"
         verbose_name_plural="教育培训"
