@@ -534,7 +534,7 @@ def viewpersonnels(req):
 	except EmptyPage:
 		personnel_list = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'viewpersonnel','user':user,'personnel_list':personnel_list}
+	content = {'active_menu': 'viewpersonnels','user':user,'personnel_list':personnel_list}
 	return render_to_response('viewpersonnels.html', content, context_instance=RequestContext(req))
 
 
