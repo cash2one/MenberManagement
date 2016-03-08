@@ -126,14 +126,14 @@
                       <label for="id_mark" class="col-md-3 control-label">备注:</label>
 
 				</div>
-
+                 {% for edu in education %}
                 <div class="form-group">
 					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_edu_start" required name="edu_start" autofocus>
+						<input type="text" class="form-control" value="edu.edu_start" >
 					</div>
 
 					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_edu_end" required name="edu_end" autofocus>
+						<input type="text" class="form-control" value="{{ edu.edu_end }}" >
 					</div>
 
 					<div class="col-md-2">
@@ -141,29 +141,22 @@
 					</div>
 
 					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_professional" required name="professional" autofocus>
+						<input type="text" class="form-control" value="{{ edu.professional }}">
 					</div>
 
 					<div class="col-md-1">
-						<select class="form-control" name="education" id="id_education">
-                            <option value="" selected></option>
-                            <option value="中专">中专</option>
-                            <option value="大专">大专</option>
-                            <option value="本科">本科</option>
-                            <option value="硕士">硕士</option>
-                        </select>
-
+						<input type="text" class="form-control" value="{{ edu.education }}" >
 					</div>
 
 					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_nature"  name="nature" autofocus>
+						<input type="text" class="form-control" value="{{ edu.nature }}" >
 					</div>
 
 					<div class="col-md-3">
-						<input type="text" class="form-control" id="id_mark"  name="mark" autofocus>
+						<input type="text" class="form-control" value="{{ edu.mark }}" >
 					</div>
 				</div>
-
+           {% endfor %}
                  <div class="form-group">
 					<div class="col-md-2">
 						<input type="date" class="form-control" id="id_edu_start" required name="edu_start" autofocus>
