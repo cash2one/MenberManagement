@@ -556,7 +556,7 @@ def personnel_detail(req):
 		return HttpResponseRedirect('/viewpersonnels')
 
 	content = {'active_menu': 'viewpersonnels','user':user,'personnel':personnel,'education':education,'work':work,'relation':relation}
-	return render_to_response('personnel_detail.html', content, context_instance=RequestContext(req))
+	return render_to_response('personnel_ditail.html', content, context_instance=RequestContext(req))
 
 
 
