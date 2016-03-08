@@ -41,60 +41,34 @@
 						},1500);
 					}
 				</script>
-			<table class="table table-bordered">
-   <caption>边框表格布局</caption>
-   <thead>
-      <tr>
-         <th>名称</th>
-         <th>城市</th>
-         <th>密码</th><table class="table table-bordered">
-   <caption>边框表格布局</caption>
-   <thead>
-      <tr>
-         <th>名称</th>
-         <th>城市</th>
-         <th>密码</th>
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td>Tanmay</td>
-         <td>Bangalore</td>
-         <td>560001</td>
-      </tr>
-      <tr>
-         <td>Sachin</td>
-         <td>Mumbai</td>
-         <td>400003</td>
-      </tr>
-      <tr>
-         <td>Uma</td>
-         <td>Pune</td>
-         <td>411027</td>
-      </tr>
-   </tbody>
-</table>
-
-      </tr>
-   </thead>
-   <tbody>
-      <tr>
-         <td>Tanmay</td>
-         <td>Bangalore</td>
-         <td>560001</td>
-      </tr>
-      <tr>
-         <td>Sachin</td>
-         <td>Mumbai</td>
-         <td>400003</td>
-      </tr>
-      <tr>
-         <td>Uma</td>
-         <td>Pune</td>
-         <td>411027</td>
-      </tr>
-   </tbody>
-</table>
+			<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+                            <th>姓名</th>
+							<th>应聘岗位</th>
+                            <th>日期</th>
+                            <th>性别</th>
+							<th>手机</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for personnel in personnel_list %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td><a href="/viewpersonnel/personnel_detail/?id={{personnel.id}}">{{ personnel.name }}</a></td>
+							<td>{{ personnel.job }}</td>
+                            <td>{{ personnel.form_date }}</td>
+                            <td>{{ personnel.sex }}</td>
+                            <td>{{ personnel.tel }}</td>
+						</tr>
+						{% empty %}
+						<tr>
+							<td>暂无应聘人员</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
 
 				<nav>
 					<ul class="pager">
