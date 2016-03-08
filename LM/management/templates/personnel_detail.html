@@ -129,7 +129,7 @@
                  {% for edu in education %}
                 <div class="form-group">
 					<div class="col-md-2">
-						<input type="text" class="form-control" value="edu.edu_start" >
+						<input type="text" class="form-control" value="{{ edu.edu_start }}" >
 					</div>
 
 					<div class="col-md-2">
@@ -137,7 +137,7 @@
 					</div>
 
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_college" required name="college" autofocus>
+						<input type="text" class="form-control" value="{{ edu.college }}" >
 					</div>
 
 					<div class="col-md-1">
@@ -157,77 +157,7 @@
 					</div>
 				</div>
            {% endfor %}
-                 <div class="form-group">
-					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_edu_start" required name="edu_start" autofocus>
-					</div>
 
-					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_edu_end" required name="edu_end" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_college" required name="college" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_professional" required name="professional" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<select class="form-control" name="education" id="id_education">
-                            <option value="" selected></option>
-                            <option value="中专">中专</option>
-                            <option value="大专">大专</option>
-                            <option value="本科">本科</option>
-                            <option value="硕士">硕士</option>
-                        </select>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_nature"  name="nature" autofocus>
-					</div>
-
-					<div class="col-md-3">
-						<input type="text" class="form-control" id="id_mark"  name="mark" autofocus>
-					</div>
-				</div>
-
-                 <div class="form-group">
-					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_edu_start"  name="edu_start" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_edu_end"  name="edu_end" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_college"  name="college" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_professional"  name="professional" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<select class="form-control" name="education" id="id_education">
-                            <option value="" selected></option>
-                            <option value="中专">中专</option>
-                            <option value="大专">大专</option>
-                            <option value="本科">本科</option>
-                            <option value="硕士">硕士</option>
-                        </select>
-
-					</div>
-                     <div class="col-md-1">
-						<input type="text" class="form-control" id="id_nature"  name="nature" autofocus>
-					</div>
-
-					<div class="col-md-3">
-						<input type="text" class="form-control" id="id_mark"  name="mark" autofocus>
-					</div>
-                 </div>
                 <label for="id_w_start" class="col-md-12 control-label"><h3 class="form-signin-heading text-center">家庭背景</h3></label>
                 <div class="form-group">
 					<label for="id_re_name" class="col-md-2 control-label">姓名:</label>
@@ -240,72 +170,30 @@
 
                      <label for="id_re_tel" class="col-md-2 control-label">联系电话:</label>
 				</div>
-
+                {% for lation in relation %}
                 <div class="form-group">
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_name" required name="re_name" autofocus>
+						<input type="text" class="form-control" value="{{ lation.re_name }}"  >
 					</div>
 
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_relation" required name="relation" autofocus>
+						<input type="text" class="form-control"  value="{{ lation.relation }}" >
 					</div>
 
 					<div class="col-md-4">
-						<input type="text" class="form-control" id="id_work" required name="work" autofocus>
+						<input type="text" class="form-control" value="{{ lation.work }}" >
 					</div>
 
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_job" required name="re_job" autofocus>
+						<input type="text" class="form-control" value="{{ lation.re_job }}"  >
 					</div>
 
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_tel" required name="re_tel" autofocus>
+						<input type="text" class="form-control" value="{{ lation.re_tel }}" >
 					</div>
 				</div>
+               {% endfor %}
 
-               <div class="form-group">
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_name" required name="re_name" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_relation" required name="relation" autofocus>
-					</div>
-
-					<div class="col-md-4">
-						<input type="text" class="form-control" id="id_work" required name="work" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_job" required name="re_job" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_tel" required name="re_tel" autofocus>
-					</div>
-				</div>
-
-               <div class="form-group">
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_name"   name="re_name" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_relation"   name="relation" autofocus>
-					</div>
-
-					<div class="col-md-4">
-						<input type="text" class="form-control" id="id_work"    name="work" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_job"   name="re_job" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_re_tel"   name="re_tel" autofocus>
-					</div>
-				</div>
                 <label for="id_w_start" class="col-md-12 control-label"><h3 class="form-signin-heading text-center">工作经验</h3></label>
                 <div class="form-group">
 					<label for="id_w_start" class="col-md-2 control-label">入职时间:</label>
@@ -325,145 +213,68 @@
                      <label for="id_w_tel" class="col-md-2 control-label">电话:</label>
 
 				</div>
-
+                {% for w in work %}
                 <div class="form-group">
 					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_w_start" required name="w_start" autofocus>
+						<input type="text" class="form-control" value="{{ w.w_start }}"  >
 					</div>
 
                     <div class="col-md-2">
-						<input type="date" class="form-control" id="id_w_end" required name="w_end" autofocus>
+						<input type="text" class="form-control" value="{{ w.w_end }}" >
 					</div>
 
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_company" required name="company" autofocus>
+						<input type="text" class="form-control" value="{{ w.company }}"  >
 					</div>
 
 					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_w_job" required name="w_job" autofocus>
+						<input type="text" class="form-control" value="{{ w.w_job }}" >
 					</div>
 
 					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_w_salary"   name="w_salary" autofocus>
+						<input type="text" class="form-control" value="{{ w.w_salary }}"  >
 					</div>
 
 					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_quit"   name="quit" autofocus>
+						<input type="text" class="form-control" value="{{ w.quit }}"  >
 					</div>
 
 					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_references"   name="references" autofocus>
+						<input type="text" class="form-control" value="{{ w.references }}"  >
 					</div>
 
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_w_tel"   name="w_tel" autofocus>
+						<input type="text" class="form-control" value="{{ w.w_tel }}"  >
 					</div>
 				</div>
+               {% endfor %}
 
-                  <div class="form-group">
-					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_w_start"  name="w_start" autofocus>
-					</div>
-
-                    <div class="col-md-2">
-						<input type="date" class="form-control" id="id_w_end"  name="w_end" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_company"  name="company" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_w_job"  name="w_job" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_w_salary"   name="w_salary" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_quit"   name="quit" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_references"   name="references" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_w_tel"   name="w_tel" autofocus>
-					</div>
-				</div>
-
-                  <div class="form-group">
-					<div class="col-md-2">
-						<input type="date" class="form-control" id="id_w_start"   name="w_start" autofocus>
-					</div>
-
-                    <div class="col-md-2">
-						<input type="date" class="form-control" id="id_w_end"   name="w_end" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_company"   name="company" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_w_job"   name="w_job" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_w_salary"   name="w_salary" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_quit"   name="quit" autofocus>
-					</div>
-
-					<div class="col-md-1">
-						<input type="text" class="form-control" id="id_references"   name="references" autofocus>
-					</div>
-
-					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_w_tel"   name="w_tel" autofocus>
-					</div>
-				</div>
 
                 <div class="form-group">
 					<label for="id_obey" class="col-md-2 control-label">是否服从安排:</label>
 					<div class="col-md-2">
-						<label class="checkbox-inline">
-                          <input type="radio" name="obey" id="id_obey"
-                             value="服从" checked> 服从
-                       </label>
-                       <label class="checkbox-inline">
-                          <input type="radio" name="obey" id="id_obey"
-                             value="不服从"> 不服从
-                       </label>
+						<input type="text" class="form-control" value="{{ personnel.obey }}"  >
 					</div>
                     <label for="id_salary" class="col-md-2 control-label">期望工资收入:</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_salary" value=" " name="salary" autofocus>
+						<input type="text" class="form-control" value="{{ personnel.salary }}">
 					</div>
 				</div>
 
                  <div class="form-group">
 					<label for="id_other" class="col-md-2 control-label">其他说明:</label>
 					<div class="col-md-10">
-						<textarea rows="2" cols="20" class="form-control" id="id_other" value=" " name="other" autofocus></textarea>
+						<textarea rows="2" cols="20" class="form-control" value="{{ personnel.other }}" ></textarea>
 					</div>
 				</div>
 
                 <div class="form-group">
 					<label for="id_evaluate" class="col-md-2 control-label">综合评估:</label>
 					<div class="col-md-10">
-						<textarea rows="3" cols="20" class="form-control" id="id_evaluate" required name="evaluate" autofocus></textarea>
+						<textarea rows="3" cols="20" class="form-control" value="{{ personnel.evaluate }}"></textarea>
 					</div>
 				</div>
-                <div class="form-group">
-					<div class="col-md-4 col-md-offset-4">
-						<button class="btn btn btn-primary btn-block" type="submit">提交</button>
-					</div>
-				</div>
+
             </div>
 	</div>
 </div>
