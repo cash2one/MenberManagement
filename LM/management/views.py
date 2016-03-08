@@ -480,23 +480,32 @@ def addpersonnels(req):
 			else:
 				break
 
-        #工作经验=
-		for windex in range(len(post.getlist('company',[]))):
-			if post.getlist('company',[])[windex] != '':
+        #工作经验
+		w_start = post.getlist('w_start',[])
+		w_end = post.getlist('w_end',[])
+		company = post.getlist('company',[])
+		w_job = post.getlist('w_job',[])
+		w_salary = post.getlist('w_salary',[])
+		quit = post.getlist('quit','')
+		references = post.getlist('references',[])
+		w_tel = post.getlist('w_tel',[])
+		for windex in range(len(company)):
+			if company[windex] != '':
 				exp = WorkExperience(
 					personnel = personnel,\
-					w_start = post.getlist('w_start',[])[windex],\
-					w_end = post.getlist('w_end',[])[windex],\
-					company = post.getlist('company',[])[windex],\
-					w_job = post.getlist('w_job',[])[windex],\
-					w_salary = post.getlist('w_salary',[])[windex],\
-					quit = post.getlist('quit','')[windex],\
-					references = post.getlist('references',[])[windex],\
-					w_tel = post.getlist('w_tel',[])[windex],\
+					w_start = w_start[windex],\
+					w_end = w_end[windex],\
+					company = company[windex],\
+					w_job = w_job[windex],\
+					w_salary = w_salary[windex],\
+					quit = quit[windex],\
+					references = references[windex],\
+					w_tel = w_tel[windex],\
 					)
 				exp.save()
 			else:
 				break
+
 		status = 'success'
 	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
 	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
