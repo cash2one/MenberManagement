@@ -548,9 +548,9 @@ def personnel_detail(req):
 	Id = req.GET.get('id','')
 	try:
 		personnel = Personnel.objects.get(pk=Id)
-		relation = personnel.Relative_set.all()
-		education = personnel.Education_set.all()
-		work = personnel.WorkExperience_set.all()
+		relation = personnel.relative_set.all()
+		education = personnel.education_set.all()
+		work = personnel.workexperience_set.all()
 	except:
 		status = 'weizhaodao'
 		return HttpResponseRedirect('/viewpersonnels')
