@@ -538,6 +538,7 @@ def viewpersonnels(req):
 	return render_to_response('viewpersonnels.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
+	status = ''
 	username = req.session.get('username','')
 	if username != '':
 		user = Menbers.objects.get(user__username=username)
@@ -546,6 +547,7 @@ def personnel_detail(req):
 
 	Id = req.GET.get('id','')
 	if Id == '':
+		status = 'idnull'
 		return HttpResponseRedirect('/viewpersonnels/')
 	try:
 		personnel = Personnel.objects.get(pk=Id)
@@ -553,9 +555,10 @@ def personnel_detail(req):
 		education = personnel.Education_set.all()
 		work = personnel.WorkExperience_set.all()
 	except:
+		status = 'weizhaodao'
 		return HttpResponseRedirect('/viewpersonnels')
 
-	content = {'active_menu': 'viewpersonnels','user':user,'personnel':personnel,'education':education,'work':work,'relation':relation}
+	content = {'active_menu': 'viewpersonnels','status':status,'user':user,'personnel':personnel,'education':education,'work':work,'relation':relation}
 	return render_to_response('personnel_detail.html', content, context_instance=RequestContext(req))
 
 
