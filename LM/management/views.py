@@ -433,6 +433,9 @@ def addpersonnels(req):
 			obey  = post.get('obey',''),\
 			other = post.get('other',''),\
 			evaluate = post.get('evaluate',''),\
+			qq = post.get('qq',''),\
+			email = post.get('email',''),\
+			personnel_typ = post.get('personnel_typ',''),\
 		)
 		personnel.save()
       #教育培训背景

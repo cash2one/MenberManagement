@@ -16,7 +16,7 @@
 			<form method="POST"   role="form" class="form-horizontal">
 				{% csrf_token %}
 				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
-
+               <input type="hidden" id="id_personnel_typ" name="personnel_typ" value="面试">
                 <div class="form-group">
 					<label for="id_job" class="col-md-2 control-label">应聘职位:</label>
 					<div class="col-md-2">
@@ -132,7 +132,7 @@
 					</div>
                     <label for="id_address" class="col-md-2 control-label">Email:</label>
 					<div class="col-md-2">
-						<input type="text" class="form-control" id="id_mail" required name="mail" autofocus>
+						<input type="text" class="form-control" id="id_email" required name="email" autofocus>
 					</div>
                 <label for="id_address" class="col-md-2 control-label">住址:</label>
 					<div class="col-md-2">
