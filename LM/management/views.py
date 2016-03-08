@@ -511,6 +511,31 @@ def addpersonnels(req):
 	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
 
+def viewpersonnels(req):
+	username = req.session.get('username','')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	personnel_list = Personnel.objects.all()
+
+	if req.POST:
+		post = req.POST
+		keywords = post.get('keyword','')
+		personnel_list = Personnel.objects.filter(name__contains=keywords)
+
+	paginator = Paginator(personnel_list,5)
+	page = req.GET.get('page')
+	try:
+		personnel_list = paginator.page(page)
+	except PageNotAnInteger:
+		personnel_list = paginator.page(1)
+	except EmptyPage:
+		personnel_list = paginator.page(paginator.num_pages)
+
+	content = {'active_menu': 'viewpersonnel','user':user,'personnel_list':personnel_list}
+	return render_to_response('viewpersonnels.html', content, context_instance=RequestContext(req))
 
 
 
