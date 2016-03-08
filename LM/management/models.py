@@ -129,7 +129,7 @@ class WorkExperience(models.Model):
     w_salary = models.CharField(blank=True,max_length=30,verbose_name=u"薪水")
     quit = models.CharField(blank=True,max_length=50,verbose_name=u"离职原因")
     references = models.CharField(blank=True,max_length=20,verbose_name=u"证明人")
-    w_tel = models.CharField(max_length=30,verbose_name=u"电话")
+    w_tel = models.CharField(blank=True,max_length=30,verbose_name=u"电话")
     def __str__(self):
         return u'%s %s' %(self.company,self.w_job)
     class Meta:
