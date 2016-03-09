@@ -601,7 +601,6 @@ def modify_typ(req):
 		except:
 			return HttpResponseRedirect('/viewpersonnels/')
 
-
 	content = {'active_menu': 'viewpersonnels','status':status,'user':user,'personnel':personnel}
 	return render_to_response('modify_typ.html', content, context_instance=RequestContext(req))
 
