@@ -603,7 +603,7 @@ def modify_typ(req):
 
 
 	content = {'active_menu': 'viewpersonnels','satus':status,'user':user,'personnel':personnel}
-	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
+	return render_to_response('modify_typ.html', content, context_instance=RequestContext(req))
 
 
 
