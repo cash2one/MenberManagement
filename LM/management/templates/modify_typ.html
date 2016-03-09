@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}应聘人员登记表{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{% if status == 'success' %}
+				<div class="well">
+					<h2 class="text-success text-center">添加成功</h2>
+
+				</div>
+			{% endif %}
+			<form method="POST"   role="form" class="form-horizontal">
+				{% csrf_token %}
+				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
+               <input type="hidden" id="id_personnel_typ" name="personnel_typ" value="面试">
+
+                <div class="form-group">
+					<label for="id_job" class="col-md-2 control-label">应聘职位:</label>
+					<div class="col-md-2">
+						<input type="text"  class="form-control" id="id_job" required name="job" autofocus>
+					</div>
+                    <label for="id_f_name" class="col-md-4 control-label"> </label>
+                    <label for="id_form_date" class="col-md-2 control-label">填表日期:</label>
+					<div class="col-md-2">
+						<input type="date" class="form-control" id="id_form_date" required name="form_date" autofocus>
+					</div>
+
+				</div>
+                 <div class="form-group">
+					<label for="id_edu_start" class="col-md-2 control-label">人员信息变更:</label>
+                      <div class="col-md-3">
+						<select class="form-control" name="personnel_typ" id="id_personnel_typ">
+                            <option value="面试" selected>{{ personnel.personnel_typ }}</option>
+                            <option value="试用">试用</option>
+                            <option value="转正">转正</option>
+                        </select>
+					</div>
+				</div>
+
+
+
+
+                <div class="form-group">
+					<label for="id_evaluate" class="col-md-2 control-label">综合评估:</label>
+					<div class="col-md-10">
+						<textarea rows="3" cols="20" class="form-control" id="id_evaluate" required name="evaluate" autofocus>{{ personnel.evaluate }}</textarea>
+					</div>
+				</div>
+                <div class="form-group">
+					<div class="col-md-4 col-md-offset-4">
+						<button class="btn btn btn-primary btn-block" type="submit">提交</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
