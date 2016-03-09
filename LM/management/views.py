@@ -594,7 +594,7 @@ def modify_typ(req):
 		post = req.POST
 		pid = post.get('pid','')
 		personnel_type = post.get('personnel_typ','')
-		personnel_evaluate = post.get('evaluate','')
+		personnel_evaluate = post.get('evaluate','')+ timezone.localtime(timezone.now())
 		try:
 			Personnel.objects.filter(id=pid).update(personnel_typ=personnel_type,evaluate=personnel_evaluate)
 			status = "success"
