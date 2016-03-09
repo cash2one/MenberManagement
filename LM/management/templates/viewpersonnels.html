@@ -8,7 +8,7 @@
         <div class="col-md-12">
 			<div class="col-md-2">
 				<div class="list-group">
-					<a href="/viewpersonnels/" class="list-group-item" id="id_typ_all" name="typ_all">
+					<a href="/viewpersonnels/" class="list-group-item" id="id_all" name="all">
 						全部人员
 					</a>
 					{% for typ in personnelTypeList %}
@@ -18,7 +18,7 @@
 					{% endfor %}
 				</div>
 				<script type="text/javascript">
-				    var act_typ = document.getElementById("id_typ_{{personnel_typ}}");
+				    var act_typ = document.getElementById("id_{{personnel_typ}}");
 				    var new_class = act_typ.getAttribute("class") + " active"
 				    act_typ.setAttribute("class",new_class);
 				</script>
