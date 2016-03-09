@@ -600,7 +600,7 @@ def modify_typ(req):
 
 		try:
 			Personnel.objects.filter(id=pid).update(personnel_typ=personnel_type,evaluate=personnel_evaluate)
-			Personnel.objects.filter(id=pid).update(personnevaluate=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+			Personnel.objects.filter(id=pid).update(evaluate=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 			status = "success"
 		except:
 			return HttpResponseRedirect('/viewpersonnels/')
