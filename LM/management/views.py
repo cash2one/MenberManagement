@@ -571,11 +571,41 @@ def personnel_detail(req):
 		education = personnel.education_set.all()
 		work = personnel.workexperience_set.all()
 	except:
-		status = 'weizhaodao'
 		return HttpResponseRedirect('/viewpersonnels')
 
 	content = {'active_menu': 'viewpersonnels','user':user,'personnel':personnel,'education':education,'work':work,'relation':relation}
 	return render_to_response('personnel_detail.html', content, context_instance=RequestContext(req))
+
+def modify_typ(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	Id = req.GET.get('id','')
+	try:
+		personnel = Personnel.objects.get(pk=Id)
+	except:
+		return HttpResponseRedirect('/viewpersonnels')
+
+	if req.POST:
+		post = req.POST
+		pid = post.get('pid','')
+		personnel_type = post.get('personnel_typ','')
+		personnel_evaluate = post.get('evaluate','')
+		try:
+			Personnel.objects.filter(id=pid).update(personnel_typ=personnel_type,evaluate=personnel_evaluate)
+			status = "success"
+		except:
+			return HttpResponseRedirect('/viewpersonnels/')
+
+
+	content = {'active_menu': 'viewpersonnels','satus':status,'user':user,'personnel':personnel}
+	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
+
+
 
 
 
