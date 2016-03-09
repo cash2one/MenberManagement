@@ -7,6 +7,7 @@ from django.contrib import auth
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from management.models import *
 from django.utils import timezone
+import datetime
 
 
 def index(req):
@@ -594,9 +595,11 @@ def modify_typ(req):
 		post = req.POST
 		pid = post.get('pid','')
 		personnel_type = post.get('personnel_typ','')
-		personnel_evaluate = post.get('evaluate','')+ timezone.localtime(timezone.now())
+		personnel_evaluate = post.get('evaluate','')
+		dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+		evaluate_log = personnel_evaluate+dt
 		try:
-			Personnel.objects.filter(id=pid).update(personnel_typ=personnel_type,evaluate=personnel_evaluate)
+			Personnel.objects.filter(id=pid).update(personnel_typ=personnel_type,evaluate=evaluate_log)
 			status = "success"
 		except:
 			return HttpResponseRedirect('/viewpersonnels/')
