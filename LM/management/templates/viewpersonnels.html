@@ -8,11 +8,11 @@
         <div class="col-md-12">
 			<div class="col-md-2">
 				<div class="list-group">
-					<a href="/viewpersonnel/" class="list-group-item" id="id_typ_all">
+					<a href="/viewpersonnels/" class="list-group-item" id="id_typ_all">
 						全部人员
 					</a>
 					{% for typ in type_list %}
-					<a href="/viewpersonnel?personnel_typ={{personnel_typ}}" class="list-group-item" id="id_{{personnel_typ}}">
+					<a href="/viewpersonnels?personnel_typ={{personnel_typ}}" class="list-group-item" id="id_{{personnel_typ}}">
 						{{ typ }}
 					</a>
 					{% endfor %}
