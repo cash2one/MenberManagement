@@ -537,7 +537,6 @@ def viewpersonnels(req):
 	else:
 		personnel_list = Personnel.objects.filter(personnel_typ__contains=keywords)
 
-
 	if req.POST:
 		post = req.POST
 		keywords = post.get('keyword','')
