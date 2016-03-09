@@ -29,7 +29,7 @@ urlpatterns = patterns('',
     url(r'^addpersonnel/$',views.addpersonnels),
     url(r'^viewpersonnels/$',views.viewpersonnels),
     url(r'^viewpersonnels/personnel_detail/$',views.personnel_detail),
-    url(r'^/viewpersonnels/modify_typ/$',views.modify_typ),
+    url(r'^viewpersonnels/modify_typ/$',views.modify_typ),
 
     #url(r'^addmenber/$',views.addMenber),
    # url(r'^viewmenber/menber_detail/$',views.menber_detail),
