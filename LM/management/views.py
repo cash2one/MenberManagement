@@ -530,6 +530,7 @@ def viewpersonnels(req):
 	personnelTypeList = getPersonnel_list()
 	personnel_type = req.GET.get('personnel_typ','all')
 	if personnel_type == '':
+		personnel_type = 'all'
 		personnel_list = Personnel.objects.all()
 	elif personnel_type not in personnelTypeList:
 		personnel_type = 'all'
