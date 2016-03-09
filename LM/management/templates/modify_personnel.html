@@ -1,0 +1,291 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}应聘人员登记表{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+        <div class="col-md-12">
+				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
+
+                <div class="form-group">
+					<label for="id_job" class="col-md-2 control-label">应聘职位:</label>
+					<div class="col-md-2">
+						<input type="text"  class="form-control" value="{{ personnel.job }}"  >
+					</div>
+                    <label for="id_f_name" class="col-md-4 control-label"> </label>
+                    <label for="id_form_date" class="col-md-2 control-label">填表日期:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.form_date }}" >
+					</div>
+				</div>
+
+                 <div class="form-group">
+					<label for="id_name" class="col-md-2 control-label">姓名:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.name }}" >
+					</div>
+                    <label for="id_sex" class="col-md-2 control-label">性别:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.sex }}">
+					</div>
+                     <label for="id_birth_date" class="col-md-2 control-label">出生日期:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.birth_date }}">
+					</div>
+				</div>
+
+                <div class="form-group">
+                     <label for="id_height" class="col-md-2 control-label">身高(cm):</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.height }}" >
+					</div>
+
+                     <label for="id_weight" class="col-md-2 control-label">体重(kg):</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control"   value="{{ personnel.weight }} "  >
+					</div>
+
+                     <label for="id_jiguan" class="col-md-2 control-label">籍贯:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.jiguan }}" >
+					</div>
+				</div>
+
+                 <div class="form-group">
+					<label for="id_xingge" class="col-md-2 control-label">性格:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control"  value="{{ personnel.xingge }}" >
+					</div>
+
+                    <label for="id_minzu" class="col-md-2 control-label">民族:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.minzu }}">
+					</div>
+
+                     <label for="id_marry" class="col-md-2 control-label">婚姻状况:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.marry }}">
+					</div>
+				</div>
+
+                 <div class="form-group">
+                     <label for="id_tel" class="col-md-2 control-label">手机:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.tel }}">
+					</div>
+
+                     <label for="id_skill" class="col-md-2 control-label">特长:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.skill }}" >
+					</div>
+
+                     <label for="id_wenping" class="col-md-2 control-label">文化程度:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.wenping }}" >
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label for="id_shenfenzheng" class="col-md-2 control-label">身份证:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.shenfenzheng }}">
+					</div>
+                    <label for="id_daogang" class="col-md-2 control-label">何时到岗:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.daogang }}" >
+					</div>
+                     <label for="id_huji" class="col-md-2 control-label">户口:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.huji }}">
+					</div>
+
+				</div>
+
+                <div class="form-group">
+                    <label for="id_address" class="col-md-2 control-label">QQ:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.qq }}">
+					</div>
+                    <label for="id_address" class="col-md-2 control-label">Email:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.email }}" >
+					</div>
+                <label for="id_address" class="col-md-2 control-label">住址:</label>
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ personnel.address }}" >
+					</div>
+                </div>
+                 <label for="id_w_start" class="col-md-12 control-label"><h3 class="form-signin-heading text-center">教育培训背景</h3></label>
+                 <div class="form-group">
+					<label for="id_edu_start" class="col-md-2 control-label">入学时间:</label>
+
+                    <label for="id_edu_end" class="col-md-2 control-label">毕业时间:</label>
+
+                     <label for="id_college" class="col-md-2 control-label">毕业院校:</label>
+
+                     <label for="id_professional" class="col-md-1 control-label">专业:</label>
+
+                     <label for="id_education" class="col-md-1 control-label">学历:</label>
+
+                     <label for="id_nature" class="col-md-1 control-label">性质:</label>
+
+                      <label for="id_mark" class="col-md-3 control-label">备注:</label>
+
+				</div>
+                 {% for edu in education %}
+                <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ edu.edu_start }}" >
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ edu.edu_end }}" >
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ edu.college }}" >
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" value="{{ edu.professional }}">
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" value="{{ edu.education }}" >
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" value="{{ edu.nature }}" >
+					</div>
+
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="{{ edu.mark }}" >
+					</div>
+				</div>
+           {% endfor %}
+
+                <label for="id_w_start" class="col-md-12 control-label"><h3 class="form-signin-heading text-center">家庭背景</h3></label>
+                <div class="form-group">
+					<label for="id_re_name" class="col-md-2 control-label">姓名:</label>
+
+                    <label for="id_relation" class="col-md-2 control-label">关系:</label>
+
+                     <label for="id_work" class="col-md-4 control-label">工作单位:</label>
+
+                     <label for="id_re_job" class="col-md-2 control-label">职务:</label>
+
+                     <label for="id_re_tel" class="col-md-2 control-label">联系电话:</label>
+				</div>
+                {% for lation in relation %}
+                <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ lation.re_name }}"  >
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control"  value="{{ lation.relation }}" >
+					</div>
+
+					<div class="col-md-4">
+						<input type="text" class="form-control" value="{{ lation.work }}" >
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ lation.re_job }}"  >
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ lation.re_tel }}" >
+					</div>
+				</div>
+               {% endfor %}
+
+                <label for="id_w_start" class="col-md-12 control-label"><h3 class="form-signin-heading text-center">工作经验</h3></label>
+                <div class="form-group">
+					<label for="id_w_start" class="col-md-2 control-label">入职时间:</label>
+
+                    <label for="id_w_end" class="col-md-2 control-label">离职时间:</label>
+
+                     <label for="id_company" class="col-md-2 control-label">工作单位:</label>
+
+                     <label for="id_w_job" class="col-md-1 control-label">职位:</label>
+
+                     <label for="id_w_salary" class="col-md-1 control-label">月薪:</label>
+
+                     <label for="id_quit" class="col-md-1 control-label">离开原因:</label>
+
+                      <label for="id_references" class="col-md-1 control-label">证明人:</label>
+
+                     <label for="id_w_tel" class="col-md-2 control-label">电话:</label>
+
+				</div>
+                {% for w in work %}
+                <div class="form-group">
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ w.w_start }}"  >
+					</div>
+
+                    <div class="col-md-2">
+						<input type="text" class="form-control" value="{{ w.w_end }}" >
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ w.company }}"  >
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" value="{{ w.w_job }}" >
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" value="{{ w.w_salary }}"  >
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" value="{{ w.quit }}"  >
+					</div>
+
+					<div class="col-md-1">
+						<input type="text" class="form-control" value="{{ w.references }}"  >
+					</div>
+
+					<div class="col-md-2">
+						<input type="text" class="form-control" value="{{ w.w_tel }}"  >
+					</div>
+				</div>
+               {% endfor %}
+
+
+                <div class="form-group">
+					<label for="id_obey" class="col-md-3 control-label">是否服从安排:</label>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="{{ personnel.obey }}"  >
+					</div>
+                    <label for="id_salary" class="col-md-3 control-label">期望工资收入:</label>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="{{ personnel.salary }}">
+					</div>
+				</div>
+
+                 <div class="form-group">
+					<label for="id_other" class="col-md-2 control-label">其他说明:</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" value="{{ personnel.other }}" id="id_other" name="other">
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label for="id_evaluate" class="col-md-2 control-label">综合评估:</label>
+					<div class="col-md-10">
+						<input type="text" class="form-control" value="{{ personnel.evaluate }}" id="id_evaluate" name="evaluate">
+					</div>
+				</div>
+
+            </div>
+	</div>
+</div>
+
+
+{% endblock %}
