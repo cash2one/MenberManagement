@@ -597,7 +597,7 @@ def modify_typ(req):
 		personnel_type = post.get('personnel_typ','')
 		personnel_evaluate = post.get('evaluate','')
 		dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-		evaluate_log = personnel_evaluate+dt
+		evaluate_log = personnel_evaluate+str(dt)
 		try:
 			Personnel.objects.filter(id=pid).update(personnel_typ=personnel_type,evaluate=evaluate_log)
 			status = "success"
