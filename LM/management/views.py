@@ -595,9 +595,9 @@ def modify_typ(req):
 		pid = post.get('pid','')
 		personnel_type = post.get('personnel_typ','')
 		personnel_evaluate = post.get('evaluate','')
-		personnel_log = str(personnel_evaluate) + timezone.localtime(timezone.now())
+
 		try:
-			Personnel.objects.filter(id=pid).update(personnel_typ=personnel_type,evaluate=personnel_log)
+			Personnel.objects.filter(id=pid).update(personnel_typ=personnel_type,evaluate=personnel_evaluate)
 			status = "success"
 		except:
 			return HttpResponseRedirect('/viewpersonnels/')
