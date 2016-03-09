@@ -528,14 +528,14 @@ def viewpersonnels(req):
 	else:
 		user = ''
 	personnelTypeList = getPersonnel_list()
-	personnel_type = req.GET.get('personnel_typ','')
+	personnel_type = req.GET.get('personnel_typ','all')
 	if personnel_type == '':
 		personnel_list = Personnel.objects.all()
 	elif personnel_type not in personnelTypeList:
 		personnel_type = 'all'
 		personnel_list = Personnel.objects.all()
 	else:
-		personnel_list = Personnel.objects.filter(personnel_typ__contains=keywords)
+		personnel_list = Personnel.objects.filter(personnel_typ__contains=personnel_type)
 
 	if req.POST:
 		post = req.POST
