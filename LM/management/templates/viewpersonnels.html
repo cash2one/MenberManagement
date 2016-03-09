@@ -8,17 +8,17 @@
         <div class="col-md-12">
 			<div class="col-md-2">
 				<div class="list-group">
-					<a href="/viewbook/" class="list-group-item" id="id_typ_all">
-						全部图书
+					<a href="/viewpersonnel/" class="list-group-item" id="id_typ_all">
+						全部人员
 					</a>
 					{% for typ in type_list %}
-					<a href="/viewbook?typ={{typ}}" class="list-group-item" id="id_typ_{{typ}}">
+					<a href="/viewpersonnel?personnel_typ={{personnel_typ}}" class="list-group-item" id="id_{{personnel_typ}}">
 						{{ typ }}
 					</a>
 					{% endfor %}
 				</div>
 				<script type="text/javascript">
-				    var act_typ = document.getElementById("id_typ_{{book_type}}");
+				    var act_typ = document.getElementById("id_{{personnel_typ}}");
 				    var new_class = act_typ.getAttribute("class") + " active"
 				    act_typ.setAttribute("class",new_class);
 				</script>
