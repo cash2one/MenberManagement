@@ -29,10 +29,20 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td rowspan="2">1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>姓名:</td>
+                        <td><input type="text" class="form-control" id="id_name" required name="name" autofocus></td>
+                        <td>性别:</td>
+                        <td>@<label class="checkbox-inline">
+                          <input type="radio" name="sex" id="id_sex"
+                             value="男" checked> 男
+                       </label>
+                       <label class="checkbox-inline">
+                          <input type="radio" name="sex" id="id_sex"
+                             value="女"> 女
+                       </label>
+                        </td>
+                        <td>出生日期:</td>
+                          <td><input type="date" class="form-control" id="id_birth_date" required name="birth_date" autofocus></td>
                       </tr>
                       <tr>
                         <td>Mark</td>
