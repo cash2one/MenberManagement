@@ -99,6 +99,35 @@
                         <td colspan="6" align="center">教育培训背景</td>
                       </tr>
                   </tbody>
+                    <thead>
+                      <tr>
+                          <th>入学时间</th>
+                          <th>毕业时间</th>
+                          <th>毕业院校</th>
+                          <th>专业</th>
+                          <th>学历</th>
+                          <th>性质</th>
+                          <th>备注</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td><input type="date" class="form-control" id="id_edu_start" required name="edu_start" autofocus></td>
+                        <td><input type="date" class="form-control" id="id_edu_end" required name="edu_end" autofocus></td>
+                        <td><input type="text" class="form-control" id="id_college" required name="college" autofocus></td>
+                        <td><input type="text" class="form-control" id="id_professional" required name="professional" autofocus></td>
+                        <td><select class="form-control" name="education" id="id_education">
+                            <option value="" selected></option>
+                            <option value="中专">中专</option>
+                            <option value="大专">大专</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                        </select></td>
+                        <td><input type="text" class="form-control" id="id_nature"  name="nature" autofocus></td>
+                        <td><input type="text" class="form-control" id="id_mark"  name="mark" autofocus></td>
+
+                    </tr>
+                    </tbody>
             </table>
 
                 <div class="form-group">
