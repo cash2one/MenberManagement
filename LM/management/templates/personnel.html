@@ -16,7 +16,42 @@
 			<form method="POST"   role="form" class="form-horizontal">
 				{% csrf_token %}
 				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
+
                <input type="hidden" id="id_personnel_typ" name="personnel_typ" value="面试">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th>应聘职位:</th>
+                        <th colspan="2"><input type="text"  class="form-control" id="id_job" required name="job" autofocus></th>
+                        <th>填表日期:</th>
+                          <th colspan="2"><input type="date" class="form-control" id="id_form_date" required name="form_date" autofocus></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td rowspan="2">1</td>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr>
+                      <tr>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@TwBootstrap</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                      </tr>
+                  </tbody>
+            </table>
 
                 <div class="form-group">
 					<label for="id_job" class="col-md-2 control-label">应聘职位:</label>
