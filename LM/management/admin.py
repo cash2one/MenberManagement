@@ -41,7 +41,7 @@ admin.site.register(WorkExperience,WorkExperienceAdmin)
 #admin.site.register(Courses,CourseAdmin)
 #admin.site.register(Sign,SignAdmin)
 admin.site.register(Personnel)
-admin.site.register(weekmeeting,WeekmeetingAdmin)
+admin.site.register(weekmeeting,weekmeetingAdmin)
 admin.site.register(Person,PersonAdmin)
 admin.site.register(Friends,FriendsAdmin)
 
