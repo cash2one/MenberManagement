@@ -29,6 +29,9 @@ class RelativeAdmin(admin.ModelAdmin):
 class WorkExperienceAdmin(admin.ModelAdmin):
     list_display = ('company','w_job')
 
+class WeekmeetingAdmin(admin.ModelAdmin):
+    list_display = ('lastweek','nextweek')
+
 
 
 admin.site.register(Menbers,MenberAdmin)
@@ -38,6 +41,7 @@ admin.site.register(WorkExperience,WorkExperienceAdmin)
 #admin.site.register(Courses,CourseAdmin)
 #admin.site.register(Sign,SignAdmin)
 admin.site.register(Personnel)
+admin.site.register(weekmeeting,WeekmeetingAdmin)
 admin.site.register(Person,PersonAdmin)
 admin.site.register(Friends,FriendsAdmin)
 
