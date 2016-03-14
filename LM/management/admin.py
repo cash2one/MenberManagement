@@ -29,7 +29,7 @@ class RelativeAdmin(admin.ModelAdmin):
 class WorkExperienceAdmin(admin.ModelAdmin):
     list_display = ('company','w_job')
 
-class WeekmeetingAdmin(admin.ModelAdmin):
+class weekmeetingAdmin(admin.ModelAdmin):
     list_display = ('lastweek','nextweek')
 
 
