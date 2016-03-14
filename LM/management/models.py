@@ -51,6 +51,7 @@ class Menbers(models.Model):
     user = models.OneToOneField(User)
     permission = models.IntegerField()
     menber_name = models.CharField(max_length=30,verbose_name=u"姓名")
+    partment = models.CharField(max_length=30,verbose_name=u"部门")
     menber_tel = models.CharField(max_length=30,verbose_name=u"电话")
     reg_date = models.DateField(auto_now_add=True,verbose_name=u"注册日期")
     def __str__(self):
@@ -58,7 +59,7 @@ class Menbers(models.Model):
     class Meta:
         verbose_name = "员工"
         verbose_name_plural ="员工"
-
+#面试人员基础信息
 class Personnel(models.Model):
     job = models.CharField(max_length=30,verbose_name=u"职位")
     form_date = models.DateField(auto_now_add=True,verbose_name=u"填表日期")
@@ -92,7 +93,7 @@ class Personnel(models.Model):
         verbose_name="人才登记表"
         verbose_name_plural="人才登记表"
         ordering = ["-form_date"]
-
+#教育经历
 class Education(models.Model):
     personnel = models.ForeignKey(Personnel)
     edu_start = models.DateField(auto_now_add=True,verbose_name=u"入学时间")
@@ -108,7 +109,7 @@ class Education(models.Model):
         verbose_name="教育培训"
         verbose_name_plural="教育培训"
         ordering = ["-edu_end"]
-
+#亲戚关系
 class Relative(models.Model):
     personnel = models.ForeignKey(Personnel)
     re_name = models.CharField(max_length=20,verbose_name=u"姓名")
@@ -122,7 +123,7 @@ class Relative(models.Model):
         verbose_name="家庭背景"
         verbose_name_plural="家庭背景"
 
-
+#工作经验
 class WorkExperience(models.Model):
     personnel = models.ForeignKey(Personnel)
     w_start = models.DateField(auto_now_add=True,verbose_name=u"入职时间")
@@ -141,7 +142,7 @@ class WorkExperience(models.Model):
         ordering = ["-w_end"]
 
 
-
+#送礼发起人
 class Person(models.Model):
     tel = models.CharField(max_length=30,verbose_name=u"电话")
     name = models.CharField(max_length=30,verbose_name=u"姓名")
@@ -157,6 +158,7 @@ class Person(models.Model):
         verbose_name_plural ="发起人"
         ordering = ["-pdate"]
 
+#送礼给朋友
 class Friends(models.Model):
     f_tel = models.CharField(max_length=30,verbose_name=u"朋友电话")
     f_name = models.CharField(max_length=30,verbose_name=u"朋友姓名")
@@ -170,4 +172,24 @@ class Friends(models.Model):
     class Meta:
         verbose_name = "朋友"
         verbose_name_plural = "朋友"
+
+#周工作推荐表
+class weekmeeting(models.Model):
+    week = models.CharField(max_length=30,verbose_name=u"第几周")
+    lastweek = models.TextField(blank=True,verbose_name=u"上周工作内容")
+    nextweek = models.TextField(blank=True,verbose_name=u"本周工作内容")
+    last_exeperson = models.CharField(max_length=50,verbose_name=u"上周执行人")
+    last_comletiontime = models.DateField(auto_now_add=True,verbose_name=u"上周完成时间")
+    comletioneffect = models.CharField(blank=True,verbose_name=u"完成效果")
+    meeting = models.TextField(blank=True,verbose_name=u"会议记录")
+    next_exeperson = models.CharField(max_length=50,verbose_name=u"本周执行人")
+    next_comletiontime = models.DateField(auto_now_add=True,verbose_name=u"本周完成时间")
+    menber = models.ForeignKey(Menbers)
+
+    def __str__(self):
+        return u'%s %s'%(self.lastweek,self.meeting)
+    class Meta:
+        verbose_name = "周列会"
+        verbose_name_plural = "周列会"
+
 
