@@ -18,11 +18,11 @@
 			{% endif %}
 			<form method="POST" role="form" class="form-horizontal">
 				{% csrf_token %}
-				<h1 class="form-signin-heading text-center">湖南崇德堂实业股份有限公司部门工作推进表</h1>
+				<h2 class="form-signin-heading text-center">湖南崇德堂实业股份有限公司部门工作推进表</h2>
 				<div class="form-group">
 					<label for="id_user_name" class="col-md-3 control-label">部门：</label>
 					<div class="col-md-3">
-						<input type="text" class="form-control" value="{{ user.name }}" autofocus>
+						<input type="text" class="form-control" value="{{ user.menber_name }}" autofocus>
 					</div>
                     <label for="id_user_name" class="col-md-3 control-label">姓名：</label>
 					<div class="col-md-3">
