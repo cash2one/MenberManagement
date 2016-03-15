@@ -627,7 +627,7 @@ def addweekmeeting(req):
 			meeting = post.get('meeting',''),\
 			next_comletiontime = post.get('next_comletiontime',''),\
 			next_exeperson = post.get('next_exeperson',''),\
-			member = user,\
+			menber = user,\
 		)
 		meeting.save()
 
