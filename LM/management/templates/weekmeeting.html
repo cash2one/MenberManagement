@@ -6,7 +6,7 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+		<div class="col-md-6 col-md-offset-2 col-sm-10 col-sm-offset-1">
 			{% if status == 'success' %}
 				<div class="well">
 					<h2 class="text-success text-center">周总结&计划添加成功！</h2>
@@ -18,15 +18,15 @@
 			{% endif %}
 			<form method="POST" role="form" class="form-horizontal">
 				{% csrf_token %}
-				<h2 class="form-signin-heading text-center">湖南崇德堂实业股份有限公司部门工作推进表</h2>
+				<h3 class="form-signin-heading text-center">湖南崇德堂实业股份有限公司部门工作推进表</h3>
 				<div class="form-group">
 					<label for="id_user_name" class="col-md-3 control-label">部门：</label>
 					<div class="col-md-3">
-						<input type="text" class="form-control" value="{{ user.menber_name }}" autofocus>
+						<input type="text" class="form-control" value="{{ user.partment }}" autofocus>
 					</div>
                     <label for="id_user_name" class="col-md-3 control-label">姓名：</label>
 					<div class="col-md-3">
-						<input type="text" class="form-control"  value="{{ user.partment }}">
+						<input type="text" class="form-control"  value="{{ user.menber_name  }}">
 					</div>
 				</div>
 
