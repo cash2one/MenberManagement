@@ -96,5 +96,24 @@
 		</div>
 	</div>
 </div>
-
+<script language="javascript" type="text/javascript">
+$(function() {
+    n = 1;
+    $(".clickme").click(function(){
+        $(".div_green").append('<div class="div_red01" id="divlia_'+n+'">新加入的......<span class="del">删除</span></div>');
+            n = n+1;
+    });
+    //删除父结点
+    $(".del").live("click",function(){
+         $(this).parent("div").remove();
+     });
+    /*删除当前
+    $(".div_red01").live("click", function() {
+           $(this).remove();
+     });
+    */
+});
+</script>
+    <div class="clickme">Click here</div>
+<div class="div_green"></div>
 {% endblock %}
