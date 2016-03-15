@@ -20,11 +20,14 @@
 				{% csrf_token %}
 				<h1 class="form-signin-heading text-center">湖南崇德堂实业股份有限公司部门工作推进表</h1>
 				<div class="form-group">
-					<label for="id_user_name" class="col-md-3 control-label">用户名：</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" id="id_user_name" required name="username" autofocus>
-						<span class="help-block">用于登陆，可以包括大小写字母和下划线。</span>
-					</div>	
+					<label for="id_user_name" class="col-md-3 control-label">部门：</label>
+					<div class="col-md-3">
+						<input type="text" class="form-control" value="{{  }}" autofocus>
+					</div>
+                    <label for="id_user_name" class="col-md-3 control-label">姓名：</label>
+					<div class="col-md-3">
+						<input type="text" class="form-control"  value="{{  }}">
+					</div>
 				</div>
 
 				<div class="form-group">
