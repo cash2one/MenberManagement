@@ -606,6 +606,16 @@ def modify_typ(req):
 
 
 
+def addweekmeeting(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	content = {'active_menu': 'addweekmeeting','status':status,'user':user}
+	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
 
 
 """
