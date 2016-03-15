@@ -184,7 +184,7 @@ class weekmeeting(models.Model):
     meeting = models.TextField(blank=True,verbose_name=u"会议记录")
     next_exeperson = models.CharField(max_length=50,verbose_name=u"本周执行人")
     next_comletiontime = models.DateField(auto_now_add=True,verbose_name=u"本周完成时间")
-    menber = models.ForeignKey(Menbers)
+    department = models.CharField(max_length=50,verbose_name=u"部门")
 
     def __str__(self):
         return u'%s %s'%(self.lastweek,self.meeting)
