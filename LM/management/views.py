@@ -615,6 +615,22 @@ def addweekmeeting(req):
 	else:
 		return HttpResponseRedirect('/login/')
 
+	if req.POST:
+		post = req.POST
+		meeting  = weekmeeting(
+			week = post.get('week',''),\
+			lastweek = post.get('lastweek',''),\
+			nextweek = post.get('nextweek',''),\
+			last_exeperson = post.get('last_exeperson',''),\
+			last_comletiontime = post.get('last_comletiontime',''),\
+			comletioneffect = post.get('comletioneffect',''),\
+			meeting = post.get('meeting',''),\
+			next_comletiontime = post.get('next_comletiontime',''),\
+			next_exeperson = post.get('next_exeperson',''),\
+			member = user,\
+		)
+		meeting.save()
+
 	content = {'active_menu': 'addweekmeeting','status':status,'user':user}
 	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
 
