@@ -630,6 +630,7 @@ def addweekmeeting(req):
 			menber = user,\
 		)
 		meeting.save()
+		status = 'success'
 
 	content = {'active_menu': 'addweekmeeting','status':status,'user':user}
 	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
