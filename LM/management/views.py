@@ -38,8 +38,9 @@ def signup(req):
 				newuser.save()
 				new_menber = Menbers(
 					user=newuser, \
-					menber_name =post.get('menber_name'),\
+					menber_name =post.get('menber_name',''),\
 					menber_tel = post.get('menber_tel',''), \
+					partment = post.get('partment',''),\
 					permission=1,\
 				)
 				new_menber.save()
