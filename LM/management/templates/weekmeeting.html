@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}注册{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+			{% if status == 'success' %}
+				<div class="well">
+					<h2 class="text-success text-center">周总结&计划添加成功！</h2>
+				</div>
+			{% elif status == 're_err' %}
+				<div class="well">
+					<h2 class="text-warning text-center">请重新提交</h2>
+				</div>
+			{% endif %}
+			<form method="POST" role="form" class="form-horizontal">
+				{% csrf_token %}
+				<h1 class="form-signin-heading text-center">湖南崇德堂实业股份有限公司部门工作推进表</h1>
+				<div class="form-group">
+					<label for="id_user_name" class="col-md-3 control-label">用户名：</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" id="id_user_name" required name="username" autofocus>
+						<span class="help-block">用于登陆，可以包括大小写字母和下划线。</span>
+					</div>	
+				</div>
+
+				<div class="form-group">
+					<label for="id_menber_name" class="col-md-3 control-label">姓名：</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" required name="menber_name" id="id_menber_name">
+					</div>
+				</div>
+                <div class="form-group">
+                    <label for="id_partment" class="col-md-3 control-label">所属部门：</label>
+                    <div class="col-md-9">
+					<select class="form-control" name="partment" id="id_partment" >
+                            <option value="0" selected>请选择部门</option>
+                            <option value="投资部">投资部</option>
+                            <option value="市场部">市场部</option>
+                            <option value="财务部">财务部</option>
+                            <option value="电商部">电商部</option>
+                            <option value="人事部">人事部</option>
+                            <option value="门店">门店</option>
+                            <option value="书院">书院</option>
+                           <option value="总经理">总经理</option>
+                          <option value="董事长">董事长</option>
+                        </select>
+                    </div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="id_passwd" class="col-md-3 control-label">密码：</label>
+					<div class="col-md-9">
+						<input type="password" class="form-control" required name="passwd" id="id_passwd">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="id_repasswd" class="col-md-3 control-label">重复密码：</label>
+					<div class="col-md-9">
+						<input type="password" class="form-control" required name="repasswd" id="id_repasswd">
+					</div>	
+				</div>
+                <div class="form-group">
+					<label for="id_email" class="col-md-3 control-label">电子邮件：</label>
+					<div class="col-md-9">
+						<input type="email" class="form-control" required name="email" id="id_email">
+					</div>
+				</div><div class="form-group">
+					<label for="id_menber_tel" class="col-md-3 control-label">电话：</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" required name="menber_tel" id="id_menber_tel">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-4 col-md-offset-4">
+						<button class="btn btn btn-primary btn-block" type="submit" id="id_submit">注册</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
