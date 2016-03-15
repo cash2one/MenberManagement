@@ -636,6 +636,20 @@ def addweekmeeting(req):
 	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
 
 
+def viewmeeting(req):
+	username = req.session.get('username','')
+	if username != '':
+		user = Menbers.objects.get(user__username=username)
+	else:
+		user = ''
+
+	meetings = weekmeeting.objects.all()
+
+	content = {'active_menu': 'addweekmeeting','status':status,'user':user}
+	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
+
+
+
 """
 edu_satrt = post.getlist('edu_start',[])
 		edu_end = post.getlist('edu_end',[])
