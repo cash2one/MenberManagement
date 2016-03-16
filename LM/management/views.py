@@ -529,6 +529,7 @@ def viewEmployee(req):
 
 	Id = req.GET.get('id','')
 	if Id == '':
+		Id = 'all'
 		employee_list = Employee.objects.all()
 	else:
 		try:
