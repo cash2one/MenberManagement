@@ -103,7 +103,7 @@
        //增加<tr/>
         $("#but").click(function(){
            var _tlen = $("#tab tr").length;
-            $("#tab").append("<tr id="+_tlen+" align='center'>"
+            $("#tab").append("<tr id='tab"+_tlen+"' align='center'>"
                                 +"<td><textarea style='width:300px; height:60px;'   id='desc"+_tlen+"' name='id_lastweek'></textarea></td>"
                                 +"<td><input type='text' id='desc"+_tlen+"' name='id_last_exeperson' /></td>"
                                 +"<td><input type='date' id='desc"+_tlen+"' name='id_last_comletiontime' /></td>"
@@ -114,7 +114,7 @@
           //增加<tr/>
         $("#pop").click(function(){
            var _plen = $("#next tr").length;
-            $("#next").append("<tr id="+_plen+" align='center'>"
+            $("#next").append("<tr id='pop"+_plen+"' align='center'>"
                                 +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='id_nextweek'></textarea></td>"
                                 +"<td></td>"
                                 +"<td><input type='text' id='next"+_plen+"' name='id_next_exeperson' /></td>"
@@ -127,12 +127,12 @@
    var deltab =function(index)
     {
         var _tlen = $("#tab tr").length;
-        $("tab tr[id='"+index+"']").remove();//删除当前行
+        $("tr[id='tab"+index+"']").remove();//删除当前行
       for(var i=index+1,j=_tlen;i<j;i++)
         {
 
-           $("#tab tr[id=\'"+i+"\']")
-                .replaceWith("<tr id="+(i-1)+" align='center'>"
+           $("tr[id=\'tab"+i+"\']")
+                .replaceWith("<tr id='tab"+(i-1)+"' align='center'>"
                                  +"<td><textarea style='width:300px; height:60px;'   name='desc"+_tlen+"' id='id_lastweek'></textarea></td>"
                                 +"<td><input type='text' id='desc"+_tlen+"' name='id_last_exeperson' /></td>"
                                 +"<td><input type='date' id='desc"+_tlen+"' name='id_last_comletiontime' /></td>"
@@ -145,12 +145,12 @@
  var delpop =function(index)
     {
         var _plen = $("#next tr").length;
-        $("#next tr[id='"+index+"']").remove();//删除当前行
+        $("tr[id='pop"+index+"']").remove();//删除当前行
       for(var i=index+1,j=_plen;i<j;i++)
         {
 
-           $("#next tr[id=\'"+i+"\']")
-                .replaceWith("<tr id="+(i-1)+" align='center'>"
+           $("tr[id=\'pop"+i+"\']")
+                .replaceWith("<tr id='pop"+(i-1)+"' align='center'>"
                                  +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='id_nextweek'></textarea></td>"
                                 +"<td></td>"
                                 +"<td><input type='text' id='next"+_plen+"' name='id_next_exeperson' /></td>"
