@@ -535,7 +535,7 @@ def viewEmployee(req):
 	depart_id = req.GET.get('id','')
 	if depart_id == '':
 		return HttpResponseRedirect('/viewEmployee/')
-	try
+	try:
 		department = Department.objects.get(pk=depart_id)
 	except:
 		return HttpResponseRedirect('/viewEmployee/')
