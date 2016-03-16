@@ -41,22 +41,31 @@
                         </select>
 					</div>
 				</div>
-               <input type="button" id="btn1" value="进行浅克隆(不复制事件)" />
+                 <div class="form-group">
+					<label for="id_evaluate" class="col-md-5 control-label">上周工作内容:</label>
+
+                    <label for="id_last_exeperson" class="col-md-2 control-label">执行人：</label>
+
+                     <label for="id_last_comletiontime" class="col-md-2 control-label">完成时间：</label>
+
+                     <label for="id_passwd" class="col-md-2 control-label">完成效果：</label>
+
+                     <input type="button" id="btn1" value="添加总结" />
+
+				</div>
+
+
 				 <div class="form-group" id="txt1">
-					<label for="id_evaluate" class="col-md-1 control-label">上周工作内容:</label>
-					<div class="col-md-4">
-						<textarea rows="4" cols="12" placeholder="善于总结经验，发现问题，提出建议，提高业务水平" class="form-control input-sm" id="id_lastweek" required name="lastweek" autofocus></textarea>
+					<div class="col-md-6">
+						<textarea rows="3" cols="12" placeholder="善于总结经验，发现问题，提出建议，提高业务水平" class="form-control input-sm" id="id_lastweek" required name="lastweek" autofocus></textarea>
 					</div>
-                     <label for="id_last_exeperson" class="col-md-1 control-label">执行人：</label>
-					<div class="col-md-1">
+					<div class="col-md-2">
 						<input type="text" class="form-control" required name="last_exeperson" value="{{ user.menber_name  }}" id="id_last_exeperson">
 					</div>
-                    <label for="id_last_comletiontime" class="col-md-1 control-label">完成时间：</label>
 					<div class="col-md-2">
 						<input type="date" class="form-control" required name="last_comletiontime" id="id_last_comletiontime">
 					</div>
-                     <label for="id_passwd" class="col-md-1 control-label">完成效果：</label>
-                    <div class="col-md-1">
+                    <div class="col-md-2">
 					    <select class="form-control" name="comletioneffect" id="id_comletioneffect" >
                             <option value="0" selected>请选择完成效果</option>
                             <option value="已完成">已完成</option>
