@@ -531,15 +531,15 @@ def viewEmployee(req):
 		user = Employee.objects.get(user__username=username)
 	else:
 		user = ''
-	employeeTypeList = getEmployee_list()
-	employee_type = req.GET.get('status','all')
-	if employee_type == '':
+	departments = Department.objects.all()
+	department_type = req.GET.get('department','all')
+	if department_type == '':
 		employee_list = Employee.objects.all()
-	elif employee_type not in employeeTypeList:
-		employee_type = 'all'
+	elif department_type not in departments:
+		department_type = 'all'
 		employee_list = Employee.objects.all()
 	else:
-		employee_list = Employee.objects.filter(personnel_typ__contains=employee_type)
+		employee_list = Employee.objects.filter(department__contains=department_type)
 
 	if req.POST:
 		post = req.POST
@@ -556,7 +556,7 @@ def viewEmployee(req):
 	except EmptyPage:
 		employee_list = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'viewpersonnels','employeeTypeList':employeeTypeList,'employee_type':employee_type,'user':user,'employee_list':employee_list}
+	content = {'active_menu': 'viewpersonnels','departments':departments,'department_type':department_type,'user':user,'employee_list':employee_list}
 	return render_to_response('viewEmployee.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
