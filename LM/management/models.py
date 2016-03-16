@@ -46,7 +46,7 @@ class Menbers(models.Model):
     class Meta:
         verbose_name = "学员"
         verbose_name_plural ="学员"
-'''
+
 class Menbers(models.Model):
     user = models.OneToOneField(User)
     permission = models.IntegerField()
@@ -59,33 +59,45 @@ class Menbers(models.Model):
     class Meta:
         verbose_name = "员工"
         verbose_name_plural ="员工"
+'''
+class Department(models.Model):
+    depart_name = models.CharField(max_length=30,verbose_name=u"部门名")
+    leader = models.CharField(blank=True,max_length=30,verbose_name=u"部门领导")
+    depart_mark = models.CharField(blank=True,max_length=30,verbose_name="部门介绍")
+
+
 #面试人员基础信息
-class Personnel(models.Model):
-    job = models.CharField(max_length=30,verbose_name=u"职位")
-    form_date = models.DateField(auto_now_add=True,verbose_name=u"填表日期")
+class Employee(models.Model):
+    user = models.OneToOneField(User)  #django一对一的关系，扩展了系统user
+    department = models.ForeignKey(Department) #部门与员工一对多的关系
+
+    job = models.CharField(blank=True,max_length=30,verbose_name=u"职位")
+    registdate  = models.DateField(blank=True,auto_now_add=True,verbose_name=u"填表日期")
     name = models.CharField(max_length=30,verbose_name=u"姓名")
-    sex = models.CharField(max_length=10,verbose_name=u"性别")
-    birth_date = models.DateField(auto_now_add=True,verbose_name=u"填表日期")
+    sex = models.CharField(blank=True,max_length=10,verbose_name=u"性别")
+    birthday = models.DateField(blank=True,auto_now_add=True,verbose_name=u"出生日期")
     height = models.CharField(blank=True,max_length=10,verbose_name=u"身高")
     weight = models.CharField(blank=True,max_length=10,verbose_name=u"体重")
-    jiguan = models.CharField(max_length=10,verbose_name=u"籍贯")
-    xingge = models.CharField(max_length=30,verbose_name=u"性格")
-    minzu = models.CharField(max_length=10,verbose_name=u"民族")
-    marry = models.CharField(max_length=10,verbose_name=u"婚姻")
-    tel = models.CharField(max_length=30,verbose_name=u"手机")
+    birthplace = models.CharField(blank=True,max_length=10,verbose_name=u"籍贯")
+    character = models.CharField(blank=True,max_length=30,verbose_name=u"性格")
+    national = models.CharField(blank=True,max_length=10,verbose_name=u"民族")
+    marry = models.CharField(blank=True,max_length=10,verbose_name=u"婚姻")
+    tel = models.CharField(blank=True,max_length=30,verbose_name=u"手机")
     skill = models.CharField(blank=True,max_length=30,verbose_name=u"特长")
-    wenping = models.CharField(max_length=30,verbose_name=u"文化程度")
-    shenfenzheng = models.CharField(max_length=40,verbose_name=u"身份证")
-    daogang = models.CharField(blank=True,max_length=30,verbose_name=u"到岗时间")
-    huji = models.CharField(max_length=30,verbose_name=u"户籍")
-    address = models.CharField(max_length=60,verbose_name=u"性别")
+    diploma = models.CharField(blank=True,max_length=30,verbose_name=u"文化程度")
+    identity = models.CharField(blank=True,max_length=40,verbose_name=u"身份证")
+    working = models.CharField(blank=True,max_length=30,verbose_name=u"到岗时间")
+    huji = models.CharField(blank=True,max_length=30,verbose_name=u"户籍")
+    address = models.CharField(blank=True,max_length=60,verbose_name=u"性别")
     salary = models.CharField(blank=True,max_length=30,verbose_name=u"期望薪水")
     obey = models.CharField(blank=True,max_length=10,verbose_name=u"是否服从")
     other = models.TextField(blank=True,verbose_name=u"其他说明")
-    evaluate = models.TextField(verbose_name=u"综合评估")
+    evaluate = models.TextField(blank=True,verbose_name=u"综合评估")
     qq = models.CharField(blank=True,max_length=20,verbose_name='QQ')
     email = models.CharField(max_length=50,blank=True)
-    personnel_typ = models.CharField(max_length=10,blank=True,verbose_name=u'类型')
+    status = models.CharField(max_length=10,blank=True,verbose_name=u'类型')
+    emergcontact = models.CharField(max_length=30,blank=True,verbose_name=u'紧急联系人')
+    emergcall = models.CharField(max_length=30,blank=True,verbose_name=u'联系电话')
 
     def __str__(self):
         return u'%s %s' %(self.name,self.job)
@@ -95,7 +107,7 @@ class Personnel(models.Model):
         ordering = ["-form_date"]
 #教育经历
 class Education(models.Model):
-    personnel = models.ForeignKey(Personnel)
+    employee = models.ForeignKey(Employee)
     edu_start = models.DateField(auto_now_add=True,verbose_name=u"入学时间")
     edu_end = models.DateField(auto_now_add=True,verbose_name=u"毕业时间")
     college = models.CharField(max_length=30,verbose_name=u"院校")
@@ -111,7 +123,7 @@ class Education(models.Model):
         ordering = ["-edu_end"]
 #亲戚关系
 class Relative(models.Model):
-    personnel = models.ForeignKey(Personnel)
+    employee = models.ForeignKey(Employee)
     re_name = models.CharField(max_length=20,verbose_name=u"姓名")
     relation = models.CharField(max_length=20,verbose_name=u"关系")
     work = models.CharField(blank=True,max_length=20,verbose_name=u"工作")
@@ -125,7 +137,7 @@ class Relative(models.Model):
 
 #工作经验
 class WorkExperience(models.Model):
-    personnel = models.ForeignKey(Personnel)
+    employee = models.ForeignKey(Employee)
     w_start = models.DateField(auto_now_add=True,verbose_name=u"入职时间")
     w_end = models.DateField(auto_now_add=True,verbose_name=u"离职时间")
     company = models.CharField(blank=True,max_length=50,verbose_name=u"工作单位")
@@ -174,22 +186,40 @@ class Friends(models.Model):
         verbose_name_plural = "朋友"
 
 #周工作推荐表
-class weekmeeting(models.Model):
+class WeekMeeting(models.Model):
     week = models.CharField(max_length=30,verbose_name=u"第几周")
-    lastweek = models.TextField(blank=True,verbose_name=u"上周工作内容")
-    nextweek = models.TextField(blank=True,verbose_name=u"本周工作内容")
-    last_exeperson = models.CharField(max_length=50,verbose_name=u"上周执行人")
-    last_comletiontime = models.DateField(auto_now_add=True,verbose_name=u"上周完成时间")
-    comletioneffect = models.CharField(max_length=50,verbose_name=u"完成效果")
     meeting = models.TextField(blank=True,verbose_name=u"会议记录")
-    next_exeperson = models.CharField(max_length=50,verbose_name=u"本周执行人")
-    next_comletiontime = models.DateField(auto_now_add=True,verbose_name=u"本周完成时间")
-    department = models.CharField(max_length=50,verbose_name=u"部门")
+    startweek = models.DateField(auto_now_add=True,verbose_name=u"开会时间")
+    employee = models.ForeignKey(Employee)
 
     def __str__(self):
-        return u'%s %s'%(self.lastweek,self.meeting)
+        return u'%s %s'%(self.week,self.meeting)
     class Meta:
         verbose_name = "周列会"
         verbose_name_plural = "周列会"
+
+class LastSummary(models.Model):
+    weekmeeting = models.ForeignKey(WeekMeeting)
+    lastweek = models.TextField(blank=True,verbose_name=u"上周工作内容")
+    last_exeperson = models.CharField(max_length=50,verbose_name=u"上周执行人")
+    last_comletiontime = models.DateField(auto_now_add=True,verbose_name=u"上周完成时间")
+    comletioneffect = models.CharField(max_length=50,verbose_name=u"完成效果")
+    def __str__(self):
+        return u'%s %s'%(self.lastweek,self.last_exeperson)
+    class Meta:
+        verbose_name= "上周总结"
+        verbose_name_plural = "上周总结"
+
+class NextPlan(models.Model):
+    weekmeeting = models.ForeignKey(WeekMeeting)
+    nextweek = models.TextField(blank=True,verbose_name=u"本周工作内容")
+    next_exeperson = models.CharField(max_length=50,verbose_name=u"本周执行人")
+    next_comletiontime = models.DateField(auto_now_add=True,verbose_name=u"本周完成时间")
+    def __str__(self):
+        return u'%s %s'%(self.nextweek,self.next_exeperson)
+    class Meta:
+        verbose_name="下周计划"
+        verbose_name_plural ="下周计划"
+
 
 
