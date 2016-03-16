@@ -105,7 +105,7 @@ class Employee(models.Model):
     class Meta:
         verbose_name="人才登记表"
         verbose_name_plural="人才登记表"
-        ordering = ["-form_date"]
+        ordering = ["-registdate"]
 #教育经历
 class Education(models.Model):
     employee = models.ForeignKey(Employee)
