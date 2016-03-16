@@ -127,7 +127,7 @@
    var deltab =function(index)
     {
         var _tlen = $("#tab tr").length;
-        $("tr[id='"+index+"']").remove();//删除当前行
+        $("#tab tr[id='"+index+"']").remove();//删除当前行
       for(var i=index+1,j=_tlen;i<j;i++)
         {
             var nextTxtVal = $("#desc"+i).val();
@@ -145,7 +145,7 @@
  var delpop =function(index)
     {
         var _plen = $("#next tr").length;
-        $("tr[id='"+index+"']").remove();//删除当前行
+        $("#next tr[id='"+index+"']").remove();//删除当前行
       for(var i=index+1,j=_plen;i<j;i++)
         {
             var nextTxtVal = $("#desc"+i).val();
