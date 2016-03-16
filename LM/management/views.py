@@ -547,7 +547,7 @@ def viewEmployee(req):
 		employee_list = Employee.objects.filter(name__contains=keywords)
 		employee_type = 'all'
 
-	paginator = Paginator(personnel_list,5)
+	paginator = Paginator(employee_list,5)
 	page = req.GET.get('page')
 	try:
 		employee_list = paginator.page(page)
