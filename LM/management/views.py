@@ -517,13 +517,6 @@ def addpersonnels(req):
 	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
 	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
-def getDpartment():
-	employee_list = Employee.objects.all()
-	employeeTypList = set()
-	for employee in employee_list:
-		employeeTypList.add(employee.department)
-	return list(employeeTypList)
-
 
 def viewEmployee(req):
 	username = req.session.get('username','')
@@ -531,22 +524,16 @@ def viewEmployee(req):
 		user = Employee.objects.get(user__username=username)
 	else:
 		user = ''
-	departments = getDpartment()
-	depart_id = req.GET.get('id','')
-	if depart_id == '':
+	alldepart = Department.objects.all()
+	Id = req.GET.get('id','')
+	if Id == '':
 		return HttpResponseRedirect('/viewEmployee/')
 	try:
-		department = Department.objects.get(pk=depart_id)
+		department = Department.objects.get(pk=Id)
 	except:
 		return HttpResponseRedirect('/viewEmployee/')
 
-	if department.department == '':
-		employee_list = Employee.objects.all()
-	elif department.depart_name not in departments:
-		department_type = 'all'
-		employee_list = Employee.objects.all()
-	else:
-		employee_list = Employee.objects.filter(department=department)
+	employee_list = Employee.objects.filter(department=department)
 
 	if req.POST:
 		post = req.POST
@@ -563,7 +550,7 @@ def viewEmployee(req):
 	except EmptyPage:
 		employee_list = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'viewEmployee','departments':departments,'department_type':department_type,'user':user,'employee_list':employee_list}
+	content = {'active_menu': 'viewEmployee','departments':alldepart,'department_type':department_type,'user':user,'employee_list':employee_list}
 	return render_to_response('viewEmployee.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
