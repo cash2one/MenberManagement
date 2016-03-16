@@ -64,7 +64,11 @@ class Department(models.Model):
     depart_name = models.CharField(max_length=30,verbose_name=u"部门名")
     leader = models.CharField(blank=True,max_length=30,verbose_name=u"部门领导")
     depart_mark = models.CharField(blank=True,max_length=30,verbose_name="部门介绍")
-
+    def __str__(self):
+        return u'%s %s' %(self.depart_name,self.depart_mark)
+    class Meta:
+        verbose_name="部门"
+        verbose_name_plural="部门"
 
 #面试人员基础信息
 class Employee(models.Model):
