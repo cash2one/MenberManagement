@@ -32,6 +32,9 @@ class WorkExperienceAdmin(admin.ModelAdmin):
 class WeekMeetingAdmin(admin.ModelAdmin):
     list_display = ('week','meeting')
 
+class DepartmentAdmin(admin.ModelAdmin):
+    list_display = ('depart_name','leader')
+
 
 admin.site.register(Department)
 admin.site.register(NextPlan)
