@@ -42,8 +42,8 @@
                     <div class="col-md-9">
 
                             <select class="form-control" name="partment" id="id_partment" >
-                                 {% for depart in departs %}
                                 <option value="0" selected>请选择部门</option>
+                                 {% for depart in departs %}
                                 <option value="{{depart.id}}">{{depart.depart_name}}</option>
                                 {% endfor%}
                             </select>
