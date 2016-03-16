@@ -146,8 +146,8 @@
         $("#but").click(function(){
            var _len = $("#tab tr").length;
             $("#tab").append("<tr id="+_len+" align='center'>"
-                                +"<td><textarea rows="3" cols="12" placeholder="善于总结经验，发现问题，提出建议，提高业务水平" class="form-control input-sm" id="id_lastweek" required name="lastweek" autofocus></textarea></td>"
-                                +"<td><input type="text" class="form-control" required name="last_exeperson"  id="id_last_exeperson"></td>"
+                                +"<td><input type='text' name='desc"+_len+"' id='desc"+_len+"' /></td>"
+                                +"<td><input type='text' name='desc"+_len+"' id='desc"+_len+"' /></td>"
                                 +"<td><input type='text' name='desc"+_len+"' id='desc"+_len+"' /></td>"
                                 +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
                             +"</tr>");
