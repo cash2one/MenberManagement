@@ -107,7 +107,7 @@
                                 +"<td><input type='text' name='desc"+_len+"' id='id_last_exeperson' /></td>"
                                 +"<td><input type='date' name='desc"+_len+"' id='id_last_comletiontime' /></td>"
                                 +"<td><input type='text' name='desc"+_len+"' id='id_comletioneffect' /></td>"
-                                +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
+                                +"<td><a href=\'#\' onclick=\'deltab("+_len+")\'>删除</a></td>"
                             +"</tr>");
         })
     })
@@ -123,12 +123,12 @@
                                 +"<td></td>"
                                 +"<td><input type='text' name='desc"+_len+"' id='id_next_exeperson' /></td>"
                                 +"<td><input type='date' name='desc"+_len+"' id='id_next_comletiontime' /></td>"
-                                +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
+                                +"<td><a href=\'#\' onclick=\'delpop("+_len+")\'>删除</a></td>"
                             +"</tr>");
         })
     })
     //删除<tr/>
-   var deltr =function(index)
+   var deltab =function(index)
     {
         var _len = $("#tab tr").length;
         $("tr[id='"+index+"']").remove();//删除当前行
@@ -146,7 +146,7 @@
         }
 
     }
- var deltr =function(index)
+ var delpop =function(index)
     {
         var _len = $("#next tr").length;
         $("tr[id='"+index+"']").remove();//删除当前行
