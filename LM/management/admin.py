@@ -1,8 +1,8 @@
 from django.contrib import admin
 from management.models import *
 
-class MenberAdmin(admin.ModelAdmin):
-    list_display =('menber_tel','menber_name','reg_date')
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display =('tel','name')
     search_fields = ('name',)
 
 '''
@@ -33,8 +33,10 @@ class weekmeetingAdmin(admin.ModelAdmin):
     list_display = ('lastweek','nextweek')
 
 
-
-admin.site.register(Menbers,MenberAdmin)
+admin.site.register(Department)
+admin.site.register(NextPlan)
+admin.site.register(LastSummary)
+admin.site.register(Employee,EmployeeAdmin)
 admin.site.register(Education,EducationAdmin)
 admin.site.register(Relative,RelativeAdmin)
 admin.site.register(WorkExperience,WorkExperienceAdmin)
