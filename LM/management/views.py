@@ -23,6 +23,7 @@ def signup(req):
 	if req.session.get('username', ''):
 		return HttpResponseRedirect('/')
 	status = ''
+	departs = Department.objects.all()
 	if req.POST:
 		post = req.POST
 		passwd = post.get('passwd', '')
@@ -47,7 +48,7 @@ def signup(req):
 				)
 				new_employee.save()
 				status = 'success'
-	content = {'active_menu': 'homepage', 'status': status, 'user': ''}
+	content = {'active_menu': 'homepage', 'status': status, 'user': '','departs':departs}
 	return render_to_response('sign.html', content, context_instance=RequestContext(req))
 
 
