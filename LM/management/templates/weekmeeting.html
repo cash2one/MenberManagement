@@ -40,8 +40,10 @@
                             <option value="第四周">第四周</option>
                         </select>
 					</div>
-                    <div class="col-md-2">
+                    <div class="col-md-1">
                         <button class="btn btn-success" type="button" id="but">添加总结</button>
+                    </div>
+                    <div class="col-md-1">
                         <button class="btn btn-success" type="button" id="pop">添加计划</button>
                     </div>
 				</div>
@@ -107,6 +109,7 @@
            var _len = $("#next tr").length;
             $("#next").append("<tr id="+_len+" align='center'>"
                                 +"<td><textarea style='width:300px; height:60px;'   name='desc"+_len+"' id='id_nextweek'></textarea></td>"
+                                +"<td></td>"
                                 +"<td><input type='text' name='desc"+_len+"' id='id_next_exeperson' /></td>"
                                 +"<td><input type='date' name='desc"+_len+"' id='id_next_comletiontime' /></td>"
                                 +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
@@ -142,6 +145,7 @@
            $("tr[id=\'"+i+"\']")
                 .replaceWith("<tr id="+(i-1)+" align='center'>"
                                  +"<td><textarea style='width:300px; height:60px;'   name='desc"+_len+"' id='id_nextweek'></textarea></td>"
+                                +"<td></td>"
                                 +"<td><input type='text' name='desc"+_len+"' id='id_next_exeperson' /></td>"
                                 +"<td><input type='date' name='desc"+_len+"' id='id_next_comletiontime' /></td>"
                                 +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
