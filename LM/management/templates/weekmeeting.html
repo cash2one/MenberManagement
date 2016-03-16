@@ -102,60 +102,60 @@
 
        //增加<tr/>
         $("#but").click(function(){
-           var _len = $("#tab tr").length;
-            $("#tab").append("<tr id="+_len+" align='center'>"
-                                +"<td><textarea style='width:300px; height:60px;'   name='desc"+_len+"' id='id_lastweek'></textarea></td>"
-                                +"<td><input type='text' name='desc"+_len+"' id='id_last_exeperson' /></td>"
-                                +"<td><input type='date' name='desc"+_len+"' id='id_last_comletiontime' /></td>"
-                                +"<td><input type='text' name='desc"+_len+"' id='id_comletioneffect' /></td>"
-                                +"<td><a href=\'#\' onclick=\'deltab("+_len+")\'>删除</a></td>"
+           var _tlen = $("#tab tr").length;
+            $("#tab").append("<tr id="+_tlen+" align='center'>"
+                                +"<td><textarea style='width:300px; height:60px;'   name='desc"+_tlen+"' id='id_lastweek'></textarea></td>"
+                                +"<td><input type='text' name='desc"+_tlen+"' id='id_last_exeperson' /></td>"
+                                +"<td><input type='date' name='desc"+_tlen+"' id='id_last_comletiontime' /></td>"
+                                +"<td><input type='text' name='desc"+_tlen+"' id='id_comletioneffect' /></td>"
+                                +"<td><a href=\'#\' onclick=\'deltab("+_tlen+")\'>删除</a></td>"
                             +"</tr>");
         })
           //增加<tr/>
         $("#pop").click(function(){
-           var _len = $("#next tr").length;
-            $("#next").append("<tr id="+_len+" align='center'>"
-                                +"<td><textarea style='width:300px; height:60px;'   name='next"+_len+"' id='id_nextweek'></textarea></td>"
+           var _plen = $("#next tr").length;
+            $("#next").append("<tr id="+_plen+" align='center'>"
+                                +"<td><textarea style='width:300px; height:60px;'   name='next"+_plen+"' id='id_nextweek'></textarea></td>"
                                 +"<td></td>"
-                                +"<td><input type='text' name='next"+_len+"' id='id_next_exeperson' /></td>"
-                                +"<td><input type='date' name='next"+_len+"' id='id_next_comletiontime' /></td>"
-                                +"<td><a href=\'#\' onclick=\'delpop("+_len+")\'>删除</a></td>"
+                                +"<td><input type='text' name='next"+_plen+"' id='id_next_exeperson' /></td>"
+                                +"<td><input type='date' name='next"+_plen+"' id='id_next_comletiontime' /></td>"
+                                +"<td><a href=\'#\' onclick=\'delpop("+_plen+")\'>删除</a></td>"
                             +"</tr>");
         })
     })
     //删除<tr/>
    var deltab =function(index)
     {
-        var _len = $("#tab tr").length;
+        var _tlen = $("#tab tr").length;
         $("tr[id='"+index+"']").remove();//删除当前行
-      for(var i=index+1,j=_len;i<j;i++)
+      for(var i=index+1,j=_tlen;i<j;i++)
         {
             var nextTxtVal = $("#desc"+i).val();
            $("tr[id=\'"+i+"\']")
                 .replaceWith("<tr id="+(i-1)+" align='center'>"
-                                 +"<td><textarea style='width:300px; height:60px;'   name='desc"+_len+"' id='id_lastweek'></textarea></td>"
-                                +"<td><input type='text' name='desc"+_len+"' id='id_last_exeperson' /></td>"
-                                +"<td><input type='date' name='desc"+_len+"' id='id_last_comletiontime' /></td>"
-                                +"<td><input type='text' name='desc"+_len+"' id='id_comletioneffect' /></td>"
-                                +"<td><a href=\'#\' onclick=\'deltab("+_len+")\'>删除</a></td>"
+                                 +"<td><textarea style='width:300px; height:60px;'   name='desc"+_tlen+"' id='id_lastweek'></textarea></td>"
+                                +"<td><input type='text' name='desc"+_tlen+"' id='id_last_exeperson' /></td>"
+                                +"<td><input type='date' name='desc"+_tlen+"' id='id_last_comletiontime' /></td>"
+                                +"<td><input type='text' name='desc"+_tlen+"' id='id_comletioneffect' /></td>"
+                                +"<td><a href=\'#\' onclick=\'deltab("+_tlen+")\'>删除</a></td>"
                             +"</tr>");
         }
 
     }
  var delpop =function(index)
     {
-        var _len = $("#next tr").length;
+        var _plen = $("#next tr").length;
         $("tr[id='"+index+"']").remove();//删除当前行
-      for(var i=index+1,j=_len;i<j;i++)
+      for(var i=index+1,j=_plen;i<j;i++)
         {
             var nextTxtVal = $("#desc"+i).val();
            $("tr[id=\'"+i+"\']")
                 .replaceWith("<tr id="+(i-1)+" align='center'>"
-                                 +"<td><textarea style='width:300px; height:60px;'   name='next"+_len+"' id='id_nextweek'></textarea></td>"
+                                 +"<td><textarea style='width:300px; height:60px;'   name='next"+_plen+"' id='id_nextweek'></textarea></td>"
                                 +"<td></td>"
-                                +"<td><input type='text' name='next"+_len+"' id='id_next_exeperson' /></td>"
-                                +"<td><input type='date' name='next"+_len+"' id='id_next_comletiontime' /></td>"
-                                +"<td><a href=\'#\' onclick=\'delpop("+_len+")\'>删除</a></td>"
+                                +"<td><input type='text' name='next"+_plen+"' id='id_next_exeperson' /></td>"
+                                +"<td><input type='date' name='next"+_plen+"' id='id_next_comletiontime' /></td>"
+                                +"<td><a href=\'#\' onclick=\'delpop("+_plen+")\'>删除</a></td>"
                             +"</tr>");
         }
 
