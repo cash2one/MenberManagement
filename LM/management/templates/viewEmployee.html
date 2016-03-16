@@ -47,23 +47,18 @@
 						<tr>
 							<th>#</th>
                             <th>姓名</th>
-							<th>应聘岗位</th>
-                            <th>填表日期</th>
 							<th>手机</th>
                             <th>修改</th>
-                            <th>综合评估</th>
 						</tr>
 					</thead>
 					<tbody>
-						{% for personnel in personnel_list %}
+						{% for employee in employee_list %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="/viewpersonnels/personnel_detail/?id={{personnel.id}}">{{ personnel.name }}</a></td>
-							<td>{{ personnel.job }}</td>
-                            <td>{{ personnel.form_date }}</td>
-                            <td>{{ personnel.tel }}</td>
+							<td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">{{ employee.name }}</a></td>
+							<td>{{ employee.department }}</td>
+                            <td>{{ employee.tel }}</td>
                             <td><a href="/viewpersonnels/modify_typ/?id={{personnel.id}}">修改</a></td>
-                            <td colspan="3">{{ personnel.evaluate}}</td>
 
 						</tr>
 						{% empty %}
