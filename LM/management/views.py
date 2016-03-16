@@ -545,7 +545,7 @@ def viewEmployee(req):
 		post = req.POST
 		keywords = post.get('keyword','')
 		employee_list = Employee.objects.filter(name__contains=keywords)
-		employee_type = 'all'
+		department_type = 'all'
 
 	paginator = Paginator(employee_list,5)
 	page = req.GET.get('page')
@@ -556,7 +556,7 @@ def viewEmployee(req):
 	except EmptyPage:
 		employee_list = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'viewpersonnels','departments':departments,'department_type':department_type,'user':user,'employee_list':employee_list}
+	content = {'active_menu': 'viewEmployee','departments':departments,'department_type':department_type,'user':user,'employee_list':employee_list}
 	return render_to_response('viewEmployee.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
