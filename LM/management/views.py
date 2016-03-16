@@ -543,7 +543,7 @@ def viewEmployee(req):
 	if req.POST:
 		post = req.POST
 		keywords = post.get('keyword','')
-		employee_list = Employee.objects.get(name__contains=keywords)
+		employee_list = Employee.objects.filter(name__contains=keywords)
 		Id = 'all'
 
 
