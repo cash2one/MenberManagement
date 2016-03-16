@@ -557,7 +557,7 @@ def viewEmployee(req):
 		employee_list = paginator.page(paginator.num_pages)
 
 	content = {'active_menu': 'viewpersonnels','employeeTypeList':employeeTypeList,'employee_type':employee_type,'user':user,'employee_list':employee_list}
-	return render_to_response('viewpersonnels.html', content, context_instance=RequestContext(req))
+	return render_to_response('viewEmployee.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
 
