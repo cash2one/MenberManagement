@@ -532,16 +532,21 @@ def viewEmployee(req):
 	else:
 		user = ''
 	departments = getDpartment()
-	department_type = req.GET.get('department','all')
+	depart_id = req.GET.get('id','')
+	if depart_id == '':
+		return HttpResponseRedirect('/viewEmployee/')
+	try
+		department = Department.objects.get(pk=depart_id)
+	except:
+		return HttpResponseRedirect('/viewEmployee/')
 
-	if department_type == '':
+	if department.department == '':
 		employee_list = Employee.objects.all()
-	elif department_type not in departments:
+	elif department.depart_name not in departments:
 		department_type = 'all'
 		employee_list = Employee.objects.all()
 	else:
-		depart = Department.objects.get(depart_name=department_type)
-		employee_list = Employee.objects.filter(department=department_type)
+		employee_list = Employee.objects.filter(department=department)
 
 	if req.POST:
 		post = req.POST
