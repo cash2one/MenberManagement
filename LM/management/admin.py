@@ -30,7 +30,7 @@ class WorkExperienceAdmin(admin.ModelAdmin):
     list_display = ('company','w_job')
 
 class WeekMeetingAdmin(admin.ModelAdmin):
-    list_display = ('lastweek','nextweek')
+    list_display = ('week','meeting')
 
 
 admin.site.register(Department)
