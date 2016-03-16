@@ -71,14 +71,14 @@
 
 				<nav>
 					<ul class="pager">
-						{% if personnel_list.has_previous %}
-							<li class="previous"><a href="?personnel_typ={{ personnel_type }}&page={{ personnel_list.previous_page_number }}">上一页</a></li>
+						{% if employee_list.has_previous %}
+							<li class="previous"><a href="?personnel_typ={{ employee_type }}&page={{ employee_list.previous_page_number }}">上一页</a></li>
 						{% else %}
 							<li class="previous disabled"><a href="#">上一页</a></li>
 						{% endif %}
-						第 {{ personnel_list.number }} / {{ personnel_list.paginator.num_pages }}页
-						{% if personnel_list.has_next %}
-							<li class="next"><a href="?personnel_typ={{ personnel_type }}&page={{ personnel_list.next_page_number }}">下一页</a></li>
+						第 {{ employee_list.number }} / {{ employee_list.paginator.num_pages }}页
+						{% if employee_list.has_next %}
+							<li class="next"><a href="?status={{ employee_type }}&page={{ employee_list.next_page_number }}">下一页</a></li>
 						{% else %}
 							<li class="next disabled"><a href="#">下一页</a></li>
 						{% endif %}
