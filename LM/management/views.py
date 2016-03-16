@@ -544,6 +544,7 @@ def viewEmployee(req):
 		post = req.POST
 		keywords = post.get('keyword','')
 		employee_list = Employee.objects.filter(name__contains=keywords)
+		Id = 'all'
 
 
 	paginator = Paginator(employee_list,5)
