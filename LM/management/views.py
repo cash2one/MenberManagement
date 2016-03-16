@@ -517,11 +517,11 @@ def addpersonnels(req):
 	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
 	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
-def getEmployee_list():
+def getDpartment():
 	employee_list = Employee.objects.all()
 	employeeTypList = set()
 	for employee in employee_list:
-		employeeTypList.add(employee.status)
+		employeeTypList.add(employee.department)
 	return list(employeeTypList)
 
 
@@ -531,7 +531,7 @@ def viewEmployee(req):
 		user = Employee.objects.get(user__username=username)
 	else:
 		user = ''
-	departments = Department.objects.all()
+	departments = getDpartment()
 	department_type = req.GET.get('department','all')
 	if department_type == '':
 		employee_list = Employee.objects.all()
