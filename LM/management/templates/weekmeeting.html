@@ -49,7 +49,8 @@
                        <td>上周工作内容</td>
                         <td>执行人</td>
                         <td>完成时间</td>
-                       <td>完成效果</td>
+                        <td>完成效果</td>
+                        <td>操作</td>
                    </tr>
                </table>
                  <div class="form-group" id="after">
@@ -146,9 +147,10 @@
         $("#but").click(function(){
            var _len = $("#tab tr").length;
             $("#tab").append("<tr id="+_len+" align='center'>"
-                                +"<td><textarea name='desc"+_len+"' id='desc"+_len+"'></textarea></td>"
+                                +"<td><textarea rows="3" cols="12" name='desc"+_len+"' id='desc"+_len+"'></textarea></td>"
                                 +"<td><input type='text' name='desc"+_len+"' id='desc"+_len+"' /></td>"
                                 +"<td><input type='text' name='desc"+_len+"' id='desc"+_len+"' /></td>"
+                                +"<td><input type='date' name='desc"+_len+"' id='desc"+_len+"' /></td>"
                                 +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
                             +"</tr>");
         })
