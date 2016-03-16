@@ -36,7 +36,7 @@ class DepartmentAdmin(admin.ModelAdmin):
     list_display = ('depart_name','leader')
 
 
-admin.site.register(Department)
+admin.site.register(Department,DepartmentAdmin)
 admin.site.register(NextPlan)
 admin.site.register(LastSummary)
 admin.site.register(Employee,EmployeeAdmin)
