@@ -129,17 +129,15 @@
 		</div>
 	</div>
 </div>
-    <div id="main">
 
-
- <input type="button" id="btn2" value="进行深克隆(复制事件)" />
- </div>  
 <script type="text/javascript">
  $(function () {
   var $text = $("#txt1");
-
   $("#btn1").click(function () {
   $("#after").after($text.clone()); //浅克隆(不复制事件)
+  });
+     $("#btn2").click(function () {
+  $("#after").after($text.remove()); //浅克隆(不复制事件)
   });
  });
 </script>
