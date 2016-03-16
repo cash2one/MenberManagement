@@ -550,7 +550,7 @@ def viewEmployee(req):
 	except EmptyPage:
 		employee_list = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'viewEmployee','departments':alldepart,'department_type':department_type,'user':user,'employee_list':employee_list}
+	content = {'active_menu': 'viewEmployee','departments':alldepart,'Id':Id,'user':user,'employee_list':employee_list}
 	return render_to_response('viewEmployee.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
