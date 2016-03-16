@@ -72,6 +72,7 @@ class Employee(models.Model):
     department = models.ForeignKey(Department) #部门与员工一对多的关系
 
     job = models.CharField(blank=True,max_length=30,verbose_name=u"职位")
+    permission = models.IntegerField()
     registdate  = models.DateField(blank=True,auto_now_add=True,verbose_name=u"填表日期")
     name = models.CharField(max_length=30,verbose_name=u"姓名")
     sex = models.CharField(blank=True,max_length=10,verbose_name=u"性别")
