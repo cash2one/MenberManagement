@@ -539,7 +539,7 @@ def viewEmployee(req):
 		department_type = 'all'
 		employee_list = Employee.objects.all()
 	else:
-		employee_list = Employee.objects.filter(department__contains=department_type)
+		employee_list = Employee.objects.filter(department__depart_name=department_type)
 
 	if req.POST:
 		post = req.POST
