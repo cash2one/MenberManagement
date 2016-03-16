@@ -78,7 +78,7 @@
                  <div class="form-group">
 					<label for="id_evaluate" class="col-md-2 control-label">综合点评:</label>
 					<div class="col-md-10">
-						<textarea rows="8" cols="20" placeholder="凡事预则立不预则废" class="form-control input-sm" id="id_nextweek" required name="nextweek" autofocus></textarea>
+						<textarea rows="8" cols="20" placeholder="邓总，苏总综合点评" class="form-control input-sm" id="id_nextweek" required name="nextweek" autofocus></textarea>
 
 					</div>
 				</div>
@@ -104,10 +104,10 @@
         $("#but").click(function(){
            var _tlen = $("#tab tr").length;
             $("#tab").append("<tr id='tab"+_tlen+"' align='center'>"
-                                +"<td><textarea style='width:300px; height:60px;'   id='desc"+_tlen+"' name='lastweek'></textarea></td>"
-                                +"<td><input type='text' id='desc"+_tlen+"' name='last_exeperson' /></td>"
-                                +"<td><input type='date' id='desc"+_tlen+"' name='last_comletiontime' /></td>"
-                                +"<td><input type='text' id='desc"+_tlen+"' name='comletioneffect' /></td>"
+                                +"<td><textarea style='width:300px; height:60px;'   id='last"+_tlen+"' name='lastweek'></textarea></td>"
+                                +"<td><input type='text' id='last"+_tlen+"' name='last_exeperson' /></td>"
+                                +"<td><input type='date' id='last"+_tlen+"' name='last_comletiontime' /></td>"
+                                +"<td><input type='text' id='last"+_tlen+"' name='comletioneffect' /></td>"
                                 +"<td><a href=\'#\' onclick=\'deltab("+_tlen+")\'>删除</a></td>"
                             +"</tr>");
         })
@@ -133,10 +133,10 @@
 
            $("tr[id=\'tab"+i+"\']")
                 .replaceWith("<tr id='tab"+(i-1)+"' align='center'>"
-                                 +"<td><textarea style='width:300px; height:60px;'   name='desc"+_tlen+"' id='lastweek'></textarea></td>"
-                                +"<td><input type='text' id='desc"+_tlen+"' name='last_exeperson' /></td>"
-                                +"<td><input type='date' id='desc"+_tlen+"' name='last_comletiontime' /></td>"
-                                +"<td><input type='text' id='desc"+_tlen+"' name='comletioneffect' /></td>"
+                                 +"<td><textarea style='width:300px; height:60px;'   name='last"+_tlen+"' id='lastweek'></textarea></td>"
+                                +"<td><input type='text' id='last"+_tlen+"' name='last_exeperson' /></td>"
+                                +"<td><input type='date' id='last"+_tlen+"' name='last_comletiontime' /></td>"
+                                +"<td><input type='text' id='last"+_tlen+"' name='comletioneffect' /></td>"
                                 +"<td><a href=\'#\' onclick=\'deltab("+_tlen+")\'>删除</a></td>"
                             +"</tr>");
         }
