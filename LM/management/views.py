@@ -541,7 +541,7 @@ def viewEmployee(req):
 		employee_list = Employee.objects.all()
 	else:
 		depart = Department.objects.get(depart_name=department_type)
-		employee_list = depart.employee_set.all()
+		employee_list = Employee.objects.filter(department=department_type)
 
 	if req.POST:
 		post = req.POST
