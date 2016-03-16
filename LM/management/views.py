@@ -12,7 +12,7 @@ from django.utils import timezone
 def index(req):
 	username = req.session.get('username', '')
 	if username:
-		user = Menbers.objects.get(user__username=username)
+		user = Employee.objects.get(user__username=username)
 	else:
 		user = ''
 	content = {'active_menu': 'homepage', 'user': user}
@@ -27,6 +27,8 @@ def signup(req):
 		post = req.POST
 		passwd = post.get('passwd', '')
 		repasswd = post.get('repasswd', '')
+		Id = post.get('Id','')
+		depart = Department.objects.get(pk=Id)
 		if passwd != repasswd:
 			status = 're_err'
 		else:
@@ -36,14 +38,14 @@ def signup(req):
 			else:
 				newuser = User.objects.create_user(username=username, password=passwd, email=post.get('email', ''))
 				newuser.save()
-				new_menber = Menbers(
+				new_employee = Employee(
 					user=newuser, \
-					menber_name =post.get('menber_name',''),\
-					menber_tel = post.get('menber_tel',''), \
-					partment = post.get('partment',''),\
+					name =post.get('name',''),\
+					tel = post.get('tel',''), \
+					department = depart,\
 					permission=1,\
 				)
-				new_menber.save()
+				new_employee.save()
 				status = 'success'
 	content = {'active_menu': 'homepage', 'status': status, 'user': ''}
 	return render_to_response('sign.html', content, context_instance=RequestContext(req))
