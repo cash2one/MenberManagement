@@ -101,5 +101,22 @@
 		</div>
 	</div>
 </div>
+    <div id="main">
+ <input type="text" value="我是文本框" id="txt1" />
+ <input type="button" id="btn1" value="进行浅克隆(不复制事件)" />
+ <input type="button" id="btn2" value="进行深克隆(复制事件)" />
+ </div>  
+<script type="text/javascript">
+ $(function () {
+  var $text = $("#txt1");
+  $text.click(function () { alert('我是文本框单击事件'); });
+  $("#btn1").click(function () {
+  $("#btn1").after($text.clone()); //浅克隆(不复制事件)
+  });
+  $("#btn2").click(function () {
+  $("#btn2").after($text.clone(true)); //深克隆(复制事件)
+  });
+ });
+</script>
 
 {% endblock %}
