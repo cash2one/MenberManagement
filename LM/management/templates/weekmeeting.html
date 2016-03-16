@@ -136,10 +136,11 @@
 <script type="text/javascript">
  $(function () {
   var $text = $("#txt1");
-  $text.click(function () { alert('我是文本框单击事件'); });
+
   $("#btn1").click(function () {
   $("#after").after($text.clone()); //浅克隆(不复制事件)
   });
+ });
 </script>
 
 {% endblock %}
