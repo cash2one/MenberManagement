@@ -28,8 +28,8 @@ def signup(req):
 		post = req.POST
 		passwd = post.get('passwd', '')
 		repasswd = post.get('repasswd', '')
-		Id = int(post.get('Id',''))
-		depart = Department.objects.get(pk=Id)
+		depart_name = post.get('depart','')
+		depart = Department.objects.get(department=depart_name)
 		if passwd != repasswd:
 			status = 're_err'
 		else:
