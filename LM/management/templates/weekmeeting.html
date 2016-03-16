@@ -41,7 +41,8 @@
                         </select>
 					</div>
                     <div class="col-md-2">
-                    <button class="btn btn-success" type="button" id="but">添加总结</button>
+                        <button class="btn btn-success" type="button" id="but">添加总结</button>
+                        <button class="btn btn-success" type="button" id="pop">添加计划</button>
                     </div>
 				</div>
                 <table class="table table-bordered" id="tab" >
@@ -53,61 +54,6 @@
                         <td>操作</td>
                    </tr>
                </table>
-                 <div class="form-group" id="after">
-
-
-					<label for="id_evaluate" class="col-md-5 col-md-offset-1 control-label">上周工作内容:</label>
-
-                    <label for="id_last_exeperson" class="col-md-2 control-label">执行人：</label>
-
-                     <label for="id_last_comletiontime" class="col-md-2 control-label">完成时间：</label>
-
-                     <label for="id_passwd" class="col-md-2 control-label">完成效果：</label>
-
-				</div>
-
-				 <div class="form-group" id="txt1">
-					<div class="col-md-5 col-md-offset-1" >
-						<textarea rows="3" cols="12" placeholder="善于总结经验，发现问题，提出建议，提高业务水平" class="form-control input-sm" id="id_lastweek" required name="lastweek" autofocus></textarea>
-					</div>
-					<div class="col-md-2">
-						<input type="text" class="form-control" required name="last_exeperson" value="{{ user.menber_name  }}" id="id_last_exeperson">
-					</div>
-					<div class="col-md-2">
-						<input type="date" class="form-control" required name="last_comletiontime" id="id_last_comletiontime">
-					</div>
-                    <div class="col-md-2">
-					    <select class="form-control" name="comletioneffect" id="id_comletioneffect" >
-                            <option value="0" selected>请选择完成效果</option>
-                            <option value="已完成">已完成</option>
-                            <option value="未完成">未完成</option>
-                            <option value="延续性">延续性</option>
-                        </select>
-					</div>
-				</div>
-
-                <div class="form-group" id="txt1">
-					<label for="id_last_exeperson" class="col-md-1 control-label">执行人：</label>
-					<div class="col-md-2">
-						<input type="text" class="form-control" required name="last_exeperson" value="{{ user.menber_name  }}" id="id_last_exeperson">
-					</div>
-                    <label for="id_last_comletiontime" class="col-md-1 control-label">完成时间：</label>
-					<div class="col-md-2">
-						<input type="date" class="form-control" required name="last_comletiontime" id="id_last_comletiontime">
-					</div>
-                     <label for="id_passwd" class="col-md-2 control-label">完成效果：</label>
-                    <div class="col-md-2">
-					    <select class="form-control" name="comletioneffect" id="id_comletioneffect" >
-                            <option value="0" selected>请选择完成效果</option>
-                            <option value="已完成">已完成</option>
-                            <option value="未完成">未完成</option>
-                            <option value="延续性">延续性</option>
-                        </select>
-					</div>
-                    <div class="col-md-2">
-                    <button class="btn btn-success" type="button" id="pop">添加计划</button>
-                    </div>
-				</div>
                        <table class="table table-bordered" id="next" >
                             <tr>
                                <td>本周工作内容</td>
@@ -117,25 +63,12 @@
                            </tr>
                        </table>
                  <div class="form-group">
-					<label for="id_evaluate" class="col-md-2 control-label">本周工作内容:</label>
+					<label for="id_evaluate" class="col-md-2 control-label">综合点评:</label>
 					<div class="col-md-10">
 						<textarea rows="8" cols="20" placeholder="凡事预则立不预则废" class="form-control input-sm" id="id_nextweek" required name="nextweek" autofocus></textarea>
 
 					</div>
 				</div>
-
-                <div class="form-group">
-                    <label for="id_next_exeperson" class="col-md-3 control-label">执行人：</label>
-                    <div class="col-md-2">
-						<input type="text" class="form-control" required name="next_exeperson" value="{{ user.menber_name  }}" id="id_next_exeperson">
-					</div>
-                      <label for="id_next_comletiontime" class="col-md-2 control-label">完成时间：</label>
-					<div class="col-md-2">
-						<input type="date" class="form-control" required name="next_comletiontime" id="id_next_comletiontime">
-					</div>
-
-				</div>
-
 
 				<div class="form-group">
 					<div class="col-md-4 col-md-offset-4">
@@ -167,15 +100,15 @@
     })
  $(document).ready(function(){
          //<tr/>居中
-        $("#tab tr").attr("align","center");
+        $("#next tr").attr("align","center");
 
        //增加<tr/>
         $("#pop").click(function(){
            var _len = $("#next tr").length;
             $("#next").append("<tr id="+_len+" align='center'>"
-                                +"<td><textarea style='width:300px; height:60px;'   name='desc"+_len+"' id='id_lastweek'></textarea></td>"
-                                +"<td><input type='text' name='desc"+_len+"' id='id_last_exeperson' /></td>"
-                                +"<td><input type='date' name='desc"+_len+"' id='id_last_comletiontime' /></td>"
+                                +"<td><textarea style='width:300px; height:60px;'   name='desc"+_len+"' id='id_nextweek'></textarea></td>"
+                                +"<td><input type='text' name='desc"+_len+"' id='id_next_exeperson' /></td>"
+                                +"<td><input type='date' name='desc"+_len+"' id='id_next_comletiontime' /></td>"
                                 +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
                             +"</tr>");
         })
@@ -194,6 +127,23 @@
                                 +"<td><input type='text' name='desc"+_len+"' id='id_last_exeperson' /></td>"
                                 +"<td><input type='date' name='desc"+_len+"' id='id_last_comletiontime' /></td>"
                                 +"<td><input type='text' name='desc"+_len+"' id='id_comletioneffect' /></td>"
+                                +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
+                            +"</tr>");
+        }
+
+    }
+ var deltr =function(index)
+    {
+        var _len = $("#next tr").length;
+        $("tr[id='"+index+"']").remove();//删除当前行
+      for(var i=index+1,j=_len;i<j;i++)
+        {
+            var nextTxtVal = $("#desc"+i).val();
+           $("tr[id=\'"+i+"\']")
+                .replaceWith("<tr id="+(i-1)+" align='center'>"
+                                 +"<td><textarea style='width:300px; height:60px;'   name='desc"+_len+"' id='id_nextweek'></textarea></td>"
+                                +"<td><input type='text' name='desc"+_len+"' id='id_next_exeperson' /></td>"
+                                +"<td><input type='date' name='desc"+_len+"' id='id_next_comletiontime' /></td>"
                                 +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
                             +"</tr>");
         }
