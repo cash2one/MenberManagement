@@ -526,19 +526,12 @@ def viewEmployee(req):
 		user = ''
 
 	alldepartment = Department.objects.all()
-
-	Id = req.GET.get('id','')
+	Id = req.GET.get('id','all')
 	if Id == '':
-		Id = 'all'
 		employee_list = Employee.objects.all()
 	else:
-		try:
-			department = Department.objects.get(pk=Id)
-			employee_list = Employee.objects.filter(department=department)
-		except:
-			return HttpResponseRedirect('/viewEmployee/')
-
-
+		department = Department.objects.get(pk=Id)
+		employee_list = Employee.objects.filter(department=department)
 
 	if req.POST:
 		post = req.POST
