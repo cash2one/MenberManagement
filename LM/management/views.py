@@ -517,46 +517,46 @@ def addpersonnels(req):
 	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
 	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
 
-def getPersonnel_list():
-	personnel_list = Personnel.objects.all()
-	personnelTypList = set()
-	for personnel in personnel_list:
-		personnelTypList.add(personnel.personnel_typ)
-	return list(personnelTypList)
+def getEmployee_list():
+	employee_list = Employee.objects.all()
+	employeeTypList = set()
+	for employee in employee_list:
+		employeeTypList.add(employee.status)
+	return list(employeeTypList)
 
 
-def viewpersonnels(req):
+def viewEmployee(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Menbers.objects.get(user__username=username)
+		user = Employee.objects.get(user__username=username)
 	else:
 		user = ''
-	personnelTypeList = getPersonnel_list()
-	personnel_type = req.GET.get('personnel_typ','all')
-	if personnel_type == '':
-		personnel_list = Personnel.objects.all()
-	elif personnel_type not in personnelTypeList:
-		personnel_type = 'all'
-		personnel_list = Personnel.objects.all()
+	employeeTypeList = getEmployee_list()
+	employee_type = req.GET.get('status','all')
+	if employee_type == '':
+		employee_list = Employee.objects.all()
+	elif employee_type not in employeeTypeList:
+		employee_type = 'all'
+		employee_list = Employee.objects.all()
 	else:
-		personnel_list = Personnel.objects.filter(personnel_typ__contains=personnel_type)
+		employee_list = Employee.objects.filter(personnel_typ__contains=employee_type)
 
 	if req.POST:
 		post = req.POST
 		keywords = post.get('keyword','')
-		personnel_list = Personnel.objects.filter(name__contains=keywords)
-		personnel_type = 'all'
+		employee_list = Employee.objects.filter(name__contains=keywords)
+		employee_type = 'all'
 
 	paginator = Paginator(personnel_list,5)
 	page = req.GET.get('page')
 	try:
-		personnel_list = paginator.page(page)
+		employee_list = paginator.page(page)
 	except PageNotAnInteger:
-		personnel_list = paginator.page(1)
+		employee_list = paginator.page(1)
 	except EmptyPage:
-		personnel_list = paginator.page(paginator.num_pages)
+		employee_list = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'viewpersonnels','personnelTypeList':personnelTypeList,'personnel_type':personnel_type,'user':user,'personnel_list':personnel_list}
+	content = {'active_menu': 'viewpersonnels','employeeTypeList':employeeTypeList,'employee_type':employee_type,'user':user,'employee_list':employee_list}
 	return render_to_response('viewpersonnels.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
