@@ -127,11 +127,11 @@
    var deltab =function(index)
     {
         var _tlen = $("#tab tr").length;
-        $("#tab tr[id='"+index+"']").remove();//删除当前行
+        $("tab tr[id='"+index+"']").remove();//删除当前行
       for(var i=index+1,j=_tlen;i<j;i++)
         {
-            var nextTxtVal = $("#desc"+i).val();
-           $("tr[id=\'"+i+"\']")
+
+           $("#tab tr[id=\'"+i+"\']")
                 .replaceWith("<tr id="+(i-1)+" align='center'>"
                                  +"<td><textarea style='width:300px; height:60px;'   name='desc"+_tlen+"' id='id_lastweek'></textarea></td>"
                                 +"<td><input type='text' id='desc"+_tlen+"' name='id_last_exeperson' /></td>"
@@ -148,8 +148,8 @@
         $("#next tr[id='"+index+"']").remove();//删除当前行
       for(var i=index+1,j=_plen;i<j;i++)
         {
-            var nextTxtVal = $("#desc"+i).val();
-           $("tr[id=\'"+i+"\']")
+
+           $("#next tr[id=\'"+i+"\']")
                 .replaceWith("<tr id="+(i-1)+" align='center'>"
                                  +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='id_nextweek'></textarea></td>"
                                 +"<td></td>"
