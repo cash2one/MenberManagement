@@ -13,8 +13,8 @@
 						全部人员
 					</a>
 					{% for depart in departments %}
-					<a href="/viewEmployee?department={{depart}}" class="list-group-item" id="id_typ_{{depart}}">
-						{{ typ }}
+					<a href="/viewEmployee?department={{depart.depart_name}}" class="list-group-item" id="id_typ_{{depart.depart_name}}">
+						{{ depart.depart_name }}
 					</a>
 					{% endfor %}
 				</div>
