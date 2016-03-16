@@ -34,25 +34,18 @@
 				<div class="form-group">
 					<label for="id_menber_name" class="col-md-3 control-label">姓名：</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" required name="menber_name" id="id_menber_name">
+						<input type="text" class="form-control" required name="name" id="id_name">
 					</div>
 				</div>
                 <div class="form-group">
                     <label for="id_partment" class="col-md-3 control-label">所属部门：</label>
                     <div class="col-md-9">
-					<select class="form-control" name="partment" id="id_partment" >
-                            <option value="0" selected>请选择部门</option>
-                            <option value="投资部">投资部</option>
-                            <option value="市场部">市场部</option>
-                            <option value="财务部">财务部</option>
-                            <option value="电商部">电商部</option>
-                            <option value="人事部">人事部</option>
-                            <option value="门店">门店</option>
-                            <option value="书院">书院</option>
-                           <option value="董助">董助</option>
-                           <option value="总经理">总经理</option>
-                          <option value="董事长">董事长</option>
-                        </select>
+                        {% for depart in departs %}
+                            <select class="form-control" name="partment" id="id_partment" >
+                                <option value="0" selected>请选择部门</option>
+                                <option value="{{depart.id}}">{{depart.depart_name}}</option>
+                            </select>
+                        {% endfor%}
                     </div>
 				</div>
 
@@ -78,7 +71,7 @@
 				</div><div class="form-group">
 					<label for="id_menber_tel" class="col-md-3 control-label">电话：</label>
 					<div class="col-md-9">
-						<input type="text" class="form-control" required name="menber_tel" id="id_menber_tel">
+						<input type="text" class="form-control" required name="tel" id="id_tel">
 					</div>
 				</div>
 
