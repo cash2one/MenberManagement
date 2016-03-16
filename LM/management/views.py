@@ -526,7 +526,7 @@ def viewEmployee(req):
 		user = ''
 
 	alldepartment = Department.objects.all()
-	department = ''
+
 	Id = req.GET.get('id','')
 	if Id == '':
 		employee_list = Employee.objects.all()
