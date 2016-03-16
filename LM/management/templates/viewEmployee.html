@@ -12,14 +12,14 @@
 					<a href="/viewEmployee/" class="list-group-item" id="id_typ_all" >
 						全部人员
 					</a>
-					{% for typ in employeeTypeList %}
-					<a href="/viewEmployee?status={{typ}}" class="list-group-item" id="id_typ_{{typ}}">
+					{% for depart in departments %}
+					<a href="/viewEmployee?status={{depart}}" class="list-group-item" id="id_typ_{{depart}}">
 						{{ typ }}
 					</a>
 					{% endfor %}
 				</div>
 				<script type="text/javascript">
-				    var act_typ = document.getElementById("id_typ_{{employee_type}}");
+				    var act_typ = document.getElementById("id_typ_{{department}}");
 				    var new_class = act_typ.getAttribute("class") + " active"
 				    act_typ.setAttribute("class",new_class);
 				</script>
