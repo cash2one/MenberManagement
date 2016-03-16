@@ -524,22 +524,26 @@ def viewEmployee(req):
 		user = Employee.objects.get(user__username=username)
 	else:
 		user = ''
-	alldepart = Department.objects.all()
+
+	alldepartment = Department.objects.all()
+	department = ''
 	Id = req.GET.get('id','')
 	if Id == '':
-		return HttpResponseRedirect('/viewEmployee/')
-	try:
-		department = Department.objects.get(pk=Id)
-	except:
-		return HttpResponseRedirect('/viewEmployee/')
+		employee_list = Employee.objects.all()
+	else:
+		try:
+			department = Department.objects.get(pk=Id)
+			employee_list = Employee.objects.filter(department=department)
+		except:
+			return HttpResponseRedirect('/viewEmployee/')
 
-	employee_list = Employee.objects.filter(department=department)
+
 
 	if req.POST:
 		post = req.POST
 		keywords = post.get('keyword','')
 		employee_list = Employee.objects.filter(name__contains=keywords)
-		department_type = 'all'
+
 
 	paginator = Paginator(employee_list,5)
 	page = req.GET.get('page')
@@ -550,7 +554,7 @@ def viewEmployee(req):
 	except EmptyPage:
 		employee_list = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'viewEmployee','departments':alldepart,'Id':Id,'user':user,'employee_list':employee_list}
+	content = {'active_menu': 'viewEmployee','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
 	return render_to_response('viewEmployee.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
