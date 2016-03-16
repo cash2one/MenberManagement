@@ -131,15 +131,55 @@
 </div>
 
 <script type="text/javascript">
- $(function () {
-  var $text = $("#txt1");
-  $("#btn1").click(function () {
-  $("#after").after($text.clone()); //浅克隆(不复制事件)
-  });
-     $("#btn2").click(function () {
-  $("#after").after($text.remove()); //浅克隆(不复制事件)
-  });
- });
+ <script>
+ 8    $(document).ready(function(){
+ 9        //<tr/>居中
+10        $("#tab tr").attr("align","center");
+11
+12        //增加<tr/>
+13        $("#but").click(function(){
+14            var _len = $("#tab tr").length;
+15            $("#tab").append("<tr id="+_len+" align='center'>"
+16                                +"<td>"+_len+"</td>"
+17                                +"<td>Dynamic TR"+_len+"</td>"
+18                                +"<td><input type='text' name='desc"+_len+"' id='desc"+_len+"' /></td>"
+19                                +"<td><a href=\'#\' onclick=\'deltr("+_len+")\'>删除</a></td>"
+20                            +"</tr>");
+21        })
+22    })
+23
+24    //删除<tr/>
+25    var deltr =function(index)
+26    {
+27        var _len = $("#tab tr").length;
+28        $("tr[id='"+index+"']").remove();//删除当前行
+29        for(var i=index+1,j=_len;i<j;i++)
+30        {
+31            var nextTxtVal = $("#desc"+i).val();
+32            $("tr[id=\'"+i+"\']")
+33                .replaceWith("<tr id="+(i-1)+" align='center'>"
+34                                +"<td>"+(i-1)+"</td>"
+35                                +"<td>Dynamic TR"+(i-1)+"</td>"
+36                                +"<td><input type='text' name='desc"+(i-1)+"' value='"+nextTxtVal+"' id='desc"+(i-1)+"'/></td>"
+37                                +"<td><a href=\'#\' onclick=\'deltr("+(i-1)+")\'>删除</a></td>"
+38                            +"</tr>");
+39        }
+40
+41    }
+42</script>
 </script>
-
+<table id="tab" border="1" width="60%" align="center" style="margin-top:20px">
+47        <tr>
+48            <td width="20%">序号</td>
+49            <td>标题</td>
+50            <td>描述</td>
+51            <td>操作</td>
+52       </tr>
+53    </table>
+54    <div style="border:2px;
+55                border-color:#00CC00;
+56                margin-left:20%;
+57                margin-top:20px">
+58        <input type="button" id="but" value="增加"/>
+59    </div>
 {% endblock %}
