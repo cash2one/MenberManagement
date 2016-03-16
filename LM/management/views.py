@@ -533,13 +533,14 @@ def viewEmployee(req):
 		user = ''
 	departments = getDpartment()
 	department_type = req.GET.get('department','all')
-	depart = Department.objects.get(depart_name=department_type)
+
 	if department_type == '':
 		employee_list = Employee.objects.all()
 	elif department_type not in departments:
 		department_type = 'all'
 		employee_list = Employee.objects.all()
 	else:
+		depart = Department.objects.get(depart_name=department_type)
 		employee_list = depart.employee_set.all()
 
 	if req.POST:
