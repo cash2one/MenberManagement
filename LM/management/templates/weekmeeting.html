@@ -41,7 +41,7 @@
                         </select>
 					</div>
 				</div>
-                 <div class="form-group">
+                 <div class="form-group" id="after">
 
 
 					<label for="id_evaluate" class="col-md-3 col-md-offset-1 control-label">上周工作内容:</label>
@@ -138,7 +138,7 @@
   var $text = $("#txt1");
   $text.click(function () { alert('我是文本框单击事件'); });
   $("#btn1").click(function () {
-  $("#btn1").after($text.clone()); //浅克隆(不复制事件)
+  $("#after").after($text.clone()); //浅克隆(不复制事件)
   });
   $("#btn2").click(function () {
   $("#btn2").after($text.clone(true)); //深克隆(复制事件)
