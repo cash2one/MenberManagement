@@ -35,7 +35,42 @@
                                 <td>完成时间</td>
                                 <td>完成效果</td>
                            </tr>
+
+                           <tr>
+                               <td>#</td>
+                                <td>上周工作内容</td>
+                                <td>执行人</td>
+                                <td>完成时间</td>
+                                <td>完成效果</td>
+                           </tr>
                 </table>
+        <table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+                            <th>上周工作内容</th>
+                            <th>执行人</th>
+							<th>完成时间</th>
+                            <th>完成效果</th>
+						</tr>
+					</thead>
+					<tbody>
+						 {% for lastweek in lastsummary %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td>{{ lastweek.lastweek }}</td>
+							<td>{{ lastweek.last_exeperson }}</td>
+                            <td>{{ lastweek.last_comletiontime }}</td>
+                            <td>{{lastweek.comletioneffect}}</td>
+
+						</tr>
+						{% empty %}
+						<tr>
+							<td>暂无记录</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
 
                  <div class="form-group ">
                      <label for="id_edu_start" class="col-md-1 control-label">序号</label>
