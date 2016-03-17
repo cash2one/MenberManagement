@@ -668,7 +668,7 @@ def addweekmeeting(req):
 def viewmeeting(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Menbers.objects.get(user__username=username)
+		user = Employee.objects.get(user__username=username)
 	else:
 		user = ''
 	alldepartment = Department.objects.all()
