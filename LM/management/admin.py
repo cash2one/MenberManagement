@@ -33,7 +33,7 @@ class WeekMeetingAdmin(admin.ModelAdmin):
     list_display = ('week','meeting')
 
 class DepartmentAdmin(admin.ModelAdmin):
-    list_display = ('depart_name','leader')
+    list_display = ('depart_name','leader','depart_num')
 
 
 admin.site.register(Department,DepartmentAdmin)
