@@ -678,7 +678,6 @@ def getMeetings(employee_list):
 
 
 def viewmeeting(req):
-	meetings = ''
 	username = req.session.get('username','')
 	if username != '':
 		user = Employee .objects.get(user__username=username)
@@ -689,17 +688,15 @@ def viewmeeting(req):
 	Id = req.GET.get('id','')
 	if Id =='':
 		Id = 'all'
-		#meetings = WeekMeeting.objects.all()
+		employee_list = Employee.objects.all()
 	else:
 		try:
 			department =  Department.objects.get(pk=Id)
 			employee_list = Employee.objects.filter(department=department)
-			meetings = getMeetings(employee_list)
-
 		except:
 			return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'meetings':meetings}
+	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
 	return render_to_response('viewmeeting.html', content, context_instance=RequestContext(req))
 
 def employeemeeting(req):
