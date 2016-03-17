@@ -391,21 +391,20 @@ def addperson(req):
 		if Person.objects.filter(tel=tel):
 			status = 'user_exist'
 			content = {'active_menu': 'addlingli','status':status }
-			return render_to_response('addperson.html', content)
+			return render_to_response('modifyemployee.html', content)
 		else:
 			person = Person(name=name,tel=tel,gift=gift,remarks=remarks,partment=partment)
 			person.save()
 			status='success'
 
 	content = {'active_menu': 'addlingli','status': status}
-	return render_to_response('addperson.html', content, context_instance=RequestContext(req))
+	return render_to_response('modifyemployee.html', content, context_instance=RequestContext(req))
 
-def addpersonnels(req):
+def modifyemployee(req):
 	status = ''
-	personnel = ''
 	username = req.session.get('username','')
 	if username != '':
-		user = Menbers.objects.get(user__username=username)
+		user = Employee.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
 	'''
@@ -414,23 +413,21 @@ def addpersonnels(req):
 		'''
 	if req.POST:
 		post = req.POST
-		personnel = Personnel(
+		employee = Employee(
 			job = post.get('job',''),\
-			form_date = post.get('form_date',''),\
-			name = post.get('name',''),\
+			registdate = post.get('registdate',''),\
 			sex = post.get('sex',''),\
-			birth_date = post.get('birth_date',''),\
+			birthday = post.get('birthday',''),\
 			height = post.get('height',''),\
 			weight = post.get('weight',''),\
-			jiguan = post.get('jiguan',''),\
-			xingge = post.get('xingge',''),\
-			minzu = post.get('minzu',''),\
+			birthplace = post.get('jiguan',''),\
+			character = post.get('character',''),\
+			national = post.get('national',''),\
 			marry = post.get('marry',''),\
-			tel = post.get('tel',''),\
 			skill = post.get('skill',''),\
-			wenping = post.get('wenping',''),\
-			shenfenzheng = post.get('shenfenzheng',''),\
-			daogang = post.get('daogang',''),\
+			diploma = post.get('diploma',''),\
+			identity = post.get('identity',''),\
+			working = post.get('working',''),\
 			huji = post.get('huji',''),\
 			address = post.get('address',''),\
 			salary = post.get('salary',''),\
@@ -438,8 +435,11 @@ def addpersonnels(req):
 			other = post.get('other',''),\
 			evaluate = post.get('evaluate',''),\
 			qq = post.get('qq',''),\
-			email = post.get('email',''),\
-			personnel_typ = post.get('personnel_typ',''),\
+			status = post.get('status',''),\
+			emergcontact = post.get('emergcontact',''),\
+			emergcall = post.get('emergcall',''),\
+			profileimg = post.get('profileimg',''),\
+			eduimg = post.get('eduimg',''),\
 		)
 		personnel.save()
       #教育培训背景
@@ -514,8 +514,8 @@ def addpersonnels(req):
 				break
 
 		status = 'success'
-	content = {'active_menu': 'addpersonnel','status': status,'user':user,'personnel':personnel}
-	return render_to_response('personnel.html', content, context_instance=RequestContext(req))
+	content = {'active_menu': 'modifyemployee','status': status,'user':user,'personnel':personnel}
+	return render_to_response('employee.html', content, context_instance=RequestContext(req))
 
 
 def viewEmployee(req):
