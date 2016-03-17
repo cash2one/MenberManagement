@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import django.utils.timezone as timezone
 
 '''
 class Courses(models.Model):
@@ -198,7 +199,7 @@ class Friends(models.Model):
 class WeekMeeting(models.Model):
     week = models.CharField(max_length=30,verbose_name=u"第几周")
     meeting = models.TextField(blank=True,verbose_name=u"会议记录")
-    submitdate = models.DateField(auto_now_add=True,verbose_name=u"提交日期")
+    submitdate = models.DateTimeField(default=timezone.now,verbose_name=u"提交日期")
     startweek = models.DateField(auto_now_add=True,verbose_name=u"开会时间",blank=True)
     employee = models.ForeignKey(Employee)
 
