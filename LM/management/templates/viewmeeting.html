@@ -37,13 +37,13 @@
 						</tr>
 					</thead>
 					<tbody>
-						{% for week in weekmeeting %}
+						{% for employee in employee_list %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="/viewpersonnels/personnel_detail/?id={{week.id}}">{{ week.name }}</a></td>
-							<td>{{ week.department }}</td>
-                            <td>{{ week.tel }}</td>
-                            <td><a href="/viewpersonnels/modify_typ/?id={{week.id}}">修改</a></td>
+							<td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">{{ employee.name }}</a></td>
+							<td>{{ employee.department }}</td>
+                            <td>{{ employee.tel }}</td>
+                            <td><a href="/viewpersonnels/modify_typ/?id={{personnel.id}}">修改</a></td>
 
 						</tr>
 						{% empty %}
