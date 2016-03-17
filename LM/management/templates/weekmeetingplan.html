@@ -27,31 +27,37 @@
                         <strong>上周工作总结</strong> 总结经验，发现问题。
                     </div>
                 </div>
-                <table class="table table-bordered" id="tab" >
-                    <tr>
-                        <th>#</th>
-                       <td>上周工作内容</td>
-                        <td>执行人</td>
-                        <td>完成时间</td>
-                        <td>完成效果</td>
-                        <td>操作</td>
-                   </tr>
 
-                    {% for lastweek in lastsummary %}
-						<tr>
-							<td>{{ forloop.counter }}</td>
-							<td>{{ lastweek.lastweek }}</td>
-							<td>{{ lastweek.last_exeperson }}</td>
-                            <td>{{ lastweek.last_comletiontime }}</td>
-                            <td>{{lastweek.comletioneffect}}</td>
 
-						</tr>
-						{% empty %}
-						<tr>
-							<td>暂无记录</td>
-						</tr>
-						{% endfor %}
-               </table>
+                 <div class="form-group">
+                     <label for="id_edu_start" class="col-md-6 control-label">序号</label>
+
+					<label for="id_edu_start" class="col-md-6 control-label">上周工作内容</label>
+
+                    <label for="id_edu_end" class="col-md-2 control-label">执行人</label>
+
+                     <label for="id_college" class="col-md-2 control-label">完成时间</label>
+
+                     <label for="id_professional" class="col-md-2 control-label">完成效果</label>
+
+				</div>
+               {% for lastweek in lastsummary %}
+                    <div class="form-group">
+                        <label for="id_edu_start" class="col-md-6 control-label">{{ forloop.counter }}</label>
+
+                        <label for="id_edu_end" class="col-md-2 control-label">{{ lastweek.lastweek }}</label>
+
+                        <label for="id_college" class="col-md-2 control-label">{{ lastweek.last_exeperson }}</label>
+
+                        <label for="id_professional" class="col-md-2 control-label">{{ lastweek.last_comletiontime }}</label>
+
+                        <label for="id_professional" class="col-md-2 control-label">{{lastweek.comletioneffect}}</label>
+                    </div>
+              {% empty %}
+						<label for="id_professional" class="col-md-2 control-label">暂无记录</label>
+               {% endfor %}
+
+
                 <div class="form-group">
                     <div class="col-md-12  alert alert-success" role="alert">
                         <strong>本周工作计划</strong>凡事预则立不预则废。
