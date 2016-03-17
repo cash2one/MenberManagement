@@ -667,7 +667,7 @@ def addweekmeeting(req):
 def getMeetings(employee_list):
 	meeting_list = set()
 	for employee in employee_list:
-		meeting = WeekMeeting.objects.filter(employee=employee)[0:2]
+		meeting = WeekMeeting.objects.filter(employee=employee)[0:3]
 		if meeting != '':
 			meeting_list.add(meeting)
 		else:
@@ -693,12 +693,10 @@ def viewmeeting(req):
 		try:
 			department =  Department.objects.get(pk=Id)
 			employee_list = Employee.objects.filter(department=department)
-			weekmeeting = getMeetings(employee_list)
-
 		except:
 			return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'weekmeeting':weekmeeting}
+	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
 	return render_to_response('viewmeeting.html', content, context_instance=RequestContext(req))
 
 
