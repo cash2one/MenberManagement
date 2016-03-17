@@ -34,6 +34,7 @@ urlpatterns = patterns('',
     url('^viewmeeting/$',views.viewmeeting),
     url('^viewmeeting/employeemeeting/$',views.employeemeeting),
     url('^viewmeeting/emplogyeeweekmeeting/$',views.emplogyeeweekmeeting),
+    url('^viewmeeting/updateweekmeeting/$',views.updateweekmeeting),
 
     #url('^viewmeeting/modifymeeting/$',views.modifymeeting),
     #url(r'^addmenber/$',views.addMenber),
