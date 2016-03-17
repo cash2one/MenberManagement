@@ -21,19 +21,27 @@
 					</thead>
 					<tbody>
 						{% for weeks in weekmeeting %}
+                            {% if pingyu !='' %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-                            {% if {{ weeks.meeting}} == '' %}
 							<td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}&pingyu={{ pingyu }}">{{ weeks.week }}</a></td>
-                            {% else %}
-                            <td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}>{{ weeks.week }}</a></td>
-                            {% endif %}
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.startweek }}</td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}">点评</a></td>
                             <td><a href="/viewmeeting/modifyemployeemeeting/?id={{weeks.id}}">修改</a></td>
-
 						</tr>
+                            {% pingyu ='' %}
+                            {% else %}
+                            <tr>
+							<td>{{ forloop.counter }}</td>
+							<td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}">{{ weeks.week }}</a></td>
+							<td>{{ weeks.submitdate }}</td>
+                            <td>{{ weeks.startweek }}</td>
+                            <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}">点评</a></td>
+                            <td><a href="/viewmeeting/modifyemployeemeeting/?id={{weeks.id}}">修改</a></td>
+						</tr>
+                            {% endif %}
+
 						{% empty %}
 						<tr>
 							<td>暂无记录</td>
