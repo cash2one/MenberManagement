@@ -23,7 +23,11 @@
 						{% for weeks in weekmeeting %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
+                            {% if weeks.meeting == '' %}
 							<td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}&pingyu={{ pingyu }}">{{ weeks.week }}</a></td>
+                            {% elif %}
+                            <td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}>{{ weeks.week }}</a></td>
+                            {% endif %}
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.startweek }}</td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}">点评</a></td>
