@@ -207,7 +207,7 @@ class WeekMeeting(models.Model):
     class Meta:
         verbose_name = "周列会"
         verbose_name_plural = "周列会"
-        ordering = ["-submitdate"]
+        ordering = ["submitdate"]
 
 class LastSummary(models.Model):
     weekmeeting = models.ForeignKey(WeekMeeting)
