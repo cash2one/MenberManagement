@@ -689,7 +689,7 @@ def viewmeeting(req):
 	Id = req.GET.get('id','')
 	if Id =='':
 		Id = 'all'
-		meetings = WeekMeeting.objects.all()
+		#meetings = WeekMeeting.objects.all()
 	else:
 		try:
 			department =  Department.objects.get(pk=Id)
