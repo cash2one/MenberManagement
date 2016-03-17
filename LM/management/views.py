@@ -610,6 +610,7 @@ def modify_typ(req):
 
 def addweekmeeting(req):
 	status = ''
+	meeting =''
 	username = req.session.get('username','')
 	if username != '':
 		user = Employee.objects.get(user__username=username)
