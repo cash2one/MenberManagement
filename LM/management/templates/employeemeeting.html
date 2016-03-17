@@ -14,7 +14,8 @@
 							<th>#</th>
                             <th>本周例会</th>
                             <th>提交时间</th>
-							<th>开会时间</th>
+                            <th>部门</th>
+                            <th>第几周</th>
                             <th>增加批注</th>
 
 						</tr>
@@ -23,9 +24,10 @@
 						{% for weeks in weekmeeting %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}&pingyu={{ pingyu }}">点击{{ weeks.week }}周例会内容</a></td>
+							<td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}&pingyu={{ pingyu }}">点击我的周例会内容</a></td>
 							<td>{{ weeks.submitdate }}</td>
-                            <td>{{ weeks.startweek }}</td>
+                            <td>{{ weeks.employee }}</td>
+                            <td>{{ weeks.week }}</td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}">点评</a></td>
 						</tr>
 						{% empty %}
