@@ -667,7 +667,7 @@ def addweekmeeting(req):
 def getMeetings(employee_list):
 	meeting_list = set()
 	for employee in employee_list:
-		meeting = WeekMeeting.objects.filter(employee=employee)[0:2]
+		meeting = WeekMeeting.objects.filter(employee=employee)[:2]
 		if len(meeting) > 0:
 			meeting_list.add(meeting)
 		else:
