@@ -12,12 +12,12 @@
                 <br /><br /><br />
 
 				<div class="form-group">
-					<label for="id_user_name" class="col-md-2 control-label">姓名&部门：</label>
+					<label for="id_user_name" class="col-md-2 control-label">姓名&部门：{{ weekmeeting.week }}</label>
 					<div class="col-md-2">
 						<input type="text" class="form-control" name="department" id="id_department" value="{{ weekmeeting.employee }}" autofocus>
 					</div>
                     <label for="id_user_name" class="col-md-4 control-label"></label>
-                    <label for="id_week" class="col-md-2 control-label">第几周：</label>
+                    <label for="id_week" class="col-md-2 control-label">{{ weekmeeting.week }}</label>
 					<div class="col-md-2">
 					    <input type="text" class="form-control" name="department" id="id_department" value="{{ weekmeeting.week }}" autofocus>
 					</div>
