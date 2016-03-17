@@ -710,7 +710,7 @@ def employeemeeting(req):
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
 		employee = Employee.objects.get(pk=Id)
-		weekmeeting = WeekMeeting.objects.filter(employee=employee)
+		weekmeeting = WeekMeeting.objects.filter(employee=employee)[1:3]
 
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
