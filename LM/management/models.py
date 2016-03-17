@@ -105,6 +105,8 @@ class Employee(models.Model):
     status = models.CharField(max_length=10,blank=True,verbose_name=u'类型')
     emergcontact = models.CharField(max_length=30,blank=True,verbose_name=u'紧急联系人')
     emergcall = models.CharField(max_length=30,blank=True,verbose_name=u'联系电话')
+    profileimg = models.ImageField(upload_to='photo',null=True,blank=True)
+    eduimg = models.ImageField(upload_to='photo',null=True,blank=True)
 
     def __str__(self):
         return u'%s %s' %(self.name,self.department)
@@ -196,7 +198,8 @@ class Friends(models.Model):
 class WeekMeeting(models.Model):
     week = models.CharField(max_length=30,verbose_name=u"第几周")
     meeting = models.TextField(blank=True,verbose_name=u"会议记录")
-    startweek = models.DateField(auto_now_add=True,verbose_name=u"开会时间")
+    submitdate = models.DateField(auto_now_add=True,verbose_name=u"提交日期")
+    startweek = models.DateField(verbose_name=u"开会时间")
     employee = models.ForeignKey(Employee)
 
     def __str__(self):
@@ -204,6 +207,7 @@ class WeekMeeting(models.Model):
     class Meta:
         verbose_name = "周列会"
         verbose_name_plural = "周列会"
+        ordering = ["-submitdate"]
 
 class LastSummary(models.Model):
     weekmeeting = models.ForeignKey(WeekMeeting)
