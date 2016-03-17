@@ -33,6 +33,8 @@ urlpatterns = patterns('',
     url(r'^addweekmeeting/$',views.addweekmeeting),
     url('^viewmeeting/$',views.viewmeeting),
     url('^viewmeeting/employeemeeting/$',views.employeemeeting),
+    url('^viewmeeting/emplogyeeweekmeeting/$',views.emplogyeeweekmeeting),
+
     #url('^viewmeeting/modifymeeting/$',views.modifymeeting),
     #url(r'^addmenber/$',views.addMenber),
    # url(r'^viewmenber/menber_detail/$',views.menber_detail),
