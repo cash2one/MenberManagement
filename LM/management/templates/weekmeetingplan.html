@@ -12,18 +12,23 @@
                 <br /><br /><br />
 
 				<div class="form-group">
-					<label for="id_user_name" class="col-md-2 control-label">{{ weekmeeting.employee }}</label>
-					<label for="id_user_name" class="col-md-4 control-label"></label>
-                    <label for="id_user_name" class="col-md-4 control-label"></label>
-                    <label for="id_week" class="col-md-2 control-label">{{ weekmeeting.week }}</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.employee }}">
+                    </div>
 					<label for="id_user_name" class="col-md-2 control-label"></label>
+					<label for="id_user_name" class="col-md-4 control-label"></label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.week }}">
+                    </div>
 				</div>
 
             <div class="form-group">
+                <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">上周工作点评</div>
-                           <div class="panel panel-warning">{{ pingyu }}</div>
+                           <div class="panel panel-success">{{ pingyu }}</div>
                     <div class="panel-footer">署名：苏总，邓总</div>
+                </div>
                 </div>
 
             </div>
