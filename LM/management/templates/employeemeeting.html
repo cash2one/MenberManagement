@@ -16,7 +16,7 @@
                             <th>提交时间</th>
 							<th>开会时间</th>
                             <th>增加批注</th>
-                            <th>修改信息</th>
+
 						</tr>
 					</thead>
 					<tbody>
@@ -27,8 +27,6 @@
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.startweek }}</td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}">点评</a></td>
-                            <td><a href="/viewmeeting/modifyemployeemeeting/?id={{weeks.id}}">修改</a></td>
-
 						</tr>
 						{% empty %}
 						<tr>
