@@ -23,7 +23,7 @@
 						{% for weeks in weekmeeting %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}&pingyu={{ pingyu }}">{{ weeks.week }}</a></td>
+							<td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}&pingyu={{ pingyu }}">点击{{ weeks.week }}周例会内容</a></td>
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.startweek }}</td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}">点评</a></td>
