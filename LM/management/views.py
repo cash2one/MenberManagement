@@ -699,6 +699,18 @@ def viewmeeting(req):
 	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
 	return render_to_response('viewmeeting.html', content, context_instance=RequestContext(req))
 
+def getSummary(employee):
+	pingyu = ''
+	weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:2]
+	for index in weekmeeting:
+		if index.meeting != '':
+			pingyu = index.meeting
+			break
+		else:
+			continue
+	return pingyu
+
+
 def employeemeeting(req):
 	username = req.session.get('username','')
 	if username != '':
@@ -710,12 +722,13 @@ def employeemeeting(req):
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
 		employee = Employee.objects.get(pk=Id)
-		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:2]
+		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:5]
+		pingyu = getSummary(employee)
 
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting}
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'pingyu':pingyu}
 	return render_to_response('employeemeeting.html', content, context_instance=RequestContext(req))
 
 def emplogyeeweekmeeting(req):
