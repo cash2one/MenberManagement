@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}查看学员详细资料{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+        <div class="col-md-12">
+        <h1 class="form-signin-heading text-center">所有人员信息登记</h1>
+
+			<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+                            <th>与会名单</th>
+                            <th>增加点评</th>
+							<th>修改</th>
+                            <th>修改</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for weeks in weekmeeting %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td><a href="viewmeeting/employeemeeting/?id={{week.id}}">{{ weeks.week }}</a></td>
+							<td>{{ weeks.meeting }}</td>
+                            <td>{{ weeks.startweek }}</td>
+                            <td><a href="/viewpersonnels/modify_typ/?id={{weeks.id}}">修改</a></td>
+
+						</tr>
+						{% empty %}
+						<tr>
+							<td>暂无记录</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+			</div>
+
+	</div>
+</div>
+
+
+
+{% endblock %}
