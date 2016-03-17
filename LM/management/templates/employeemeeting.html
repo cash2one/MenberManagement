@@ -22,7 +22,7 @@
 						{% for weeks in weekmeeting %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="viewmeeting/employeemeeting/?id={{week.id}}">{{ weeks.week }}</a></td>
+							<td><a href="/viewmeeting/employeemeeting/?id={{week.id}}">{{ weeks.week }}</a></td>
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.startweek }}</td>
                             <td><a href="/viewpersonnels/modify_typ/?id={{weeks.id}}">修改</a></td>
