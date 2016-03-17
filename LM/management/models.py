@@ -199,7 +199,7 @@ class WeekMeeting(models.Model):
     week = models.CharField(max_length=30,verbose_name=u"第几周")
     meeting = models.TextField(blank=True,verbose_name=u"会议记录")
     submitdate = models.DateField(auto_now_add=True,verbose_name=u"提交日期")
-    startweek = models.DateField(auto_now_add=False,verbose_name=u"开会时间")
+    startweek = models.DateField(auto_now_add=True,verbose_name=u"开会时间")
     employee = models.ForeignKey(Employee)
 
     def __str__(self):
