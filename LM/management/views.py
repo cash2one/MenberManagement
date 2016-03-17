@@ -678,6 +678,7 @@ def getMeetings(employee_list):
 
 
 def viewmeeting(req):
+	meetings = ''
 	username = req.session.get('username','')
 	if username != '':
 		user = Employee .objects.get(user__username=username)
