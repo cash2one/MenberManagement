@@ -70,6 +70,7 @@ class Department(models.Model):
     class Meta:
         verbose_name="部门"
         verbose_name_plural="部门"
+        ordering = ["depart_num"]
 
 #面试人员基础信息
 class Employee(models.Model):
