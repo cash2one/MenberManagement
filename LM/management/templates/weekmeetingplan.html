@@ -30,9 +30,9 @@
 
 
                  <div class="form-group">
-                     <label for="id_edu_start" class="col-md-6 control-label">序号</label>
+                     <label for="id_edu_start" class="col-md-1 control-label">序号</label>
 
-					<label for="id_edu_start" class="col-md-6 control-label">上周工作内容</label>
+					<label for="id_edu_start" class="col-md-5 control-label">上周工作内容</label>
 
                     <label for="id_edu_end" class="col-md-2 control-label">执行人</label>
 
@@ -43,9 +43,9 @@
 				</div>
                {% for lastweek in lastsummary %}
                     <div class="form-group">
-                        <label for="id_edu_start" class="col-md-6 control-label">{{ forloop.counter }}</label>
+                        <label for="id_edu_start" class="col-md-1 control-label">{{ forloop.counter }}</label>
 
-                        <label for="id_edu_end" class="col-md-2 control-label">{{ lastweek.lastweek }}</label>
+                        <label for="id_edu_end" class="col-md-5 control-label">{{ lastweek.lastweek }}</label>
 
                         <label for="id_college" class="col-md-2 control-label">{{ lastweek.last_exeperson }}</label>
 
