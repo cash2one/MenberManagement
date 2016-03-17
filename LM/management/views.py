@@ -700,9 +700,6 @@ def viewmeeting(req):
 	return render_to_response('viewmeeting.html', content, context_instance=RequestContext(req))
 
 def employeemeeting(req):
-	if req.session.get('username', ''):
-		return HttpResponseRedirect('/')
-
 	Id = req.GET.get('id','')
 	if Id == '':
 		return HttpResponseRedirect('/viewmeeting/')
