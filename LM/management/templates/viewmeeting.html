@@ -40,7 +40,7 @@
 						{% for employee in employee_list %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">{{ employee.name }}</a></td>
+							<td><a href="viewmeeting/employeemeeting/?id={{employee.id}}">{{ employee.name }}</a></td>
 							<td>{{ employee.department }}</td>
                             <td>{{ employee.tel }}</td>
                             <td><a href="/viewpersonnels/modify_typ/?id={{personnel.id}}">修改</a></td>

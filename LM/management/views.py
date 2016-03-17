@@ -667,8 +667,8 @@ def addweekmeeting(req):
 def getMeetings(employee_list):
 	meeting_list = set()
 	for employee in employee_list:
-		meeting = WeekMeeting.objects.filter(employee=employee)[0:3]
-		if meeting != '':
+		meeting = WeekMeeting.objects.filter(employee=employee)[0:2]
+		if len(meeting) > 0:
 			meeting_list.add(meeting)
 		else:
 			continue
@@ -693,11 +693,31 @@ def viewmeeting(req):
 		try:
 			department =  Department.objects.get(pk=Id)
 			employee_list = Employee.objects.filter(department=department)
+			meetings = getMeetings(employee_list)
+
 		except:
 			return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
+	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'meetings':meetings}
 	return render_to_response('viewmeeting.html', content, context_instance=RequestContext(req))
+
+def employeemeeting(req):
+	if req.session.get('username', ''):
+		return HttpResponseRedirect('/')
+
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/viewmeeting/')
+	try:
+		employee = Employee.objects.get(pk=Id)
+		weekmeeting = WeekMeeting.objects.filter(employee=employee)
+
+	except:
+		return HttpResponseRedirect('/viewmeeting/')
+
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting}
+	return render_to_response('employeemeeting.html', content, context_instance=RequestContext(req))
+
 
 
 """
