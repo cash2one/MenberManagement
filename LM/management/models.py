@@ -62,6 +62,7 @@ class Menbers(models.Model):
 '''
 class Department(models.Model):
     depart_name = models.CharField(max_length=30,verbose_name=u"部门名")
+    depart_num =models.IntegerField()
     leader = models.CharField(blank=True,max_length=30,verbose_name=u"部门领导")
     depart_mark = models.CharField(blank=True,max_length=30,verbose_name="部门介绍")
     def __str__(self):
