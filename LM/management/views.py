@@ -514,7 +514,7 @@ def modifyemployee(req):
 				break
 
 		status = 'success'
-	content = {'active_menu': 'modifyemployee','status': status,'user':user,'personnel':personnel}
+	content = {'active_menu': 'modifyemployee','status': status,'user':user}
 	return render_to_response('employee.html', content, context_instance=RequestContext(req))
 
 
