@@ -107,7 +107,7 @@ class Employee(models.Model):
     emergcall = models.CharField(max_length=30,blank=True,verbose_name=u'联系电话')
 
     def __str__(self):
-        return u'%s %s' %(self.name,self.job)
+        return u'%s %s' %(self.user.name,self.user.department)
     class Meta:
         verbose_name="人才登记表"
         verbose_name_plural="人才登记表"
