@@ -110,7 +110,7 @@ class Employee(models.Model):
     eduimg = models.ImageField(upload_to='photo',null=True,blank=True)
 
     def __str__(self):
-        return u'%s %s' %(self.name,self.department)
+        return u'%s %s' %(self.department,self.name)
     class Meta:
         verbose_name="人才登记表"
         verbose_name_plural="人才登记表"
