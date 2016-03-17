@@ -610,7 +610,6 @@ def modify_typ(req):
 
 def addweekmeeting(req):
 	status = ''
-	meeting =''
 	username = req.session.get('username','')
 	if username != '':
 		user = Employee.objects.get(user__username=username)
@@ -619,7 +618,7 @@ def addweekmeeting(req):
 
 	if req.POST:
 		post = req.POST
-		meeting  = weekmeeting(
+		meeting  = WeekMeeting(
 			week = post.get('week',''),\
 			meeting = post.get('meeting',''),\
 			employee = user,\
