@@ -671,12 +671,21 @@ def viewmeeting(req):
 		user = Menbers.objects.get(user__username=username)
 	else:
 		user = ''
+	alldepartment = Department.objects.all()
 
-	meetings = weekmeeting.objects.all()
+	Id = req.GET.get('id','')
+	if Id =='':
+		Id = 'all'
+		employee_list = Employee.objects.all()
+	else:
+		try:
+			department =  Department.objects.get(pk=Id)
+			employee_list = Employee.objects.filter(department=department)
+		except:
+			return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'addweekmeeting','status':status,'user':user}
-	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
-
+	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
+	return render_to_response('viewmeeting.html', content, context_instance=RequestContext(req))
 
 
 """

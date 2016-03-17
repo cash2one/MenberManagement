@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}查看学员详细资料{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+        <div class="col-md-12">
+        <h1 class="form-signin-heading text-center">所有人员信息登记</h1>
+			<div class="col-md-2">
+				<div class="list-group">
+					<a href="/viewEmployee/" class="list-group-item" id="id_typ_all" >
+						全部人员
+					</a>
+					{% for depart in departments %}
+					<a href="/viewEmployee?id={{depart.id}}" class="list-group-item" id="id_typ_{{depart.id}}">
+						{{ depart.depart_name }}
+					</a>
+					{% endfor %}
+				</div>
+				<script type="text/javascript">
+				    var act_typ = document.getElementById("id_typ_{{Id}}");
+				    var new_class = act_typ.getAttribute("class") + " active"
+				    act_typ.setAttribute("class",new_class);
+				</script>
+			</div>
+		<div class="col-md-10">
+
+			<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+                            <th>姓名</th>
+                            <th>部门</th>
+							<th>手机</th>
+                            <th>修改</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for employee in employee_list %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">{{ employee.name }}</a></td>
+							<td>{{ employee.department }}</td>
+                            <td>{{ employee.tel }}</td>
+                            <td><a href="/viewpersonnels/modify_typ/?id={{personnel.id}}">修改</a></td>
+
+						</tr>
+						{% empty %}
+						<tr>
+							<td>暂无应聘人员</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+{% endblock %}
