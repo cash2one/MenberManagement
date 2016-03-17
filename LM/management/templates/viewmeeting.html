@@ -30,8 +30,8 @@
 					<thead>
 						<tr>
 							<th>#</th>
-                            <th>与会名单</th>
-                            <th>增加点评</th>
+                            <th>姓名</th>
+                            <th>职位</th>
 							<th>修改</th>
                             <th>修改</th>
 						</tr>
@@ -41,7 +41,7 @@
 						<tr>
 							<td>{{ forloop.counter }}</td>
 							<td><a href="viewmeeting/employeemeeting/?id={{employee.id}}">{{ employee.name }}</a></td>
-							<td>{{ employee.department }}</td>
+							<td>{{ employee.job }}</td>
                             <td>{{ employee.tel }}</td>
                             <td><a href="/viewpersonnels/modify_typ/?id={{employee.id}}">修改</a></td>
 
