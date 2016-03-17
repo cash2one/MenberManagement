@@ -612,7 +612,7 @@ def addweekmeeting(req):
 	status = ''
 	username = req.session.get('username','')
 	if username != '':
-		user = Menbers.objects.get(user__username=username)
+		user = Employee.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
 
@@ -620,17 +620,45 @@ def addweekmeeting(req):
 		post = req.POST
 		meeting  = weekmeeting(
 			week = post.get('week',''),\
-			lastweek = post.get('lastweek',''),\
-			nextweek = post.get('nextweek',''),\
-			last_exeperson = post.get('last_exeperson',''),\
-			last_comletiontime = post.get('last_comletiontime',''),\
-			comletioneffect = post.get('comletioneffect',''),\
 			meeting = post.get('meeting',''),\
-			next_comletiontime = post.get('next_comletiontime',''),\
-			next_exeperson = post.get('next_exeperson',''),\
-			menber = user,\
+			employee = user,\
 		)
 		meeting.save()
+		#上周工作总结
+		lastweek = post.getlist('lastweek',[])
+		last_exeperson = post.getlist('last_exeperson',[])
+		last_comletiontime = post.getlist('last_comletiontime',[])
+		comletioneffect = post.getlist('comletioneffect',[])
+		lastlen = len(lastweek)
+		for index in range(lastlen):
+			if lastweek[index] !='':
+				last = LastSummary(
+					weekmeeting = meeting,\
+					lastweek = lastweek[index],\
+					last_exeperson = last_exeperson[index],\
+					last_comletiontime = last_comletiontime[index],\
+					comletioneffect = comletioneffect[index],\
+				)
+				last.save()
+			else:
+				break
+		#本周工作计划
+		nextweek = post.getlist('nextweek',[])
+		next_exeperson = post.getlist('next_exeperson',[])
+		next_comletiontime = post.getlist('next_comletiontime',[])
+		nextlen = len(nextweek)
+		for index in range(nextlen):
+			if nextweek[index] != '':
+				next = NextPlan(
+					weekmeeting = meeting,\
+					nextweek = nextweek[index],\
+					next_exeperson = next_exeperson[index],\
+					next_comletiontime = next_comletiontime[index],\
+				)
+				next.save()
+			else:
+				break
+
 		status = 'success'
 
 	content = {'active_menu': 'addweekmeeting','status':status,'user':user}
@@ -652,6 +680,17 @@ def viewmeeting(req):
 
 
 """
+
+lastweek = post.get('lastweek',''),\
+			nextweek = post.get('nextweek',''),\
+			last_exeperson = post.get('last_exeperson',''),\
+			last_comletiontime = post.get('last_comletiontime',''),\
+			comletioneffect = post.get('comletioneffect',''),\
+			meeting = post.get('meeting',''),\
+			next_comletiontime = post.get('next_comletiontime',''),\
+			next_exeperson = post.get('next_exeperson',''),\
+
+
 edu_satrt = post.getlist('edu_start',[])
 		edu_end = post.getlist('edu_end',[])
 		college = post.getlist('college',[])
