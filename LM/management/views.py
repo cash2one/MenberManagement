@@ -755,6 +755,7 @@ def getSummary(employee):
 
 
 def employeemeeting(req):
+	weekmeeting = ''
 	username = req.session.get('username','')
 	if username != '':
 		user = Members .objects.get(user__username=username)
@@ -771,9 +772,15 @@ def employeemeeting(req):
 
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
+	for week in weekmeeting:
+		if week.meeting == '':
+			lastsummary = weekmeeting.lastsummary_set.all()
+			nextplan = weekmeeting.nextplan_set.all()
+		else:
+			break
 
-	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'pingyu':pingyu}
-	return render_to_response('employeemeeting.html', content, context_instance=RequestContext(req))
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
+	return render_to_response('beforemeetingdetail.html', content, context_instance=RequestContext(req))
 
 def beforemeeting(req):
 	username = req.session.get('username','')
