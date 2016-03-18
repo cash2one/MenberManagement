@@ -535,7 +535,7 @@ def viewemployee(req):
 
 	alldepartment = Department.objects.all()
 
-	Id = req.GET.get('id','')
+	Id = req.GET.get('id','all')
 	if Id == '':
 		Id = 'all'
 		employee_list = Employee.objects.all()
