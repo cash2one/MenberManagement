@@ -136,6 +136,19 @@
                       </tr>
                   </tbody>
             </table>
+                     <div class="form-group">
+                    <label for="id_partment" class="col-md-3 control-label">所属部门：</label>
+                    <div class="col-md-9">
+
+                            <select class="form-control" name="partment" id="id_partment" >
+                                <option value="0" selected>请选择部门</option>
+                                 {% for depart in departs %}
+                                <option value="{{depart.depart_name}}">{{depart.depart_name}}</option>
+                                {% endfor%}
+                            </select>
+
+                    </div>
+				</div>
                  <div class="form-group">
 					<label for="id_other" class="col-md-2 control-label">其他说明:</label>
 					<div class="col-md-10">
