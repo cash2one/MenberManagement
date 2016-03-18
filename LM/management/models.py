@@ -213,6 +213,7 @@ class WeekMeeting(models.Model):
     submitdate = models.DateTimeField(default=timezone.now,verbose_name=u"提交日期")
     startweek = models.DateField(auto_now_add=True,verbose_name=u"开会时间",blank=True)
     leadership = models.TextField(blank=True,verbose_name=u"领导批示")
+    employee = models.ForeignKey(Employee)
 
     def __str__(self):
         return u'%s %s'%(self.week,self.meeting)
