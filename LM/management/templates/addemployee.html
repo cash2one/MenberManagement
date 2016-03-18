@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}注册{% endblock %}
+{% block title %}新加入崇德堂{% endblock %}
 
 {% block content %}
 
@@ -47,7 +47,7 @@
 				<div class="form-group">
 					<label for="id_passwd" class="col-md-3 control-label">电话：</label>
 					<div class="col-md-9">
-						<input type="password" class="form-control"  value="{{ user.membertel }}"  name="tel" id="id_tel">
+						<input type="text" class="form-control"  value="{{ user.membertel }}"  name="tel" id="id_tel">
 					</div>
 				</div>
 
@@ -57,12 +57,7 @@
 						<input type="email" class="form-control" value="{{ membertel.email }}" name="email" id="id_email">
 					</div>
 				</div>
-                <div class="form-group">
-					<label for="id_menber_tel" class="col-md-3 control-label">电话：</label>
-					<div class="col-md-9">
-						<input type="text" class="form-control" required name="membertel" id="id_membertel">
-					</div>
-				</div>
+
 
 				<div class="form-group">
 					<div class="col-md-4 col-md-offset-4">
