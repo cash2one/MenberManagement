@@ -13,7 +13,7 @@
 						全部人员
 					</a>
 					{% for depart in departments %}
-					<a href="/viewmeeting?id={{depart}}" class="list-group-item" id="id_typ_{{depart}}">
+					<a href="/viewmeeting?depart={{depart}}" class="list-group-item" id="id_typ_{{depart}}">
 						{{ depart }}
 					</a>
 					{% endfor %}
