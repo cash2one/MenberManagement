@@ -141,22 +141,22 @@ def viewmember(req):
 	return render_to_response('viewmember.html', content, context_instance=RequestContext(req))
 
 
-def menber_detail(req):
+def member_detail(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Menbers.objects.get(user__username=username)
+		user = Members.objects.get(user__username=username)
 	else:
 		user = ''
 	Id = req.GET.get('id','')
 	if Id == '':
-		return HttpResponseRedirect('/viewmenber/')
+		return HttpResponseRedirect('/viewmember/')
 	try:
-		menber = Menbers.objects.get(pk=Id)
+		member = Members.objects.get(pk=Id)
 	except:
 		return HttpResponseRedirect('/viewmenber/')
 
-	content = {'user': user, 'active_menu': 'viewmenber', 'menber': menber}
-	return render_to_response('menber_detail.html', content)
+	content = {'user': user, 'active_menu': 'viewmember', 'member': member}
+	return render_to_response('member_detail.html', content)
 
 def getCourse_list():
 	course_list = Courses.objects.all()
