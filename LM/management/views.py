@@ -654,6 +654,14 @@ def addweekmeeting(req):
 		user = Members.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
+	Id = req.GET.get('id','')
+	if Id == '':
+		status = 'error'
+		return  HttpResponseRedirect('/viewmeeting/')
+	try:
+		employee = Employee.objects.get(pk=Id)
+	except:
+		return HttpResponseRedirect('/viewmeeting/')
 
 	if req.POST:
 		post = req.POST
@@ -700,7 +708,7 @@ def addweekmeeting(req):
 
 		status = 'success'
 
-	content = {'active_menu': 'addweekmeeting','status':status,'user':user}
+	content = {'active_menu': 'addweekmeeting','status':status,'user':user,'employee':employee}
 	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
 
 def getMeetings(employee_list):
