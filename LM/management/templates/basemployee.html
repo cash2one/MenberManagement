@@ -26,13 +26,13 @@
                         <th><input type="text"  class="form-control input-sm" id="id_job" required name="job" autofocus></th>
                           <th colspan="4"></th>
                         <th>填表日期:</th>
-                          <th><input type="date" class="form-control input-sm" id="id_form_date" required name="form_date" autofocus></th>
+                          <th><input type="date" class="form-control input-sm" id="id_registdate" required name="registdate" autofocus></th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr class="success">
                         <td>姓名:</td>
-                        <td><input type="text" class="form-control input-sm" id="id_name" required name="name" autofocus></td>
+                        <td><input type="text" class="form-control input-sm" id="id_name"  value="{{ employee.name }}" required name="name" autofocus></td>
                           <td></td>
                         <td>性别:</td>
                         <td>
@@ -47,7 +47,7 @@
                         </td>
                           <td></td>
                         <td>出生日期:</td>
-                          <td><input type="date" class="form-control input-sm" id="id_birth_date" required name="birth_date" autofocus></td>
+                          <td><input type="date" class="form-control input-sm" id="id_birthday" required name="birthday" autofocus></td>
                       </tr>
                       <tr class="warning">
                           <td>身高(cm):</td>
@@ -57,14 +57,14 @@
                           <td><input type="text" class="form-control input-sm" id="id_weight" value=" " name="weight" autofocus></td>
                           <td></td>
                           <td>籍贯:</td>
-                          <td><input type="text" class="form-control input-sm" id="id_jiguan" required name="jiguan" autofocus></td>
+                          <td><input type="text" class="form-control input-sm" id="id_birthplace" required name="birthplace" autofocus></td>
                       </tr>
                       <tr class="danger">
                           <td>性格:</td>
-                          <td><input type="text" class="form-control input-sm" id="id_xingge" required name="xingge" autofocus></td>
+                          <td><input type="text" class="form-control input-sm" id="id_character" required name="character" autofocus></td>
                           <td></td>
                           <td>民族:</td>
-                          <td><input type="text" class="form-control input-sm" id="id_minzu" required name="minzu" autofocus></td>
+                          <td><input type="text" class="form-control input-sm" id="id_national" required name="national" autofocus></td>
                           <td></td>
                           <td>婚姻状况:</td>
                           <td><label class="checkbox-inline">
@@ -80,20 +80,20 @@
                       </tr>
                       <tr class="info">
                         <td>手机:</td>
-                        <td><input type="text" class="form-control input-sm" id="id_tel" required name="tel" autofocus></td>
+                        <td><input type="text" class="form-control input-sm" id="id_tel" value="{{ employee.tel }}" required name="tel" autofocus></td>
                           <td></td>
                         <td>特长:</td>
                            <td><input type="text" class="form-control input-sm" id="id_skill" value=" " name="skill" autofocus></td>
                           <td></td>
                           <td>文化程度:</td>
-                          <td><input type="text" class="form-control input-sm" id="id_wenping" required name="wenping" autofocus></td>
+                          <td><input type="text" class="form-control input-sm" id="id_diploma" required name="diploma" autofocus></td>
                       </tr>
                     <tr class="active">
                         <td>身份证:</td>
-                        <td><input type="text" class="form-control input-sm" id="id_shenfenzheng" required name="shenfenzheng" autofocus></td>
+                        <td><input type="text" class="form-control input-sm" id="id_identity" required name="identity" autofocus></td>
                         <td></td>
                         <td>何时到岗:</td>
-                           <td><input type="date" class="form-control input-sm" id="id_daogang" required name="daogang" autofocus></td>
+                           <td><input type="date" class="form-control input-sm" id="id_working" required name="working" autofocus></td>
                         <td></td>
                           <td>户口:</td>
                           <td><input type="text" class="form-control input-sm" id="id_huji" required name="huji" autofocus></td>
@@ -102,7 +102,7 @@
                         <td>QQ:</td>
                         <td><input type="text" class="form-control input-sm" id="id_qq" required name="qq" autofocus></td>
                         <td>Email:</td>
-                           <td colspan="2"><input type="text" class="form-control input-sm" id="id_email" required name="email" autofocus></td>
+                           <td colspan="2"><input type="text" class="form-control input-sm" id="id_email" value="{{ employee.email }}" required name="email" autofocus></td>
                           <td>住址:</td>
                           <td colspan="2"><input type="text" class="form-control input-sm" id="id_address" required name="address" autofocus></td>
                       </tr>
@@ -119,6 +119,20 @@
                           <td colspan="3"></td>
                         <td>期望工资:</td>
                           <td><input type="text" class="form-control input-sm" id="id_salary" value=" " name="salary" autofocus></td>
+                      </tr>
+                    <tr class="danger">
+                        <td>状态:</td>
+                        <td colspan="2">
+                            <select class="form-control input-sm" name="status" id="id_status">
+                            <option value="" selected></option>
+                            <option value="面试">面试</option>
+                            <option value="试用">试用</option>
+                            <option value="转正">转正</option>
+                        </select></td>
+                          <td>紧急联系人:</td>
+                          <td><input type="text" class="form-control input-sm" id="id_emergcontact" value=" " name="emergcontact" autofocus></td>
+                        <td>联系电话:</td>
+                          <td><input type="text" class="form-control input-sm" id="id_emergcall" value=" " name="emergcall" autofocus></td>
                       </tr>
                   </tbody>
             </table>
