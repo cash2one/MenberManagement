@@ -16,7 +16,6 @@
                             <th>部门</th>
                             <th>第几周</th>
                             <th>本周例会</th>
-                            <th>最近2个月例会</th>
                             <th>增加批注</th>
 
 						</tr>
@@ -29,7 +28,6 @@
                             <td>{{ weeks.employee }}</td>
                             <td>{{ weeks.week }}</td>
                             <td><a href="/viewmeeting/emplogyeeweekmeeting/?id={{weeks.id}}&pingyu={{ pingyu }}">我的例会</a></td>
-                            <td><a href="/viewmeeting/beforemeeting/?id={{weeks.id}}">往事回首</a></td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}">点评</a></td>
 						</tr>
 						{% empty %}
