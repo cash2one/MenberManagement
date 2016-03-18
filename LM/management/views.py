@@ -855,11 +855,9 @@ def leadership(req):
 	if req.POST:
 		post = req.POST
 		weekid = post.get('pid','')
-		startweek = post.get('startweek','')
-		meeting = post.get('meeting','')
-
+		leadership = post.get('leadership','')
 		try:
-			WeekMeeting.objects.filter(id=weekid).update(startweek=startweek,meeting=meeting)
+			WeekMeeting.objects.filter(id=weekid).update(leadership=leadership)
 			status = "success"
 		except:
 			return HttpResponseRedirect('/viewmeeting')
