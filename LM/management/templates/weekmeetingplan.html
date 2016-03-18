@@ -9,7 +9,11 @@
 		<div class="col-md-12">
 				<h1 class="form-signin-heading text-center">部门工作推进表</h1>
                 <br /><br />
-
+           {% if status == 'error' %}
+				<div class="well">
+					<h2 class="text-success text-center">会议已经结束并记录，请移步以往会议记录</h2>
+				</div>
+			{% endif %}
 				<div class="form-group">
                     <div class="col-md-2">
                         <input type="text" class="form-control" readonly  value="{{ startmeeting.employee }}">
