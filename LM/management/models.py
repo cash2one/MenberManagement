@@ -62,11 +62,11 @@ class Menbers(models.Model):
         verbose_name_plural ="员工"
 '''
 
-class Menbers(models.Model):
+class Members(models.Model):
     user = models.OneToOneField(User)
     permission = models.IntegerField()
-    menbername = models.CharField(max_length=30,verbose_name=u"姓名")
-    menbertel = models.CharField(max_length=30,verbose_name=u"电话")
+    membername = models.CharField(max_length=30,verbose_name=u"姓名")
+    membertel = models.CharField(max_length=30,verbose_name=u"电话")
     email = models.EmailField(blank=True)
     regDate = models.DateField(auto_now_add=True,verbose_name=u"注册日期")
     def __str__(self):

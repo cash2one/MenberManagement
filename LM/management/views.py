@@ -27,8 +27,8 @@ def signup(req):
 		post = req.POST
 		passwd = post.get('passwd', '')
 		repasswd = post.get('repasswd', '')
-		memberName = post.get('menberName','')
-		menberTel = post.get('menberTel','')
+		menbername = post.get('menbername','')
+		menbertel = post.get('menbertel','')
 		if passwd != repasswd:
 			status = 're_err'
 		else:
