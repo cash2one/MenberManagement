@@ -544,7 +544,7 @@ def viewemployee(req):
 			department = Department.objects.get(pk=Id)
 			employee_list = Employee.objects.filter(department=department)
 		except:
-			return HttpResponseRedirect('/viewEmployee/')
+			return HttpResponseRedirect('/viewemployee/')
 
 	if req.POST:
 		post = req.POST
@@ -562,7 +562,7 @@ def viewemployee(req):
 	except EmptyPage:
 		employee_list = paginator.page(paginator.num_pages)
 
-	content = {'active_menu': 'viewEmployee','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
+	content = {'active_menu': 'viewemployee','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
 	return render_to_response('viewemployee.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
