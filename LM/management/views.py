@@ -780,7 +780,7 @@ def employeemeeting(req):
 			break
 
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
-	return render_to_response('beforemeetingdetail.html', content, context_instance=RequestContext(req))
+	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
 
 def beforemeeting(req):
 	username = req.session.get('username','')
