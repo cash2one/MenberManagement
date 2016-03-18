@@ -553,7 +553,7 @@ def viewemployee(req):
 		Id = 'all'
 
 
-	paginator = Paginator(employee_list,5)
+	paginator = Paginator(employee_list,10)
 	page = req.GET.get('page')
 	try:
 		employee_list = paginator.page(page)
@@ -563,7 +563,7 @@ def viewemployee(req):
 		employee_list = paginator.page(paginator.num_pages)
 
 	content = {'active_menu': 'viewEmployee','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
-	return render_to_response('viewEmployee.html', content, context_instance=RequestContext(req))
+	return render_to_response('viewemployee.html', content, context_instance=RequestContext(req))
 
 def personnel_detail(req):
 
