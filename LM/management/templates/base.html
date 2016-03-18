@@ -82,6 +82,9 @@
 		</header>
 		<!-- /.header -->
 		<!-- main part -->
+        {% load tinymce_tags %}
+
+         {{ content| tinymce_preview }}
 		{% block content %}{% endblock %}
 		<!-- /.main -->
 		<!-- footer -->	
