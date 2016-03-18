@@ -12,7 +12,7 @@ from django.utils import timezone
 def index(req):
 	username = req.session.get('username', '')
 	if username:
-		user = Employee.objects.get(user__username=username)
+		user = Members.objects.get(user__username=username)
 	else:
 		user = ''
 	content = {'active_menu': 'homepage', 'user': user}
@@ -79,7 +79,7 @@ def logout(req):
 def setpasswd(req):
 	username = req.session.get('username', '')
 	if username != '':
-		user = Menbers.objects.get(user__username=username)
+		user = Members.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
 	status = ''
@@ -99,46 +99,46 @@ def setpasswd(req):
 
 
 
-def getMenber_list():
-	menber_list = Menbers.objects.all()
-	menberTypList = set()
-	for menber in menber_list:
-		menberTypList.add(menber.menber_typ)
-	return list(menberTypList)
+def getMember_list():
+	member_list = Members.objects.all()
+	memberTypList = set()
+	for member in member_list:
+		memberTypList.add(member.member_typ)
+	return list(memberTypList)
 
-def viewmenber(req):
+def viewmember(req):
 	username = req.session.get('username', '')
 	if username != '':
-		user = Menbers.objects.get(user__username=username)
+		user = Members.objects.get(user__username=username)
 	else:
 		user = ''
-	menberTypeList = getMenber_list()
-	menber_type = req.GET.get('menber_typ', 'all')
-	if menber_type == '':
-		menber_lst = Menbers.objects.all()
-	elif menber_type not in menberTypeList:
-		menber_type = 'all'
-		menber_lst = Menbers.objects.all()
+	memberTypeList = getMember_list()
+	member_type = req.GET.get('member_typ', 'all')
+	if member_type == '':
+		member_lst = Members.objects.all()
+	elif member_type not in memberTypeList:
+		member_type = 'all'
+		member_lst = Members.objects.all()
 	else:
-		menber_lst = Menbers.objects.filter(menber_typ=menber_type)
+		member_lst = Members.objects.filter(member_typ=member_type)
 
 	if req.POST:
 		post = req.POST
 		keywords = post.get('keywords','')
-		menber_lst = Menbers.objects.filter(menber_name__contains=keywords)
-		menber_type = 'all'
+		member_lst = Members.objects.filter(member_name__contains=keywords)
+		member_type = 'all'
 
-	paginator = Paginator(menber_lst, 5)
+	paginator = Paginator(member_lst, 5)
 	page = req.GET.get('page')
 	try:
-		menber_list = paginator.page(page)
+		member_list = paginator.page(page)
 	except PageNotAnInteger:
-		menber_list = paginator.page(1)
+		member_list = paginator.page(1)
 	except EmptyPage:
-		menber_list = paginator.page(paginator.num_pages)
+		member_list = paginator.page(paginator.num_pages)
 
-	content = {'user': user, 'active_menu': 'viewmenber', 'menberTypeList': menberTypeList, 'menber_type': menber_type, 'menber_list': menber_list}
-	return render_to_response('viewmenber.html', content, context_instance=RequestContext(req))
+	content = {'user': user, 'active_menu': 'viewmember', 'memberTypeList': memberTypeList, 'member_type': member_type, 'member_list': member_list}
+	return render_to_response('viewmember.html', content, context_instance=RequestContext(req))
 
 
 def menber_detail(req):
