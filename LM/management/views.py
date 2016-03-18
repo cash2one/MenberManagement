@@ -774,8 +774,8 @@ def employeemeeting(req):
 		return HttpResponseRedirect('/viewmeeting/')
 	for week in weekmeeting:
 		if week.meeting == '':
-			lastsummary = weekmeeting.lastsummary_set.all()
-			nextplan = weekmeeting.nextplan_set.all()
+			lastsummary = week.lastsummary_set.all()
+			nextplan = week.nextplan_set.all()
 		else:
 			break
 
