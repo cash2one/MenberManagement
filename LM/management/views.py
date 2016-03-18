@@ -407,6 +407,14 @@ def modifyemployee(req):
 		user = Employee.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
+
+	if req.GET:
+		Id = req.GET.get('id','')
+
+	if Id == '':
+		return HttpResponseRedirect('/viewmeeting/')
+	else:
+		employee = Employee.objects.get(pk=Id)
 	'''
 	if user.permission < 2:
 		return HttpResponseRedirect('/')
@@ -514,7 +522,7 @@ def modifyemployee(req):
 				break
 
 		status = 'success'
-	content = {'active_menu': 'modifyemployee','status': status,'user':user}
+	content = {'active_menu': 'modifyemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('employee.html', content, context_instance=RequestContext(req))
 
 
