@@ -667,8 +667,7 @@ def addweekmeeting(req):
 		post = req.POST
 		meeting  = WeekMeeting(
 			week = post.get('week',''),\
-			meeting = post.get('meeting',''),\
-			employee = user,\
+			employee = employee,\
 		)
 		meeting.save()
 		#上周工作总结
