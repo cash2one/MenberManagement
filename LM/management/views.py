@@ -683,6 +683,7 @@ def viewmeeting(req):
 		user = Employee .objects.get(user__username=username)
 	else:
 		user = ''
+		return HttpResponseRedirect('/login/')
 	alldepartment = Department.objects.all()
 
 	Id = req.GET.get('id','')
@@ -717,6 +718,7 @@ def employeemeeting(req):
 		user = Employee .objects.get(user__username=username)
 	else:
 		user = ''
+		return HttpResponseRedirect('/login/')
 	Id = req.GET.get('id','')
 	if Id == '':
 		return HttpResponseRedirect('/viewmeeting/')
@@ -737,6 +739,7 @@ def beforemeeting(req):
 		user = Employee .objects.get(user__username=username)
 	else:
 		user = ''
+		return HttpResponseRedirect('/login/')
 	Id = req.GET.get('id','')
 	if Id == '':
 		return HttpResponseRedirect('/viewmeeting/')
@@ -756,6 +759,7 @@ def beforemeetingdetail(req):
 		user = Employee .objects.get(user__username=username)
 	else:
 		user = ''
+		return HttpResponseRedirect('/login/')
 	Id = req.GET.get('id','')
 	if Id == '':
 		return HttpResponseRedirect('/viewmeeting/')
@@ -776,6 +780,7 @@ def emplogyeeweekmeeting(req):
 		user = Employee .objects.get(user__username=username)
 	else:
 		user = ''
+		return HttpResponseRedirect('/login/')
 	Id = req.GET.get('id','')
 	pingyu = req.GET.get('pingyu','')
 	if Id == '':
@@ -798,6 +803,7 @@ def updateweekmeeting(req):
 		user = Employee .objects.get(user__username=username)
 	else:
 		user = ''
+		return HttpResponseRedirect('/login/')
 	Id = req.GET.get('id','')
 	if Id == '':
 		return HttpResponseRedirect('/viewmeeting/')
