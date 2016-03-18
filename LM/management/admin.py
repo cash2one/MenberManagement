@@ -35,7 +35,10 @@ class WeekMeetingAdmin(admin.ModelAdmin):
 class DepartmentAdmin(admin.ModelAdmin):
     list_display = ('depart_name','leader','depart_num')
 
+class MembersAdmin(admin.ModelAdmin):
+    list_display = ('membername','membertel','permission')
 
+admin.site.register(Members,MembersAdmin)
 admin.site.register(Department,DepartmentAdmin)
 admin.site.register(NextPlan)
 admin.site.register(LastSummary)
