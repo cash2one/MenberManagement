@@ -47,9 +47,13 @@
 						<tr>
 							<th>#</th>
                             <th>姓名</th>
-                            <th>部门</th>
-							<th>手机</th>
-                            <th>修改</th>
+                            <th>手机</th>
+							<th>基本资料</th>
+                            <th>教育培训</th>
+                            <th>亲戚关系</th>
+                            <th>工作经验</th>
+                            <th>证件图片</th>
+                            <th>详情</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -57,9 +61,13 @@
 						<tr>
 							<td>{{ forloop.counter }}</td>
 							<td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">{{ employee.name }}</a></td>
-							<td>{{ employee.department }}</td>
-                            <td>{{ employee.tel }}</td>
-                            <td><a href="/viewpersonnels/modify_typ/?id={{personnel.id}}">修改</a></td>
+							<td>{{ employee.tel }}</td>
+                            <td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">修改</a></td>
+                            <td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">新增</a></td>
+                            <td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">新增</a></td>
+                            <td><a href="/viewpersonnels/modify_typ/?id={{employee.id}}">新增</a></td>
+                            <td><a href="/viewpersonnels/modify_typ/?id={{employee.id}}">新增</a></td>
+                            <td><a href="/viewpersonnels/modify_typ/?id={{employee.id}}">详情</a></td>
 
 						</tr>
 						{% empty %}
