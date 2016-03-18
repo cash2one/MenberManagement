@@ -736,11 +736,9 @@ def employeemeeting(req):
 		employee = Employee.objects.get(pk=Id)
 		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:1]
 		for week in weekmeeting:
-			lastsummary = weekmeeting.lastsummary_set.all()
-			nextplan = weekmeeting.nextplan_set.all()
-
+			lastsummary = week.lastsummary_set.all()
+			nextplan = week.nextplan_set.all()
 		pingyu = getSummary(employee)
-
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 	content = {'active_menu': 'viewmeeting','pingyu':pingyu,'user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
