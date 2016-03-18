@@ -12,10 +12,12 @@
 					<thead>
 						<tr>
 							<th>#</th>
-                            <th>本周例会</th>
+                            <th>修改例会</th>
                             <th>提交时间</th>
                             <th>部门</th>
                             <th>第几周</th>
+                            <th>本周例会</th>
+                            <th>最近2个月例会</th>
                             <th>增加批注</th>
 
 						</tr>
@@ -28,6 +30,8 @@
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.employee }}</td>
                             <td>{{ weeks.week }}</td>
+                            <td></td>
+                            <td></td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}">点评</a></td>
 						</tr>
 						{% empty %}
