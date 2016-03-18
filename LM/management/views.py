@@ -408,10 +408,11 @@ def addemployee(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
+	departs = Department.objects.all()
 
 
-	content = {'active_menu': 'addemployee','user':user,'status':status}
-	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
+	content = {'active_menu': 'addemployee','user':user,'status':status,'departs':departs}
+	return render_to_response('addemployee.html', content, context_instance=RequestContext(req))
 
 
 def modifyemployee(req):
