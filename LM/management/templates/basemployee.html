@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}应聘人员登记表{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			{% if status == 'success' %}
+				<div class="well">
+					<h2 class="text-success text-center">添加成功</h2>
+
+				</div>
+			{% endif %}
+			<form method="POST"   role="form" class="form-horizontal">
+				{% csrf_token %}
+				<h1 class="form-signin-heading text-center">应聘人员登记表</h1>
+
+               <input type="hidden" id="id_personnel_typ" name="personnel_typ" value="面试">
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                      <tr class="active">
+                        <th>应聘职位:</th>
+                        <th><input type="text"  class="form-control input-sm" id="id_job" required name="job" autofocus></th>
+                          <th colspan="4"></th>
+                        <th>填表日期:</th>
+                          <th><input type="date" class="form-control input-sm" id="id_form_date" required name="form_date" autofocus></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="success">
+                        <td>姓名:</td>
+                        <td><input type="text" class="form-control input-sm" id="id_name" required name="name" autofocus></td>
+                          <td></td>
+                        <td>性别:</td>
+                        <td>
+                            <label class="checkbox-inline">
+                               <input type="radio" name="sex" id="id_sex"
+                                   value="男" checked> 男
+                            </label>
+                            <label class="checkbox-inline">
+                               <input type="radio" name="sex" id="id_sex"
+                                 value="女"> 女
+                            </label>
+                        </td>
+                          <td></td>
+                        <td>出生日期:</td>
+                          <td><input type="date" class="form-control input-sm" id="id_birth_date" required name="birth_date" autofocus></td>
+                      </tr>
+                      <tr class="warning">
+                          <td>身高(cm):</td>
+                          <td><input type="text" class="form-control input-sm" id="id_height" value=" " name="height" autofocus></td>
+                          <td></td>
+                          <td>体重(kg):</td>
+                          <td><input type="text" class="form-control input-sm" id="id_weight" value=" " name="weight" autofocus></td>
+                          <td></td>
+                          <td>籍贯:</td>
+                          <td><input type="text" class="form-control input-sm" id="id_jiguan" required name="jiguan" autofocus></td>
+                      </tr>
+                      <tr class="danger">
+                          <td>性格:</td>
+                          <td><input type="text" class="form-control input-sm" id="id_xingge" required name="xingge" autofocus></td>
+                          <td></td>
+                          <td>民族:</td>
+                          <td><input type="text" class="form-control input-sm" id="id_minzu" required name="minzu" autofocus></td>
+                          <td></td>
+                          <td>婚姻状况:</td>
+                          <td><label class="checkbox-inline">
+                              <input type="radio" name="marry" id="id_marry"
+                                     value="已婚" checked> 已婚
+                              </label>
+                             <label class="checkbox-inline">
+                              <input type="radio" name="marry" id="id_marry"
+                                  value="未婚"> 未婚
+                               </label>
+                          </td>
+
+                      </tr>
+                      <tr class="info">
+                        <td>手机:</td>
+                        <td><input type="text" class="form-control input-sm" id="id_tel" required name="tel" autofocus></td>
+                          <td></td>
+                        <td>特长:</td>
+                           <td><input type="text" class="form-control input-sm" id="id_skill" value=" " name="skill" autofocus></td>
+                          <td></td>
+                          <td>文化程度:</td>
+                          <td><input type="text" class="form-control input-sm" id="id_wenping" required name="wenping" autofocus></td>
+                      </tr>
+                    <tr class="active">
+                        <td>身份证:</td>
+                        <td><input type="text" class="form-control input-sm" id="id_shenfenzheng" required name="shenfenzheng" autofocus></td>
+                        <td></td>
+                        <td>何时到岗:</td>
+                           <td><input type="date" class="form-control input-sm" id="id_daogang" required name="daogang" autofocus></td>
+                        <td></td>
+                          <td>户口:</td>
+                          <td><input type="text" class="form-control input-sm" id="id_huji" required name="huji" autofocus></td>
+                      </tr>
+                    <tr class="success">
+                        <td>QQ:</td>
+                        <td><input type="text" class="form-control input-sm" id="id_qq" required name="qq" autofocus></td>
+                        <td>Email:</td>
+                           <td colspan="2"><input type="text" class="form-control input-sm" id="id_email" required name="email" autofocus></td>
+                          <td>住址:</td>
+                          <td colspan="2"><input type="text" class="form-control input-sm" id="id_address" required name="address" autofocus></td>
+                      </tr>
+                     <tr class="warning">
+                        <td>是否服从安排:</td>
+                        <td colspan="2"><label class="checkbox-inline">
+                          <input type="radio" name="obey" id="id_obey"
+                             value="服从" checked> 服从
+                       </label>
+                       <label class="checkbox-inline">
+                          <input type="radio" name="obey" id="id_obey"
+                             value="不服从"> 不服从
+                       </label></td>
+                          <td colspan="3"></td>
+                        <td>期望工资:</td>
+                          <td><input type="text" class="form-control input-sm" id="id_salary" value=" " name="salary" autofocus></td>
+                      </tr>
+                  </tbody>
+            </table>
+                 <div class="form-group">
+					<label for="id_other" class="col-md-2 control-label">其他说明:</label>
+					<div class="col-md-10">
+						<textarea rows="2" cols="20" class="form-control input-sm" id="id_other" value=" " name="other" autofocus></textarea>
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label for="id_evaluate" class="col-md-2 control-label">综合评估:</label>
+					<div class="col-md-10">
+						<textarea rows="3" cols="20" class="form-control input-sm" id="id_evaluate" required name="evaluate" autofocus></textarea>
+					</div>
+				</div>
+                <div class="form-group">
+					<div class="col-md-4 col-md-offset-4">
+						<button class="btn btn btn-primary btn-block" type="submit">提交</button>
+					</div>
+				</div>
+                    </div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
