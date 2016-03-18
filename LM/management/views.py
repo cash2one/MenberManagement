@@ -651,7 +651,7 @@ def addweekmeeting(req):
 	status = ''
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee.objects.get(user__username=username)
+		user = Members.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
 
@@ -719,7 +719,7 @@ def getMeetings(employee_list):
 def viewmeeting(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee .objects.get(user__username=username)
+		user = Members .objects.get(user__username=username)
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
@@ -754,7 +754,7 @@ def getSummary(employee):
 def employeemeeting(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee .objects.get(user__username=username)
+		user = Members .objects.get(user__username=username)
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
@@ -775,7 +775,7 @@ def employeemeeting(req):
 def beforemeeting(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee .objects.get(user__username=username)
+		user = Members .objects.get(user__username=username)
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
@@ -795,7 +795,7 @@ def beforemeeting(req):
 def beforemeetingdetail(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee .objects.get(user__username=username)
+		user = Members .objects.get(user__username=username)
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
@@ -816,7 +816,7 @@ def beforemeetingdetail(req):
 def emplogyeeweekmeeting(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee .objects.get(user__username=username)
+		user = Members .objects.get(user__username=username)
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
@@ -839,7 +839,7 @@ def updateweekmeeting(req):
 	status  = ''
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee .objects.get(user__username=username)
+		user = Members .objects.get(user__username=username)
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
@@ -870,7 +870,7 @@ def leadership(req):
 	status  = ''
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee .objects.get(user__username=username)
+		user = Members .objects.get(user__username=username)
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
