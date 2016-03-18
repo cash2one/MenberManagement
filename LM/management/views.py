@@ -731,6 +731,24 @@ def employeemeeting(req):
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'pingyu':pingyu}
 	return render_to_response('employeemeeting.html', content, context_instance=RequestContext(req))
 
+def beforemeeting(req):
+	username = req.session.get('username','')
+	if username != '':
+		user = Employee .objects.get(user__username=username)
+	else:
+		user = ''
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/viewmeeting/')
+	try:
+		employee = Employee.objects.get(pk=Id)
+		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:8]
+	except:
+		return HttpResponseRedirect('/viewmeeting/')
+
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting}
+	return render_to_response('beforemeeting.html', content, context_instance=RequestContext(req))
+
 def emplogyeeweekmeeting(req):
 	username = req.session.get('username','')
 	if username != '':
