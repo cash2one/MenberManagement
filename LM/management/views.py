@@ -424,6 +424,7 @@ def addemployee(req):
 			name =name,\
 			tel = tel, \
 			department = depart,\
+			email = email,\
 			permission=1,\
 			)
 		new_employee.save()
