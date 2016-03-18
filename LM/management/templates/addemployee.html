@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}注册{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+			{% if status == 'success' %}
+				<div class="well">
+					<h2 class="text-success text-center">成功加入崇德堂！</h2>
+				</div>
+			{% elif status == 're_err' %}
+				<div class="well">
+					<h2 class="text-warning text-center">信息有误</h2>
+				</div>
+			{% elif status == 'user_exist' %}
+				<div class="well">
+					<h2 class="text-danger text-center">名字已经存在</h2>
+				</div>
+			{% endif %}
+			<form method="POST" role="form" class="form-horizontal">
+				{% csrf_token %}
+				<h1 class="form-signin-heading text-center">新加入崇德堂</h1>
+				 <div class="form-group">
+                    <label for="id_partment" class="col-md-3 control-label">所属部门：</label>
+                    <div class="col-md-9">
+
+                            <select class="form-control" name="partment" id="id_partment" >
+                                <option value="0" selected>请选择部门</option>
+                                 {% for depart in departs %}
+                                <option value="{{depart.depart_name}}">{{depart.depart_name}}</option>
+                                {% endfor%}
+                            </select>
+
+                    </div>
+				</div>
+
+				<div class="form-group">
+					<label for="id_menber_name" class="col-md-3 control-label">姓名：</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" value="{{ user.membername }}" name="name" id="id_name">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="id_passwd" class="col-md-3 control-label">电话：</label>
+					<div class="col-md-9">
+						<input type="password" class="form-control"  value="{{ user.membertel }}"  name="tel" id="id_tel">
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label for="id_email" class="col-md-3 control-label">电子邮件：</label>
+					<div class="col-md-9">
+						<input type="email" class="form-control" value="{{ membertel.email }}" name="email" id="id_email">
+					</div>
+				</div>
+                <div class="form-group">
+					<label for="id_menber_tel" class="col-md-3 control-label">电话：</label>
+					<div class="col-md-9">
+						<input type="text" class="form-control" required name="membertel" id="id_membertel">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-md-4 col-md-offset-4">
+						<button class="btn btn btn-primary btn-block" type="submit" id="id_submit">加入崇德堂</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
