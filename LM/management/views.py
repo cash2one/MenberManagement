@@ -708,7 +708,7 @@ def addweekmeeting(req):
 
 		status = 'success'
 
-	content = {'active_menu': 'addweekmeeting','status':status,'user':user,'employee':employee}
+	content = {'active_menu': 'viewmeeting','status':status,'user':user,'employee':employee}
 	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
 
 def getMeetings(employee_list):
