@@ -768,7 +768,7 @@ def beforemeetingdetail(req):
 		return HttpResponseRedirect('/viewmeeting/')
 
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
-	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
+	return render_to_response('beforemeetingdetail.html', content, context_instance=RequestContext(req))
 
 def emplogyeeweekmeeting(req):
 	username = req.session.get('username','')
@@ -789,7 +789,7 @@ def emplogyeeweekmeeting(req):
 		return HttpResponseRedirect('/viewmeeting/')
 
 	content = {'active_menu': 'viewmeeting','pingyu':pingyu,'user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
-	return render_to_response('beforemeetingdetail.html', content, context_instance=RequestContext(req))
+	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
 
 def updateweekmeeting(req):
 	status  = ''
