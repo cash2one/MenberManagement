@@ -98,7 +98,7 @@ def setpasswd(req):
 	return render_to_response('setpasswd.html', content, context_instance=RequestContext(req))
 
 
-
+'''
 def getMember_list():
 	member_list = Members.objects.all()
 	memberTypList = set()
@@ -397,6 +397,22 @@ def addperson(req):
 
 	content = {'active_menu': 'addlingli','status': status}
 	return render_to_response('modifyemployee.html', content, context_instance=RequestContext(req))
+
+	'''
+
+def addemployee(req):
+	status  = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members .objects.get(user__username=username)
+	else:
+		user = ''
+		return HttpResponseRedirect('/login/')
+
+
+	content = {'active_menu': 'viewemployee','user':user,'employee':employee,'status':status}
+	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
+
 
 def modifyemployee(req):
 	status = ''
@@ -858,28 +874,6 @@ def leadership(req):
 
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status,'lastsummary':lastsummary,'nextplan':nextplan}
 	return render_to_response('leadership.html', content, context_instance=RequestContext(req))
-
-def basemployee(req):
-	status  = ''
-	username = req.session.get('username','')
-	if username != '':
-		user = Employee .objects.get(user__username=username)
-	else:
-		user = ''
-		return HttpResponseRedirect('/login/')
-	Id = req.GET.get('id','')
-	if Id == '':
-		return HttpResponseRedirect('/viewemployee/')
-	try:
-		employee = Employee.objects.get(pk=Id)
-	except:
-		return HttpResponseRedirect('/viewemployee/')
-
-	content = {'active_menu': 'viewemployee','user':user,'employee':employee,'status':status}
-	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
-
-
-
 
 
 
