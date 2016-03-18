@@ -749,6 +749,27 @@ def beforemeeting(req):
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting}
 	return render_to_response('beforemeeting.html', content, context_instance=RequestContext(req))
 
+
+def beforemeetingdetail(req):
+	username = req.session.get('username','')
+	if username != '':
+		user = Employee .objects.get(user__username=username)
+	else:
+		user = ''
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/viewmeeting/')
+	try:
+		weekmeeting = WeekMeeting.objects.get(pk=Id)
+		lastsummary = weekmeeting.lastsummary_set.all()
+		nextplan = weekmeeting.nextplan_set.all()
+
+	except:
+		return HttpResponseRedirect('/viewmeeting/')
+
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
+	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
+
 def emplogyeeweekmeeting(req):
 	username = req.session.get('username','')
 	if username != '':
@@ -768,7 +789,7 @@ def emplogyeeweekmeeting(req):
 		return HttpResponseRedirect('/viewmeeting/')
 
 	content = {'active_menu': 'viewmeeting','pingyu':pingyu,'user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
-	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
+	return render_to_response('beforemeetingdetail.html', content, context_instance=RequestContext(req))
 
 def updateweekmeeting(req):
 	status  = ''

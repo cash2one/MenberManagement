@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}周列会推进表{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+				<h1 class="form-signin-heading text-center">部门工作推进表</h1>
+                <br /><br />
+
+				<div class="form-group">
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.employee }}">
+                    </div>
+					<label for="id_user_name" class="col-md-4 control-label"></label>
+					<label for="id_user_name" class="col-md-4 control-label"></label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.week }}">
+                    </div>
+				</div>
+
+        <table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>序号</th>
+                            <th>上周工作内容</th>
+                            <th>执行人</th>
+							<th>完成时间</th>
+                            <th>完成效果</th>
+						</tr>
+					</thead>
+					<tbody>
+						 {% for lastweek in lastsummary %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td width="40%">{{ lastweek.lastweek }}</td>
+							<td>{{ lastweek.last_exeperson }}</td>
+                            <td>{{ lastweek.last_comletiontime }}</td>
+                            <td>{{lastweek.comletioneffect}}</td>
+
+						</tr>
+						{% empty %}
+						<tr>
+							<td>暂无记录</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+                       <table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>序号</th>
+                            <th>本周工作内容</th>
+                            <th>执行人</th>
+							<th>完成时间</th>
+						</tr>
+					</thead>
+					<tbody>
+						 {% for plan in nextplan %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td width="40%">{{ plan.nextweek }}</td>
+							<td>{{ plan.next_exeperson }}</td>
+                            <td>{{ plan.next_comletiontime }}</td>
+						</tr>
+						{% empty %}
+						<tr>
+							<td>暂无记录</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+                <div class="form-group">
+                    <div class="col-md-12  alert alert-danger" role="alert">
+                        <strong>上周工作点评及建议：</strong> {{ pingyu }}
+                    </div>
+                </div>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
