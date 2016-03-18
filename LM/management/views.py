@@ -878,7 +878,7 @@ def basemployee(req):
 		return HttpResponseRedirect('/viewemployee/')
 
 	content = {'active_menu': 'viewemployee','user':user,'employee':employee,'status':status}
-	return render_to_response('leadership.html', content, context_instance=RequestContext(req))
+	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
 
 
 
