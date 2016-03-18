@@ -106,8 +106,6 @@ class Employee(models.Model):
     status = models.CharField(max_length=10,blank=True,verbose_name=u'类型')
     emergcontact = models.CharField(max_length=30,blank=True,verbose_name=u'紧急联系人')
     emergcall = models.CharField(max_length=30,blank=True,verbose_name=u'联系电话')
-    profileimg = models.ImageField(upload_to='photo',null=True,blank=True)
-    eduimg = models.ImageField(upload_to='photo',null=True,blank=True)
 
     def __str__(self):
         return u'%s %s' %(self.department,self.name)
@@ -115,6 +113,18 @@ class Employee(models.Model):
         verbose_name="人才登记表"
         verbose_name_plural="人才登记表"
         ordering = ["-registdate"]
+
+class Img(models.Model):
+    name = models.CharField(max_length=120)
+    description = models.TextField(blank=True)
+    img = models.ImageField(upload_to='image/%Y/%m/%d/')
+    employee =models.ForeignKey(Employee)
+    def __str__(self):
+        return self.name
+    class Meta:
+        verbose_name = "图片"
+        verbose_name_plural='图片'
+        ordering = ['name']
 #教育经历
 class Education(models.Model):
     employee = models.ForeignKey(Employee)
@@ -201,7 +211,7 @@ class WeekMeeting(models.Model):
     meeting = models.TextField(blank=True,verbose_name=u"会议记录")
     submitdate = models.DateTimeField(default=timezone.now,verbose_name=u"提交日期")
     startweek = models.DateField(auto_now_add=True,verbose_name=u"开会时间",blank=True)
-    employee = models.ForeignKey(Employee)
+    leadership = models.TextField(blank=True,verbose_name=u"领导批示")
 
     def __str__(self):
         return u'%s %s'%(self.week,self.meeting)
