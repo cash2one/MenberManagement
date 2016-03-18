@@ -108,7 +108,7 @@
                       </tr>
                      <tr class="warning">
                         <td>是否服从安排:</td>
-                        <td><label class="checkbox-inline">
+                        <td colspan="2"><label class="checkbox-inline">
                           <input type="radio" name="obey" id="id_obey"
                              value="服从" checked> 服从
                        </label>
@@ -116,10 +116,20 @@
                           <input type="radio" name="obey" id="id_obey"
                              value="不服从"> 不服从
                        </label></td>
+                         <td>状态:</td>
+                        <td colspan="2">
+                            <select class="form-control input-sm" name="status" id="id_status">
+                            <option value="" selected></option>
+                            <option value="面试">面试</option>
+                            <option value="试用">试用</option>
+                            <option value="转正">转正</option>
+                        </select></td>
                         <td>期望工资:</td>
                           <td><input type="text" class="form-control input-sm" id="id_salary" value=" " name="salary" autofocus></td>
-                         <td>状态:</td>
-                        <td>
+                      </tr>
+                    <tr class="danger">
+                        <td>状态:</td>
+                        <td colspan="2">
                             <select class="form-control input-sm" name="status" id="id_status">
                             <option value="" selected></option>
                             <option value="面试">面试</option>
@@ -131,7 +141,6 @@
                         <td>联系电话:</td>
                           <td><input type="text" class="form-control input-sm" id="id_emergcall" value=" " name="emergcall" autofocus></td>
                       </tr>
-
                   </tbody>
             </table>
                  <div class="form-group">
