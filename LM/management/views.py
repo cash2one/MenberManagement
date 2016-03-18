@@ -739,7 +739,7 @@ def viewmeeting(req):
 		except:
 			return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'viewmeeting','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
+	content = {'active_menu': 'viewmeeting','departments':alldepartment,'depart':depart,'user':user,'employee_list':employee_list}
 	return render_to_response('viewmeeting.html', content, context_instance=RequestContext(req))
 
 def getSummary(employee):
