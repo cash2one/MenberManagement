@@ -726,14 +726,15 @@ def viewmeeting(req):
 		user = ''
 		return HttpResponseRedirect('/login/')
 	alldepartment = getDepartment()
-
-	Id = req.GET.get('id','')
-	if Id =='':
-		Id = 'all'
+	depart = req.GET.get('depart','all')
+	if depart =='':
+		employee_list = Employee.objects.all()
+	elif depart not in alldepartment:
+		depart = 'all'
 		employee_list = Employee.objects.all()
 	else:
 		try:
-			department =  Department.objects.get(pk=Id)
+			department =  Department.objects.get(depart_name=depart)
 			employee_list = Employee.objects.filter(department=department)
 		except:
 			return HttpResponseRedirect('/viewmeeting/')
