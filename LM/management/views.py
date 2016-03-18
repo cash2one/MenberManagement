@@ -848,6 +848,7 @@ def emplogyeeweekmeeting(req):
 
 def updateweekmeeting(req):
 	status  = ''
+	updatemeeting  = ''
 	username = req.session.get('username','')
 	if username != '':
 		user = Members .objects.get(user__username=username)
@@ -858,9 +859,16 @@ def updateweekmeeting(req):
 	if Id == '':
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
-		weekmeeting = WeekMeeting.objects.get(pk=Id)
+		employee = Employee.objects.get(pk=Id)
+		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:1]
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
+	for week in weekmeeting:
+		if week.meeting == '':
+			updatemeeting = week
+		else:
+			break
+
 	if req.POST:
 		post = req.POST
 		weekid = post.get('pid','')
@@ -874,7 +882,7 @@ def updateweekmeeting(req):
 			return HttpResponseRedirect('/viewmeeting')
 
 
-	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status}
+	content = {'active_menu': 'viewmeeting','user':user,'updatemeeting':updatemeeting,'status':status}
 	return render_to_response('updateweekmeeting.html', content, context_instance=RequestContext(req))
 
 def leadership(req):
