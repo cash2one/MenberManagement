@@ -861,6 +861,26 @@ def leadership(req):
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status,'lastsummary':lastsummary,'nextplan':nextplan}
 	return render_to_response('leadership.html', content, context_instance=RequestContext(req))
 
+def basemployee(req):
+	status  = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Employee .objects.get(user__username=username)
+	else:
+		user = ''
+		return HttpResponseRedirect('/login/')
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/viewemployee/')
+	try:
+		employee = Employee.objects.get(pk=Id)
+	except:
+		return HttpResponseRedirect('/viewemployee/')
+
+	content = {'active_menu': 'viewemployee','user':user,'employee':employee,'status':status}
+	return render_to_response('leadership.html', content, context_instance=RequestContext(req))
+
+
 
 
 
