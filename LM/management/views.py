@@ -526,7 +526,7 @@ def modifyemployee(req):
 	return render_to_response('employee.html', content, context_instance=RequestContext(req))
 
 
-def viewEmployee(req):
+def viewemployee(req):
 	username = req.session.get('username','')
 	if username != '':
 		user = Employee.objects.get(user__username=username)
