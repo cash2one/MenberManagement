@@ -710,17 +710,12 @@ def addweekmeeting(req):
 	content = {'active_menu': 'viewmeeting','status':status,'user':user,'employee':employee}
 	return render_to_response('weekmeeting.html', content, context_instance=RequestContext(req))
 
-def getMeetings(employee_list):
-	meeting_list = set()
-	for employee in employee_list:
-		meeting = WeekMeeting.objects.filter(employee=employee)[1:2]
-		if len(meeting) > 0:
-			meeting_list.add(meeting)
-		else:
-			continue
-	return list(meeting_list)
-
-
+def getDepartment():
+	weekmeeting = WeekMeeting.objects.all()
+	depart_list = set()
+	for meeting in weekmeeting:
+		depart_list.add(meeting.employee.department.depart_name)
+	return list(depart_list)
 
 
 def viewmeeting(req):
@@ -730,7 +725,7 @@ def viewmeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	alldepartment = Department.objects.all()
+	alldepartment = getDepartment()
 
 	Id = req.GET.get('id','')
 	if Id =='':
