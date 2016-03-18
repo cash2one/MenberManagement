@@ -417,6 +417,9 @@ def addemployee(req):
 		depart_name = post.get('partment','')
 		depart = Department.objects.get(depart_name=depart_name)
 
+		if depart_name == '0' or depart_name == 0:
+			status = 're_err'
+
 		if Employee.objects.filter(name=name):
 			status = 'user_exist'
 		else:
