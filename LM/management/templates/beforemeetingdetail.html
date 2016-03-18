@@ -11,13 +11,17 @@
                 <br /><br />
 
 				<div class="form-group">
+                    <label for="id_user_name" class="col-md-2 control-label">部门&姓名：</label>
                     <div class="col-md-2">
                         <input type="text" class="form-control" readonly  value="{{ weekmeeting.employee }}">
                     </div>
-					<label for="id_user_name" class="col-md-4 control-label"></label>
-					<label for="id_user_name" class="col-md-4 control-label"></label>
-                    <div class="col-md-2">
-                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.week }}">
+                    <label for="id_user_name" class="col-md-2 control-label">开会时间：</label>
+					<div class="col-md-2">
+                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.startweek }}">
+                    </div>
+                    <label for="id_user_name" class="col-md-2 control-label">提交时间：</label>
+					<div class="col-md-2">
+                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.submitdate }}">
                     </div>
 				</div>
 
@@ -75,7 +79,7 @@
 				</table>
                 <div class="form-group">
                     <div class="col-md-12  alert alert-danger" role="alert">
-                        <strong>上周工作点评及建议：</strong> {{ weekmeeting.meeting }}
+                        <strong>工作点评及建议：</strong> {{ weekmeeting.meeting }}
                     </div>
                 </div>
 		</div>
