@@ -721,8 +721,6 @@ def getSummary(employee):
 
 
 def employeemeeting(req):
-	lastsummary = None
-	nextplan = None
 	username = req.session.get('username','')
 	if username != '':
 		user = Employee .objects.get(user__username=username)
@@ -735,9 +733,8 @@ def employeemeeting(req):
 	try:
 		employee = Employee.objects.get(pk=Id)
 		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:1]
-		for week in weekmeeting:
-			lastsummary = week.lastsummary_set.all()
-			nextplan = week.nextplan_set.all()
+		lastsummary = week.lastsummary_set.all()
+		nextplan = week.nextplan_set.all()
 		pingyu = getSummary(employee)
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
