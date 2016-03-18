@@ -33,6 +33,8 @@
                             <th>姓名</th>
                             <th>职位</th>
 							<th>电话</th>
+                            <th>本周例会</th>
+                            <th>往期例会</th>
                             <th>信息修改</th>
 						</tr>
 					</thead>
@@ -40,9 +42,11 @@
 						{% for employee in employee_list %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">{{ employee.name }}</a></td>
+							<td>{{ employee.name }}</td>
 							<td>{{ employee.job }}</td>
                             <td>{{ employee.tel }}</td>
+                            <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">本期</a></td>
+                            <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank">往期</a></td>
                             <td><a href="/viewmeeting/modifymeeting/?id={{employee.id}}">修改</a></td>
 
 						</tr>
