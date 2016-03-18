@@ -125,6 +125,7 @@ class Img(models.Model):
         verbose_name = "图片"
         verbose_name_plural='图片'
         ordering = ['name']
+
 #教育经历
 class Education(models.Model):
     employee = models.ForeignKey(Employee)
