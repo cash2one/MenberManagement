@@ -801,7 +801,7 @@ def beforemeeting(req):
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting}
 	return render_to_response('beforemeeting.html', content, context_instance=RequestContext(req))
 
-
+#缩短路径作废方法
 def beforemeetingdetail(req):
 	username = req.session.get('username','')
 	if username != '':
