@@ -410,7 +410,7 @@ def addemployee(req):
 		return HttpResponseRedirect('/login/')
 
 
-	content = {'active_menu': 'viewemployee','user':user,'employee':employee,'status':status}
+	content = {'active_menu': 'addemployee','user':user,'status':status}
 	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
 
 
