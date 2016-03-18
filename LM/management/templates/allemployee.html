@@ -43,13 +43,13 @@
 						{% for employee in employee_list %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">{{ employee.name }}</a></td>
+							<td><a href="/viewemployee/employeedetail/?id={{employee.id}}">{{ employee.name }}</a></td>
 							<td>{{ employee.tel }}</td>
-                            <td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">修改</a></td>
-                            <td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">新增</a></td>
-                            <td><a href="/viewpersonnels/personnel_detail/?id={{employee.id}}">新增</a></td>
-                            <td><a href="/viewpersonnels/modify_typ/?id={{employee.id}}">新增</a></td>
-                            <td><a href="/viewpersonnels/modify_typ/?id={{employee.id}}">新增</a></td>
+                            <td><a href="/viewemployee/basemployee/?id={{employee.id}}">修改</a></td>
+                            <td><a href="/viewemployee/eduemployee/?id={{employee.id}}">新增</a></td>
+                            <td><a href="/viewemployee/relationemployee/?id={{employee.id}}">新增</a></td>
+                            <td><a href="/viewemployee/workemployee/?id={{employee.id}}">新增</a></td>
+                            <td><a href="/viewemployee/imgemployee/?id={{employee.id}}">新增</a></td>
 
 						</tr>
 						{% empty %}
