@@ -835,6 +835,40 @@ def updateweekmeeting(req):
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status}
 	return render_to_response('updateweekmeeting.html', content, context_instance=RequestContext(req))
 
+def leadership(req):
+	status  = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Employee .objects.get(user__username=username)
+	else:
+		user = ''
+		return HttpResponseRedirect('/login/')
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/viewmeeting/')
+	try:
+		weekmeeting = WeekMeeting.objects.get(pk=Id)
+		lastsummary = weekmeeting.lastsummary_set.all()
+		nextplan = weekmeeting.nextplan_set.all()
+	except:
+		return HttpResponseRedirect('/viewmeeting/')
+	if req.POST:
+		post = req.POST
+		weekid = post.get('pid','')
+		startweek = post.get('startweek','')
+		meeting = post.get('meeting','')
+
+		try:
+			WeekMeeting.objects.filter(id=weekid).update(startweek=startweek,meeting=meeting)
+			status = "success"
+		except:
+			return HttpResponseRedirect('/viewmeeting')
+
+
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status}
+	return render_to_response('updateweekmeeting.html', content, context_instance=RequestContext(req))
+
+
 
 
 
