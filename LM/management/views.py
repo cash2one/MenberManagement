@@ -532,11 +532,13 @@ def viewemployee(req):
 		user = Employee.objects.get(user__username=username)
 	else:
 		user = ''
+		return HttpResponseRedirect('/login/')
+
 
 	alldepartment = Department.objects.all()
 
 	Id = req.GET.get('id','')
-	if Id == '':
+	if Id == '' or Id == 'all':
 		Id = 'all'
 		employee_list = Employee.objects.all()
 	else:
