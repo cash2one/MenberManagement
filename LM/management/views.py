@@ -40,8 +40,8 @@ def signup(req):
 				newuser.save()
 				member = Menbers(
 					user=newuser, \
-					memberName =memberName,\
-					menberTel = menberTel, \
+					menbername =menbername,\
+					menbertel = menbertel, \
 					permission=1,\
 				)
 				member.save()
