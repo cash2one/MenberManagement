@@ -866,7 +866,7 @@ def leadership(req):
 
 
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status}
-	return render_to_response('updateweekmeeting.html', content, context_instance=RequestContext(req))
+	return render_to_response('leadership.html', content, context_instance=RequestContext(req))
 
 
 
