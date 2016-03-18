@@ -415,23 +415,22 @@ def addemployee(req):
 		tel = post.get('tel', '')
 		email = post.get('email','')
 		depart_name = post.get('partment','')
-		depart = Department.objects.get(depart_name=depart_name)
-
 		if depart_name == '0' or depart_name == 0:
 			status = 're_err'
-
-		if Employee.objects.filter(name=name):
-			status = 'user_exist'
 		else:
-			new_employee = Employee(
-				name =name,\
-				tel = tel, \
-				department = depart,\
-				email = email,\
-				permission=1,\
-				)
-			new_employee.save()
-			status = 'success'
+			depart = Department.objects.get(depart_name=depart_name)
+			if Employee.objects.filter(name=name):
+				status = 'user_exist'
+			else:
+				new_employee = Employee(
+					name =name,\
+					tel = tel, \
+					department = depart,\
+					email = email,\
+					permission=1,\
+					)
+				new_employee.save()
+				status = 'success'
 
 	content = {'active_menu': 'addemployee','user':user,'status':status,'departs':departs}
 	return render_to_response('addemployee.html', content, context_instance=RequestContext(req))
