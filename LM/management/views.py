@@ -865,7 +865,7 @@ def leadership(req):
 			return HttpResponseRedirect('/viewmeeting')
 
 
-	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status}
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status,'lastsummary':lastsummary,'nextplan':nextplan}
 	return render_to_response('leadership.html', content, context_instance=RequestContext(req))
 
 
