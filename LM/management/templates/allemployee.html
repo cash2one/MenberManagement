@@ -24,24 +24,7 @@
 				    act_typ.setAttribute("class",new_class);
 				</script>
 			</div>
-		<div class="col-md-10">
-				<div class="col-md-4 col-md-offset-8">
-					<form role="form" method="post" name="search_form">
-						{% csrf_token %}
-						<input type="search" class="form-control" name="keywords" placeholder="Enter keywords to search" id="id_search_input" onkeyup="whenkeyup()" autofocus="True">
-					</form>
-				</div>
-				<script type="text/javascript">
-					function whenkeyup () {
-						var oldvalue = document.getElementById('id_search_input').value
-						setTimeout(function(){
-							var newvalue = document.getElementById('id_search_input').value
-							if (oldvalue == newvalue) {
-								document.search_form.submit();
-							};
-						},1500);
-					}
-				</script>
+
 			<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
