@@ -35,7 +35,6 @@
 							<th>电话</th>
                             <th>本周例会</th>
                             <th>往期例会</th>
-                            <th>员工信息修改</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -47,8 +46,6 @@
                             <td>{{ employee.tel }}</td>
                             <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">本期周例会</a></td>
                             <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank">往期例会(2个月)</a></td>
-                            <td><a href="/viewmeeting/modifyemployee/?id={{employee.id}}">修改</a></td>
-
 						</tr>
 						{% empty %}
 						<tr>
