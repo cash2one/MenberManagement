@@ -755,7 +755,7 @@ def getSummary(employee):
 
 
 def employeemeeting(req):
-	weekmeeting = ''
+	startmeeting = ''
 	username = req.session.get('username','')
 	if username != '':
 		user = Members .objects.get(user__username=username)
@@ -776,10 +776,11 @@ def employeemeeting(req):
 		if week.meeting == '':
 			lastsummary = week.lastsummary_set.all()
 			nextplan = week.nextplan_set.all()
+			startmeeting = week
 		else:
 			break
 
-	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
+	content = {'active_menu': 'viewmeeting','user':user,'startmeeting':startmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
 	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
 
 def beforemeeting(req):
