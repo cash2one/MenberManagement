@@ -565,7 +565,7 @@ def modifyemployee(req):
 def viewemployee(req):
 	username = req.session.get('username','')
 	if username != '':
-		user = Employee.objects.get(user__username=username)
+		user = Members.objects.get(user__username=username)
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
