@@ -555,7 +555,7 @@ def viewemployee(req):
 		Id = 'all'
 
 
-	paginator = Paginator(employee_list,5)
+	paginator = Paginator(employee_list,8)
 	page = req.GET.get('page')
 	try:
 		employee_list = paginator.page(page)
