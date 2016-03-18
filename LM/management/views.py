@@ -27,8 +27,8 @@ def signup(req):
 		post = req.POST
 		passwd = post.get('passwd', '')
 		repasswd = post.get('repasswd', '')
-		menbername = post.get('menbername','')
-		menbertel = post.get('menbertel','')
+		membername = post.get('membername','')
+		membertel = post.get('membertel','')
 		if passwd != repasswd:
 			status = 're_err'
 		else:
@@ -38,10 +38,10 @@ def signup(req):
 			else:
 				newuser = User.objects.create_user(username=username, password=passwd, email=post.get('email', ''))
 				newuser.save()
-				member = Menbers(
+				member = Members(
 					user=newuser, \
-					menbername =menbername,\
-					menbertel = menbertel, \
+					membername =membername,\
+					membertel = membertel, \
 					permission=1,\
 				)
 				member.save()
