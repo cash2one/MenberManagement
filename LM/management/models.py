@@ -61,6 +61,21 @@ class Menbers(models.Model):
         verbose_name = "员工"
         verbose_name_plural ="员工"
 '''
+
+class Menbers(models.Model):
+    user = models.OneToOneField(User)
+    permission = models.IntegerField()
+    menberName = models.CharField(max_length=30,verbose_name=u"姓名")
+    menberTel = models.CharField(max_length=30,verbose_name=u"电话")
+    email = models.EmailField(blank=True)
+    regDate = models.DateField(auto_now_add=True,verbose_name=u"注册日期")
+    def __str__(self):
+        return self.user.username
+    class Meta:
+        verbose_name = "会员"
+        verbose_name_plural ="会员"
+
+
 class Department(models.Model):
     depart_name = models.CharField(max_length=30,verbose_name=u"部门名")
     depart_num =models.IntegerField()
@@ -75,9 +90,7 @@ class Department(models.Model):
 
 #面试人员基础信息
 class Employee(models.Model):
-    user = models.OneToOneField(User)  #django一对一的关系，扩展了系统user
     department = models.ForeignKey(Department) #部门与员工一对多的关系
-
     job = models.CharField(blank=True,max_length=30,verbose_name=u"职位")
     permission = models.IntegerField()
     registdate  = models.DateField(blank=True,auto_now_add=True,verbose_name=u"填表日期")
@@ -102,7 +115,7 @@ class Employee(models.Model):
     other = models.TextField(blank=True,verbose_name=u"其他说明")
     evaluate = models.TextField(blank=True,verbose_name=u"综合评估")
     qq = models.CharField(blank=True,max_length=20,verbose_name='QQ')
-    email = models.CharField(max_length=50,blank=True)
+    email = models.EmailField(max_length=50,blank=True)
     status = models.CharField(max_length=10,blank=True,verbose_name=u'类型')
     emergcontact = models.CharField(max_length=30,blank=True,verbose_name=u'紧急联系人')
     emergcall = models.CharField(max_length=30,blank=True,verbose_name=u'联系电话')
