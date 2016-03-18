@@ -33,7 +33,7 @@
                             <th>姓名</th>
                             <th>职位</th>
 							<th>电话</th>
-                            <th>提交例会</th>
+                            <th>周例会</th>
                             <th>例会明细</th>
                             <th>往期例会</th>
 						</tr>
@@ -46,7 +46,7 @@
 							<td>{{ employee.job }}</td>
                             <td>{{ employee.tel }}</td>
                             <td><a href="/viewmeeting/addweekmeeting/?id={{employee.id}}" target="_blank">提交</a></td>
-                            <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">打开</a></td>
+                            <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">本周</a></td>
                             <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank">往期例会(2个月)</a></td>
 						</tr>
 						{% empty %}
