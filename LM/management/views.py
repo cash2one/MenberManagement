@@ -23,13 +23,12 @@ def signup(req):
 	if req.session.get('username', ''):
 		return HttpResponseRedirect('/')
 	status = ''
-	departs = Department.objects.all()
 	if req.POST:
 		post = req.POST
 		passwd = post.get('passwd', '')
 		repasswd = post.get('repasswd', '')
-		depart_name = post.get('partment','')
-		depart = Department.objects.get(depart_name=depart_name)
+		memberName = post.get('menberName','')
+		menberTel = post.get('menberTel','')
 		if passwd != repasswd:
 			status = 're_err'
 		else:
@@ -39,16 +38,15 @@ def signup(req):
 			else:
 				newuser = User.objects.create_user(username=username, password=passwd, email=post.get('email', ''))
 				newuser.save()
-				new_employee = Employee(
+				member = Menbers(
 					user=newuser, \
-					name =post.get('name',''),\
-					tel = post.get('tel',''), \
-					department = depart,\
+					memberName =memberName,\
+					menberTel = menberTel, \
 					permission=1,\
 				)
-				new_employee.save()
+				member.save()
 				status = 'success'
-	content = {'active_menu': 'homepage', 'status': status, 'user': '','departs':departs}
+	content = {'active_menu': 'homepage', 'status': status, 'user': ''}
 	return render_to_response('sign.html', content, context_instance=RequestContext(req))
 
 
