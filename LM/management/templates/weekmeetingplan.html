@@ -7,7 +7,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-				<h1 class="form-signin-heading text-center">部门工作推进表</h1>
+				<h1 class="form-signin-heading text-center">{{ startmeeting.employee }}上周工作总结及本周工作计划</h1>
                 <br /><br />
            {% if status == 'error' %}
 				<div class="well">
@@ -16,7 +16,7 @@
 			{% endif %}
 				<div class="form-group">
                     <div class="col-md-2">
-                        <input type="text" class="form-control" readonly  value="{{ startmeeting.employee }}">
+
                     </div>
 					<label for="id_user_name" class="col-md-4 control-label"></label>
 					<label for="id_user_name" class="col-md-4 control-label"></label>
