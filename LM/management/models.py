@@ -258,7 +258,7 @@ class NextPlan(models.Model):
     class Meta:
         verbose_name="下周计划"
         verbose_name_plural ="下周计划"
-        ordering = ["-next_comletiontime"]
+        ordering = ["-nextweek"]
 
 
 
