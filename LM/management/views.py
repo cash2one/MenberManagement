@@ -105,6 +105,15 @@ def viewmember(req):
 		return HttpResponseRedirect('/login/')
 	memberlist = Members.objects.all()
 
+	paginator = Paginator(memberlist, 5)
+	page = req.GET.get('page')
+	try:
+		memberlist = paginator.page(page)
+	except PageNotAnInteger:
+		memberlist = paginator.page(1)
+	except EmptyPage:
+		memberlist = paginator.page(paginator.num_pages)
+
 
 	content = {'user': user, 'active_menu':'member', 'memberlist':memberlist}
 	return render_to_response('viewmemberlist.html', content, context_instance=RequestContext(req))
