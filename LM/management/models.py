@@ -246,7 +246,7 @@ class LastSummary(models.Model):
     class Meta:
         verbose_name= "上周总结"
         verbose_name_plural = "上周总结"
-        ordering = ["-last_comletiontime"]
+        ordering = ["lastweek"]
 
 class NextPlan(models.Model):
     weekmeeting = models.ForeignKey(WeekMeeting)
@@ -258,7 +258,7 @@ class NextPlan(models.Model):
     class Meta:
         verbose_name="下周计划"
         verbose_name_plural ="下周计划"
-        ordering = ["-nextweek"]
+        ordering = ["nextweek"]
 
 
 
