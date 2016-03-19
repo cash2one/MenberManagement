@@ -18,6 +18,7 @@
 			{% endif %}
             <form method="POST" role="form" class="form-horizontal">
 				{% csrf_token %}
+            <input type="hidden" id="mid" name="mid" value="weekmeeting.id">
 				<h1 class="form-signin-heading text-center">部门工作推进表</h1>
                 <br /><br />
 
