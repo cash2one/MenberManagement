@@ -42,9 +42,7 @@ urlpatterns = patterns('',
     url('^viewmeeting/leadership/$',views.leadership),
     url('^viewmember/$',views.viewmember),
     #url('^viewemployee/basemployee/$',views.basemployee),
-
-
-    #url('^viewmeeting/modifymeeting/$',views.modifymeeting),
+    url('^viewmeeting/modifymeeting/$',views.modifymeeting),
     #url(r'^addmenber/$',views.addMenber),
    # url(r'^viewmenber/menber_detail/$',views.menber_detail),
     url(r'^image/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_PATH}),

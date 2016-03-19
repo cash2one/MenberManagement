@@ -17,6 +17,7 @@
                             <th>第几周</th>
                             <th>开会时间</th>
                             <th>领导批示</th>
+                            <th>周例会</th>
                             <th>详情</th>
 
 						</tr>
@@ -30,6 +31,7 @@
                             <td>{{ weeks.submitdate|date:"Y年m月" }}{{ weeks.week }}</td>
                             <td>{{ weeks.startweek }}</td>
                             <td><a href="/viewmeeting/leadership/?id={{ weeks.id }}">新增批示</a> </td>
+                            <td><a href="/viewmeeting/modifymeeting/?id={{ weeks.id }}">修改</a></td>
                             <td><a href="/viewmeeting/beforemeetingdetail/?id={{weeks.id}}">详情</a></td>
 
 						</tr>
