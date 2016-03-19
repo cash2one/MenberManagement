@@ -30,7 +30,7 @@ class WorkExperienceAdmin(admin.ModelAdmin):
     list_display = ('company','w_job')
 
 class WeekMeetingAdmin(admin.ModelAdmin):
-    list_display = ('week','meeting')
+    list_display = ('week','submitdate')
 
 class DepartmentAdmin(admin.ModelAdmin):
     list_display = ('depart_name','leader','depart_num')
