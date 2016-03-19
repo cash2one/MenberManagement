@@ -107,7 +107,7 @@ def viewmember(req):
 
 	memberlist = Members.objects.all()
 
-	paginator = Paginator(memberlist, 5)
+	paginator = Paginator(memberlist, 10)
 	page = req.GET.get('page')
 	try:
 		memberlist = paginator.page(page)
