@@ -956,8 +956,6 @@ def modifymeeting(req):
 
 		status = 'success'
 
-	status = 'error'
-
 	content = {'active_menu': 'viewmeeting','user':user,'status':status,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
 	return render_to_response('modifyoldmeeting.html', content, context_instance=RequestContext(req))
 
