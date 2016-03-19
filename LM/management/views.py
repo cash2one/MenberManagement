@@ -103,6 +103,8 @@ def viewmember(req):
 		user = Members.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
+
+
 	memberlist = Members.objects.all()
 
 	paginator = Paginator(memberlist, 5)
