@@ -52,7 +52,7 @@
                             <td></td>
                             <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank">往期例会(2个月)</a></td>
 						</tr>
-                             {% endif %}
+                             {% else %}
                             <tr>
                             <td>{{ forloop.counter }}</td>
 							<td>{{ employee.name }}</td>
@@ -63,6 +63,7 @@
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{employee.id}}" target="_blank">记录</a></td>
                             <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank">往期例会(2个月)</a></td>
                             </tr>
+                            {% endif %}
 						{% empty %}
 						<tr>
 							<td>暂无记录</td>
