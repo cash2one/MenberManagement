@@ -46,6 +46,10 @@
 							<td>{{ employee.name }}</td>
 							<td>{{ employee.job }}</td>
                             <td>{{ employee.tel }}</td>
+                            {% if user.membername != employee.name %}
+                            <td>提交</td>
+                            <td>开会</td>
+                            {% endif %}
                             <td><a href="/viewmeeting/addweekmeeting/?id={{employee.id}}" target="_blank">提交</a></td>
                             <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">开会</a></td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{employee.id}}" target="_blank">记录</a></td>
