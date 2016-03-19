@@ -917,6 +917,7 @@ def updateweekmeeting(req):
 	return render_to_response('updateweekmeeting.html', content, context_instance=RequestContext(req))
 
 def modifymeeting(req):
+	status = ''
 	username = req.session.get('username','')
 	if username != '':
 		user = Members .objects.get(user__username=username)
@@ -934,7 +935,30 @@ def modifymeeting(req):
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
+	if req.POST:
+		post = req.POST
+		mid = post.get('mid','')
+		newmeeting = WeekMeeting.objects.get(pk=mid)
+
+	    #更新上周工作总结
+		lastweek = post.getlist('lastweek',[])
+		comletioneffect = post.getlist('comletioneffect',[])
+		lastlen = len(lastweek)
+		for index in range(lastlen):
+			newmeeting.update(lastweek = lastweek[index],comletioneffect = comletioneffect[index])
+
+
+		#更新本周工作计划
+		nextweek = post.getlist('nextweek',[])
+		nextlen = len(nextweek)
+		for index in range(nextlen):
+			newmeeting.update(nextweek = nextweek[index])
+
+		status = 'success'
+
+	status = 'error'
+
+	content = {'active_menu': 'viewmeeting','user':user,'status':status,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
 	return render_to_response('modifyoldmeeting.html', content, context_instance=RequestContext(req))
 
 
