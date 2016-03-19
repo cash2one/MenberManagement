@@ -41,22 +41,28 @@
 					</thead>
 					<tbody>
 						{% for employee in employee_list %}
+                         {% if user.membername != employee.name %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
 							<td>{{ employee.name }}</td>
 							<td>{{ employee.job }}</td>
                             <td>{{ employee.tel }}</td>
-                            {% if user.membername != employee.name %}
                             <td>提交</td>
-                            <td>开会</td>
-                            <td><a href="/viewmeeting/updateweekmeeting/?id={{employee.id}}" target="_blank">记录</a></td>
+                            <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">开会</a></td>
+                            <td></td>
                             <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank">往期例会(2个月)</a></td>
-                            {% endif %}
+						</tr>
+                             {% endif %}
+                            <tr>
+                            <td>{{ forloop.counter }}</td>
+							<td>{{ employee.name }}</td>
+							<td>{{ employee.job }}</td>
+                            <td>{{ employee.tel }}</td>
                             <td><a href="/viewmeeting/addweekmeeting/?id={{employee.id}}" target="_blank">提交</a></td>
                             <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">开会</a></td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{employee.id}}" target="_blank">记录</a></td>
                             <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank">往期例会(2个月)</a></td>
-						</tr>
+                            </tr>
 						{% empty %}
 						<tr>
 							<td>暂无记录</td>
