@@ -943,16 +943,16 @@ def modifymeeting(req):
 	    #更新上周工作总结
 		lastweek = post.getlist('lastweek',[])
 		comletioneffect = post.getlist('comletioneffect',[])
-		lastlen = len(lastweek)
-		for index in range(lastlen):
-			newmeeting.update(lastweek = lastweek[index],comletioneffect = comletioneffect[index])
+
+		for updatelast in lastsummary:
+			updatelast.update(lastweek = lastweek[index],comletioneffect = comletioneffect[index])
 
 
 		#更新本周工作计划
 		nextweek = post.getlist('nextweek',[])
-		nextlen = len(nextweek)
-		for index in range(nextlen):
-			newmeeting.update(nextweek = nextweek[index])
+
+		for index in nextplan:
+			nextplan.update(nextweek = nextweek[index])
 
 		status = 'success'
 
