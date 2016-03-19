@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}全部会员{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>会员名</th>
+							<th>姓名</th>
+                            <th>电话</th>
+                            <th>权限</th>
+							<th>注册日期</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for menber in memberlist %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td><a href="/viewmenber/menber_detail/?id={{menber.id}}">{{ menber.username }}</a></td>
+							<td>{{ menber.membername }}</td>
+                            <td>{{ menber.membertel }}</td>
+                            <td>{{ member.permission }}</td>
+                            <td>{{ menber.regDate }}</td>
+						</tr>
+						{% empty %}
+						<tr>
+							<td>暂无会员</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

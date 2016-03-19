@@ -97,6 +97,22 @@ def setpasswd(req):
 	content = {'user': user, 'active_menu': 'homepage', 'status': status}
 	return render_to_response('setpasswd.html', content, context_instance=RequestContext(req))
 
+def viewmember(req):
+	username = req.session.get('username', '')
+	if username != '':
+		user = Members.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+	memberlist = Members.objects.all()
+
+
+	content = {'user': user, 'active_menu':'member', 'memberlist':memberlist}
+	return render_to_response('viewmemberlist.html', content, context_instance=RequestContext(req))
+
+
+
+
+
 
 '''
 def getMember_list():
