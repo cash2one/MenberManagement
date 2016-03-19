@@ -240,7 +240,7 @@ class LastSummary(models.Model):
     lastweek = models.TextField(blank=True,verbose_name=u"上周工作内容")
     last_exeperson = models.CharField(max_length=50,verbose_name=u"上周执行人")
     last_comletiontime = models.DateField(verbose_name=u"上周完成时间")
-    comletioneffect = models.CharField(max_length=50,verbose_name=u"完成效果")
+    comletioneffect = models.TextField(blank=True,verbose_name=u"完成效果")
     def __str__(self):
         return u'%s %s'%(self.lastweek,self.last_exeperson)
     class Meta:
