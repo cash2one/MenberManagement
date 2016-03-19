@@ -39,10 +39,10 @@
 						 {% for lastweek in lastsummary %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td width="40%"><textarea id="id_lastweek" name='lastweek'>{{ lastweek.lastweek }}</textarea> </td>
+							<td width="40%"><textarea style='width:300px; height:60px;' id="id_lastweek" name='lastweek'>{{ lastweek.lastweek }}</textarea> </td>
 							<td>{{ lastweek.last_exeperson }}</td>
                             <td>{{ lastweek.last_comletiontime }}</td>
-                            <td>{{lastweek.comletioneffect}}</td>
+                            <td><textarea style='width:150px; height:30px;' id="id_comletioneffect" name='comletioneffect'>{{lastweek.comletioneffect}}</textarea></td>
 
 						</tr>
 						{% empty %}
@@ -66,7 +66,7 @@
 						 {% for plan in nextplan %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-							<td width="40%">{{ plan.nextweek }}</td>
+							<td width="40%"><textarea style='width:150px; height:30px;' id="id_nextweek" name='nextweek'>{{ plan.nextweek }}</textarea></td>
 							<td>{{ plan.next_exeperson }}</td>
                             <td>{{ plan.next_comletiontime }}</td>
 						</tr>
