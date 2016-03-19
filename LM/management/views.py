@@ -784,7 +784,7 @@ def employeemeeting(req):
 			status  = 'error'
 			break
 
-	content = {'active_menu': 'viewmeeting','status':status,'user':user,'startmeeting':startmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
+	content = {'active_menu': 'viewmeeting','status':status,'user':user,'startmeeting':startmeeting,'lastsummary':lastsummary,'nextplan':nextplan,'pinngyu':pingyu}
 	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
 
 def beforemeeting(req):
