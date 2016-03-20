@@ -784,6 +784,9 @@ def getSummary(employee):
 def employeemeeting(req):
 	startmeeting = ''
 	status = ''
+	lastsummary = ''
+	nextplan = ''
+
 	username = req.session.get('username','')
 	if username != '':
 		user = Members .objects.get(user__username=username)
