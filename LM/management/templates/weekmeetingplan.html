@@ -38,7 +38,7 @@
 					<tbody>
 						 {% for lastweek in lastsummary %}
 						<tr>
-							<td>{{ lastweek.lastweek }}</td>
+							<td style="word-wrap:break-word;">{{ lastweek.lastweek }}</td>
 							<td>{{ lastweek.last_exeperson }}</td>
                             <td>{{ lastweek.last_comletiontime|date:"m月d日" }}</td>
                             <td>{{lastweek.comletioneffect}}</td>
