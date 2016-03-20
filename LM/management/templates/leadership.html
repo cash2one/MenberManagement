@@ -45,9 +45,9 @@
 						 {% for lastweek in lastsummary %}
 						<tr>
 							<td>{{ lastweek.lastweek }}</td>
-							<td width="150">{{ lastweek.last_exeperson }}</td>
-                            <td width="100">{{ lastweek.last_comletiontime|date:"m月d日" }}</td>
-                            <td>{{lastweek.comletioneffect}}</td>
+							<td width="150px">{{ lastweek.last_exeperson }}</td>
+                            <td width="100px">{{ lastweek.last_comletiontime|date:"m月d日" }}</td>
+                            <td width="400px">{{lastweek.comletioneffect}}</td>
 
 						</tr>
 						{% empty %}
@@ -69,7 +69,7 @@
 					<tbody>
 						 {% for plan in nextplan %}
 						<tr>
-							<td width="40%">{{ plan.nextweek }}</td>
+							<td>{{ plan.nextweek }}</td>
 							<td>{{ plan.next_exeperson }}</td>
                             <td>{{ plan.next_comletiontime|date:"m月d日" }}</td>
 						</tr>
