@@ -58,10 +58,10 @@
 							<td>{{ employee.name }}</td>
 							<td>{{ employee.job }}</td>
                             <td>{{ employee.tel }}</td>
-                            <td><a href="/viewmeeting/addweekmeeting/?id={{employee.id}}" target="_blank">提交</a></td>
-                            <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank">开会</a></td>
-                            <td><a href="/viewmeeting/updateweekmeeting/?id={{employee.id}}" target="_blank">记录</a></td>
-                            <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank">往期例会(2个月)</a></td>
+                            <td><a href="/viewmeeting/addweekmeeting/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">提交</button></a></td>
+                            <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
+                            <td><a href="/viewmeeting/updateweekmeeting/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">记录</button></a></td>
+                            <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">往期例会(2个月)</button></a></td>
                             </tr>
                             {% endif %}
 						{% empty %}
