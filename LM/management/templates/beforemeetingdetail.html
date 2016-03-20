@@ -17,7 +17,7 @@
                     </div>
                     <label for="id_user_name" class="col-md-2 control-label">开会时间：</label>
 					<div class="col-md-2">
-                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.startweek }}">
+                        <input type="text" class="form-control" readonly  value="{{ weekmeeting.startweek|date:"m月d日" }}">
                     </div>
                     <label for="id_user_name" class="col-md-2 control-label">提交时间：</label>
 					<div class="col-md-2">
@@ -39,7 +39,7 @@
 						<tr>
 							<td>{{ lastweek.lastweek }}</td>
 							<td width="150">{{ lastweek.last_exeperson }}</td>
-                            <td width="100">{{ lastweek.last_comletiontime }}</td>
+                            <td width="100">{{ lastweek.last_comletiontime|date:"m月d日" }}</td>
                             <td>{{lastweek.comletioneffect}}</td>
 
 						</tr>
@@ -64,7 +64,7 @@
 						<tr>
 							<td width="40%">{{ plan.nextweek }}</td>
 							<td>{{ plan.next_exeperson }}</td>
-                            <td>{{ plan.next_comletiontime }}</td>
+                            <td>{{ plan.next_comletiontime|date:"m月d日" }}</td>
 						</tr>
 						{% empty %}
 						<tr>
