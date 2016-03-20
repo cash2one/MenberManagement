@@ -47,9 +47,9 @@
 							<td>{{ employee.name }}</td>
 							<td>{{ employee.job }}</td>
                             <td>{{ employee.tel }}</td>
-                            <td><button class="btn btn-warning btn-sm" type="button">提交</button></td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止提交</button></td>
                             <td><a href="/viewmeeting/employeemeeting/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
-                            <td><button class="btn btn-warning btn-sm" type="button">记录</button></td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止记录</button></td>
                             <td><a href="/viewmeeting/beforemeeting/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">往期例会(2个月)</button></a></td>
 						</tr>
                              {% else %}
