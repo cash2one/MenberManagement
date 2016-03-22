@@ -42,7 +42,7 @@
 							<td width="150px">{{ lastweek.last_exeperson }}</td>
                             <td width="100px">{{ lastweek.last_comletiontime|date:"m月d日" }}</td>
                             <td width="400px">{{lastweek.comletioneffect}}</td>
-                            <td><a href="/viewmeeting/lastmodifymeeting/?mid={{ lastweek.id }}&wid={{ weekmeeting.id }}"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button></a></a> </td>
+                            <td width="80px"><a href="/viewmeeting/lastmodifymeeting/?mid={{ lastweek.id }}&wid={{ weekmeeting.id }}"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button></a></a> </td>
 
 						</tr>
 						{% empty %}
@@ -68,7 +68,7 @@
 							<td width="500px">{{ plan.nextweek }}</td>
 							<td>{{ plan.next_exeperson }}</td>
                             <td>{{ plan.next_comletiontime|date:"m月d日" }}</td>
-                            <td><a href="/viewmeeting/nextmodifymeeting/?mid={{ plan.id }}&wid={{ weekmeeting.id }}"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button></a></a> </td>
+                            <td width="80px"><a href="/viewmeeting/nextmodifymeeting/?mid={{ plan.id }}&wid={{ weekmeeting.id }}"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button></a></a> </td>
 
 						</tr>
 						{% empty %}
