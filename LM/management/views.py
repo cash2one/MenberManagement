@@ -927,40 +927,34 @@ def lastmodifymeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	Id = req.GET.get('id','')
-	if Id == '':
+	lid = req.GET.get('lid','')
+	wid = req.GET.get('wid','')
+
+	if lid == '':
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
-		weekmeeting = WeekMeeting.objects.get(pk=Id)
-		lastsummary = weekmeeting.lastsummary_set.all()
-		nextplan = weekmeeting.nextplan_set.all()
-
+		weekmeeting = WeekMeeting.objects.get(pk=wid)
+		lastweek = LastSummary.objects.get(pk=lid)
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 
 	if req.POST:
 		post = req.POST
-		mid = post.get('mid','')
-		newmeeting = WeekMeeting.objects.get(pk=mid)
+		lid = post.get('lid','')
+		wid = post.get('wid','')
+		lastweek = post.getlist('lastweek','')
+		comletioneffect = post.getlist('comletioneffect','')
 
-	    #更新上周工作总结
-		lastweek = post.getlist('lastweek',[])
-		comletioneffect = post.getlist('comletioneffect',[])
-
-		for updatelast in lastsummary:
-			updatelast.update(weekmeeting=newmeeting,lastweek = lastweek[index],comletioneffect = comletioneffect[index])
-
-
-		#更新本周工作计划
-		nextweek = post.getlist('nextweek',[])
-
-		for nextmeeting in nextplan:
-			updatelast.update(weekmeeting=weekmeeting,nextweek = nextweek[index])
+		try:
+			weekmeeting = WeekMeeting.objects.get(pk=wid)
+			LastSummary.objects.filter(id=lid).update(weekmeeting,lastweek=lastweek,comletioneffect=comletioneffect)
+		except:
+			status = 'error'
+			return HttpResponseRedirect('/viewmeeting/')
 
 		status = 'success'
-
-	content = {'active_menu': 'viewmeeting','user':user,'status':status,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
-	return render_to_response('modifyoldmeeting.html', content, context_instance=RequestContext(req))
+	content = {'active_menu': 'viewmeeting','user':user,'status':status,'weekmeeting':weekmeeting,'lastweek':lastweek}
+	return render_to_response('lastmodifymeeting.html', content, context_instance=RequestContext(req))
 
 def nextmodifymeeting(req):
 	status = ''
@@ -976,7 +970,7 @@ def nextmodifymeeting(req):
 
 
 	content = {'active_menu': 'viewmeeting','user':user,'status':status}
-	return render_to_response('modifyoldmeeting.html', content, context_instance=RequestContext(req))
+	return render_to_response('lastmodifymeeting.html', content, context_instance=RequestContext(req))
 
 
 
