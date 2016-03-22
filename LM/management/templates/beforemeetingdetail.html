@@ -32,6 +32,7 @@
                             <th>执行人</th>
 							<th>完成时间</th>
                             <th>完成效果</th>
+                            <th>修改</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -41,6 +42,7 @@
 							<td width="150px">{{ lastweek.last_exeperson }}</td>
                             <td width="100px">{{ lastweek.last_comletiontime|date:"m月d日" }}</td>
                             <td width="400px">{{lastweek.comletioneffect}}</td>
+                            <td><a href="/viewmeeting/lastmodifymeeting/?mid={{ lastweek.id  }}"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button></a></a> </td>
 
 						</tr>
 						{% empty %}
@@ -57,6 +59,7 @@
                             <th>本周工作内容</th>
                             <th>执行人</th>
 							<th>完成时间</th>
+                            <th>修改</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -65,6 +68,8 @@
 							<td width="500px">{{ plan.nextweek }}</td>
 							<td>{{ plan.next_exeperson }}</td>
                             <td>{{ plan.next_comletiontime|date:"m月d日" }}</td>
+                            <td><a href="/viewmeeting/nextmodifymeeting/?mid={{ plan.id  }}"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button></a></a> </td>
+
 						</tr>
 						{% empty %}
 						<tr>
