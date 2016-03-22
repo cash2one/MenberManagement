@@ -933,7 +933,7 @@ def lastmodifymeeting(req):
 		wid = req.GET.get('wid','')
 
 		if lid == '':
-			return HttpResponseRedirect('/login/')
+			return HttpResponseRedirect('/viewmeeting/')
 		try:
 			weekmeeting = WeekMeeting.objects.get(pk=wid)
 			lastweek = LastSummary.objects.get(pk=lid)
