@@ -962,13 +962,30 @@ def nextmodifymeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	Id = req.GET.get('id','')
-	if Id == '':
-		return HttpResponseRedirect('/viewmeeting/')
 
+	if req.GET:
+		nid = req.GET.get('nid','')
 
-	content = {'active_menu': 'viewmeeting','user':user,'status':status}
-	return render_to_response('lastmodifymeeting.html', content, context_instance=RequestContext(req))
+		if nid == '':
+			return HttpResponseRedirect('/viewmeeting/')
+		try:
+			nextweek = NextPlan.objects.get(pk=nid)
+		except:
+			return HttpResponseRedirect('/viewmeeting/')
+
+	if req.POST:
+		post = req.POST
+		next = post.get('next','')
+		nextweek = post.get('nextweek','')
+		try:
+			NextPlan.objects.filter(id=next).update(nextweek=nextweek)
+		except:
+			status = 'error'
+			return HttpResponseRedirect('/viewmeeting/')
+
+		status = 'success'
+	content = {'active_menu': 'viewmeeting','user':user,'status':status,'nextweek':nextweek}
+	return render_to_response('nextmodifymeeting.html', content, context_instance=RequestContext(req))
 
 
 
