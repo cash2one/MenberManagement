@@ -938,7 +938,7 @@ def lastmodifymeeting(req):
 			weekmeeting = WeekMeeting.objects.get(pk=wid)
 			lastweek = LastSummary.objects.get(pk=lid)
 		except:
-			return HttpResponseRedirect('/viewmeeting/')
+			return HttpResponseRedirect('/login/')
 
 	if req.POST:
 		post = req.POST
