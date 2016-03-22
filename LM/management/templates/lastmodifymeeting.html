@@ -1,92 +1,48 @@
 {% extends "base.html" %}
 {% load staticfiles %}
-{% block title %}周列会推进表{% endblock %}
+{% block title %}本周总结修改{% endblock %}
 
 {% block content %}
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
-            {% if status == 'success' %}
+		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+			{% if status == 'success' %}
 				<div class="well">
-					<h2 class="text-success text-center">周总结&计划修改成功！</h2>
+					<h2 class="text-success text-center">修改成功！</h2>
 				</div>
 			{% elif status == 'error' %}
 				<div class="well">
-					<h2 class="text-warning text-center">提交错误</h2>
+					<h2 class="text-warning text-center">修改不成功！</h2>
 				</div>
 			{% endif %}
-            <form method="POST" role="form" class="form-horizontal">
+			<form method="POST" role="form" class="form-horizontal">
 				{% csrf_token %}
-            <input type="hidden" id="mid" name="mid" value="{{ weekmeeting.id }}">
-				<h1 class="form-signin-heading text-center">部门工作推进表修改</h1>
-                <br /><br />
+				<h1 class="form-signin-heading text-center">本周总结修改</h1>
+				<div class="form-group">
+					<label for="id_lastweek" class="col-md-3 control-label">本周总结记录修改：</label>
+					<div class="col-md-9">
+						<textarea rows="6" cols="20" class="form-control"  id="id_lastweek"  name="lastweek" >{{ lastweek.lastweek }}</textarea>
+					</div>
+				</div>
+
+                <div class="form-group">
+					<label for="id_comletioneffect" class="col-md-3 control-label">本周完成效果修改：</label>
+					<div class="col-md-9">
+						<textarea rows="6" cols="20" class="form-control"  id="id_comletioneffect"  name="comletioneffect" >{{ lastweek.comletioneffect }}</textarea>
+					</div>
+				</div>
 
 
-
-        <table class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>序号</th>
-                            <th>上周工作内容</th>
-                            <th>执行人</th>
-							<th>完成时间</th>
-                            <th>完成效果</th>
-						</tr>
-					</thead>
-					<tbody>
-						 {% for lastweek in lastsummary %}
-						<tr>
-							<td>{{ forloop.counter }}</td>
-							<td width="40%"><textarea style='width:300px; height:60px;' id="id_lastweek" name="lastweek">{{ lastweek.lastweek }}</textarea> </td>
-							<td>{{ lastweek.last_exeperson }}</td>
-                            <td>{{ lastweek.last_comletiontime }}</td>
-                            <td><textarea style='width:150px; height:30px;' id="id_comletioneffect" name="comletioneffect">{{lastweek.comletioneffect}}</textarea></td>
-
-						</tr>
-						{% empty %}
-						<tr>
-							<td>暂无记录</td>
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-
-                       <table class="table table-striped table-bordered table-hover">
-					<thead>
-						<tr>
-							<th>序号</th>
-                            <th>本周工作内容</th>
-                            <th>执行人</th>
-							<th>完成时间</th>
-						</tr>
-					</thead>
-					<tbody>
-						 {% for plan in nextplan %}
-						<tr>
-							<td>{{ forloop.counter }}</td>
-							<td width="40%"><textarea style='width:300px; height:60px;' id="id_nextweek" name="nextweek">{{ plan.nextweek }}</textarea></td>
-							<td>{{ plan.next_exeperson }}</td>
-                            <td>{{ plan.next_comletiontime }}</td>
-						</tr>
-						{% empty %}
-						<tr>
-							<td>暂无记录</td>
-						</tr>
-						{% endfor %}
-					</tbody>
-				</table>
-            <div class="form-group">
+				<div class="form-group">
 					<div class="col-md-4 col-md-offset-4">
 						<button class="btn btn btn-primary btn-block" type="submit" id="id_submit">提交</button>
 					</div>
 				</div>
 
 			</form>
-
 		</div>
 	</div>
 </div>
-
 
 {% endblock %}
