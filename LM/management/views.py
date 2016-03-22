@@ -833,7 +833,7 @@ def beforemeeting(req):
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting}
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'employee':employee}
 	return render_to_response('beforemeeting.html', content, context_instance=RequestContext(req))
 
 #缩短路径作废方法
