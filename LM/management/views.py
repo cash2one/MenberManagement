@@ -949,7 +949,7 @@ def lastmodifymeeting(req):
 
 		try:
 			weekmeeting = WeekMeeting.objects.get(pk=week)
-			LastSummary.objects.filter(id=last).update(weekmeeting=weekmeeting,lastweek=lastweek,comletioneffect=comletioneffect)
+			LastSummary.objects.filter(id=last).update(lastweek=lastweek,comletioneffect=comletioneffect)
 		except:
 			status = 'error'
 			return HttpResponseRedirect('/viewmeeting/')
