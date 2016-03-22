@@ -37,19 +37,7 @@
 
 						</tr>
                             {% elif user.membername == employee.name and user.permission == 66%}
-                            <tr>
-							<td>{{ forloop.counter }}</td>
-							<td>{{ weeks.submitdate }}</td>
-                            <td>{{ weeks.employee }}</td>
-                            <td>{{ weeks.submitdate|date:"Y年m月" }}{{ weeks.week }}</td>
-                            <td>{{ weeks.startweek }}</td>
-                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止批示</button> </td>
-                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止修改</button></a></td>
-                            <td><a href="/viewmeeting/beforemeetingdetail/?id={{weeks.id}}"><button class="btn btn-primary btn-sm btn-block" type="button">详情</button></a></td>
-
-						</tr>
-                                {% else %}
-                                <tr>
+                             <tr>
 							<td>{{ forloop.counter }}</td>
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.employee }}</td>
@@ -60,6 +48,19 @@
                             <td><a href="/viewmeeting/beforemeetingdetail/?id={{weeks.id}}"><button class="btn btn-primary btn-sm btn-block" type="button">详情</button></a></td>
 
 						</tr>
+                                {% else %}
+                                <tr>
+							<td>{{ forloop.counter }}</td>
+							<td>{{ weeks.submitdate }}</td>
+                            <td>{{ weeks.employee }}</td>
+                            <td>{{ weeks.submitdate|date:"Y年m月" }}{{ weeks.week }}</td>
+                            <td>{{ weeks.startweek }}</td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止批示</button> </td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止修改</button></a></td>
+                            <td><a href="/viewmeeting/beforemeetingdetail/?id={{weeks.id}}"><button class="btn btn-primary btn-sm btn-block" type="button">详情</button></a></td>
+
+						</tr>
+
                             {% endif %}
 						{% empty %}
 						<tr>
