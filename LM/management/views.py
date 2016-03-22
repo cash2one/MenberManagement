@@ -942,14 +942,14 @@ def lastmodifymeeting(req):
 
 	if req.POST:
 		post = req.POST
-		lid = post.get('lid','')
-		wid = post.get('wid','')
+		last = post.get('last','')
+		week = post.get('week','')
 		lastweek = post.getlist('lastweek','')
 		comletioneffect = post.getlist('comletioneffect','')
 
 		try:
-			weekmeeting = WeekMeeting.objects.get(pk=wid)
-			LastSummary.objects.filter(id=lid).update(weekmeeting,lastweek=lastweek,comletioneffect=comletioneffect)
+			weekmeeting = WeekMeeting.objects.get(pk=week)
+			LastSummary.objects.filter(id=last).update(weekmeeting,lastweek=lastweek,comletioneffect=comletioneffect)
 		except:
 			status = 'error'
 			return HttpResponseRedirect('/viewmeeting/')
