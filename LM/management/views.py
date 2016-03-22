@@ -927,16 +927,18 @@ def lastmodifymeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	lid = req.GET.get('lid','')
-	wid = req.GET.get('wid','')
 
-	if lid == '':
-		return HttpResponseRedirect('/viewmeeting/')
-	try:
-		weekmeeting = WeekMeeting.objects.get(pk=wid)
-		lastweek = LastSummary.objects.get(pk=lid)
-	except:
-		return HttpResponseRedirect('/viewmeeting/')
+	if req.GET:
+		lid = req.GET.get('lid','')
+		wid = req.GET.get('wid','')
+
+		if lid == '':
+			return HttpResponseRedirect('/viewmeeting/')
+		try:
+			weekmeeting = WeekMeeting.objects.get(pk=wid)
+			lastweek = LastSummary.objects.get(pk=lid)
+		except:
+			return HttpResponseRedirect('/viewmeeting/')
 
 	if req.POST:
 		post = req.POST
