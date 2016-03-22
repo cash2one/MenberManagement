@@ -919,7 +919,7 @@ def updateweekmeeting(req):
 	content = {'active_menu': 'viewmeeting','user':user,'updatemeeting':updatemeeting,'status':status}
 	return render_to_response('updateweekmeeting.html', content, context_instance=RequestContext(req))
 
-def modifymeeting(req):
+def lastmodifymeeting(req):
 	status = ''
 	username = req.session.get('username','')
 	if username != '':
@@ -961,6 +961,23 @@ def modifymeeting(req):
 
 	content = {'active_menu': 'viewmeeting','user':user,'status':status,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
 	return render_to_response('modifyoldmeeting.html', content, context_instance=RequestContext(req))
+
+def nextmodifymeeting(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members .objects.get(user__username=username)
+	else:
+		user = ''
+		return HttpResponseRedirect('/login/')
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/viewmeeting/')
+
+
+	content = {'active_menu': 'viewmeeting','user':user,'status':status}
+	return render_to_response('modifyoldmeeting.html', content, context_instance=RequestContext(req))
+
 
 
 def leadership(req):
