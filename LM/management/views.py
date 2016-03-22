@@ -930,12 +930,10 @@ def lastmodifymeeting(req):
 
 	if req.GET:
 		lid = req.GET.get('lid','')
-		wid = req.GET.get('wid','')
 
 		if lid == '':
 			return HttpResponseRedirect('/viewmeeting/')
 		try:
-			weekmeeting = WeekMeeting.objects.get(pk=wid)
 			lastweek = LastSummary.objects.get(pk=lid)
 		except:
 			return HttpResponseRedirect('/login/')
@@ -943,19 +941,17 @@ def lastmodifymeeting(req):
 	if req.POST:
 		post = req.POST
 		last = post.get('last','')
-		week = post.get('week','')
 		lastweek = post.getlist('lastweek','')
 		comletioneffect = post.getlist('comletioneffect','')
 
 		try:
-			weekmeeting = WeekMeeting.objects.get(pk=week)
 			LastSummary.objects.filter(id=last).update(lastweek=lastweek,comletioneffect=comletioneffect)
 		except:
 			status = 'error'
 			return HttpResponseRedirect('/viewmeeting/')
 
 		status = 'success'
-	content = {'active_menu': 'viewmeeting','user':user,'status':status,'weekmeeting':weekmeeting,'lastweek':lastweek}
+	content = {'active_menu': 'viewmeeting','user':user,'status':status,'lastweek':lastweek}
 	return render_to_response('lastmodifymeeting.html', content, context_instance=RequestContext(req))
 
 def nextmodifymeeting(req):
