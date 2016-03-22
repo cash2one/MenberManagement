@@ -936,13 +936,13 @@ def lastmodifymeeting(req):
 		try:
 			lastweek = LastSummary.objects.get(pk=lid)
 		except:
-			return HttpResponseRedirect('/login/')
+			return HttpResponseRedirect('/viewmeeting/')
 
 	if req.POST:
 		post = req.POST
 		last = post.get('last','')
-		lastweek = post.getlist('lastweek','')
-		comletioneffect = post.getlist('comletioneffect','')
+		lastweek = post.get('lastweek','')
+		comletioneffect = post.get('comletioneffect','')
 
 		try:
 			LastSummary.objects.filter(id=last).update(lastweek=lastweek,comletioneffect=comletioneffect)
