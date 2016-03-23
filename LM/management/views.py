@@ -640,7 +640,7 @@ def basemployee(req):
 
 	if req.POST:
 		post = req.POST
-		eid = post.get('id','')
+		eid = post.get('eid','')
 
 		try:
 			Employee.objects.filter(id=eid).update(
