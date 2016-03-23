@@ -666,11 +666,12 @@ def basemployee(req):
 				emergcontact = post.get('emergcontact',''),\
 				emergcall = post.get('emergcall',''),\
 				)
+			result = 'success'
 
 		except:
 			result = 'error'
 			return  HttpResponseRedirect('/login/')
-	result = 'success'
+
 
 	content = {'active_menu': 'viewemployee','result': result,'user':user,'employee':employee}
 	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
