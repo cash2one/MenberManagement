@@ -120,11 +120,6 @@ def viewmember(req):
 	content = {'user': user, 'active_menu':'member', 'memberlist':memberlist}
 	return render_to_response('viewmemberlist.html', content, context_instance=RequestContext(req))
 
-
-
-
-
-
 '''
 def getMember_list():
 	member_list = Members.objects.all()
@@ -623,6 +618,7 @@ def viewemployee(req):
 	content = {'active_menu': 'viewemployee','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
 	return render_to_response('allemployee.html', content, context_instance=RequestContext(req))
 
+#添加员工基础信息
 def basemployee(req):
 	result = ''
 	username = req.session.get('username','')
@@ -676,6 +672,7 @@ def basemployee(req):
 	content = {'active_menu': 'viewemployee','result': result,'user':user,'employee':employee}
 	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
 
+#员工添加教育培训经历
 def eduemployee(req):
 	status = ''
 	username = req.session.get('username','')
@@ -720,9 +717,53 @@ def eduemployee(req):
 					status = 'success'
 				except:
 					status= 'error'
+            else:
+                break
 
 	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('edumployee.html', content, context_instance=RequestContext(req))
+
+#员工添加亲属关系
+def relationemployee(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	if req.GET:
+		Id = req.GET.get('id','')
+		employee = Employee.objects.get(pk=Id)
+
+	if req.POST:
+		post = req.POST
+		reid = post.get('reid','')
+		employee = Employee.objects.get(pk=reid)
+
+		re_name = post.getlist('re_name',[])
+		relation = post.getlist('relation',[])
+		work = post.getlist('work',[])
+		re_job = post.getlist('re_job',[])
+		re_tel = post.getlist('re_tel',[])
+
+		relationcount = len(re_name)
+		for reindex in range(relationcount):
+			if re_name[reindex] != '':
+				try:
+					relative = Relative(
+						employee = employee,\
+						re_name = re_name[reindex],\
+						relation = relation[reindex],\
+						work = work[reindex],\
+						re_job = re_job[reindex],\
+						re_tel = re_tel[reindex],\
+						)
+					relative.save()
+			else:
+				break
+	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
+	return render_to_response('relationemployee.html', content, context_instance=RequestContext(req))
 
 
 def personnel_detail(req):
