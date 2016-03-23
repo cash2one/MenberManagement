@@ -639,12 +639,14 @@ def basemployee(req):
 		post = req.POST
 		eid = post.get('eid','')
 		job = post.get('job','')
-		sex = post.get('sex','')
 
 		height = post.get('height','')
 
+
+		birthplace = post.get('birthplace','')
+
 		try:
-			Employee.objects.filter(id=eid).update(job=job,sex=sex,height=height)
+			Employee.objects.filter(id=eid).update(job=job,height=height,birthplace=birthplace )
 			result = 'success'
 
 		except:
