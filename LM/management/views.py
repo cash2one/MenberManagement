@@ -721,7 +721,7 @@ def eduemployee(req):
 				except:
 					status= 'error'
 
-	content = {'active_menu': 'viewemployee','result': result,'user':user,'employee':employee}
+	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('edumployee.html', content, context_instance=RequestContext(req))
 
 
