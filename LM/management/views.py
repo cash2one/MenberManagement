@@ -670,7 +670,7 @@ def basemployee(req):
 
 		except:
 			result = 'error'
-			return  HttpResponseRedirect('/login/')
+			return  HttpResponseRedirect('/basemployee/')
 
 
 	content = {'active_menu': 'viewemployee','result': result,'user':user,'employee':employee}
