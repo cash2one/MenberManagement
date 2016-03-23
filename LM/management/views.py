@@ -638,9 +638,10 @@ def basemployee(req):
 	if req.POST:
 		post = req.POST
 		eid = post.get('eid','')
+		job = post.get('job','')
 
 		try:
-			Employee.objects.filter(id=eid).update(job = post.get('job',''))
+			Employee.objects.filter(id=eid).update(job = job)
 			result = 'success'
 
 		except:
