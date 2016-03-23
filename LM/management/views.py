@@ -676,6 +676,54 @@ def basemployee(req):
 	content = {'active_menu': 'viewemployee','result': result,'user':user,'employee':employee}
 	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
 
+def eduemployee(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	if req.GET:
+		Id = req.GET.get('id','')
+		employee = Employee.objects.get(pk=Id)
+
+	if req.POST:
+		post = req.POST
+		eduid = post.get('eduid','')
+		employee = Employee.objects.get(pk=eduid)
+
+		#教育培训背景
+		edu_start = post.getlist('edu_start',[])
+		edu_end = post.getlist('edu_end',[])
+		college = post.getlist('college',[])
+		professional = post.getlist('professional',[])
+		education = post.getlist('education',[])
+		nature = post.getlist('nature',[])
+		mark = post.getlist('mark',[])
+
+		edulist = len(college)
+		for index in range(edulist):
+			if college[index] != '':
+				try:
+					edu = Education(
+						employee = employee,\
+						edu_start = edu_start[index],\
+						edu_end = edu_end[index],\
+						college = college[index],\
+						professional = professional[index],\
+						education = education[index],\
+						nature = nature[index],\
+						mark = mark[index],\
+						)
+					edu.save()
+					status = 'success'
+				except:
+					status= 'error'
+
+	content = {'active_menu': 'viewemployee','result': result,'user':user,'employee':employee}
+	return render_to_response('edumployee.html', content, context_instance=RequestContext(req))
+
 
 def personnel_detail(req):
 
