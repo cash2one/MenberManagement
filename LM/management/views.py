@@ -717,8 +717,6 @@ def eduemployee(req):
 					status = 'success'
 				except:
 					status= 'error'
-            else:
-                break
 
 	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('edumployee.html', content, context_instance=RequestContext(req))
@@ -760,9 +758,9 @@ def relationemployee(req):
 						re_tel = re_tel[reindex],\
 						)
 					relative.save()
-			else:
-				break
-
+					status = 'success'
+				except:
+					status ='error'
 
 	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('relationemployee.html', content, context_instance=RequestContext(req))
