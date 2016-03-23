@@ -633,9 +633,6 @@ def basemployee(req):
 
 	if req.GET:
 		Id = req.GET.get('id','')
-	if Id == '':
-		return HttpResponseRedirect('/basemployee/')
-	else:
 		employee = Employee.objects.get(pk=Id)
 
 	if req.POST:
