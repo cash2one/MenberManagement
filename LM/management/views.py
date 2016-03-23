@@ -762,6 +762,8 @@ def relationemployee(req):
 					relative.save()
 			else:
 				break
+
+
 	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('relationemployee.html', content, context_instance=RequestContext(req))
 
