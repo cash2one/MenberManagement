@@ -647,7 +647,7 @@ def basemployee(req):
 				birthday = post.get('birthday',''),\
 				height = post.get('height',''),\
 				weight = post.get('weight',''),\
-				birthplace = post.get('jiguan',''),\
+				birthplace = post.get('birthplace',''),\
 				character = post.get('character',''),\
 				national = post.get('national',''),\
 				marry = post.get('marry',''),\
