@@ -41,6 +41,7 @@
 					</thead>
 					<tbody>
 						{% for employee in employee_list %}
+                            {% if user.permission == 55 %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
 							<td><a href="/viewemployee/employeedetail/?id={{employee.id}}">{{ employee.name }}</a></td>
@@ -52,6 +53,19 @@
                             <td><a href="/viewemployee/imgemployee/?id={{employee.id}}">新增</a></td>
 
 						</tr>
+                            {% else %}
+                            <tr>
+							<td>{{ forloop.counter }}</td>
+							<td><a href="/viewemployee/employeedetail/?id={{employee.id}}">{{ employee.name }}</a></td>
+							<td>{{ employee.tel }}</td>
+                            <td><a href="/viewemployee/basemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">修改</button></a></td>
+                            <td><a href="/viewemployee/eduemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></a></td>
+                            <td><a href="/viewemployee/relationemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></a></td>
+                            <td><a href="/viewemployee/workemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></a></td>
+                            <td><a href="/viewemployee/imgemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></a></td>
+
+						</tr>
+                            {% endif %}
 						{% empty %}
 						<tr>
 							<td>暂无应聘人员</td>
