@@ -649,7 +649,8 @@ def basemployee(req):
 		national = post.get('national','')
 		marry = post.get('marry','')
 		skill = post.get('skill','')
-		diploma = post.get('identity','')
+		diploma = post.get('diploma','')
+		identity = post.get('identity','')
 		working = post.get('working','')
 		huji = post.get('huji','')
 		address = post.get('address','')
@@ -665,7 +666,7 @@ def basemployee(req):
 			Employee.objects.filter(id=eid).update(job=job,registdate=registdate,sex=sex,birthday=birthday,height=height,weight=weight,\
 												   birthplace=birthplace,character=character,national=national,marry=marry,skill=skill,\
 												   diploma=diploma,working=working,huji=huji,address=address,salary=salary,obey=obey,\
-												   other=other,evaluate=evaluate,qq=qq,emergcontact=emergcontact,emergcall=emergcall)
+												   other=other,evaluate=evaluate,qq=qq,emergcontact=emergcontact,emergcall=emergcall,identity=identity)
 			result = 'success'
 
 		except:
