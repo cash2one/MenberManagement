@@ -611,7 +611,7 @@ def viewemployee(req):
 		except:
 			return HttpResponseRedirect('/viewemployee/')
 
-	paginator = Paginator(employee_list,8)
+	paginator = Paginator(employee_list,9)
 	page = req.GET.get('page')
 	try:
 		employee_list = paginator.page(page)
