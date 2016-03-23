@@ -17,7 +17,7 @@
 				{% csrf_token %}
 				<h1 class="form-signin-heading text-center">应聘人员教育培训登记表</h1>
 
-               <input type="hidden" id="id_personnel_typ" name="personnel_typ" value="面试">
+               <input type="hidden" id="id_eduid" name="eduid" value="{{ employee.id }}">
                 <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead>
