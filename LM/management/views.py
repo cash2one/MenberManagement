@@ -623,6 +623,57 @@ def viewemployee(req):
 	content = {'active_menu': 'viewemployee','departments':alldepartment,'Id':Id,'user':user,'employee_list':employee_list}
 	return render_to_response('allemployee.html', content, context_instance=RequestContext(req))
 
+def basemployee(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Employee.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	if req.GET:
+		Id = req.GET.get('id','')
+
+	if Id == '':
+		return HttpResponseRedirect('/basemployee/')
+	else:
+		employee = Employee.objects.get(pk=Id)
+
+	if req.POST:
+		post = req.POST
+		employee = Employee(
+			job = post.get('job',''),\
+			registdate = post.get('registdate',''),\
+			sex = post.get('sex',''),\
+			birthday = post.get('birthday',''),\
+			height = post.get('height',''),\
+			weight = post.get('weight',''),\
+			birthplace = post.get('jiguan',''),\
+			character = post.get('character',''),\
+			national = post.get('national',''),\
+			marry = post.get('marry',''),\
+			skill = post.get('skill',''),\
+			diploma = post.get('diploma',''),\
+			identity = post.get('identity',''),\
+			working = post.get('working',''),\
+			huji = post.get('huji',''),\
+			address = post.get('address',''),\
+			salary = post.get('salary',''),\
+			obey  = post.get('obey',''),\
+			other = post.get('other',''),\
+			evaluate = post.get('evaluate',''),\
+			qq = post.get('qq',''),\
+			status = post.get('status',''),\
+			emergcontact = post.get('emergcontact',''),\
+			emergcall = post.get('emergcall',''),\
+			profileimg = post.get('profileimg',''),\
+			eduimg = post.get('eduimg',''),\
+		)
+
+	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
+	return render_to_response('basemployee.html', content, context_instance=RequestContext(req))
+
+
 def personnel_detail(req):
 
 	username = req.session.get('username','')
