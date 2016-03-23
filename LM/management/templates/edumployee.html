@@ -10,7 +10,10 @@
 			{% if status == 'success' %}
 				<div class="well">
 					<h2 class="text-success text-center">添加成功</h2>
-
+				</div>
+            {% elif status == 'error' %}
+				<div class="well">
+					<h2 class="text-success text-center">添加失败</h2>
 				</div>
 			{% endif %}
 			<form method="POST"   role="form" class="form-horizontal">
