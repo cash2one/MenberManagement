@@ -640,32 +640,7 @@ def basemployee(req):
 		eid = post.get('eid','')
 
 		try:
-			Employee.objects.filter(id=eid).update(
-				job = post.get('job',''),\
-				registdate = post.get('registdate',''),\
-				sex = post.get('sex',''),\
-				birthday = post.get('birthday',''),\
-				height = post.get('height',''),\
-				weight = post.get('weight',''),\
-				birthplace = post.get('birthplace',''),\
-				character = post.get('character',''),\
-				national = post.get('national',''),\
-				marry = post.get('marry',''),\
-				skill = post.get('skill',''),\
-				diploma = post.get('diploma',''),\
-				identity = post.get('identity',''),\
-				working = post.get('working',''),\
-				huji = post.get('huji',''),\
-				address = post.get('address',''),\
-				salary = post.get('salary',''),\
-				obey  = post.get('obey',''),\
-				other = post.get('other',''),\
-				evaluate = post.get('evaluate',''),\
-				qq = post.get('qq',''),\
-				status = post.get('status',''),\
-				emergcontact = post.get('emergcontact',''),\
-				emergcall = post.get('emergcall',''),\
-				)
+			Employee.objects.filter(id=eid).update(job = post.get('job',''))
 			result = 'success'
 
 		except:
