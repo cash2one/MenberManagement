@@ -769,6 +769,56 @@ def relationemployee(req):
 	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('relationemployee.html', content, context_instance=RequestContext(req))
 
+#工作经历
+def workemployee(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	if req.GET:
+		Id = req.GET.get('id','')
+		employee = Employee.objects.get(pk=Id)
+
+	if req.POST:
+		post = req.POST
+		wkid = post.get('wkid','')
+		employee = Employee.objects.get(pk=wkid)
+
+		#工作经验
+		w_start = post.getlist('w_start',[])
+		w_end = post.getlist('w_end',[])
+		company = post.getlist('company',[])
+		w_job = post.getlist('w_job',[])
+		w_salary = post.getlist('w_salary',[])
+		quit = post.getlist('quit','')
+		references = post.getlist('references',[])
+		w_tel = post.getlist('w_tel',[])
+		for windex in range(len(company)):
+			if company[windex] != '':
+				exp = WorkExperience(
+					employee = employee,\
+					w_start = w_start[windex],\
+					w_end = w_end[windex],\
+					company = company[windex],\
+					w_job = w_job[windex],\
+					w_salary = w_salary[windex],\
+					quit = quit[windex],\
+					references = references[windex],\
+					w_tel = w_tel[windex],\
+					)
+				exp.save()
+			else:
+				break
+
+
+	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
+	return render_to_response('workemployee.html', content, context_instance=RequestContext(req))
+
+
+
 
 def personnel_detail(req):
 
