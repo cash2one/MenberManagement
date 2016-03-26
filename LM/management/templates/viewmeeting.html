@@ -44,18 +44,18 @@
 							<td>{{ forloop.counter }}</td>
 							<td>{{ depart.leader }}</td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止提交</button></td>
-                            <td><a href="/viewmeeting/employeemeeting/?id={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
+                            <td><a href="/viewmeeting/employeemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止记录</button></td>
-                            <td><a href="/viewmeeting/beforemeeting/?id={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">往期例会(2个月)</button></a></td>
+                            <td><a href="/viewmeeting/beforemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">往期例会(2个月)</button></a></td>
 						</tr>
                              {% else %}
                             <tr>
                             <td>{{ forloop.counter }}</td>
 							<td>{{ depart.leader }}</td>
-                            <td><a href="/viewmeeting/addweekmeeting/?id={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">提交</button></a></td>
-                            <td><a href="/viewmeeting/employeemeeting/?id={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
-                            <td><a href="/viewmeeting/updateweekmeeting/?id={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">记录</button></a></td>
-                            <td><a href="/viewmeeting/beforemeeting/?id={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">往期例会(2个月)</button></a></td>
+                            <td><a href="/viewmeeting/addweekmeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">提交</button></a></td>
+                            <td><a href="/viewmeeting/employeemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
+                            <td><a href="/viewmeeting/updateweekmeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">记录</button></a></td>
+                            <td><a href="/viewmeeting/beforemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">往期例会(2个月)</button></a></td>
                             </tr>
                             {% endif %}
 						{% empty %}
