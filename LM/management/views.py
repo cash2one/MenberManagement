@@ -903,12 +903,12 @@ def addweekmeeting(req):
 		user = Members.objects.get(user__username=username)
 	else:
 		return HttpResponseRedirect('/login/')
-	Id = req.GET.get('id','')
-	if Id == '':
+	name = req.GET.get('name','')
+	if name == '':
 		status = 'error'
 		return  HttpResponseRedirect('/viewmeeting/')
 	try:
-		employee = Employee.objects.get(name=Id)
+		employee = Employee.objects.get(name=name)
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 
