@@ -908,7 +908,7 @@ def addweekmeeting(req):
 		status = 'error'
 		return  HttpResponseRedirect('/viewmeeting/')
 	try:
-		employee = Employee.objects.get(leader=Id)
+		employee = Employee.objects.get(name=Id)
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 
