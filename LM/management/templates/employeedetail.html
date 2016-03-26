@@ -135,7 +135,7 @@
 						<tr>
                             <th>姓名</th>
                           <th>关系</th>
-                          <th colspan="2">工作单位</th>
+                          <th colspan="3">工作单位</th>
                           <th>职务</th>
                           <th colspan="2">联系电话</th>
 						</tr>
@@ -145,9 +145,9 @@
 						<tr>
 							<td>{{ union.re_name }}</td>
 							<td>{{ union.relation }}</td>
-                            <td>{{ union.work }}</td>
+                            <td colspan="3">{{ union.work }}</td>
                             <td>{{union.re_job}}</td>
-                            <td>{{union.re_tel}}</td>
+                            <td colspan="2">{{union.re_tel}}</td>
 
 						</tr>
 						{% empty %}
