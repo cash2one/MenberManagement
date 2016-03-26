@@ -974,7 +974,7 @@ def viewmeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	alldepartment = getDepartment()
+	alldepartment = Department.objects.all()  #getDepartment()
 	depart = req.GET.get('depart','all')
 	if depart =='':
 		employee_list = Employee.objects.all()
