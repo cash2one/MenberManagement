@@ -27,7 +27,7 @@
                          {% if user.membername != depart.leader %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
-                            <td><i><strong>{{ depart.depart_name }}</strong></i></td>
+                            <td><strong>{{ depart.depart_name }}</strong></td>
 							<td>{{ depart.leader }}</td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止提交</button></td>
                             <td><a href="/viewmeeting/employeemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
@@ -37,7 +37,7 @@
                              {% else %}
                             <tr>
                             <td>{{ forloop.counter }}</td>
-                                <td><i><strong>{{ depart.depart_name }}</strong></i></td>
+                                <td><strong>{{ depart.depart_name }}</strong></td>
 							<td>{{ depart.leader }}</td>
                             <td><a href="/viewmeeting/addweekmeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">提交</button></a></td>
                             <td><a href="/viewmeeting/employeemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
