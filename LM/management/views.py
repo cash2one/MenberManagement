@@ -974,7 +974,8 @@ def viewmeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	alldepartment = Department.objects.all()  #getDepartment()
+	alldepartment = Department.objects.all()  #getDepartment()所有部门
+	'''
 	depart = req.GET.get('depart','all')
 	if depart =='':
 		employee_list = Employee.objects.all()
@@ -988,7 +989,10 @@ def viewmeeting(req):
 		except:
 			return HttpResponseRedirect('/viewmeeting/')
 
+
 	content = {'active_menu': 'viewmeeting','departments':alldepartment,'depart':depart,'user':user,'employee_list':employee_list}
+	'''
+	content = {'active_menu': 'viewmeeting','departments':alldepartment,'user':user}
 	return render_to_response('viewmeeting.html', content, context_instance=RequestContext(req))
 
 def getSummary(employee):
