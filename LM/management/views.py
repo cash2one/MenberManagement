@@ -1015,11 +1015,11 @@ def employeemeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	Id = req.GET.get('id','')
-	if Id == '':
+	name = req.GET.get('name','')
+	if name == '':
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
-		employee = Employee.objects.get(pk=Id)
+		employee = Employee.objects.get(name=name)
 		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:1]
 		pingyu = getSummary(employee)
 
@@ -1046,11 +1046,11 @@ def beforemeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	Id = req.GET.get('id','')
-	if Id == '':
+	name = req.GET.get('name','')
+	if name == '':
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
-		employee = Employee.objects.get(pk=Id)
+		employee = Employee.objects.get(name=name)
 		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:8]
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
@@ -1111,11 +1111,11 @@ def updateweekmeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	Id = req.GET.get('id','')
-	if Id == '':
+	name = req.GET.get('name','')
+	if name == '':
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
-		employee = Employee.objects.get(pk=Id)
+		employee = Employee.objects.get(name=name)
 		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:1]
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
