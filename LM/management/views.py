@@ -819,6 +819,30 @@ def workemployee(req):
 	return render_to_response('workemployee.html', content, context_instance=RequestContext(req))
 
 
+def employeedetail(req):
+
+	status  = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members .objects.get(user__username=username)
+	else:
+		user = ''
+		return HttpResponseRedirect('/login/')
+	Id = req.GET.get('id','')
+	if Id == '':
+		return HttpResponseRedirect('/viewemployee/')
+	try:
+		employee = Employee.objects.get(pk=Id)
+		education = employee.education_set.all()
+		relation = employee.relative_set.all()
+		workexperience = employee.workexperience_set.all()
+	except:
+		return HttpResponseRedirect('/viewemployee/')
+
+	content = {'active_menu': 'viewemployee','user':user,'employee':employee,'education':education,'relation':relation,'workexperience':workexperience}
+	return render_to_response('employeedetail.html', content, context_instance=RequestContext(req))
+
+
 
 
 def personnel_detail(req):
