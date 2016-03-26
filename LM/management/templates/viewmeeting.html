@@ -7,29 +7,14 @@
 	<div class="row">
         <div class="col-md-12">
         <h1 class="form-signin-heading text-center">参加周例会的部门及人员汇总</h1>
-			<div class="col-md-2">
-				<div class="list-group">
-					<a href="/viewmeeting/" class="list-group-item" id="id_typ_all" >
-						全部人员
-					</a>
-					{% for depart in departments %}
-					<a href="/viewmeeting?depart={{depart}}" class="list-group-item" id="id_typ_{{depart}}">
-						{{ depart }}
-					</a>
-					{% endfor %}
-				</div>
-				<script type="text/javascript">
-				    var act_typ = document.getElementById("id_typ_{{depart}}");
-				    var new_class = act_typ.getAttribute("class") + " active"
-				    act_typ.setAttribute("class",new_class);
-				</script>
-			</div>
+
 		<div class="col-md-10">
 
 			<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
 							<th>#</th>
+                            <th>部门</th>
                             <th>姓名</th>
                             <th>周例会</th>
                             <th>例会明细</th>
@@ -42,6 +27,7 @@
                          {% if user.membername != depart.leader %}
 						<tr>
 							<td>{{ forloop.counter }}</td>
+                            <td>{{ depart.depart_name }}</td>
 							<td>{{ depart.leader }}</td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止提交</button></td>
                             <td><a href="/viewmeeting/employeemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
