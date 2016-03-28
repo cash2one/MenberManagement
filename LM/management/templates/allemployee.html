@@ -56,13 +56,13 @@
                             {% else %}
                             <tr>
 							<td>{{ forloop.counter }}</td>
-							<td><a href="/viewemployee/employeedetail/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">{{ employee.name }}</button></a></td>
+							<td><button class="btn btn-primary btn-sm btn-block disabled" type="button">{{ employee.name }}</button></td>
 							<td>{{ employee.tel }}</td>
-                            <td><a href="/viewemployee/basemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">修改</button></a></td>
-                            <td><a href="/viewemployee/eduemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></a></td>
-                            <td><a href="/viewemployee/relationemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></a></td>
-                            <td><a href="/viewemployee/workemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></a></td>
-                            <td><a href="/viewemployee/imgemployee/?id={{employee.id}}"><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></a></td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">修改</button></td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></td>
+                            <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></td>
 
 						</tr>
                             {% endif %}
