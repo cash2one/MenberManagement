@@ -818,6 +818,37 @@ def workemployee(req):
 	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('workemployee.html', content, context_instance=RequestContext(req))
 
+def imgemployee(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	if req.GET:
+		Id = req.GET.get('id','')
+		employee = Employee.objects.get(pk=Id)
+
+	if req.POST:
+		try:
+			eid = req.POST.get('eid','')
+			employee = Employee.objects.get(pk=eid)
+			new_img = Img(
+				employee = employee,\
+				name = req.POST.get('name',''),\
+				description = req.POST.get('description',''),\
+				img = req.FILES.get('img',''),\
+			)
+			new_img.save()
+			status = 'success'
+		except:
+			status = 'error'
+
+	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
+	return render_to_response('workemployee.html', content, context_instance=RequestContext(req))
+
+
 def becomemployee(req):
 	result = ''
 	username = req.session.get('username','')
