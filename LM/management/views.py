@@ -818,6 +818,34 @@ def workemployee(req):
 	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
 	return render_to_response('workemployee.html', content, context_instance=RequestContext(req))
 
+def becomemployee(req):
+	result = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members.objects.get(user__username=username)
+	else:
+		return HttpResponseRedirect('/login/')
+
+	if req.GET:
+		Id = req.GET.get('id','')
+		employee = Employee.objects.get(pk=Id)
+
+	if req.POST:
+		post = req.POST
+		bid = post.get('bid','')
+		evaluate = post.get('evaluate','')
+		status = post.get('status','')
+
+		try:
+			Employee.objects.filter(id=bid).update(evaluate=evaluate,status=status)
+			result = 'sucess'
+		except:
+			result = 'error'
+
+	content = {'active_menu': 'viewemployee','result': result,'user':user,'employee':employee}
+	return render_to_response('becomemployee.html', content, context_instance=RequestContext(req))
+
+
 
 def employeedetail(req):
 
