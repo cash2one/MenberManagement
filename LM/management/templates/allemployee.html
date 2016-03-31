@@ -52,7 +52,7 @@
                             <td><a href="/viewemployee/relationemployee/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">新增</button> </a></td>
                             <td><a href="/viewemployee/workemployee/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">新增</button></a></td>
                             <td><a href="/viewemployee/imgemployee/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">新增</button> </a></td>
-                            <td><a href="/viewemployee/becomemployee/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button> </a></td>
+                            <td><a href="/viewemployee/becomemployee/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">{{ employee.status }}</button> </a></td>
 						</tr>
                             {% else %}
                             <tr>
@@ -64,7 +64,7 @@
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">新增</button></td>
-                            <td><a href="/viewemployee/becomemployee/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button> </a></td>
+                            <td><a href="/viewemployee/becomemployee/?id={{employee.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">{{ employee.status }}</button> </a></td>
 						</tr>
                             {% endif %}
 						{% empty %}
