@@ -846,7 +846,7 @@ def imgemployee(req):
 			status = 'error'
 
 	content = {'active_menu': 'viewemployee','status': status,'user':user,'employee':employee}
-	return render_to_response('workemployee.html', content, context_instance=RequestContext(req))
+	return render_to_response('imgemployee.html', content, context_instance=RequestContext(req))
 
 
 def becomemployee(req):
