@@ -838,7 +838,7 @@ def becomemployee(req):
 
 		try:
 			Employee.objects.filter(id=bid).update(evaluate=evaluate,status=status)
-			result = 'sucess'
+			result = 'success'
 		except:
 			result = 'error'
 
