@@ -7,11 +7,11 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
-			{% if status == 'not_active' %}
+			{% if status == 'success' %}
 				<div class="well">
 					<h2 class="text-danger text-center">添加成功</h2>
 				</div>
-			{% elif status == 'not_exist_or_passwd_err' %}
+			{% elif status == 'error' %}
 				<div class="well">
 					<h2 class="text-danger text-center">添加失败</h2>
 				</div>
