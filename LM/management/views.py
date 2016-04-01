@@ -895,10 +895,11 @@ def employeedetail(req):
 		education = employee.education_set.all()
 		relation = employee.relative_set.all()
 		workexperience = employee.workexperience_set.all()
+		image = employee.img_set.all()
 	except:
 		return HttpResponseRedirect('/viewemployee/')
 
-	content = {'active_menu': 'viewemployee','user':user,'employee':employee,'education':education,'relation':relation,'workexperience':workexperience}
+	content = {'active_menu': 'viewemployee','user':user,'employee':employee,'education':education,'relation':relation,'workexperience':workexperience,'image':image}
 	return render_to_response('employeedetail.html', content, context_instance=RequestContext(req))
 
 
