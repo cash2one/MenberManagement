@@ -239,7 +239,7 @@ class LastSummary(models.Model):
     weekmeeting = models.ForeignKey(WeekMeeting)
     lastweek = models.TextField(blank=True,verbose_name=u"上周工作内容")
     last_exeperson = models.CharField(max_length=50,verbose_name=u"上周执行人")
-    last_comletiontime = models.DateField(verbose_name=u"上周完成时间")
+    last_comletiontime = models.DateField(blank=True,verbose_name=u"上周完成时间")
     comletioneffect = models.TextField(blank=True,verbose_name=u"完成效果")
     def __str__(self):
         return u'%s %s'%(self.lastweek,self.last_exeperson)
@@ -252,7 +252,7 @@ class NextPlan(models.Model):
     weekmeeting = models.ForeignKey(WeekMeeting)
     nextweek = models.TextField(blank=True,verbose_name=u"本周工作内容")
     next_exeperson = models.CharField(max_length=50,verbose_name=u"本周执行人")
-    next_comletiontime = models.DateField(verbose_name=u"本周完成时间")
+    next_comletiontime = models.DateField(blank=True,verbose_name=u"本周完成时间")
     def __str__(self):
         return u'%s %s'%(self.nextweek,self.next_exeperson)
     class Meta:
