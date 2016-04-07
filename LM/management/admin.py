@@ -29,11 +29,11 @@ class RelativeAdmin(admin.ModelAdmin):
 class WorkExperienceAdmin(admin.ModelAdmin):
     list_display = ('company','w_job')
 
-class LastSummaryInline(admin.StackedInline):
+class LastSummaryInline(admin.TabularInline):
     model = LastSummary
     extra = 6
 
-class NextPlanInline(admin.StackedInline):
+class NextPlanInline(admin.TabularInline):
     model = NextPlan
     extra = 6
 
