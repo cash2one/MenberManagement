@@ -31,11 +31,11 @@ class WorkExperienceAdmin(admin.ModelAdmin):
 
 class LastSummaryInline(admin.TabularInline):
     model = LastSummary
-    extra = 3
+    extra = 1
 
 class NextPlanInline(admin.TabularInline):
     model = NextPlan
-    extra = 3
+    extra = 1
 
 class WeekMeetingAdmin(admin.ModelAdmin):
     list_display = ('week','submitdate','employee')
