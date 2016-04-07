@@ -2,7 +2,11 @@ from django.contrib import admin
 from management.models import *
 
 class EmployeeAdmin(admin.ModelAdmin):
-    list_display =('tel','name')
+    #list_display =('tel','name')
+    fieldsets = [
+        (None, {'fields':['department']}),
+        ('base infomation',{'fields':['name']},{'fields':['tel']})
+    ]
     search_fields = ('name',)
 
 '''

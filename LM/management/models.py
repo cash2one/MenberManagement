@@ -109,7 +109,7 @@ class Employee(models.Model):
     identity = models.CharField(blank=True,max_length=40,verbose_name=u"身份证")
     working = models.CharField(blank=True,max_length=30,verbose_name=u"到岗时间")
     huji = models.CharField(blank=True,max_length=30,verbose_name=u"户籍")
-    address = models.CharField(blank=True,max_length=60,verbose_name=u"性别")
+    address = models.CharField(blank=True,max_length=60,verbose_name=u"地址")
     salary = models.CharField(blank=True,max_length=30,verbose_name=u"期望薪水")
     obey = models.CharField(blank=True,max_length=10,verbose_name=u"是否服从")
     other = models.TextField(blank=True,verbose_name=u"其他说明")
