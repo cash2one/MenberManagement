@@ -31,11 +31,15 @@ class WorkExperienceAdmin(admin.ModelAdmin):
 
 class LastSummaryInline(admin.StackedInline):
     model = LastSummary
-    extra = 3
+    extra = 6
+
+class NextPlanInline(admin.StackedInline):
+    model = NextPlan
+    extra = 6
 
 class WeekMeetingAdmin(admin.ModelAdmin):
     list_display = ('week','submitdate','employee')
-    inlines = [LastSummaryInline]
+    inlines = [LastSummaryInline,NextPlanInline]
 
 class DepartmentAdmin(admin.ModelAdmin):
     list_display = ('depart_name','leader','depart_num')
