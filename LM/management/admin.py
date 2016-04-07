@@ -5,7 +5,7 @@ class EmployeeAdmin(admin.ModelAdmin):
     #list_display =('tel','name')
     fieldsets = [
         (None, {'fields':['department']}),
-        ('base infomation',{'fields':['name']},{'fields':['tel']})
+        ('base infomation',{'fields':['name']},{'fields':['tel']},)
     ]
     search_fields = ('name',)
 
