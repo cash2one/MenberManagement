@@ -229,7 +229,7 @@ class WeekMeeting(models.Model):
     employee = models.ForeignKey(Employee)
 
     def __str__(self):
-        return u'%s %s'%(self.week,self.meeting)
+        return u'%s %s %s'%(self.week,self.submitdate,self.employee)
     class Meta:
         verbose_name = "周列会"
         verbose_name_plural = "周列会"
