@@ -29,14 +29,23 @@ class RelativeAdmin(admin.ModelAdmin):
 class WorkExperienceAdmin(admin.ModelAdmin):
     list_display = ('company','w_job')
 
+class LastSummaryInline(admin.StackedInline):
+    model = LastSummary
+    extra = 3
+
 class WeekMeetingAdmin(admin.ModelAdmin):
     list_display = ('week','submitdate','employee')
+    inlines = [LastSummaryInline]
 
 class DepartmentAdmin(admin.ModelAdmin):
     list_display = ('depart_name','leader','depart_num')
 
 class MembersAdmin(admin.ModelAdmin):
     list_display = ('membername','membertel','permission')
+
+
+
+
 
 admin.site.register(Members,MembersAdmin)
 admin.site.register(Department,DepartmentAdmin)
