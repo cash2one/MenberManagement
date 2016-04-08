@@ -2,6 +2,10 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from management import views
+import xadmin
+xadmin.autodiscover()
+from xadmin.plugins import xversion
+xversion.registe_models()
 
 urlpatterns = patterns('',
     # Examples:
@@ -9,6 +13,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^xadmin/',include(xadmin.site.urls)),
     url(r'^$', views.index),
     url(r'^signup/$', views.signup),
     url(r'^login/$',views.login),
