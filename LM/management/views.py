@@ -1186,6 +1186,7 @@ def updateweekmeeting(req):
 	if req.POST:
 		post = req.POST
 		weekid = post.get('pid','')
+		weekmeeting = WeekMeeting.objects.get(pk=weekid)
 		cahier_content = post.get('cahier_content',[])
 		operator = post.get('operator',[])
 		finish_date = post.get('finish_date',[])
