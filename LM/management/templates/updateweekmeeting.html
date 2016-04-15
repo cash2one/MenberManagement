@@ -33,12 +33,21 @@
 				</div>
 
                 <div class="form-group">
-					<label for="id_evaluate" class="col-md-2 control-label">会议记录:</label>
-					<div class="col-md-10">
-						<textarea rows="6" cols="20" class="form-control"  id="id_meeting"  name="meeting" >{{ updatemeeting.meeting }}</textarea>
-					</div>
+                    <div class="col-md-11  alert alert-success" role="alert">
+                        <strong>本周会议记录</strong>预计完成时间。
+                    </div>
+                     <div class="col-md-1">
+                        <button class="btn btn-success" type="button" id="pop">添加计划</button>
+                    </div>
+                </div>
 
-				</div>
+                <table class="table table-bordered" id="next" >
+                            <tr>
+                               <td>会议记录</td>
+                                <td>执行人</td>
+                                <td>完成时间</td>
+                           </tr>
+                       </table>
                 <div class="form-group">
                     <div class="col-md-10 col-md-offset-2 alert alert-success" role="alert">
                         <strong>温馨提示!</strong> 会议记录可以反复修改，修改后刷新显示最新修改内容
@@ -54,5 +63,39 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+     $(document).ready(function(){
+         //<tr/>居中
+         $("#next tr").attr("align","center");
 
+          //增加<tr/>
+        $("#pop").click(function(){
+           var _plen = $("#next tr").length;
+            $("#next").append("<tr id='pop"+_plen+"' align='center'>"
+                                +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='nextweek'></textarea></td>"
+                                +"<td><input type='text' id='next"+_plen+"' name='next_exeperson' /></td>"
+                                +"<td><input type='date' id='next"+_plen+"' name='next_comletiontime' /></td>"
+                                +"<td><a href=\'#\' onclick=\'delpop("+_plen+")\'>删除</a></td>"
+                            +"</tr>");
+        })
+    })
+
+ var delpop =function(index)
+    {
+        var _plen = $("#next tr").length;
+        $("tr[id='pop"+index+"']").remove();//删除当前行
+      for(var i=index+1,j=_plen;i<j;i++)
+        {
+
+           $("tr[id=\'pop"+i+"\']")
+                .replaceWith("<tr id='pop"+(i-1)+"' align='center'>"
+                                 +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='nextweek'></textarea></td>"
+                                +"<td><input type='text' id='next"+_plen+"' name='next_exeperson' /></td>"
+                                +"<td><input type='date' id='next"+_plen+"' name='next_comletiontime' /></td>"
+                                +"<td><a href=\'#\' onclick=\'delpop("+_plen+")\'>删除</a></td>"
+                            +"</tr>");
+        }
+
+    }
+</script>
 {% endblock %}
