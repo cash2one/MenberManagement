@@ -1035,6 +1035,7 @@ def viewmeeting(req):
 		user = ''
 		return HttpResponseRedirect('/login/')
 	alldepartment = Department.objects.all()  #getDepartment()所有部门
+
 	'''
 	depart = req.GET.get('depart','all')
 	if depart =='':
