@@ -222,7 +222,6 @@ class Friends(models.Model):
 #周工作推荐表
 class WeekMeeting(models.Model):
     week = models.CharField(max_length=30,verbose_name=u"第几周")
-    meeting = models.TextField(blank=True,verbose_name=u"会议记录")
     submitdate = models.DateTimeField(default=timezone.now,verbose_name=u"提交日期")
     startweek = models.DateField(auto_now_add=True,verbose_name=u"开会时间",blank=True)
     leadership = models.TextField(blank=True,verbose_name=u"领导批示")
@@ -234,6 +233,19 @@ class WeekMeeting(models.Model):
         verbose_name = "周列会"
         verbose_name_plural = "周列会"
         ordering = ["-submitdate"]
+
+class Cahier(models.Model):
+    weekmeeting = models.ForeignKey(WeekMeeting)
+    cahier_content = models.TextField(blank=True,verbose_name=u"会议记录内容")
+    operator = models.CharField(max_length=50,verbose_name=u"执行人")
+    finish_date = models.DateField(blank=True,verbose_name=u"完成时间")
+    def __str__(self):
+        return u'%s %s'%(self.operator,self.finish_date)
+    class Meta:
+        verbose_name = "会议记录"
+        verbose_name_plural ="会议记录"
+        ordering = ["finish_date"]
+
 
 class LastSummary(models.Model):
     weekmeeting = models.ForeignKey(WeekMeeting)
