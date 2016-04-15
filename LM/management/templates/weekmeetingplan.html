@@ -86,7 +86,6 @@
                             <th>会议记录</th>
                             <th>执行人</th>
 							<th>完成时间</th>
-                            <th>修改</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -95,7 +94,6 @@
 							<td width="500px">{{ jilu.cahier_content }}</td>
 							<td>{{ jilu.operator }}</td>
                             <td>{{ jilu.finish_date|date:"m月d日" }}</td>
-                            <td width="80px"><a href="/viewmeeting/#/?nid={{ jilu.id }}"><button class="btn btn-primary btn-sm btn-block" type="button">修改</button></a></a> </td>
 
 						</tr>
 						{% empty %}
