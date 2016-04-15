@@ -17,7 +17,6 @@
                             <th>部门</th>
                             <th>姓名</th>
                             <th>周例会</th>
-                            <th>例会明细</th>
                             <th>会议记录</th>
                             <th>往期例会</th>
 						</tr>
@@ -30,7 +29,6 @@
                             <td><strong>{{ depart.depart_name }}</strong></td>
 							<td>{{ depart.leader }}</td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止提交</button></td>
-                            <td><a href="/viewmeeting/employeemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止记录</button></td>
                             <td><a href="/viewmeeting/beforemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">往期例会(2个月)</button></a></td>
 						</tr>
@@ -40,7 +38,6 @@
                                 <td><strong>{{ depart.depart_name }}</strong></td>
 							<td>{{ depart.leader }}</td>
                             <td><a href="/viewmeeting/addweekmeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">提交</button></a></td>
-                            <td><a href="/viewmeeting/employeemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
                             <td><a href="/viewmeeting/updateweekmeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">记录</button></a></td>
                             <td><a href="/viewmeeting/beforemeeting/?name={{depart.leader}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">往期例会(2个月)</button></a></td>
                             </tr>
