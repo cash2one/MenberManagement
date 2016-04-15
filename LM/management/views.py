@@ -1186,16 +1186,22 @@ def updateweekmeeting(req):
 	if req.POST:
 		post = req.POST
 		weekid = post.get('pid','')
-		startweek = post.get('startweek','')
-		meeting = post.get('meeting','')
-
-		try:
-			WeekMeeting.objects.filter(id=weekid).update(startweek=startweek,meeting=meeting)
-			status = "success"
-		except:
-			return HttpResponseRedirect('/viewmeeting')
-
-
+		cahier_content = post.get('cahier_content',[])
+		operator = post.get('operator',[])
+		finish_date = post.get('finish_date',[])
+		cahierlen = len(cahier_content)
+		for index in range(cahierlen):
+			if cahier_content[index] != '':
+				cahier = Cahier(
+					weekmeeting = weekmeeting,\
+					cahier_content = cahier_content[index],\
+					operator = operator[index],\
+					finish_date = finish_date[index],\
+				)
+				cahier.save()
+			else:
+				break
+		status = "success"
 	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status}
 	return render_to_response('updateweekmeeting.html', content, context_instance=RequestContext(req))
 
