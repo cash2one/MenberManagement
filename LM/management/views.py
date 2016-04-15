@@ -1175,19 +1175,13 @@ def updateweekmeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	name = req.GET.get('name','')
-	if name == '':
+	wid = req.GET.get('id','')
+	if wid == '':
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
-		employee = Employee.objects.get(name=name)
-		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:1]
+		weekmeeting = WeekMeeting.objects.get(pk=Id)
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
-	for week in weekmeeting:
-		if week.meeting == '':
-			updatemeeting = week
-		else:
-			break
 
 	if req.POST:
 		post = req.POST
@@ -1202,7 +1196,7 @@ def updateweekmeeting(req):
 			return HttpResponseRedirect('/viewmeeting')
 
 
-	content = {'active_menu': 'viewmeeting','user':user,'updatemeeting':updatemeeting,'status':status}
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'status':status}
 	return render_to_response('updateweekmeeting.html', content, context_instance=RequestContext(req))
 
 def lastmodifymeeting(req):
