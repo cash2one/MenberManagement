@@ -1179,7 +1179,7 @@ def updateweekmeeting(req):
 	if wid == '':
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
-		weekmeeting = WeekMeeting.objects.get(pk=Id)
+		weekmeeting = WeekMeeting.objects.get(pk=wid)
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 
