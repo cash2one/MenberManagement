@@ -30,7 +30,7 @@
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.employee }}</td>
                             <td>{{ weeks.submitdate|date:"Y年m月" }}{{ weeks.week }}</td>
-                             <td><a href="/viewmeeting/employeemeeting/?name={{weeks.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
+                             <td><a href="/viewmeeting/employeemeeting/?id={{weeks.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
                             <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">记录</button></a></td>
                             <td><a href="/viewmeeting/leadership/?id={{ weeks.id }}"><button class="btn btn-primary btn-sm btn-block" type="button">新增批示</button></a> </td>
                             <td><a href="/viewmeeting/beforemeetingdetail/?id={{weeks.id}}"><button class="btn btn-primary btn-sm btn-block" type="button">详情</button></a></td>
@@ -42,7 +42,7 @@
 							<td>{{ weeks.submitdate }}</td>
                             <td>{{ weeks.employee }}</td>
                             <td>{{ weeks.submitdate|date:"Y年m月" }}{{ weeks.week }}</td>
-                           <td><a href="/viewmeeting/employeemeeting/?name={{weeks.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
+                           <td><a href="/viewmeeting/employeemeeting/?id={{weeks.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">开会</button></a></td>
                            <td><a href="/viewmeeting/updateweekmeeting/?id={{weeks.id}}" target="_blank"><button class="btn btn-primary btn-sm btn-block" type="button">记录</button></a></td>
                             <td><button class="btn btn-primary btn-sm btn-block disabled" type="button">禁止批示</button></td>
                             <td><a href="/viewmeeting/beforemeetingdetail/?id={{weeks.id}}"><button class="btn btn-primary btn-sm btn-block" type="button">详情</button></a></td>
