@@ -1137,11 +1137,11 @@ def beforemeetingdetail(req):
 		weekmeeting = WeekMeeting.objects.get(pk=Id)
 		lastsummary = weekmeeting.lastsummary_set.all()
 		nextplan = weekmeeting.nextplan_set.all()
-
+		cahier = weekmeeting.cahier_set.all()
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
 
-	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan}
+	content = {'active_menu': 'viewmeeting','user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan,'cahier':cahier}
 	return render_to_response('beforemeetingdetail.html', content, context_instance=RequestContext(req))
 
 def emplogyeeweekmeeting(req):
