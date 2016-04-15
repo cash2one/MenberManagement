@@ -1069,9 +1069,7 @@ def getSummary(employee):
 
 
 def employeemeeting(req):
-	startmeeting = ''
 	status = ''
-
 	username = req.session.get('username','')
 	if username != '':
 		user = Members .objects.get(user__username=username)
@@ -1109,7 +1107,7 @@ def employeemeeting(req):
 			status  = 'error'
 			break
     '''
-	content = {'active_menu': 'viewmeeting','status':status,'user':user,'startmeeting':startmeeting,'lastsummary':lastsummary,'nextplan':nextplan,'cahier':cahier}
+	content = {'active_menu': 'viewmeeting','status':status,'user':user,'weekmeeting':weekmeeting,'lastsummary':lastsummary,'nextplan':nextplan,'cahier':cahier}
 	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
 
 def beforemeeting(req):
