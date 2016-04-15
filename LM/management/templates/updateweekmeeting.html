@@ -72,9 +72,9 @@
         $("#pop").click(function(){
            var _plen = $("#next tr").length;
             $("#next").append("<tr id='pop"+_plen+"' align='center'>"
-                                +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='nextweek'></textarea></td>"
-                                +"<td><input type='text' id='next"+_plen+"' name='next_exeperson' /></td>"
-                                +"<td><input type='date' id='next"+_plen+"' name='next_comletiontime' /></td>"
+                                +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='cahier_content'></textarea></td>"
+                                +"<td><input type='text' id='next"+_plen+"' name='operator' /></td>"
+                                +"<td><input type='date' id='next"+_plen+"' name='finish_date' /></td>"
                                 +"<td><a href=\'#\' onclick=\'delpop("+_plen+")\'>删除</a></td>"
                             +"</tr>");
         })
@@ -89,9 +89,9 @@
 
            $("tr[id=\'pop"+i+"\']")
                 .replaceWith("<tr id='pop"+(i-1)+"' align='center'>"
-                                 +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='nextweek'></textarea></td>"
-                                +"<td><input type='text' id='next"+_plen+"' name='next_exeperson' /></td>"
-                                +"<td><input type='date' id='next"+_plen+"' name='next_comletiontime' /></td>"
+                                 +"<td><textarea style='width:300px; height:60px;'   id='next"+_plen+"' name='cahier_content'></textarea></td>"
+                                +"<td><input type='text' id='next"+_plen+"' name='operator' /></td>"
+                                +"<td><input type='date' id='next"+_plen+"' name='finish_date' /></td>"
                                 +"<td><a href=\'#\' onclick=\'delpop("+_plen+")\'>删除</a></td>"
                             +"</tr>");
         }
