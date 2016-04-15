@@ -54,6 +54,7 @@ class MembersAdmin(admin.ModelAdmin):
 admin.site.register(Members,MembersAdmin)
 admin.site.register(Department,DepartmentAdmin)
 admin.site.register(NextPlan)
+admin.site.register(Cahier)
 admin.site.register(LastSummary)
 admin.site.register(Employee,EmployeeAdmin)
 admin.site.register(Education,EducationAdmin)
