@@ -1080,13 +1080,20 @@ def employeemeeting(req):
 	else:
 		user = ''
 		return HttpResponseRedirect('/login/')
-	name = req.GET.get('name','')
-	if name == '':
+	wid = req.GET.get('id','')
+	if wid == '':
 		return HttpResponseRedirect('/viewmeeting/')
 	try:
-		employee = Employee.objects.get(name=name)
-		weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:1]
-		pingyu = getSummary(employee)
+		#employee = Employee.objects.select_related('weekmeeting__employee').get(name=name)
+
+		weekmeeting = WeekMeeting.objects.get(pk=wid)
+		cahier = weekmeeting.cahier_set.all()
+
+		#employee = Cahier.objects.select_related('weekmeeting__employee').get(name=name)
+		#employee = Employee.objects.get(name=name)
+		#weekmeeting = WeekMeeting.objects.filter(employee=employee)[0:1]
+		#pingyu = getSummary(employee)
+
 
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
@@ -1101,7 +1108,7 @@ def employeemeeting(req):
 			status  = 'error'
 			break
 
-	content = {'active_menu': 'viewmeeting','status':status,'user':user,'startmeeting':startmeeting,'lastsummary':lastsummary,'nextplan':nextplan,'pingyu':pingyu}
+	content = {'active_menu': 'viewmeeting','status':status,'user':user,'startmeeting':startmeeting,'lastsummary':lastsummary,'nextplan':nextplan,'cahier':cahier}
 	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
 
 def beforemeeting(req):
