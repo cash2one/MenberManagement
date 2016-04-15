@@ -1071,8 +1071,6 @@ def getSummary(employee):
 def employeemeeting(req):
 	startmeeting = ''
 	status = ''
-	lastsummary = ''
-	nextplan = ''
 
 	username = req.session.get('username','')
 	if username != '':
@@ -1088,6 +1086,8 @@ def employeemeeting(req):
 
 		weekmeeting = WeekMeeting.objects.get(pk=wid)
 		cahier = weekmeeting.cahier_set.all()
+		lastsummary = weekmeeting.lastsummary_set.all()
+		nextplan = weekmeeting.nextplan_set.all()
 
 		#employee = Cahier.objects.select_related('weekmeeting__employee').get(name=name)
 		#employee = Employee.objects.get(name=name)
@@ -1097,6 +1097,7 @@ def employeemeeting(req):
 
 	except:
 		return HttpResponseRedirect('/viewmeeting/')
+	'''
 	for week in weekmeeting:
 		if week.meeting == '':
 			lastsummary = week.lastsummary_set.all()
@@ -1107,7 +1108,7 @@ def employeemeeting(req):
 			nextplan = ''
 			status  = 'error'
 			break
-
+    '''
 	content = {'active_menu': 'viewmeeting','status':status,'user':user,'startmeeting':startmeeting,'lastsummary':lastsummary,'nextplan':nextplan,'cahier':cahier}
 	return render_to_response('weekmeetingplan.html', content, context_instance=RequestContext(req))
 
