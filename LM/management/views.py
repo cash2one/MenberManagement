@@ -1189,9 +1189,11 @@ def updateweekmeeting(req):
 		startweek = post.get('startweek','')
 		weekmeeting = WeekMeeting.objects.get(pk=weekid)
 		WeekMeeting.objects.filter(id=weekid).update(startweek=startweek)
+
 		cahier_content = post.get('cahier_content',[])
 		operator = post.get('operator',[])
 		finish_date = post.get('finish_date',[])
+
 		cahierlen = len(cahier_content)
 		for index in range(cahierlen):
 			if cahier_content[index] != '':
