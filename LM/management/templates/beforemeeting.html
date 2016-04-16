@@ -24,7 +24,7 @@
 					</thead>
 					<tbody>
 						{% for weeks in weekmeeting %}
-                            {% if user.permission == 88 %}
+                            {% if user.permission == 88 and user.membername==employee.name%}
 						<tr>
 							<td>{{ forloop.counter }}</td>
 							<td>{{ weeks.submitdate }}</td>
