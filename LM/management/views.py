@@ -1314,7 +1314,7 @@ def cahiermodifymeeting(req):
 			return HttpResponseRedirect('/viewmeeting/')
 
 		status = 'success'
-	content = {'active_menu': 'viewmeeting','user':user,'status':status,'cahier_content':cahier_content,'cahier':cahier}
+	content = {'active_menu': 'viewmeeting','user':user,'status':status,'cahier':cahier}
 	return render_to_response('cahiermodifymeeting.html', content, context_instance=RequestContext(req))
 
 
