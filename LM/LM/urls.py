@@ -50,7 +50,7 @@ urlpatterns = patterns('',
     url('^viewemployee/becomemployee/$',views.becomemployee),
     url('^viewmeeting/lastmodifymeeting/$',views.lastmodifymeeting),
     url('^viewmeeting/nextmodifymeeting/$',views.nextmodifymeeting),
-
+    url('^viewmeeting/cahiermodifymeeting/$',views.cahiermodifymeeting),
     #url(r'^addmenber/$',views.addMenber),
    # url(r'^viewmenber/menber_detail/$',views.menber_detail),
     url(r'^image/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.MEDIA_PATH}),

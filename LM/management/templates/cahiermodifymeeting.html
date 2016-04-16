@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}本周计划修改{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+			{% if status == 'success' %}
+				<div class="well">
+					<h2 class="text-success text-center">修改成功！</h2>
+				</div>
+			{% elif status == 'error' %}
+				<div class="well">
+					<h2 class="text-warning text-center">修改不成功！</h2>
+				</div>
+			{% endif %}
+			<form method="POST" role="form" class="form-horizontal">
+				{% csrf_token %}
+				<h1 class="form-signin-heading text-center">上周记录修改</h1>
+                <input type="hidden" id="id_next" name="next" value="{{ cahier.id }}">
+				<div class="form-group">
+					<label for="id_cahier_content" class="col-md-3 control-label">上周记录修改：</label>
+					<div class="col-md-9">
+						<textarea rows="6" cols="20" class="form-control"  id="id_cahier_content"  name="cahier_content" >{{cahier.cahier_content }}</textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-4 col-md-offset-4">
+						<button class="btn btn btn-primary btn-block" type="submit" id="id_submit">提交</button>
+					</div>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

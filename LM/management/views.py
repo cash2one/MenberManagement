@@ -1285,6 +1285,39 @@ def nextmodifymeeting(req):
 	content = {'active_menu': 'viewmeeting','user':user,'status':status,'nextweek':nextweek}
 	return render_to_response('nextmodifymeeting.html', content, context_instance=RequestContext(req))
 
+def cahiermodifymeeting(req):
+	status = ''
+	username = req.session.get('username','')
+	if username != '':
+		user = Members .objects.get(user__username=username)
+	else:
+		user = ''
+		return HttpResponseRedirect('/login/')
+
+	if req.GET:
+		cid = req.GET.get('id','')
+		if cid == '':
+			return HttpResponseRedirect('/viewmeeting/')
+		try:
+			cahier = Cahier.objects.get(pk=cid)
+		except:
+			return HttpResponseRedirect('/viewmeeting/')
+
+	if req.POST:
+		post = req.POST
+		cid = post.get('cid','')
+		cahier_content = post.get('cahier_content','')
+		try:
+			Cahier.objects.filter(id=cid).update(cahier_content=cahier_content)
+		except:
+			status = 'error'
+			return HttpResponseRedirect('/viewmeeting/')
+
+		status = 'success'
+	content = {'active_menu': 'viewmeeting','user':user,'status':status,'cahier_content':cahier_content,'cahier':cahier}
+	return render_to_response('cahiermodifymeeting.html', content, context_instance=RequestContext(req))
+
+
 
 
 def leadership(req):
