@@ -65,12 +65,12 @@ WSGI_APPLICATION = 'LM.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'###',
-        'USER':'##',
-	'PASSWORD':'##',
-	'HOST':'###',
-	'PORT':'',
-	'OPTIONS':{'autocommit':True,}
+        'NAME': 'management',
+        'USER': 'spring',
+        'PASSWORD': 'wf3531225',
+        'HOST': '64.207.188.243',
+        'PORT': '',
+        'OPTIONS': {'autocommit':True,}
     }
 }
 
